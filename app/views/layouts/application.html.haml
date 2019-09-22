@@ -8,4 +8,16 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %header
+      .header-wrapper
+        .header-upper
+          .header-upper__logo
+            = image_tag 'logo-acdd90ac4f472d5a6f7a330d33ab1225.svg', alt: 'logo'
+          %form{ class:'header-upper__search'}
+            %input{ type: "search", name: "keyword", placeholder: "何かお探しですか？",class: 'header-upper__search__text-field'}
+            %button{class: 'header-upper__search__button' }
+              = fa_icon 'search lg'
+        .header-lower
     = yield
+
+    %footer
