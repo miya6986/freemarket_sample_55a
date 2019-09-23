@@ -43,3 +43,27 @@ Things you may want to cover:
 |profile|text||
 
 ### Association
+- has_many :products
+- has_many :buyed_products, foreign_key: "buyer_id", class_name: "Product"
+- has_many :selling_products, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Product"
+- has_many :sold_products, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Product"
+
+## productsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|product_image|null: false|
+|description|text|null: false|
+|condition|string|null: false|
+|postage|string|null: false|
+|shipping_method|string|null: false|
+|source_area|string|null: false|
+|shipping_days|string|null: false|
+|price|integer|null: false|
+|buyer_id|references|foreign_key: true|
+|seller_id|references|foreign_key: true|
+
+### Association
+- belongs_to :saler, class_name: "User"
+- belongs_to :buyer, class_name: "User"
