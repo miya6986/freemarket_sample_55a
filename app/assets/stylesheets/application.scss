@@ -72,11 +72,7 @@ header {
       right: 0px;
       top: 0px;
       width: 40px;
-      -webkit-appearance: none;
-      border-width: initial;
       border-style: none;
-      border-color: initial;
-      border-image: initial;
       border-radius: 0px 4px 4px 0px;
       padding: 0px;
     }
@@ -89,6 +85,53 @@ header {
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
+}
+
+.menu-left {
+  display: flex;
+  margin-left: -3px;
+  &__item {
+    cursor: pointer;
+    height: 44px;
+    position: relative;
+    z-index: 3;
+    padding: 5px 10px 5px 10px;
+    &--icon {
+      color:rgb(234, 53, 45);
+    }
+  }
+}
+
+.menu-right {
+  display: flex;
+  &__item {
+    .signup {
+      background-color: rgb(234, 53, 45);
+      color: rgb(255, 255, 255);
+      display: block;
+      font-size: 14px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(234, 53, 45);
+      border-image: initial;
+      border-radius: 4px;
+      padding: 8px 10px;
+    }
+    .login {
+      margin-left: 11px;
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 149, 238);
+      display: block;
+      font-size: 14px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(0, 149, 238);
+      border-image: initial;
+      border-radius: 4px;
+      padding: 8px 10px;
+      transition: all 0.3s ease-out 0s;
+    }
+  }
 }
 
 aside img{
