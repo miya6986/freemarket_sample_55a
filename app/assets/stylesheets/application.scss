@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
+nav {
+  display: block;
+}
+
 body {
   margin: 0px;
   padding: 0px;
@@ -149,9 +157,58 @@ aside img{
 }
 
 footer {
-  width: 100%;
-  padding: 0px 20px 10px;
   background-color: rgb(34, 34, 34);
   color: rgb(255, 255, 255);
   font-size: 12px;
+  padding: 0px 20px 10px;
+  .footer-items {
+    width: 100%;
+    display: flex;
+    margin: 0px auto;
+    text-align: left;
+    .footer-item {
+      margin: 30px;
+      .text {
+        text-align: center;
+      }
+      ul {
+        text-align: left;
+      }
+      li {
+        line-height: 2em;
+      }
+      .icon {
+        margin-top: 10px;
+        .fa-twitter {
+          margin-right: 10px;
+        }
+      }
+    }
+    .contract {
+      vertical-align: top;
+      &__items {
+        display: flex;
+        .contract-item {
+          align-self: center;
+        }
+      }
+    }
+    .country {
+      vertical-align: top;
+     margin-left: 10px;
+    }
+  }
+  .footer-bottom {
+    width: 700px;
+    margin: 55px auto 10px;
+    align-items: center;
+    display: flex;
+    
+    .copyright {
+      text-align: center;
+      padding-left: 15px;
+      width: 75%;
+    }
+  }
 }
+
