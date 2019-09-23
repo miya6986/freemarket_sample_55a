@@ -1,5 +1,7 @@
 @import 'font-awesome';
 
+/* 基本設定 */
+
 * {
   box-sizing: border-box;
 }
@@ -36,14 +38,14 @@ header {
 .header-upper {
   display: flex;
   justify-content: space-between;
-  &__logo img {
+  .header-logo img {
     align-items: center;
     display: flex;
     height: 40px;
     width: 134px;
     margin-right: 45px;
   }
-  &__search {
+  .search {
     position: relative;
     height: 40px;
     width: 100%;
@@ -78,12 +80,12 @@ header {
     }
   }
 }
+
 .header-lower {
   margin-top: 8px;
   height: 44px;
   width:100%;
   display: flex;
-  -webkit-box-pack: justify;
   justify-content: space-between;
 }
 
@@ -152,5 +154,4 @@ footer {
   background-color: rgb(34, 34, 34);
   color: rgb(255, 255, 255);
   font-size: 12px;
-  
 }

@@ -11,11 +11,11 @@
     %header
       .header-wrapper
         .header-upper
-          .header-upper__logo
+          .header-logo
             = image_tag 'logo-header.svg', alt: 'logo'
-          %form{ class:'header-upper__search'}
-            %input{ type: "search", name: "keyword", placeholder: "何かお探しですか？",class: 'header-upper__search__text-field'}
-            %button{class: 'header-upper__search__button' }
+          %form{ class:'search'}
+            %input{ type: "search", name: "keyword", placeholder: "何かお探しですか？",class: 'search__text-field'}
+            %button{class: 'search__button' }
               = fa_icon 'search lg'
         .header-lower
           .menu-left
