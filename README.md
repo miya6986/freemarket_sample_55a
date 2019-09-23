@@ -22,3 +22,24 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|firstname|string|null: false|
+|lastname|string|null: false|
+|firstname_kana|string|null: false|
+|lastname_kana|string|null: false|
+|birthday|integer|null: false|
+|postalcode|integer||
+|prefecture|string||
+|city_name|string||
+|address_number|string||
+|building_name|string||
+|phone_number|integer|unique: true, null: false|
+|user_image|string||
+|profile|text||
+
+### Association
