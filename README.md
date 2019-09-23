@@ -52,6 +52,7 @@ Things you may want to cover:
 
 <!-- アソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
 
+
 ## productsテーブル
 
 |Column|Type|Options|
@@ -72,3 +73,27 @@ Things you may want to cover:
 ### Association
 - belongs_to :saler, class_name: "User"
 - belongs_to :buyer, class_name: "User"
+- has_many :product_categories
+- has_many :categories, through: :product-categories
+
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|category|string|null: false, index: true|
+
+### Association
+- has_many :product_categories
+- has_many :products, through: :product_categories
+
+## product_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|references|foreign_key: true|
+|category_id|references|foreign_key: true|
+
+### Association
+- belongs_to :product
+- belongs_to :category
+
+<!-- 大小カテゴリーをどのように作るか謎 -->
