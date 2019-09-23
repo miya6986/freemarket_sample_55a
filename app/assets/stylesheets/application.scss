@@ -90,3 +90,19 @@ header {
   -webkit-box-pack: justify;
   justify-content: space-between;
 }
+
+aside img{
+  vertical-align: bottom;
+  color: rgb(255, 255, 255);
+  width:100%;
+  height: 263px;
+}
+
+footer {
+  width: 100%;
+  padding: 0px 20px 10px;
+  background-color: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  
+}
