@@ -49,6 +49,7 @@ Things you may want to cover:
 - has_many :buyed_products, foreign_key: "buyer_id", class_name: "Product"
 - has_many :selling_products, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Product"
 - has_many :sold_products, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Product"
+- has_many :comments
 
 <!-- アソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
 
@@ -75,6 +76,7 @@ Things you may want to cover:
 - belongs_to :buyer, class_name: "User"
 - has_many :product_categories
 - has_many :categories, through: :product-categories
+- has_many :comments
 
 
 ## categoriesテーブル
@@ -97,3 +99,14 @@ Things you may want to cover:
 - belongs_to :category
 
 <!-- 大小カテゴリーをどのように作るか謎 -->
+
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|refeerences|foreign_key: true|
+|user_id|references|foreign_key: true|
+|comment|text|null: false|
+
+### Association
+- belongs_to :user
+- belongs_to :product
