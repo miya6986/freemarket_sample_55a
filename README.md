@@ -46,7 +46,8 @@ Things you may want to cover:
 |profile|text||
 
 <!-- アカウント作成に必要だった要素はnull: falseをつけた -->
-<!-- クレジットカードの情報ってテーブル作るの？ -->
+<!-- クレジットカードの情報ってテーブル作るの...？ -->
+<!-- userの住所情報はテーブル分ける...？ -->
 
 ### Association
 - has_many :products
@@ -62,7 +63,8 @@ Things you may want to cover:
 - has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
 - has_many :followers, through: :follower_relationships
 
-<!-- アソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
+<!-- productsテーブルとアソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
+<!-- フォロー機能であるrelationshipsテーブルとのリレーションが複雑 -->
 
 
 ## productsテーブル
@@ -71,7 +73,6 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |product_image|null: false|  
-<!-- 複数画像アップロードならActive Storageとか使うべき？ -->
 |description|text|null: false|
 |size|string||
 |condition|string|null: false|
@@ -95,6 +96,7 @@ Things you may want to cover:
 - belongs_to :bland
 
 <!-- メルカリって洋服のサイズ検索ないの？ -->
+<!-- 複数画像アップロードならActive Storageとか使うべき？carrierwave使うならform_forでmultiple: trueで行けるか... -->
 
 
 ## categoriesテーブル
@@ -106,6 +108,7 @@ Things you may want to cover:
 - has_many :product_categories
 - has_many :products, through: :product_categories
 
+
 ## product_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -116,7 +119,9 @@ Things you may want to cover:
 - belongs_to :product
 - belongs_to :category
 
+<!-- カテゴリー検索があるのでカテゴリーで抽出できるように。ハッシュタグと同じような仕組み -->
 <!-- 大小カテゴリーをどのように作るか謎 -->
+
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -129,6 +134,9 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product
 
+<!-- 商品にコメント残せますね。userへの評価コメントとは別のもの -->
+<!-- pictweetでやった -->
+
 
 ## trade_messagesテーブル
 |Column|Type|Options|
@@ -140,6 +148,9 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :product
+
+<!-- user同士の取引時メッセージ機能 -->
+<!-- chat-spaceでやった -->
 
 
 ## evaluationsテーブル
@@ -157,6 +168,7 @@ Things you may want to cover:
 - belongs_to :product
 
 <!-- 買い手、売り手、商品をそれぞれ外部キーに指定。アソシエーションでuserの評価を抽出可能にする -->
+<!-- 買い手と売り手分けるべき？user_idででいいかも... -->
 
 
 ## likesテーブル
@@ -169,6 +181,8 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product
 
+<!-- いいね機能 -->
+
 
 ## blandsテーブル
 |Column|Type|Options|
@@ -179,7 +193,7 @@ Things you may want to cover:
 ### Association
 - has_many : products
 
-<!-- ブランドから検索 -->
+<!-- ブランドから検索もあったので抽出できるように -->
 
 
 ## relationshipsテーブル
@@ -192,4 +206,4 @@ Things you may want to cover:
 - belongs_to :follower, class_name: "User"
 - belongs_to :following, class_name: "User"
 
-<!-- フォロー機能、以前作ったアプリと同じアソシエーション -->
+<!-- フォロー機能、以前作ったアプリと同じアソシエーションにした。 -->
