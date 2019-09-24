@@ -53,6 +53,10 @@ Things you may want to cover:
 - has_many :trade_messages
 - has_many :evaluations
 - has_many :likes
+- has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+- has_many :followings, through: :following_relationships
+- has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
+- has_many :followers, through: :follower_relationships
 
 <!-- アソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
 
@@ -172,3 +176,16 @@ Things you may want to cover:
 - has_many : products
 
 <!-- ブランドから検索 -->
+
+
+## relationshipsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|follower_id|references|foreign_key: true|
+|following_id|references|foreign_key: true|
+
+### Association
+- belongs_to :follower, class_name: "User"
+- belongs_to :following, class_name: "User"
+
+<!-- フォロー機能、以前作ったアプリと同じアソシエーション -->
