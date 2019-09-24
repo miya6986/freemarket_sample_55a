@@ -52,6 +52,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :trade_messages
 - has_many :evaluations
+- has_many :likes
 
 <!-- アソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
 
@@ -81,6 +82,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :trade_messages
 - has_many :evaluations
+- has_many :likes
 
 
 ## categoriesテーブル
@@ -138,9 +140,19 @@ Things you may want to cover:
 |review|text||
 
 ### Association
-
 - belongs_to :buyer_id, class_name: "Product"
 - belongs_to :seller_id, class_name: "Product"
 - belongs_to :product
 
 <!-- 買い手、売り手、商品をそれぞれ外部キーに指定。アソシエーションでuserの評価を抽出可能にする -->
+
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :product
