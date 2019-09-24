@@ -40,6 +40,7 @@ Things you may want to cover:
 |city_name|string||
 |address_number|string||
 |building_name|string||
+|gender|string||
 |phone_number|integer|unique: true, null: false|
 |user_image|string||
 |profile|text||
