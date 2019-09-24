@@ -28,6 +28,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
 |firstname|string|null: false|
 |lastname|string|null: false|
 |firstname_kana|string|null: false|
@@ -43,6 +45,7 @@ Things you may want to cover:
 |profile|text||
 
 <!-- アカウント作成に必要だった要素はnull: falseをつけた -->
+<!-- クレジットカードの情報ってテーブル作るの？ -->
 
 ### Association
 - has_many :products
