@@ -65,6 +65,7 @@ Things you may want to cover:
 |product_image|null: false|  
 <!-- 複数画像アップロードならActive Storageとか使うべき？ -->
 |description|text|null: false|
+|size|string||
 |condition|string|null: false|
 |postage|string|null: false|
 |shipping_method|string|null: false|
@@ -84,6 +85,8 @@ Things you may want to cover:
 - has_many :evaluations
 - has_many :likes
 - belongs_to :bland
+
+<!-- メルカリって洋服のサイズ検索ないの？ -->
 
 
 ## categoriesテーブル
