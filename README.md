@@ -51,6 +51,7 @@ Things you may want to cover:
 - has_many :sold_products, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Product"
 - has_many :comments
 - has_many :trade_messages
+- has_many :evaluations
 
 <!-- アソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
 
@@ -79,6 +80,7 @@ Things you may want to cover:
 - has_many :categories, through: :product-categories
 - has_many :comments
 - has_many :trade_messages
+- has_many :evaluations
 
 
 ## categoriesテーブル
@@ -124,3 +126,21 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :product
+
+
+## evaluationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|rate|integer|null: false|
+|buyer_id|integer|foreign_key: true|
+|seller_id|intefer|foreign_key: true|
+|product_id|integer|foerign_key: true|
+|review|text||
+
+### Association
+
+- belongs_to :buyer_id, class_name: "Product"
+- belongs_to :seller_id, class_name: "Product"
+- belongs_to :product
+
+<!-- 買い手、売り手、商品をそれぞれ外部キーに指定。アソシエーションでuserの評価を抽出可能にする -->
