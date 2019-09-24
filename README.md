@@ -83,6 +83,7 @@ Things you may want to cover:
 - has_many :trade_messages
 - has_many :evaluations
 - has_many :likes
+- belongs_to :bland
 
 
 ## categoriesテーブル
@@ -156,3 +157,15 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :product
+
+
+## blandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|integer|foerign_key: true|
+|bland|string|null: false|
+
+### Association
+- has_many : products
+
+<!-- ブランドから検索 -->
