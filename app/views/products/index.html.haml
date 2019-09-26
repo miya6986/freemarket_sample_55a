@@ -1,2 +1,87 @@
-%h1 Products#index
-%p Find me in app/views/products/index.html.haml
+.wrapper 
+  .container
+    .jumbotron
+      = image_tag 'mercari-top.png', alt: 'camp-image'
+    .category-info
+      .category-info__text 
+        %h2 人気のカテゴリー
+      %ul.category-info__tags
+        %li.category-tag
+          レディース
+        %li.category-tag
+          メンズ
+        %li.category-tag
+          家電・スマホ・カメラ
+        %li.category-tag
+          おもちゃ・ホビー・グッズ
+    .category-title
+      %h3 レディース新着アイテム
+      .more
+        もっと見る
+        = fa_icon 'chevron-right'
+    %ul.category-items
+      %li.category-item 
+        = image_tag 'product-sample.png'
+      %li.category-item
+        = image_tag 'product-sample.png'
+      %li.category-item
+        = image_tag 'product-sample.png'
+      %li.category-item
+        = image_tag 'product-sample.png'
+      %li.category-item
+        = image_tag 'product-sample.png'
+      %li.category-item 
+        = image_tag 'product-sample.png'
+      %li.category-item
+        = image_tag 'product-sample.png'
+      %li.category-item
+        = image_tag 'product-sample.png'
+      %li.category-item
+        = image_tag 'product-sample.png'
+      %li.category-item
+        = image_tag 'product-sample.png'
+    .brand-info
+      .brand-info__text
+        %h2 人気のブランド
+      %ul.brand-info__tags
+        %li.brand-tag
+          シャネル
+        %li.brand-tag
+          ルイヴィトン
+        %li.brand-tag
+          シュプリーム
+        %li.brand-tag
+          ナイキ
+    .brand-title
+      %h3 シャネル新着アイテム
+      .more
+        もっと見る
+        = fa_icon 'chevron-right'
+    %ul.brand-items
+      %li.brand-item
+        = image_tag 'brand-sample.png'
+      %li.brand-item
+        = image_tag 'brand-sample.png'
+      %li.brand-item
+        = image_tag 'brand-sample.png'
+      %li.brand-item
+        = image_tag 'brand-sample.png'
+      %li.brand-item
+        = image_tag 'brand-sample.png'
+      %li.brand-item
+        = image_tag 'brand-sample.png'
+      %li.brand-item
+        = image_tag 'brand-sample.png'
+      %li.brand-item
+        = image_tag 'brand-sample.png'
+      %li.brand-item
+        = image_tag 'brand-sample.png'
+      %li.brand-item
+        = image_tag 'brand-sample.png'
+
+.sell-button-container
+  .sell-button
+    .text
+      出品
+    = fa_icon 'camera',class:'icon'
+
