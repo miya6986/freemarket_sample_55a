@@ -11,6 +11,11 @@
   text-align: center;
 }
 
+@mixin info-text {
+  margin-bottom: 16px;
+  font-size: 28px;
+}
+
 @mixin items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -20,6 +25,11 @@
 @mixin item {
   width: 100%;
   cursor: pointer;
+}
+
+@mixin items-large {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px 20px; 
 }
 
 @mixin tags {
@@ -46,6 +56,16 @@
   position: relative;
   padding: 5px 14px 5px 5px;
 }
+
+
+@mixin section-title {
+  display: flex;
+  align-items: flex-end;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+$section-font-size: 28px;
 
 /* 基本設定 */
 
@@ -259,7 +279,7 @@ footer {
   }
 }
 
-/* 商品一覧ページ */
+/* 商品一覧ページ 基本設定 */
 .wrapper {
   width: 100%;
   max-width: 700px;
@@ -273,12 +293,10 @@ footer {
   position: relative;
   @media (min-width: 768px) {
     .category-items {
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px 20px;    
+      @include items-large();   
     }
     .brand-items {
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px 20px;    
+      @include items-large();  
     }
     .icon {
       width: 60px;
@@ -296,31 +314,28 @@ footer {
   width: 100vw;
   overflow: hidden;
 }
+
+/* 人気のカテゴリ */
 .category-info {
   @include info();
   &__text h2 {
-    margin-bottom: 16px;
-    font-size: 28px;
+    @include info-text();
   }
   &__tags {
-     @include tags();
+    @include tags();
     .category-tag {
       @include tag();
     }
   } 
 }
-
 .category-title {
-  align-items: flex-end;
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
+  @include section-title();
   h3 {
-    font-size: 24px;
+    font-size: $section-font-size;
   }
-  .more {
-    @include more();
-  }
+}
+.more {
+  @include more();
 }
 .category-items {
   @include items();
@@ -328,11 +343,12 @@ footer {
     @include item();
   }
 }
+
+/* 人気のブランド */
 .brand-info {
   @include info();
   &__text h2 {
-    margin-bottom: 16px;
-    font-size: 28px;
+    @include info-text();
   }
   &__tags  {
     @include tags();
@@ -342,25 +358,22 @@ footer {
   } 
 }
 .brand-title {
-  align-items: flex-end;
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
+  @include section-title();
   h3 {
-    font-size: 24px;
+    font-size: $section-font-size;
   }
   .more {
     @include more();
   }
 }
 .brand-items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px 6px;
+  @include items();
   .brand-item img {
     @include item();
   }
 }
+
+/* 出品ボタン */
 .sell-button-container {
   position: fixed;
   right: -14px;
@@ -389,7 +402,6 @@ footer {
     }
   }
 }
-
 @media (min-width: 768px) {
   .sell-button-container {
     bottom: 32px;
