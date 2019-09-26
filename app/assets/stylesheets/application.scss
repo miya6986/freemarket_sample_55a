@@ -1,5 +1,16 @@
 @import 'font-awesome';
 
+@mixin info {
+  padding: 56px 0px 30px;
+  background-color: rgb(255, 255, 255);
+  left: 50%;
+  margin-left: -50vw;
+  position: relative;
+  top: 0px;
+  width: 100vw;
+  text-align: center;
+}
+
 /* 基本設定 */
 
 * {
@@ -212,7 +223,7 @@ footer {
   }
 }
 
-/* topページ */
+/* 商品一覧ページ */
 .wrapper {
   width: 100%;
   max-width: 700px;
@@ -250,14 +261,7 @@ footer {
   overflow: hidden;
 }
 .category-info {
-  padding: 56px 0px 30px;
-  background-color: rgb(255, 255, 255);
-  left: 50%;
-  margin-left: -50vw;
-  position: relative;
-  top: 0px;
-  width: 100vw;
-  text-align: center;
+  @include info();
   &__text h2 {
     margin-bottom: 16px;
     font-size: 28px;
@@ -305,14 +309,7 @@ footer {
   }
 }
 .brand-info {
-  padding: 56px 0px 30px;
-  background-color: rgb(255, 255, 255);
-  left: 50%;
-  margin-left: -50vw;
-  position: relative;
-  top: 0px;
-  width: 100vw;
-  text-align: center;
+  @include info();
   &__text h2 {
     margin-bottom: 16px;
     font-size: 28px;
