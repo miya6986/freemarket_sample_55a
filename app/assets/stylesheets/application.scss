@@ -11,6 +11,18 @@
   text-align: center;
 }
 
+@mixin items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px 6px;
+}
+
+@mixin item {
+  width: 100%;
+  cursor: pointer;
+}
+
+
 /* 基本設定 */
 
 * {
@@ -300,12 +312,9 @@ footer {
   }
 }
 .category-items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px 6px;
+  @include items();
   .category-item img {
-    width: 100%;
-    cursor: pointer;
+    @include item();
   }
 }
 .brand-info {
@@ -351,8 +360,7 @@ footer {
   grid-template-columns: repeat(3, 1fr);
   gap: 6px 6px;
   .brand-item img {
-    width: 100%;
-    cursor: pointer;
+    @include item();
   }
 }
 .sell-button-container {
