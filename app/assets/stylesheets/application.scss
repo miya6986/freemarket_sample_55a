@@ -223,7 +223,6 @@ footer {
   }
 }
 .container {
-  
   position: relative;
   @media (min-width: 768px) {
     .category-items {
@@ -296,7 +295,6 @@ footer {
     padding: 5px 14px 5px 5px;
   }
 }
-
 .category-items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -306,7 +304,6 @@ footer {
     cursor: pointer;
   }
 }
-
 .brand-info {
   padding: 56px 0px 30px;
   background-color: rgb(255, 255, 255);
@@ -413,7 +410,6 @@ footer {
       }
     }
   }
-  
 }
 
 
