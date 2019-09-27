@@ -48,10 +48,6 @@ Things you may want to cover:
 |user_image|string||
 |profile|text||
 
-<!-- アカウント作成に必要だった要素はnull: falseをつけた -->
-<!-- クレジットカードの情報ってテーブル作るの...？ -->
-<!-- userの住所情報はテーブル分ける...？ -->
-
 ### Association
 - has_many :products
 - has_many :buyed_products, foreign_key: "buyer_id", class_name: "Product"
@@ -69,6 +65,9 @@ Things you may want to cover:
 - has_many :creditcards
 - has_many :sns_credentials, dependent: :destroy
 
+<!-- アカウント作成に必要だった要素はnull: falseをつけた -->
+<!-- メルカリの場合userが削除されても購入したuserには購入したproductの抽出が必要、dependent: :destroyは安易に付けれない -->
+<!-- userの住所情報はテーブル分ける...？ -->
 <!-- productsテーブルとアソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
 <!-- フォロー機能であるrelationshipsテーブルとのリレーションが複雑 -->
 
