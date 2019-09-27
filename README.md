@@ -151,18 +151,20 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |rate|integer|null: false|
+|user_id|integer|foreign_key: true|
 |buyer_id|integer|foreign_key: true|
 |seller_id|intefer|foreign_key: true|
 |product_id|integer|foerign_key: true|
 |review|text||
 
 ### Association
+- belongs_to :user
 - belongs_to :buyer_id, class_name: "Product"
 - belongs_to :seller_id, class_name: "Product"
 - belongs_to :product
 
 <!-- userがuserの評価をしているだけで商品の評価はしていない。商品一つの取引につき評価ができることを考えると、productと紐付ける可能性もある。買い手、売り手、商品をそれぞれ外部キーに指定。アソシエーションでuserの評価を抽出可能にする -->
-<!-- 買い手と売り手分けるべき？user_idででいいかも... -->
+<!-- そもそもメルカリの評価機能がどのようになってるのかよくわからない。userとevaluationは1対多。evaluationとproductは1対1 -->
 
 
 ## likesテーブル
