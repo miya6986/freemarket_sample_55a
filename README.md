@@ -67,6 +67,7 @@ Things you may want to cover:
 - has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
 - has_many :followers, through: :follower_relationships
 - has_many :creditcards
+- has_many :sns_credentials, dependent: :destroy
 
 <!-- productsテーブルとアソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
 <!-- フォロー機能であるrelationshipsテーブルとのリレーションが複雑 -->
@@ -215,3 +216,17 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+
+
+## sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|uid|string||	
+|provider|string||
+|user_id|integer|foreign_key: true|
+
+### Association
+- belongs_to :user, optional: true
+
+<!-- sns認証機能つけるなら必要 -->
+<!-- optional: true 外部キーであるuser_idがなくてもDBに保存できる。 -->
