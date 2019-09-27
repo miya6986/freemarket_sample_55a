@@ -70,7 +70,6 @@ Things you may want to cover:
 <!-- メルカリの場合userが削除されても購入したuserには購入したproductの取得が必要、dependent: :destroyは安易に付けれないのでは？ -->
 <!-- userの住所情報はテーブル分ける...？ -->
 <!-- productsテーブルとアソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
-<!-- フォロー機能であるrelationshipsテーブルとのリレーションが複雑 -->
 
 
 ## productsテーブル
@@ -103,7 +102,7 @@ Things you may want to cover:
 - belongs_to :brand
 
 <!-- メルカリって洋服のサイズ検索ないの？ -->
-<!-- 複数画像アップロードならActive Storageとか使うべき？carrierwave使うならform_forでmultiple: trueで行けるか... -->
+<!-- 複数アップロードはcarrierwave -->
 
 
 ## categoriesテーブル
