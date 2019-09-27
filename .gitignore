@@ -25,7 +25,6 @@ pickle-email-*.html
 config/initializers/secret_token.rb
 config/master.key
 config/secrets.yml
-config/credentials.yml.enc
 
 # Only include if you have production secrets in this file, which is no longer a Rails default
 # config/secrets.yml
@@ -73,3 +72,5 @@ yarn-debug.log*
 !/storage/.keep
 
 # End of https://www.gitignore.io/api/rails
+# Ignore master key for decrypting credentials and more.
+/config/master.key
