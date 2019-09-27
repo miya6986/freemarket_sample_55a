@@ -1,5 +1,8 @@
 @import 'font-awesome';
-
+@import './top-header.scss';
+@import './top-main.scss';
+@import './top-footer.scss';
+@import './sell-button.scss';
 
 /* 基本設定 */
 
@@ -36,12 +39,6 @@ header {
   background-color: rgb(255, 255, 255);
   position: relative;
 }
-
-
-
-
-
-
 
 
 
