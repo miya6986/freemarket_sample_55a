@@ -96,7 +96,7 @@ Things you may want to cover:
 - belongs_to :category
 - has_many :comments
 - has_many :trade_messages
-- has_many :evaluations
+- has_one :evaluations
 - has_many :likes
 - has_many :liked_users, through: :likes, source: :user
 - belongs_to :brand
@@ -161,7 +161,7 @@ Things you may want to cover:
 - belongs_to :seller_id, class_name: "Product"
 - belongs_to :product
 
-<!-- 買い手、売り手、商品をそれぞれ外部キーに指定。アソシエーションでuserの評価を抽出可能にする -->
+<!-- userがuserの評価をしているだけで商品の評価はしていない。商品一つの取引につき評価ができることを考えると、productと紐付ける可能性もある。買い手、売り手、商品をそれぞれ外部キーに指定。アソシエーションでuserの評価を抽出可能にする -->
 <!-- 買い手と売り手分けるべき？user_idででいいかも... -->
 
 
