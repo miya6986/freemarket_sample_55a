@@ -90,7 +90,7 @@ Things you may want to cover:
 |seller_id|references|foreign_key: true|
 
 ### Association
-- belongs_to :saler, class_name: "User"
+- belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
 - has_many :product_categories
 - belongs_to :category
