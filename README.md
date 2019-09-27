@@ -66,6 +66,7 @@ Things you may want to cover:
 - has_many :followings, through: :following_relationships
 - has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
 - has_many :followers, through: :follower_relationships
+- has_many :creditcards
 
 <!-- productsテーブルとアソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
 <!-- フォロー機能であるrelationshipsテーブルとのリレーションが複雑 -->
@@ -212,3 +213,16 @@ Things you may want to cover:
 - belongs_to :following, class_name: "User"
 
 <!-- フォロー機能、以前作ったアプリと同じアソシエーションにした。 -->
+
+
+## creditcardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|card_number|string|null: false, unique: true|
+|expiration_year|string|null: false|
+|expiration_month|string|null: false|
+|security_code|string|null: false|
+|user_id|integer|foreign_key: true|
+
+### Association
+- belongs_to :user
