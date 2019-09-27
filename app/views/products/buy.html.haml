@@ -34,11 +34,25 @@
       %section.buy-content.buy-user-info
         .buy-content-inner
           %h3 配送先
-
-
-
+          %address.buy-user-info-text
+            〒123-4567
+            %br
+            大阪府大阪市●●
+            %br
+            テストユーザー
+          .buy-user-info-fix 
+            %span 変更する
+            = fa_icon 'chevron-right'
       %section.buy-content.buy-user-info
-
+        .buy-content-inner
+          %h3 支払い方法
+          %p.buy-user-info-text
+            ************1234
+          %figure
+            = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
+          .buy-user-info-fix 
+            %span 変更する
+            = fa_icon 'chevron-right'
   %footer.single-footer
     %nav
     .single-footer-logo

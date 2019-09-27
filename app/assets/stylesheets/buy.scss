@@ -7,6 +7,10 @@ body {
   line-height: 1;
 }
 
+address {
+  font-style: normal;
+}
+
 @media screen and (min-width: 768px) {
   .single-container {
     padding: 0 0 220px;
@@ -118,7 +122,24 @@ body {
       h3:first-child{
         margin: 0;
       }
+      h3 {
+        font-size: 14px;
+      }
+      address {
+        display: block;
+      }
+      .buy-user-info-text {
+        margin: 8px 0 0;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      .buy-user-info-fix {
+        display: block;
+        text-align: right;
+        color: #0099e8;
+      }
     }
+    
     .btn-red {
       margin: 8px 0 0;
       background: #ea352d;
@@ -169,6 +190,9 @@ body {
     span {
       font-size: 28px;
     } 
+  }
+  .buy-content:last-of-type {
+    padding: 24px 12.5% 40px;
   }
   
 
