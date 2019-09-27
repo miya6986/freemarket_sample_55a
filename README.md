@@ -229,4 +229,4 @@ Things you may want to cover:
 - belongs_to :user, optional: true
 
 <!-- sns認証機能つけるなら必要 -->
-<!-- optional: true 外部キーであるuser_idがなくてもDBに保存できる。 -->
+<!-- optional: true 外部キーであるuser_idに値がなくてもDBに保存できる。 -->
