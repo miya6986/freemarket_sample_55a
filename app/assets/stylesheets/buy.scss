@@ -14,11 +14,9 @@ address {
 @media screen and (min-width: 768px) {
   .single-container {
     padding: 0 0 220px;
-  
     .single-header {
       height: 128px;
       h1{
-        
         margin: 40px 0 0;
       }
       img {
@@ -32,7 +30,6 @@ address {
       .l-single-head {
         padding: 32px 16px;
         font-size: 22px;
-        
       }
     
     }
@@ -40,23 +37,29 @@ address {
   .buy-you-pay {
     font-size: 18px;
   }
-
-  
   .single-footer {
     width: 456px;
     height: 220px;
     margin: 0 auto;
+    li {
+      display: inline-block;
+      margin: 0 0 0 16px;
+    }
   }
 }
-  
 .single-container {
   padding: 0 0 250px;
 }
 .single-header {
   text-align: center;
+  height: 56px;
   h1 {
     display: inline-block;
     margin: 11px 0 12px;
+  }
+  img {
+    width: 120px;
+    height: 33px;
   }
 }
 .l-single-container{
@@ -205,4 +208,26 @@ address {
   height: 250px;
   padding: 40px 0;
   text-align: center;
+  ul {
+    font-size: 0;
   }
+  li {
+    font-size: 12px;
+    color: #333;
+  }
+  li:first-child {
+    margin: 0;
+  }
+  p {
+    margin: 8px 0 0;
+    color: #333;
+  }
+  small {
+    font-size: 12px;
+  }
+}
+.single-footer-logo {
+  width: 80px;
+  height: 65px;
+  margin: 40px auto 0;
+}
