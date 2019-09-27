@@ -99,7 +99,7 @@ Things you may want to cover:
 - has_many :evaluations
 - has_many :likes
 - has_many :liked_users, through: :likes, source: :user
-- belongs_to :bland
+- belongs_to :brand
 
 <!-- メルカリって洋服のサイズ検索ないの？ -->
 <!-- 複数画像アップロードならActive Storageとか使うべき？carrierwave使うならform_forでmultiple: trueで行けるか... -->
@@ -178,7 +178,7 @@ Things you may want to cover:
 <!-- いいね機能 -->
 
 
-## blandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|foerign_key: true|
@@ -188,6 +188,7 @@ Things you may want to cover:
 - has_many : products
 
 <!-- ブランドから検索もあったので抽出できるように -->
+<!-- brandテーブルとproductテーブルは1対多の関係 -->
 
 
 ## relationshipsテーブル
