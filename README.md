@@ -93,7 +93,7 @@ Things you may want to cover:
 - belongs_to :saler, class_name: "User"
 - belongs_to :buyer, class_name: "User"
 - has_many :product_categories
-- has_many :categories, through: :product-categories
+- belongs_to :category
 - has_many :comments
 - has_many :trade_messages
 - has_many :evaluations
@@ -111,22 +111,10 @@ Things you may want to cover:
 |category|string|null: false, index: true|
 
 ### Association
-- has_many :product_categories
-- has_many :products, through: :product_categories
+- has_many :products
+- has_ancestry
 
-
-## product_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|product_id|references|foreign_key: true|
-|category_id|references|foreign_key: true|
-
-### Association
-- belongs_to :product
-- belongs_to :category
-
-<!-- カテゴリー検索があるのでカテゴリーで抽出できるように。ハッシュタグと同じような仕組み -->
-<!-- 大小カテゴリーをどのように作るか謎 -->
+<!-- ancestryというgemを使って多階層カテゴリーを作る。なおancestryを使えば中間テーブルであるproduct_categoriesは不要なので削除 -->
 
 
 ## commentsテーブル
