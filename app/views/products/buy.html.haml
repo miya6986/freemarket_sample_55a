@@ -1,4 +1,45 @@
 .single-container
   %header.single-header
+    %h1
+      = image_tag 'header-logo.svg', alt: 'header-logo'
+
   %main.single-main
+    %section.buy-item-container.l-single-container
+      %h2.l-single-head
+        購入内容の確認
+      %section.buy-content.buy-item
+        .buy-content-inner
+          %h3.buy-item-image
+            = image_tag 'm27124190794_1.jpg'
+          %p.buy-item-name.bold
+            パタゴニア ストレッチレインシャドージャケット
+          %form.buy-form
+            %p.buy-price-ja.bold 
+              ¥18,800
+              %span.item-shipping-fee
+                送料込み
+            %ul.buy-accordion.not-have
+              %li.accrodion-parent
+                .accordion-toggle 
+                  ポイントはありません
+            %ul.buy-price-table
+              %li.buy-price-row.buy-you-pay.bold
+                .buy-price-cell
+                  支払い金額
+                .buy-price-cell
+                  %span ¥18,800
+            %button.btn-default.btn-red.bold
+              購入する
+
+      %section.buy-content.buy-user-info
+        .buy-content-inner
+          %h3 配送先
+
+
+
+      %section.buy-content.buy-user-info
+
   %footer.single-footer
+    %nav
+    .single-footer-logo
+    %p

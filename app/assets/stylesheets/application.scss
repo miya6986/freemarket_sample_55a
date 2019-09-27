@@ -72,6 +72,13 @@ $section-font-size: 28px;
 
 * {
   box-sizing: border-box;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+h3 { 
+  font-size: 22px;
 }
 
 ul {
@@ -81,6 +88,7 @@ ul {
 nav {
   display: block;
 }
+
 
 body {
   margin: 0px;
@@ -100,7 +108,6 @@ header {
   display: block;
   width: 100%;
   height: 100px;
-  background-color: rgb(255, 255, 255);
   position: relative;
 }
 
@@ -225,7 +232,6 @@ aside img{
 }
 
 footer {
-  background-color: rgb(34, 34, 34);
   color: rgb(255, 255, 255);
   font-size: 12px;
   padding: 0px 20px 10px;
