@@ -56,6 +56,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :trade_messages
 - has_many :evaluations
+- has_many :seller_evaluations, foreign_key: "seller_id", class: "Evaluation"
 - has_many :likes
 - has_many :liked_products, through: :likes, source: :product
 - has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
@@ -66,7 +67,7 @@ Things you may want to cover:
 - has_many :sns_credentials, dependent: :destroy
 
 <!-- アカウント作成に必要だった要素はnull: falseをつけた -->
-<!-- メルカリの場合userが削除されても購入したuserには購入したproductの抽出が必要、dependent: :destroyは安易に付けれない -->
+<!-- メルカリの場合userが削除されても購入したuserには購入したproductの取得が必要、dependent: :destroyは安易に付けれないのでは？ -->
 <!-- userの住所情報はテーブル分ける...？ -->
 <!-- productsテーブルとアソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
 <!-- フォロー機能であるrelationshipsテーブルとのリレーションが複雑 -->
@@ -152,7 +153,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |rate|integer|null: false|
-|user_id|integer|foreign_key: true|
 |buyer_id|integer|foreign_key: true|
 |seller_id|intefer|foreign_key: true|
 |product_id|integer|foerign_key: true|
@@ -160,12 +160,13 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+- belongs_to ;product
 - belongs_to :buyer_id, class_name: "Product"
 - belongs_to :seller_id, class_name: "Product"
-- belongs_to :product
 
 <!-- userがuserの評価をしているだけで商品の評価はしていない。商品一つの取引につき評価ができることを考えると、productと紐付ける可能性もある。買い手、売り手、商品をそれぞれ外部キーに指定。アソシエーションでuserの評価を抽出可能にする -->
 <!-- そもそもメルカリの評価機能がどのようになってるのかよくわからない。userとevaluationは1対多。evaluationとproductは1対1 -->
+<!-- とりあえずは売り手の評価一覧を取得できたらいいのでusersテーブルにアソシエーションを記述 -->
 
 
 ## likesテーブル
