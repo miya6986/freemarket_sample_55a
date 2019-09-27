@@ -39,59 +39,7 @@ header {
 
 
 
-/* 出品ボタン */
-.sell-button-container {
-  position: fixed;
-  right: -14px;
-  bottom: -14px;
-  text-align: center;
-  z-index: 2;
-  .sell-button {
-    padding-top: 15px;
-    text-align: center;
-    height: 80px;
-    width: 80px;
-    background-color: rgb(234, 53, 45);
-    border-radius: 50%;
-    cursor: pointer;
-    .text {
-      color: rgb(255, 255, 255);
-    }
-    .icon {
-      max-width: 100%;
-      max-height: 100%;
-      color: rgb(255, 255, 255);
-      display: block;
-      margin: 5px auto 0px;
-      text-align: center;
-      font-size:24px;
-    }
-  }
-}
-@media (min-width: 768px) {
-  .sell-button-container {
-    bottom: 32px;
-    font-size: 22px;
-    height: 160px;
-    right: 32px;
-    width: 160px;
 
-    .sell-button {
-      width: 160px;
-      height: 160px;
-      padding-top: 20px;
-      .text {
-        font-size: 22px;
-      }
-      .icon {
-        width: 60px;
-        height: 54px;
-        margin-top: 8px;
-        font-size:60px;
-      }
-    }
-  }
-}
 
 
 
