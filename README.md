@@ -56,7 +56,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :trade_messages
 - has_many :evaluations
-- has_many :seller_evaluations, foreign_key: "seller_id", class: "Evaluation"
+- has_many :evaluated_user, foreign_key: "evaluated_id", class_name: "Evaluation"
 - has_many :likes
 - has_many :liked_products, through: :likes, source: :product
 - has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
@@ -152,16 +152,16 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |rate|integer|null: false|
-|buyer_id|integer|foreign_key: true|
-|seller_id|intefer|foreign_key: true|
+|evaluate_id|integer|foreign_key: true|
+|evaluated_id|intefer|foreign_key: true|
 |product_id|integer|foerign_key: true|
 |review|text||
 
 ### Association
 - belongs_to :user
 - belongs_to ;product
-- belongs_to :buyer_id, class_name: "Product"
-- belongs_to :seller_id, class_name: "Product"
+- belongs_to :evaluate_id, class_name: "User"
+- belongs_to :evaluated_id, class_name: "User"
 
 <!-- userがuserの評価をしているだけで商品の評価はしていない。商品一つの取引につき評価ができることを考えると、productと紐付ける可能性もある。買い手、売り手、商品をそれぞれ外部キーに指定。アソシエーションでuserの評価を抽出可能にする -->
 <!-- そもそもメルカリの評価機能がどのようになってるのかよくわからない。userとevaluationは1対多。evaluationとproductは1対1 -->
