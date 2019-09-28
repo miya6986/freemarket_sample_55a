@@ -71,6 +71,13 @@ $section-font-size: 28px;
   max-width: 700px;
   margin: 0px auto;
   padding: 0px;
+  @media (min-width: 768px) {
+    max-width: 700px;
+    padding: 0px;
+  }
+  @media (min-width: 1068px) {
+    max-width: 1020px;
+  }
 }
 
 /* 商品一覧ページ 基本設定 */
