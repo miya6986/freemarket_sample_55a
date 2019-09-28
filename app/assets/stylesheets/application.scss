@@ -32,6 +32,11 @@ ul {
   list-style: none;
 }
 
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
 img {
   vertical-align: middle;
 }
