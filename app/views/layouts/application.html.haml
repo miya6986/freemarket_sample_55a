@@ -8,11 +8,10 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header
-      .header-wrapper
+    %header.header-wrapper
+      .header-container
         .header-upper
-          .header-logo
-            = image_tag 'header-logo.svg', alt: 'header-logo'
+          .header-logo= image_tag 'header-logo.svg', alt: 'header-logo', class:'image'
           %form{ class:'search'}
             %input{ type: "search", name: "keyword", placeholder: "何かお探しですか？",class: 'search__text-field'}
             %button{class: 'search__button' }
@@ -21,10 +20,10 @@
           .menu-left
             .menu-left__item
               = fa_icon 'list lg', class:'menu-left__item--icon'
-              %strong カテゴリーから探す
+              カテゴリーから探す
             .menu-left__item
               = fa_icon 'tag lg',class:'menu-left__item--icon'
-              %strong ブランドから探す
+              ブランドから探す
           .menu-right
             .menu-right__item
               .signup

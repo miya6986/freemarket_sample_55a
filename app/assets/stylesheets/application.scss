@@ -10,34 +10,35 @@
   box-sizing: border-box;
 }
 
-ul {
-  list-style: none;
-}
-
-nav {
-  display: block;
-}
-
 body {
+  display: block;
   margin: 0px;
   padding: 0px;
   border-width: 0px;
   position: relative;
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
   color: rgb(51, 51, 51);
   background-color: rgb(245, 245, 245);
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   font-size: 14px;
+  line-height: 1;
 }
 
-header {
+div,nav,header {
   display: block;
-  width: 100%;
-  height: 100px;
-  background-color: rgb(255, 255, 255);
-  position: relative;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
 }
 
 
