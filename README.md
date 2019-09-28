@@ -45,7 +45,7 @@ Things you may want to cover:
 |building_name|string||
 |gender|string||
 |phone_number|integer|unique: true, null: false|
-|user_image|string||
+|avatar|string||
 |profile|text||
 
 ### Association
