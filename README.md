@@ -154,7 +154,7 @@ Things you may want to cover:
 |rate|integer|null: false|
 |evaluate_id|integer|foreign_key: true|
 |evaluated_id|intefer|foreign_key: true|
-|product_id|integer|foerign_key: true|
+|product_id|integer|foreign_key: true|
 |review|text||
 
 ### Association
