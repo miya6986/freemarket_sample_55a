@@ -109,7 +109,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false, index: true|
-|ancestry|string||
+|ancestry|string|index: true|
 
 ### Association
 - has_many :products
