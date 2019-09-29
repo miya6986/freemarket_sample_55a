@@ -106,7 +106,7 @@ Things you may want to cover:
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category|string|null: false, index: true|
+|name|string|null: false, index: true|
 |ancestry|string|index: true|
 
 ### Association
