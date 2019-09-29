@@ -77,7 +77,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|product_image|null: false|  
+|product_image|string|null: false|
 |description|text|null: false|
 |size|string||
 |condition|string|null: false|
