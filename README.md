@@ -66,9 +66,7 @@ Things you may want to cover:
 - has_many :creditcards
 - has_many :sns_credentials, dependent: :destroy
 
-<!-- アカウント作成に必要だった要素はnull: falseをつけた -->
 <!-- メルカリの場合userが削除されても購入したuserには購入したproductの取得が必要、dependent: :destroyは安易に付けれないのでは？ -->
-<!-- userの住所情報はテーブル分ける...？ -->
 <!-- productsテーブルとアソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
 
 
@@ -101,8 +99,8 @@ Things you may want to cover:
 - has_many :liked_users, through: :likes, source: :user
 - belongs_to :brand
 
-<!-- メルカリって洋服のサイズ検索ないの？ -->
 <!-- 複数アップロードはcarrierwave -->
+<!-- sizeは洋服などはあるがsizeがない商品もある -->
 
 
 ## categoriesテーブル
@@ -216,6 +214,8 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+
+<!-- クレジットカード決済機能 、Pay.jpというgemを使用して実装予定 -->
 
 
 ## sns_credentialsテーブル
