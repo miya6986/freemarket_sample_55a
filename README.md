@@ -102,6 +102,7 @@ Things you may want to cover:
 
 <!-- 複数アップロードはcarrierwave -->
 <!-- sizeは洋服などはあるがsizeがない商品もある -->
+<!-- CarrierWaveを使用するため公式ドキュメントを確認、カラム名を複数形にし、データ型をjsonにした。 -->
 
 
 ## categoriesテーブル
