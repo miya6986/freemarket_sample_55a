@@ -134,7 +134,7 @@ Things you may want to cover:
 ## trade_messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|refeerences|foreign_key: true|
+|product_id|references|foreign_key: true|
 |user_id|references|foreign_key: true|
 |message|text|null: false|
 
