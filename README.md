@@ -214,7 +214,7 @@ Things you may want to cover:
 |expiration_year|string|null: false|
 |expiration_month|string|null: false|
 |security_code|string|null: false|
-|user_id|integer|foreign_key: true|
+|user_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
