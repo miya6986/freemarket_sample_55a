@@ -185,7 +185,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|foerign_key: true|
-|bland|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many : products
