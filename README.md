@@ -37,7 +37,7 @@ Things you may want to cover:
 |lastname|string|null: false|
 |firstname_kana|string|null: false|
 |lastname_kana|string|null: false|
-|birthday|integer|null: false|
+|birthday|date|null: false|
 |postalcode|integer||
 |prefecture|string||
 |city_name|string||
