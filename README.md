@@ -44,7 +44,7 @@ Things you may want to cover:
 |address_number|string||
 |building_name|string||
 |gender|string||
-|phone_number|integer|unique: true, null: false|
+|phone_number|string|unique: true, null: false|
 |avatar|string||
 |profile|text||
 
@@ -68,6 +68,7 @@ Things you may want to cover:
 
 <!-- メルカリの場合userが削除されても購入したuserには購入したproductの取得が必要、dependent: :destroyは安易に付けれないのでは？ -->
 <!-- productsテーブルとアソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
+<!-- 電話番号はintegerだと初めの0が表示されなくなるためstring型 -->
 
 
 ## productsテーブル
