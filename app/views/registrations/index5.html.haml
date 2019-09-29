@@ -1,0 +1,13 @@
+.body
+  =render "header"
+  .main
+    .main__section
+      %h2 会員情報入力
+      .form
+        .form__upper
+          %p
+            ありがとうございます。会員登録が完了しました
+          .form__upper__group
+            %button.btn-default{type: "submit"} 次へ進む
+  %img{alt: "mercari", src: "assets/footer.png"}/
+  =render "footer"

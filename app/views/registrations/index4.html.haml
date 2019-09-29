@@ -1,0 +1,44 @@
+.body
+  =render "header"
+  .main
+    .main__section
+      %h2 支払い方法
+      .form
+        .form__upper
+          .form__upper__group
+            %label カード番号
+            %span.form-require 必須
+            %input.nickname{ type: 'text', name: 'nickname', placeholder: '半角数字のみ', class: 'input-default' }
+            %ol
+              %li
+                %object{type: "image/svg+xml", data: "/assets/visa.svg", width:"35", height:"20"}
+              %li
+                %object{type: "image/svg+xml", data: "/assets/master-card.svg", width:"35", height:"20"}
+              %li
+                %object{type: "image/svg+xml", data: "/assets/saison-card.svg", width:"35", height:"20"}
+              %li
+                %object{type: "image/svg+xml", data: "/assets/jcb.svg", width:"35", height:"20"}
+              %li
+                %object{type: "image/svg+xml", data: "/assets/american_express.svg", width:"35", height:"20"}
+              %li
+                %object{type: "image/svg+xml", data: "/assets/dinersclub.svg", width:"35", height:"20"}
+              %li
+                %object{type: "image/svg+xml", data: "/assets/discover.svg", width:"35", height:"20"}
+          .form__upper__group
+            .name
+              %label 有効期限
+              %span.form-require 必須
+            %input{ name: 'first-name', placeholder: '例）山田', class: 'input-default-harf' } 年
+            %input.last-name{ name: 'last-name', placeholder: '例）アヤ', class: 'input-default-harf' } 月
+          .form__upper__group
+            %label セキュリティーコード
+            %span.form-require 必須
+            %input.nickname{ type: 'text', name: 'nickname', placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default' }
+          .form__upper__group
+            %p.about
+              = fa_icon 'question-circle'
+              %span<>
+              %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} カード裏面の番号とは？
+          .form__upper__group
+            %button.btn-default{type: "submit"} 次へ進む
+  =render "footer"
