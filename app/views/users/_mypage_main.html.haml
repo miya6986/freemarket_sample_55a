@@ -1,6 +1,6 @@
 .mypage-main
   = render partial: "mypage_user_header"
-  %section.myapage-tabs__lists
+  %section.mypage-tabs-box
     %ul.mypage__tabs
       %li.mypage__tabs_tab.tab1.active
         お知らせ
@@ -9,7 +9,7 @@
     .tab__contents.lists1
       = render partial: "notice_lists"
       = render partial: "task_lists"
-  %section.myapage-tabs__lists
+  %section.mypage-tabs-box
     %h2.mypage-tabs__title 購入した商品
     %ul.mypage__tabs
       %li.mypage__tabs_tab.tab2.active
