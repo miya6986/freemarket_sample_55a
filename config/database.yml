@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: freemarket_sample_55a_production
-  username: freemarket_sample_55a
-  password: <%= ENV['FREEMARKET_SAMPLE_55A_DATABASE_PASSWORD'] %>
+  database: <%= Rails.application.credentials.db[:database] %>
+  username: <%= Rails.application.credentials.db[:username] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  socket: <%= Rails.application.credentials.db[:socket] %>
