@@ -1,0 +1,48 @@
+.mypage-side{
+  width: 280px;
+  height: 100vh;
+  margin-right: 40px;
+  float: left;
+  &__nav_lists{
+    .nav-list{
+      padding: 16px;
+      background: #fff;
+      cursor: pointer;
+      &__link{
+        text-decoration: none;
+        color: #333333;
+        font-size: 14px;
+        &_arrow{
+          float: right;
+          font-weight: normal;
+          color: #CCCCCC;
+        }
+      }
+      &:hover{
+        background: #fafafa;
+      }
+    }
+    .now{
+      background: #EEEEEE;
+      font-weight: normal;
+      .nav-list{
+        &__link{
+          text-decoration: none;
+          font-weight: bold;
+          color: #333333;
+          font-size: 14px;
+          &_arrow{
+            color: #333333;
+          }
+        }
+      }
+      &:hover{
+        background: #EEEEEE;
+      }
+    }
+  }
+  &_head{
+    margin-top: 40px;
+    font-weight: bold;
+  }
+}
