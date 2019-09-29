@@ -76,7 +76,7 @@
         }
       }
     }
-    .tab__lists{
+    .tab__contents{
       min-height: 236px;
       background: #fff;
       ul{
@@ -97,6 +97,7 @@
             text-decoration: none;
             display: block;
             padding: 16px;
+            @include clearfix();
             &_img{
               width: 48px;
               height: 48px;

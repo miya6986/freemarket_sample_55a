@@ -2,3 +2,10 @@
   margin: 0 auto;
   width: 1020px;
 }
+@mixin clearfix(){
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
