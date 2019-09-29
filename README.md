@@ -210,11 +210,9 @@ Things you may want to cover:
 ## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_year|string|null: false|
-|expiration_month|string|null: false|
-|security_code|string|null: false|
-|user_id|references|foreign_key: true|
+|user_id|references|null: false|
+|customer_id|string|null; false|
+|card_id|string|null: false|
 
 ### Association
 - belongs_to :user
