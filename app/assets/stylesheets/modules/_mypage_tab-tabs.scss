@@ -1,0 +1,35 @@
+.mypage-tabs-box{
+  width: 700px;
+  .mypage-tabs__title{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 72px;
+    background: #FAFAFA;
+    color: #333333;
+    padding: 0 16px;
+    margin-top: 40px;
+  }
+  .mypage__tabs{
+    letter-spacing: -4em;
+    background: #EEEEEE;
+    &_tab{
+      display: inline-block;
+      width: 50%;
+      height: 74px;
+      letter-spacing: 0em;
+      line-height: 72px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: #333333;
+      cursor: pointer;
+      &.active{
+        background: #fff;
+        border-top: solid 2px #EB615B;
+        border-collapse: separate;
+        border-spacing: 0;
+        box-sizing: content-box;
+      }
+    }
+  }
+}
