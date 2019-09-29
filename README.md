@@ -56,7 +56,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :trade_messages
 - has_many :evaluations
-- has_many :evaluated_user, foreign_key: "evaluated_id", class_name: "Evaluation"
+- has_many :evaluated_users, foreign_key: "evaluated_id", class_name: "Evaluation"
 - has_many :likes
 - has_many :liked_products, through: :likes, source: :product
 - has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
