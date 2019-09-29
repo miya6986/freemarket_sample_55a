@@ -225,7 +225,7 @@ Things you may want to cover:
 |------|----|-------|
 |uid|string||	
 |provider|string||
-|user_id|integer|foreign_key: true|
+|user_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user, optional: true
