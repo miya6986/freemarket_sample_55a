@@ -210,7 +210,7 @@ Things you may want to cover:
 ## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|string|null: false, unique: true|
+|card_number|integer|null: false, unique: true|
 |expiration_year|string|null: false|
 |expiration_month|string|null: false|
 |security_code|string|null: false|
