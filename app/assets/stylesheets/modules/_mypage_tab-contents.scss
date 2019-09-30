@@ -32,37 +32,7 @@
             color: #888;
           }
           &__tag{
-            display: inline-block;
-            font-size: 12px;
-            color: #fff;
-            border-radius: 2px;
-            font-weight: bold;
-            padding: 2px 6px;
-            margin-top: 8px;
-            &.gray{
-              background: #888888;
-            }
-            &.blue{
-              background: #2F8CDB;
-            }
-            &.red{
-              background: #E93F33;
-            }
-          }
-        }
-        .treade_tag{
-          width: 60px;
-          height: 22px;
-          margin: 8px 0 0 0;
-          display: inline-block;
-          background: #888;
-          border-radius: 2px;
-          padding: 6px 5px;
-          p{
-            font-size: 12px;
-            color: #fff;
-            text-align: center;
-            line-height: 22px;
+            @include tag;
           }
         }
         .mypage-notice_arrow_right{
@@ -73,7 +43,6 @@
           float: right;
           color: #333333;
         }
-
       } 
     }
     .go-notice-lists{

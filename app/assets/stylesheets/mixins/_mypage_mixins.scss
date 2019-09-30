@@ -9,3 +9,41 @@
     display: block;
   }
 }
+
+@mixin tab {
+  width: 50%;
+  height: 74px;
+  line-height: 72px;
+  display: inline-block;
+  letter-spacing: 0em;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+  cursor: pointer;
+  &.active{
+    background: #fff;
+    border-top: solid 2px #EB615B;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-sizing: content-box;
+  }
+}
+@mixin tag {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 2px 6px;
+  margin-top: 8px;
+  &.gray{
+    background: #888888;
+  }
+  &.blue{
+    background: #2F8CDB;
+  }
+  &.red{
+    background: #E93F33;
+  }
+}
