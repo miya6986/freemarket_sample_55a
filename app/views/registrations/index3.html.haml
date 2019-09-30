@@ -6,7 +6,7 @@
       .form
         .form__upper
           .form__upper__group
-            %label 名前
+            %label お名前
             %span.form-require 必須
             %input.password{ name: 'password', placeholder: '例）山田', class: 'input-default'}
             %input.password{ name: 'password', placeholder: '例）彩', class: 'input-default'}
@@ -33,11 +33,11 @@
             %input.password{ name: 'password', placeholder: '7文字以上', class: 'input-default'}
           .form__upper__group
             %label 建物名
-            %span.form-require 任意
+            %span.form-require-optional 任意
             %input.password{ name: 'password', placeholder: '7文字以上', class: 'input-default'}
           .form__upper__group
             %label 電話
-            %span.form-require 任意
+            %span.form-require-optional 任意
             %input.password{ name: 'password', placeholder: '7文字以上', class: 'input-default'}
         .form__bottom
           .form__upper__group

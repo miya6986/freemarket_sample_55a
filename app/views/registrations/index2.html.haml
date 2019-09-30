@@ -8,14 +8,16 @@
           .form__upper__group
             %label 携帯電話の番号
             %input.nickname{ type: 'text', name: 'nickname', placeholder: '携帯電話の番号を入力', class: 'input-default' }
-          .form__upper__group
-            %p.attention 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+            %p.attention 本人確認のため、携帯電話のSMS(ショートメッセ
+            ージサービス)を利用して認証を行います。
           
           .form__upper__group
             %button.btn-default{type: "submit"} SMSを送信する
+            %p.attention ※電話番号は本人確認や不正利用防止のために利用
+            します。他のユーザーに公開されることはありません。
           .form__upper__group
-            %p.attention ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-          .form__upper__group
-            %p
+            %p.about
               %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'registance'} 電話番号の確認が必要な理由
+              = fa_icon 'chevron-right'
+              %span<>
   = render "footer"
