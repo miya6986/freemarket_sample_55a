@@ -30,6 +30,9 @@
           font-size: 14px;
           &__passed{
             color: #888;
+            .clock_icon{
+              font-weight: 400;
+            }
           }
           &__tag{
             @include tag;
