@@ -10,8 +10,8 @@
   }
 }
 
-@mixin tab {
-  width: 50%;
+@mixin tab($width) {
+  width: $width;
   height: 74px;
   line-height: 72px;
   display: inline-block;

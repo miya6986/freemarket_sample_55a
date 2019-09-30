@@ -13,7 +13,7 @@
     letter-spacing: -4em;
     background: #EEEEEE;
     &_tab{
-      @include tab;
+      @include tab(50%);
     }
   }
 }
