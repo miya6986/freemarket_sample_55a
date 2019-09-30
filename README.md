@@ -66,10 +66,6 @@ Things you may want to cover:
 - has_many :creditcards
 - has_many :sns_credentials, dependent: :destroy
 
-<!-- メルカリの場合userが削除されても購入したuserには購入したproductの取得が必要、dependent: :destroyは安易に付けれないのでは？ -->
-<!-- productsテーブルとアソシエーションを組んだ。他の方法もあるようだがこれが最もシンプルな構造 -->
-<!-- 電話番号はintegerだと初めの0が表示されなくなるためstring型 -->
-
 
 ## productsテーブル
 
@@ -100,10 +96,6 @@ Things you may want to cover:
 - has_many :liked_users, through: :likes, source: :user
 - belongs_to :brand
 
-<!-- 複数アップロードはcarrierwave -->
-<!-- sizeは洋服などはあるがsizeがない商品もある -->
-<!-- CarrierWaveを使用するため公式ドキュメントを確認、カラム名を複数形にし、データ型をjsonにした。 -->
-
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -114,8 +106,6 @@ Things you may want to cover:
 ### Association
 - has_many :products
 - has_ancestry
-
-<!-- ancestryというgemを使って多階層カテゴリーを作る。なおancestryを使えば中間テーブルであるproduct_categoriesは不要なので削除 -->
 
 
 ## commentsテーブル
@@ -129,9 +119,6 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product
 
-<!-- 商品にコメント残せますね。userへの評価コメントとは別のもの -->
-<!-- pictweetでやった -->
-
 
 ## trade_messagesテーブル
 |Column|Type|Options|
@@ -143,9 +130,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :product
-
-<!-- user同士の取引時メッセージ機能 -->
-<!-- chat-spaceでやった -->
 
 
 ## evaluationsテーブル
@@ -163,10 +147,6 @@ Things you may want to cover:
 - belongs_to :evaluate_id, class_name: "User"
 - belongs_to :evaluated_id, class_name: "User"
 
-<!-- userがuserの評価をしているだけで商品の評価はしていない。商品一つの取引につき評価ができることを考えると、productと紐付ける可能性もある。買い手、売り手、商品をそれぞれ外部キーに指定。アソシエーションでuserの評価を抽出可能にする -->
-<!-- そもそもメルカリの評価機能がどのようになってるのかよくわからない。userとevaluationは1対多。evaluationとproductは1対1 -->
-<!-- とりあえずは売り手の評価一覧を取得できたらいいのでusersテーブルにアソシエーションを記述 -->
-
 
 ## likesテーブル
 |Column|Type|Options|
@@ -178,8 +158,6 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product
 
-<!-- いいね機能 -->
-
 
 ## brandsテーブル
 |Column|Type|Options|
@@ -189,9 +167,6 @@ Things you may want to cover:
 
 ### Association
 - has_many : products
-
-<!-- ブランドから検索もあったので抽出できるように -->
-<!-- brandテーブルとproductテーブルは1対多の関係 -->
 
 
 ## relationshipsテーブル
@@ -217,8 +192,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-<!-- クレジットカード決済機能 、Pay.jpというgemを使用して実装予定 -->
-
 
 ## sns_credentialsテーブル
 |Column|Type|Options|
@@ -229,6 +202,3 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user, optional: true
-
-<!-- sns認証機能つけるなら必要 -->
-<!-- optional: true 外部キーであるuser_idに値がなくてもDBに保存できる。 -->
