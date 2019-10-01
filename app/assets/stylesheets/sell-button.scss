@@ -1,3 +1,9 @@
+/* mixin */
+@mixin sell-button-large {
+  width: 160px;
+  height: 160px;
+}
+
 /* 出品ボタン */
 .sell-button-container {
   position: fixed;
@@ -6,11 +12,10 @@
   text-align: center;
   z-index: 2;
   @media (min-width: 768px) {
+    @include sell-button-large();
     bottom: 32px;
     font-size: 22px;
-    height: 160px;
     right: 32px;
-    width: 160px;
   } 
 }
 .sell-button {
@@ -27,8 +32,7 @@
     margin-top: 4px;
   }
   @media(min-width: 768px) {
-    width: 160px;
-    height: 160px;
+    @include sell-button-large();
     padding-top: 25px;
     .text {
       font-size: 22px;
