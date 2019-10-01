@@ -38,17 +38,13 @@ Things you may want to cover:
 |firstname_kana|string|null: false|
 |lastname_kana|string|null: false|
 |birthday|date|null: false|
-|postalcode|integer||
-|prefecture|string||
-|city_name|string||
-|address_number|string||
-|building_name|string||
 |gender|string||
 |phone_number|string|unique: true, null: false|
 |avatar|string||
 |profile|text||
 
 ### Association
+- has_many :addresses
 - has_many :products
 - has_many :bought_products, foreign_key: "buyer_id", class_name: "Product"
 - has_many :selling_products, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Product"
@@ -65,6 +61,20 @@ Things you may want to cover:
 - has_many :followers, through: :follower_relationships
 - has_many :creditcards
 - has_many :sns_credentials, dependent: :destroy
+
+
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|postalcode|integer|null: false|
+|prefecture|string|null: false|
+|city_name|string|null: false|
+|address_number|string|null: false|
+|building_name|string||
+|user_id|references|foreign_key: true|
+
+### Association
+- belongs_to :user
 
 
 ## productsテーブル
