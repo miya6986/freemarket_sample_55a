@@ -29,6 +29,12 @@
         label{
           font-weight: 600;
         }
+        ol{
+          display:flex;
+          li {
+            margin: 5px 8px 0 0;
+          }
+        }
         .form-require {
           background-color: #E93F36;
           color: #fff;
@@ -128,4 +134,4 @@
     }
   }
 }
-  @include rgs-footer();
+  @include sub-footer();
