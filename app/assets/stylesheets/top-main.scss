@@ -97,16 +97,17 @@ $section-font-size: 28px;
       margin-top: 8px;
     }
   }
+  .jumbotron img {
+    height: 290px;
+    left: 50%;
+    margin-left: -50vw;
+    position: relative;
+    top: 0px;
+    width: 100vw;
+    overflow: hidden;
+  }
 }
-.jumbotron img {
-  height: 290px;
-  left: 50%;
-  margin-left: -50vw;
-  position: relative;
-  top: 0px;
-  width: 100vw;
-  overflow: hidden;
-}
+
 
 /* 人気のカテゴリ */
 .category-info {
