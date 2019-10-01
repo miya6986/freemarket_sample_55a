@@ -28,8 +28,10 @@
             .name
               %label 有効期限
               %span.form-require 必須
-            %input{ name: 'first-name', placeholder: '例）山田', class: 'input-default-harf' } 年
-            %input.last-name{ name: 'last-name', placeholder: '例）アヤ', class: 'input-default-harf' } 月
+            %input{ name: 'first-name', class: 'input-default-harf' } 年
+          .form__upper__group
+
+            %input.last-name{ name: 'last-name', class: 'input-default-harf' } 月
           .form__upper__group
             %label セキュリティーコード
             %span.form-require 必須
