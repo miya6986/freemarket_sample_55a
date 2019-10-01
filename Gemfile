@@ -88,3 +88,5 @@ gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'jquery-rails'
 
+gem 'payjp'
+gem 'ransack'
