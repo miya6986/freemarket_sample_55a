@@ -1,82 +1,8 @@
 .body {
   background-color: #F5F5F5;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  .registration-header {
-    height: 128px;
-    text-align: center;
-    h1{
-      margin: 40px 0 0;
-      display: inline-block;
-      .header-link{
-        height: 49px;
-        width: 185px;
-        display: block;
-        margin: 0 8px 0 0;
-      }
-      .header-logo{
-        height: 49px;
-        width: 185px;
-        pointer-events: none;
-      }
-    }
-    .progress{
-      color: #E93F36;
-      padding: 40px 0 0 44px;
-      display: inline-block;
-      vertical-align: top;
+  @include registration-header();
 
-      ol{
-        margin: 0;
-        .first{
-          z-index: 1;
-          display: inline-block;
-          font-size: 12px;
-          list-style: none;
-          position: relative;
-          margin: 0 40px 0 0 ;
-        }
-        li{
-          z-index: 1;
-          display: inline-block;
-          font-size: 12px;
-          list-style: none;
-          position: relative;
-          margin: 0 40px 0 0 ;
-          color:gray;
-        }
-        .progress-status-first {
-          position: absolute;
-          left: 40%;
-          width: 12px;
-          height: 12px;
-          margin: 8px auto 0;
-          background: #E93F36;
-          border-radius: 50%;
-          z-index: 30;
-        }
-        .progress-status{
-          position: absolute;
-          left: 40%;
-          width: 12px;
-          height: 12px;
-          margin: 8px auto 0;
-          background: gray;
-          border-radius: 50%;
-          z-index: 30;
-        }
-        .progress-status_bar {
-          position: absolute;
-          top: 31px;
-          bottom: 20px;
-          left: 20px;
-          background: gray;
-          height: 2px;
-          width: 450px;
-        }
-      }
-    }
-  }
-}
 .main{
   background-color: #F5F5F5;
   &__section{
@@ -202,43 +128,5 @@
     }
   }
 }
-.registration-footer {
-  background-color: #F5F5F5;
-  width:456px;
-  height: 220px;
-  margin: 0 auto;
-  text-align: center;
-  .nav{
-    text-align: center;
-    padding-top: 40px;
-    ul{
-      li{
-        display: inline-block;
-        font-size: 12px;
-        margin-left: 16px;
-      }
-      a {
-        color: black;
-        text-decoration: none;
-
-      }
-    }
-  }
-  .footer-link {
-    height: 80px;
-    width: 65px;
-  }
-  .footer-logo {
-    display: block;
-    height: 65px;
-    width: 80px;
-    margin: 40px auto 0;
-    pointer-events: none;
-  }
-    p{
-      font-size: 13px;
-      color: #333;
-      margin: 8px 0 0;
-      padding-bottom: 40px;
-    }
-} 
+}
+@include registration-footer();
