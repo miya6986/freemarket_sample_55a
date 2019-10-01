@@ -2,6 +2,14 @@
   background-color: #F5F5F5;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   @include rgs-header();
+  .logo-header{
+    height: 128px;
+    text-align: center;
+    h1 {
+      display: inline-block;
+      margin: 40px 0 0;
+    }
+  }
   .rgs-main{
     background-color: #F5F5F5;
     &__section{
@@ -22,6 +30,9 @@
     &__upper{
       margin: 0 auto;
       max-width: 343px;
+      p {
+        text-align: center;
+      }
       &__group {
         font-size: 14px;
         color: #333;
@@ -135,6 +146,37 @@
       background-color: #E93F36;
       color: #FFFFFF;
       font-size: 15px;
+    }
+    .btn-email{
+      color: #fff;
+      background-color: #ea352d;
+      border-radius: 4px;
+      width: 50%;
+      line-height: 48px;
+      border: 1px solid transparent;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .btn-facebook{
+      color: #fff;
+      background-color:#385184;
+      border-radius: 4px;
+      width: 50%;
+      line-height: 48px;
+      border: 1px solid transparent;
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 16px;
+    }
+    .btn-google{
+      color: black;
+      background-color:#FFFFFF;
+      border-radius: 4px;
+      width: 50%;
+      line-height: 48px;
+      border: 1px solid transparent;
+      text-align: center;
+      margin: 0 auto;
     }
   }
 }

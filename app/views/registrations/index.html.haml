@@ -1,66 +1,19 @@
 .rgs-body
-  =render "rgs-header"
+  .logo-header
+    %h1
+      %a{ href: "https://www.mercari.com/jp/", class: "header-link"}
+        %object{type: "image/svg+xml", data: "/assets/logo.svg", width:"185", height:"49", class:"header-logo"}
+          %img{alt: "mercari", src: "assets/mercari.png"}/
   .rgs-main
     .rgs-main__section
-      %h2 会員情報入力
+      %h2 新規会員登録
       .form
-        .form__upper
-          .form__upper__group
-            %label ニックネーム
-            %span.form-require 必須
-            %input.nickname{ type: 'text', name: 'nickname', placeholder: '例:メルカリ太郎', class: 'input-default' }
-          .form__upper__group
-            %label メールアドレス
-            %span.form-require 必須
-            %input.email{ name: 'email', placeholder: 'PC・携帯どちらでも可',  class: 'input-default'}
-          .form__upper__group
-            %label パスワード
-            %span.form-require 必須
-            %input.password{ name: 'password', placeholder: '7文字以上', class: 'input-default'}
-          .form__upper__group
-            %label パスワード(確認)
-            %span.form-require 必須
-            %input.password{ name: 'password', placeholder: '7文字以上', class: 'input-default'}
-          .form__upper__group
-            %h3 本人確認
-            %p.attention 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-          .form__upper__group
-            .name
-              %label お名前(全角)
-              %span.form-require 必須
-            %input{ name: 'first-name', placeholder: '例）山田', class: 'input-default-harf' }
-            %input{ name: 'last-name', placeholder: '例）彩', class: 'input-default-harf'}
-          .form__upper__group
-            .name
-              %label お名前カナ(全角)
-              %span.form-require 必須
-            %input.first-name{ name: 'first-name', placeholder: '例）ヤマダ', class: 'input-default-harf' }
-            %input.last-name{ name: 'last-name', placeholder: '例）アヤ', class: 'input-default-harf' }
-          .form__upper__group
-            .birth
-              %label 生年月日
-              %span.form-require 必須
-              .select-wrap
-                %input{ name: 'birth', placeholder: '',class: 'input-default-select'}
-                %span 年
-                %input{ name: 'birth', placeholder: '',class: 'input-default-select'}
-                %span 月
-                %input{ name: 'birth', placeholder: '',class: 'input-default-select'}
-                %span 日
-          %p.form-info-text
-            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-          .form__upper__group
-            %img{alt: "robot", src: "assets/robo.png"}
-          .form__upper__group
-            %p.agree
-              ｢次へ進む｣のボタンを押すことにより、
-              %a{href: "https://www.mercari.com/jp/tos_list/"}利用規約
-              に同意したものとみなします
-          .form__upper__group
-            %button.btn-default{type: "submit"} 次へ進む
-          .form__upper__group
-            %p.about
-              %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} 本人情報の登録について
-              = fa_icon 'chevron-right'
-              %span<>
+        .btn-email
+          = fa_icon 'envelope'
+          %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} メールアドレスで登録する
+        .btn-facebook
+          = fa_icon 'facebook'
+          %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} facebookで登録する
+        .btn-google
+          %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} googleで登録する
   =render "sub-footer"
