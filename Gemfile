@@ -82,4 +82,9 @@ gem 'fog-aws'
 gem 'nokogiri', '>= 1.10.4'
 gem 'devise', '~> 4.7.1'
 
+gem 'font-awesome'
+gem "font-awesome-rails"
+gem 'font-awesome-sass'
+gem 'haml-rails'
+gem 'jquery-rails'
 
