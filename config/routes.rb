@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'registrations#index2'
+  root 'registrations#index4'
 end

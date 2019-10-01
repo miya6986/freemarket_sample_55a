@@ -1,19 +1,19 @@
 .body {
   background-color: #F5F5F5;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  @include registration-header();
-
-.rgs-main{
-  background-color: #F5F5F5;
-  &__section{
-    margin: 0 auto;
-    width: 700px;
-    background-color: #FFFFFF;
-    h2{
-      font-size: 22px;
-      padding: 32px;
-      font-weight: bold;
-      text-align: center;
+  @include rgs-header();
+  .rgs-main{
+    background-color: #F5F5F5;
+    &__section{
+      margin: 0 auto;
+      width: 700px;
+      background-color: #FFFFFF;
+      h2{
+        font-size: 22px;
+        padding: 32px;
+        font-weight: bold;
+        text-align: center;
+      }
     }
   }
   .form{
@@ -128,5 +128,4 @@
     }
   }
 }
-}
-@include registration-footer();
+  @include rgs-footer();
