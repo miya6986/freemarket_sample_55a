@@ -86,11 +86,13 @@ gem 'fog-aws'
 gem 'nokogiri', '>= 1.10.4'
 gem 'devise', '~> 4.7.1'
 
+#ビュー関係
 gem 'font-awesome'
 gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'jquery-rails'
 
+#商品購入＆検索機能
 gem 'payjp'
 gem 'ransack'
