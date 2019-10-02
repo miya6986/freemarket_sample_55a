@@ -9,7 +9,13 @@
       background: #fff;
       position: relative;
       cursor: pointer;
+      &__link{
+        text-decoration: none;
+        color: #333333;
+        font-size: 14px;
+      }
       &::after{
+        /* 矢印 */
         position: absolute;
         top: 40%;
         right: 13px;
@@ -23,22 +29,12 @@
         transform: rotate(45deg);
         transition: all .2s;
       }
-      &:hover::after {// ホバーしたら矢印(::after)動く
-        right: 9px;// デフォルト位置より4px分右に動く
-        border-color: black;// デフォルトの灰色から黒色へ変化させる
-      }
-      &__link{
-        text-decoration: none;
-        color: #333333;
-        font-size: 14px;
-        &_arrow{
-          float: right;
-          font-weight: normal;
-          color: #CCCCCC;
-        }
-      }
       &:hover{
         background: #fafafa;
+        &::after{
+          right: 9px;
+          border-color: #333;
+        }
       }
       &.active{
         background: #EEEEEE;
@@ -53,9 +49,6 @@
             font-weight: bold;
             color: #333333;
             font-size: 14px;
-            &_arrow{
-              color: #333333;
-            }
           }
         }
         &:hover{
