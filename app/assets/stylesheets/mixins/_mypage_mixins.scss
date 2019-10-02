@@ -21,9 +21,12 @@
   font-weight: bold;
   color: #333333;
   cursor: pointer;
+  &:hover{
+    opacity: 0.7;
+  }
   &.active{
     background: #fff;
-    border-top: solid 2px #EB615B;
+    border-top: solid 2px $red;
     border-collapse: separate;
     border-spacing: 0;
     box-sizing: content-box;
@@ -39,12 +42,12 @@
   padding: 2px 6px;
   margin-top: 8px;
   &.gray{
-    background: #888888;
+    background: $gray;
   }
   &.blue{
-    background: #2F8CDB;
+    background: $blue;
   }
   &.red{
-    background: #E93F33;
+    background: $red;
   }
 }

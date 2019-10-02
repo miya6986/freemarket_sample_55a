@@ -18,6 +18,9 @@
       text-decoration: none;
       &:hover{
         opacity: 0.7;
+        & h2{
+          text-decoration-line: underline;
+        }
       }
       &__image{
         text-align: center;
