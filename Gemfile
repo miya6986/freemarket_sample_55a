@@ -82,6 +82,7 @@ gem 'fog-aws'
 
 # セキュリティの関係で以下gemはversion指定も追記する
 gem 'nokogiri', '>= 1.10.4'
+gem 'rubyzip', '>= 1.3.0'
 gem 'devise', '~> 4.7.1'
 
 #ビュー関係
