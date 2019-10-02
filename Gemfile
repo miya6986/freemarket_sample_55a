@@ -56,7 +56,6 @@ group :development do
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
 end
-end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
@@ -76,8 +75,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-
 gem 'carrierwave'
 
 #デプロイ関係
@@ -88,7 +85,6 @@ gem 'nokogiri', '>= 1.10.4'
 gem 'devise', '~> 4.7.1'
 
 #ビュー関係
-gem 'font-awesome'
 gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'haml-rails'
