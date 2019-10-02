@@ -10,89 +10,95 @@ aside img{
   color: rgb(255, 255, 255);
   font-size: 12px;
   padding: 0px 20px 10px;
-}
-.footer-container{
-  @media (min-width: 768px) {
-    width: 700px;
-  }
-  @media (min-width: 1068px) {
-    width: 1020px;
-    margin: 0px auto;
-  }
-}
-.upper-items {
-  display: flex;
-}
-.upper-item:first-child {
-  padding-left: 0px;
-}
-.upper-item {
-  margin-top: 18px;
-  vertical-align: top;
-  width: 50%;
-  padding: 0px 10px;
-  @media (min-width: 1068px) {
-    padding: 0px 40px 0px 0px;
-  }
-  .text h2 {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.4em;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  }
-  ul {
-    padding: 0;
-  }
-  li {
-    line-height: 1.4em;
-    margin: 16px 0px 0px;
-  }
-}
-.middle-items {
-  vertical-align: top;
-  margin-top: 35px;
-  width: 100%;
-  padding: 0px;
-  h2 {
-    font-size: 16px;
-  }
-  .middle-item {
-    display: flex;
-    ul:first-child {
-      padding: 0;
+  .footer-container{
+    @media (min-width: 768px) {
+      width: 700px;
     }
-    ul {
-      padding-left: 120px;
+    @media (min-width: 1068px) {
+      width: 1020px;
+      margin: 0px auto;
     }
-    li {
-      line-height: 1.4em;
-      margin: 16px 0px 0px;
+    .upper-items {
+      display: flex;
+      .upper-item {
+        margin-top: 18px;
+        vertical-align: top;
+        width: 50%;
+        padding: 0px 10px;
+        @media (min-width: 1068px) {
+          padding: 0px 40px 0px 0px;
+        }
+        .text h2 {
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 0;
+          padding: 0;
+          font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        }
+        ul {
+          padding: 0;
+        }
+        li {
+          line-height: 1.4em;
+          margin: 16px 0px 0px;
+        }
+      }
+    }
+    .upper-item:first-child {
+      padding-left: 0px;
+    }
+    .middle-items {
+      vertical-align: top;
+      margin-top: 35px;
+      width: 100%;
+      padding: 0px;
+      h2 {
+        font-size: 16px;
+      }
+      .middle-item {
+        display: flex;
+        ul:first-child {
+          padding: 0;
+        }
+        ul {
+          padding-left: 120px;
+        }
+        li {
+          line-height: 1.4em;
+          margin: 16px 0px 0px;
+        }
+      }
+    }
+    .lower-items {
+      h2 {
+        font-size: 16px;
+      }
+      ul {
+        padding: 0;
+      }
+      li {
+        line-height: 1.4em;
+        margin: 16px 0px 0px;
+      }
+    }
+    .footer-bottom {
+      width: 700px;
+      margin: 55px auto 10px;
+      align-items: center;
+      display: flex;
+      
+      .copyright {
+        text-align: center;
+        padding-left: 15px;
+        width: 75%;
+      }
     }
   }
 }
-.lower-items {
-  h2 {
-    font-size: 16px;
-  }
-  ul {
-    padding: 0;
-  }
-  li {
-    line-height: 1.4em;
-    margin: 16px 0px 0px;
-  }
-}
-.footer-bottom {
-  width: 700px;
-  margin: 55px auto 10px;
-  align-items: center;
-  display: flex;
-  
-  .copyright {
-    text-align: center;
-    padding-left: 15px;
-    width: 75%;
-  }
-}
+
+
+
+
+
+
