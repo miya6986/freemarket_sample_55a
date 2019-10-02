@@ -156,6 +156,16 @@
       border: 1px solid transparent;
       text-align: center;
       margin: 0 auto;
+      .fa-envelope{
+        font-size:20px;
+        position: absolute;
+        top:280px;
+        left:540px;
+      }
+      .about__registered {
+        color: #FFFFFF;
+        text-decoration: none;
+      }
     }
     .btn-facebook{
       color: #fff;
@@ -167,8 +177,19 @@
       text-align: center;
       margin: 0 auto;
       margin-top: 16px;
+      .fa-facebook-square{
+        font-size:26px;
+        position: absolute;
+        top:343px;
+        left:540px;
+      }
+      .about__registered {
+        color: #FFFFFF;
+        text-decoration: none;
+      }
     }
     .btn-google{
+      font-size: 14px;
       color: black;
       background-color:#FFFFFF;
       border-radius: 4px;
@@ -177,6 +198,14 @@
       border: 1px solid transparent;
       text-align: center;
       margin: 0 auto;
+      margin-top: 16px;
+      border: #979797 solid 1px;
+      background: #fff url(/assets//google.svg) no-repeat 3px top;
+      .about__registered {
+        color: black;
+        text-decoration: none;
+
+      }
     }
   }
 }
