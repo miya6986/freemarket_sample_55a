@@ -1,0 +1,44 @@
+%ul
+  %li.notice
+    = link_to "",class:"notice__link" do
+      %img.notice__link_img{alt: "", src: "/assets/mercari_profile_icon.png"}
+      .notice__link-message
+        %p まゆたさんから「商品名」の取引メッセージがあります。返信をお願いします
+        %span.notice__link-message__passed
+          %i.far.fa-clock
+          1時間前
+      = fa_icon 'chevron-right', class:"mypage-notice_arrow_right"
+  %li.notice
+    = link_to "",class:"notice__link" do
+      %img.notice__link_img{alt: "", src: "/assets/mercari_profile_icon.png"}
+      .notice__link-message
+        %p まゆたさんが「商品名」を購入しました。内容確認の上、発送をお願いします。
+        %span.notice__link-message__passed
+          = fa_icon 'clock', class:'clock_icon'
+          2時間前
+      = fa_icon 'chevron-right', class:"mypage-notice_arrow_right"
+  %li.notice
+    = link_to "",class:"notice__link " do
+      %img.notice__link_img{alt: "", src: "/assets/mercari_profile_icon.png"}
+      .notice__link-message
+        %p まゆたさんが「商品名」を購入しました。内容確認の上、発送をお願いします。
+        %span.notice__link-message__passed
+          = fa_icon 'clock', class:'clock_icon'
+          2時間前
+      = fa_icon 'chevron-right', class:"mypage-notice_arrow_right"
+  %li.notice
+    = link_to "",class:"notice__link" do
+      %img.notice__link_img{alt: "", src: "/assets/mercari_profile_icon.png"}
+      .notice__link-message
+        %p まゆたさんが「商品名」を購入しました。内容確認の上、発送をお願いします。
+        %span.notice__link-message__passed
+          = fa_icon 'clock', class:'clock_icon'
+          2時間前
+      = fa_icon 'chevron-right', class:"mypage-notice_arrow_right"
+  %li.go-notice-lists
+    = link_to "",class:"go-notice-lists__link" do
+      一覧を見る
+
+%ul.notice__none
+  %li
+    現在、やることリストはありません
