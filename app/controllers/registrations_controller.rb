@@ -1,20 +1,20 @@
 class RegistrationsController < ApplicationController
-  def index
+  def step1
   end
 
-  def index1
+  def step2
   end
   
-  def index2
+  def step3
   end
 
-  def index3
+  def step4
   end
 
-  def index4
+  def step5
   end
 
-  def index5
+  def step6
   end
 
 end

@@ -23,7 +23,7 @@
     padding: 40px 0 0 44px;
     display: inline-block;
     vertical-align: top;
-    ol{
+    .proguress-bar{
       margin: 0;
       .first{
         z-index: 1;
@@ -32,6 +32,7 @@
         list-style: none;
         position: relative;
         margin: 0 40px 0 0 ;
+        color: #E93F36;
       }
       li{
         z-index: 1;
