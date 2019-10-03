@@ -1,7 +1,7 @@
-.header-wrapper {
+.top-header {
   background-color: rgb(255, 255, 255);
   position: relative;
-  .header-container {
+  &-container {
     width: 700px;
     margin: 0px auto;
     padding: 8px 0px 0px;
@@ -12,7 +12,7 @@
       display: flex;
       -webkit-box-pack: justify;
       justify-content: space-between;
-      .header-logo{
+      &--logo{
         align-items: center;
         display: flex;
         height: 40px;

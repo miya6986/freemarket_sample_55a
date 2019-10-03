@@ -1,7 +1,7 @@
-%header.header-wrapper
-  .header-container
+%header.top-header
+  .top-header-container
     .header-upper
-      .header-logo= image_tag 'header-logo.svg', alt: 'header-logo', class:'image'
+      .header-upper--logo= image_tag 'header-logo.svg', alt: 'header-logo', class:'image'
       %form{ class:'search'}
         %input{ type: "search", name: "keyword", placeholder: "何かお探しですか？",class: 'search__text-field'}
         %button{class: 'search__button' }
