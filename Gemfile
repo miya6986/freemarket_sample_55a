@@ -87,7 +87,6 @@ gem 'devise', '~> 4.7.1'
 
 #ビュー関係
 gem "font-awesome-rails"
-gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'jquery-rails'
 
