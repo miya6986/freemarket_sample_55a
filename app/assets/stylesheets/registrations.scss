@@ -156,11 +156,12 @@
       border: 1px solid transparent;
       text-align: center;
       margin: 0 auto;
+      position: relative;
       .fa-envelope{
         font-size:20px;
         position: absolute;
-        top:280px;
-        left:540px;
+        top:12px;
+        left:15px;
       }
       .about__registered {
         color: #FFFFFF;
@@ -177,15 +178,17 @@
       text-align: center;
       margin: 0 auto;
       margin-top: 16px;
-      .fa-facebook-square{
-        font-size:26px;
-        position: absolute;
-        top:343px;
-        left:540px;
-      }
-      .about__registered {
-        color: #FFFFFF;
-        text-decoration: none;
+      position: relative;
+        .fa-facebook-square{
+          font-size:26px;
+          position: absolute;
+          top:12px;
+          left:15px;
+        }
+        .about__registered {
+          color: #FFFFFF;
+          text-decoration: none;
+        }
       }
     }
     .btn-google{
@@ -208,5 +211,5 @@
       }
     }
   }
-}
+
   @include sub-footer();
