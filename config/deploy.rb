@@ -21,7 +21,7 @@ set :repo_url, "git@github.com:me/miya6986/freemarket_sample_55a.git"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, fetch(:linked_files, []).push("config/master.key")
+append :linked_files, %w{ config/master.key }
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
