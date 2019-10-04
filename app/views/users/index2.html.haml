@@ -1,0 +1,21 @@
+%nav.bread-crumbs.l-container
+  %ul.container
+    %li
+      = link_to "" do
+        %span メルカリ
+      = fa_icon 'chevron-right'
+    %li
+      = link_to "" do
+        %span マイページ
+      = fa_icon 'chevron-right'
+    %li
+      %span.page_now ログアウト
+%main
+  = render partial: 'mypage_side'
+  .mypage-main
+    %section.mypage-main__header
+      %a.mystore-link{href: ""}
+        %figure.mystore-link__image
+          %img.mystore-link__image_icon{alt: "", src: "/assets/member_photo_noimage_thumb.png"}
+        %h2.mystore-link__name ユーザー名
+
