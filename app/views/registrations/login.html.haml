@@ -1,0 +1,30 @@
+.rgs-body
+  .logo-header
+    %h1
+      %a{ href: "https://www.mercari.com/jp/", class: "header-link"}
+        %object{type: "image/svg+xml", data: "/assets/logo.svg", width:"185", height:"49", class:"header-logo"}
+          %img{alt: "mercari", src: "assets/mercari.png"}/
+  .login-main
+    .no-account
+      アカウントをお持ちでない方はこちら
+      .btn-new
+        %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} 新規会員登録
+    .exist-account
+      .btn-facebook
+        = fa_icon 'facebook-square'
+        %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} facebookでログイン
+      .btn-google
+        %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} googleでログイン
+    .login-form
+      .login-form__group
+        %input.email{ name: 'email', placeholder: 'メールアドレス',  class: 'input-default-login'}
+      .login-form__group
+        %input.password{ name: 'password', placeholder: 'パスワード', class: 'input-default-login'}
+      .login-form__group
+        %img{alt: "robot", src: "assets/robo.png"}
+      .login-form__group
+        %button.btn-default-login{type: "submit"} ログイン
+      .login-form__group
+        %p.about
+        %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} 本人情報の登録について
+  =render "./registrations/sub-footer"

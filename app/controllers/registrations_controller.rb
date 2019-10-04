@@ -17,5 +17,11 @@ class RegistrationsController < ApplicationController
   def step6
   end
 
+  def login
+  end
+
+  def logout
+  end
+
 end
 
