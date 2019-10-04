@@ -62,11 +62,17 @@
   padding: 5px 14px 5px 5px;
 }
 
+$section-font-size: 28px;
+$section-font-weight: 600;
+
 @mixin section-title {
   display: flex;
   align-items: flex-end;
   -webkit-box-pack: justify;
   justify-content: space-between;
+  h3 {
+    font-size: $section-font-size;
+    font-weight: $section-font-weight;
+  }
 }
 
-$section-font-size: 28px;

@@ -43,7 +43,7 @@
   .new-items-container {
     @include new-items-container();
   }
-  
+
   /* 人気のカテゴリ */
   .category-info {
     @include info();
@@ -88,9 +88,6 @@
   }
   .brand-title {
     @include section-title();
-    h3 {
-      font-size: $section-font-size;
-    }
     .more {
       @include more();
     }
