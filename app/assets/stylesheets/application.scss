@@ -9,14 +9,7 @@
 
 /* 基本設定 */
 
-* {
-  box-sizing: border-box;
-}
-
 body {
-  display: block;
-  margin: 0px;
-  padding: 0px;
   border-width: 0px;
   position: relative;
   min-height: 100vh;
@@ -25,19 +18,6 @@ body {
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   font-size: 14px;
   line-height: 1;
-}
-
-div,nav,header {
-  display: block;
-}
-
-ul {
-  list-style: none;
-}
-
-li {
-  display: list-item;
-  text-align: -webkit-match-parent;
 }
 
 img {
