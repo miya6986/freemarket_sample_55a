@@ -39,7 +39,11 @@
       overflow: hidden;
     }
   }
-
+  /* カテゴリ・ブランド共通設定 */
+  .new-items-container {
+    @include new-items-container();
+  }
+  
   /* 人気のカテゴリ */
   .category-info {
     @include info();
@@ -52,9 +56,6 @@
         @include tag();
       }
     } 
-  }
-  .new-items-container {
-    @include new-items-container();
   }
   .category-title {
     @include section-title();
