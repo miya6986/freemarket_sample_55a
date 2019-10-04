@@ -1,0 +1,53 @@
+@mixin container{
+  margin: 0 auto;
+  width: 1020px;
+}
+@mixin clearfix(){
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
+
+@mixin tab($width) {
+  width: $width;
+  height: 74px;
+  line-height: 72px;
+  display: inline-block;
+  letter-spacing: 0em;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+  cursor: pointer;
+  &:hover{
+    opacity: 0.7;
+  }
+  &.active{
+    background: #fff;
+    border-top: solid 2px $red;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-sizing: content-box;
+  }
+}
+
+@mixin tag {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 2px 6px;
+  margin-top: 8px;
+  &.gray{
+    background: $gray;
+  }
+  &.blue{
+    background: $blue;
+  }
+  &.red{
+    background: $red;
+  }
+}

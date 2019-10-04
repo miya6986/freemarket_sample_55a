@@ -1,11 +1,19 @@
 @import 'reset';
+@import 'color';
 @import 'font-awesome';
 @import './mixins/top-main';
 @import './mixins/sell-button';
+@import './mixins/mypage_mixins';
 @import './modules/top-header';
 @import './modules/top-main';
 @import './modules/top-footer';
 @import './modules/sell-button';
+@import './modules/mypage_body';
+@import './modules/mypage_bread-crumbs';
+@import './modules/mypage_side';
+@import './modules/mypage_main';
+@import './modules/mypage_tab-contents';
+@import './modules/mypage_tab-tabs';
 
 /* 基本設定 */
 
@@ -28,6 +36,7 @@ button, input, select, textarea {
   font-family: inherit;
   font-size: 100%;
 }
+
 
 
 

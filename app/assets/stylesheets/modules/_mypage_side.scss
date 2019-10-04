@@ -1,0 +1,64 @@
+.mypage-side{
+  width: 280px;
+  height: 100vh;
+  margin-right: 40px;
+  float: left;
+  &__nav_lists{
+    .nav-list{
+      padding: 16px;
+      background: #fff;
+      position: relative;
+      cursor: pointer;
+      &__link{
+        text-decoration: none;
+        color: #333333;
+        font-size: 14px;
+      }
+      &::after{
+        /* 矢印 */
+        position: absolute;
+        top: 40%;
+        right: 13px;
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid #ccc;
+        border-right: 2px solid #ccc;
+        -webkit-transform: rotate( -50%);
+        -webkit-transform: rotate( -50%);
+        transform: rotate(45deg);
+        transition: all .2s;
+      }
+      &:hover{
+        background: #fafafa;
+        &::after{
+          right: 9px;
+          border-color: #333;
+        }
+      }
+      &.active{
+        background: #EEEEEE;
+        font-weight: normal;
+        &::after{
+          border-top: 2px solid #333333;
+          border-right: 2px solid #333333;
+        }
+        .nav-list{
+          &__link{
+            text-decoration: none;
+            font-weight: bold;
+            color: #333333;
+            font-size: 14px;
+          }
+        }
+        &:hover{
+          background: #EEEEEE;
+        }
+      }
+    }
+  }
+  &_head{
+    margin-top: 40px;
+    font-weight: bold;
+  }
+}
