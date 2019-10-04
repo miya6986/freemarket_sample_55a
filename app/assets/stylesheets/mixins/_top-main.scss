@@ -15,6 +15,12 @@
   font-weight: 600;
 }
 
+@mixin new-items-container {
+  padding: 30px 0px 60px;
+  @media (min-width: 768px) {
+      padding: 42px 0px 100px;
+  }
+}
 @mixin items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

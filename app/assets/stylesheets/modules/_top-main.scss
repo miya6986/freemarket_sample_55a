@@ -53,6 +53,9 @@
       }
     } 
   }
+  .new-items-container {
+    @include new-items-container();
+  }
   .category-title {
     @include section-title();
     h3 {
@@ -68,7 +71,7 @@
       @include item();
     }
   }
-
+  
   /* 人気のブランド */
   .brand-info {
     @include info();
