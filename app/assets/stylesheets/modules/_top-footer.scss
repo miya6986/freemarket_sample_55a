@@ -1,3 +1,6 @@
+/* variables */
+$footer-font-size: 16px;
+
 aside img{
   vertical-align: bottom;
   color: rgb(255, 255, 255);
@@ -10,7 +13,7 @@ aside img{
   color: rgb(255, 255, 255);
   font-size: 12px;
   padding: 0px 20px 10px;
-  .footer-container{
+   .footer-container{
     @media (min-width: 768px) {
       width: 700px;
     }
@@ -29,8 +32,8 @@ aside img{
           padding: 0px 40px 0px 0px;
         }
         .text h2 {
-          font-size: 16px;
-          font-weight: 600;
+          font-size: $footer-font-size;
+          font-weight: $section-font-weight;
           line-height: 1.4em;
           margin: 0;
           padding: 0;
@@ -54,7 +57,8 @@ aside img{
       width: 100%;
       padding: 0px;
       h2 {
-        font-size: 16px;
+        font-size: $footer-font-size;
+        font-weight: $section-font-weight;
       }
       .middle-item {
         display: flex;
@@ -71,8 +75,10 @@ aside img{
       }
     }
     .lower-items {
+      margin-top: 35px;
       h2 {
-        font-size: 16px;
+        font-size: $footer-font-size;
+        font-weight: $section-font-weight;
       }
       ul {
         padding: 0;
