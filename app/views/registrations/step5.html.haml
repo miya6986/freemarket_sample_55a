@@ -40,7 +40,7 @@
             %p.about
               = fa_icon 'question-circle'
               %span<>
-              %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} カード裏面の番号とは？
+              = link_to 'カード裏面の番号とは？', root_path, class:'about__registered'
           .form__upper__group
             %button.btn-default{type: "submit"} 次へ進む
   =render "sub-footer"

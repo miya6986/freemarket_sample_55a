@@ -17,7 +17,7 @@
             します。他のユーザーに公開されることはありません。
           .form__upper__group
             %p.about
-              %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'registance'} 電話番号の確認が必要な理由
+              = link_to '電話番号の確認が必要な理由', root_path, class:'registance'
               = fa_icon 'chevron-right'
               %span<>
   =render "sub-footer"

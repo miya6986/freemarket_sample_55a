@@ -1,19 +1,18 @@
 .rgs-body
   .logo-header
     %h1
-      %a{ href: "https://www.mercari.com/jp/", class: "header-link"}
-        %object{type: "image/svg+xml", data: "/assets/logo.svg", width:"185", height:"49", class:"header-logo"}
-          %img{alt: "mercari", src: "assets/mercari.png"}/
+      = link_to root_path, class: 'header-link' do
+        = image_tag '/assets/logo.svg', alt: 'mercari', class: 'header-logo', height: '49', width: '185'
   .rgs-main
     .rgs-main__section
       %h2 新規会員登録
       .form
         .btn-email
-          %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} メールアドレスで登録する
+          = link_to 'メールアドレスで登録する', root_path, class:'about__registered'
           = fa_icon 'envelope'
         .btn-facebook
           = fa_icon 'facebook-square'
-          %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} facebookで登録する
+          = link_to 'facebookで登録する', root_path, class:'about__registered'
         .btn-google
-          %a{ href: 'https://www.mercari.com/jp/help_center/article/423/', class:'about__registered'} googleで登録する
+          = link_to 'googleで登録する', root_path, class:'about__registered'
   =render "sub-footer"

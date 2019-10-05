@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root "registrations#step6"
+  root "registrations#login"
 end

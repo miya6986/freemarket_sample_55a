@@ -259,6 +259,7 @@
         color: black;
         background-color:#FFFFFF;
         border-radius: 4px;
+        width: 100%;
         line-height: 48px;
         border: 1px solid transparent;
         text-align: center;
@@ -271,7 +272,7 @@
           text-decoration: none;
         }
       }
-    .login-form{
+      .login-form{
       padding: 24px  64px 32px ;
       background-color:#FFFFFF;
       &__group {
