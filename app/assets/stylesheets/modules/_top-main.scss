@@ -53,7 +53,7 @@
     &__tags {
       @include tags();
       .category-tag {
-        @include tag();
+        @include item-tag();
       }
     } 
   }
@@ -82,7 +82,7 @@
     &__tags  {
       @include tags();
       .brand-tag {
-        @include tag();
+        @include item-tag();
       }
     } 
   }
