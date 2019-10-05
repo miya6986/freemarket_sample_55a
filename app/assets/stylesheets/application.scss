@@ -6,15 +6,43 @@
 @import "./modules/rgs-main";
 @import "font-awesome";
 @import 'reset';
-@import 'font-awesome';
 @import 'color';
+@import 'font-awesome';
+@import './mixins/top-main';
+@import './mixins/sell-button';
 @import './mixins/mypage_mixins';
+@import './modules/top-header';
+@import './modules/top-main';
+@import './modules/top-footer';
+@import './modules/sell-button';
 @import './modules/mypage_body';
 @import './modules/mypage_bread-crumbs';
 @import './modules/mypage_side';
 @import './modules/mypage_main';
 @import './modules/mypage_tab-contents';
 @import './modules/mypage_tab-tabs';
+
+/* 基本設定 */
+
+body {
+  border-width: 0px;
+  position: relative;
+  min-height: 100vh;
+  color: rgb(51, 51, 51);
+  background-color: rgb(245, 245, 245);
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+}
+
+img {
+  vertical-align: middle;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
 
 
 
