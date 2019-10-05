@@ -1,8 +1,7 @@
 .rgs-header
   %h1
-    %a{ href: "https://www.mercari.com/jp/", class: "header-link"}
-      %object{type: "image/svg+xml", data: "/assets/logo.svg", width:"185", height:"49", class:"header-logo"}
-        %img{alt: "mercari", src: "assets/mercari.png"}/
+    = link_to root_path, class: 'header-link' do
+      = image_tag '/assets/logo.svg', alt: 'mercari', class: 'header-logo', height: '49', width: '185'
   %nav.progress
     %ol.proguress-bar
       %li.first
