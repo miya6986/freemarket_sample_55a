@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root "registrations#step1"
+  root "registrations#step6"
 end

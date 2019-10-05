@@ -5,6 +5,7 @@
   @include rgs-header();
   @include sub-footer();
   @include logo-header();
+
 // 新規ログイン画面
   .rgs-main{
     background-color: #F5F5F5;
@@ -23,6 +24,7 @@
   // 新規登録画面
   .form{
     border-top: 1px solid #f5f5f5;
+    padding: 40px 40px 64px;
     &__upper{
       margin: 0 auto;
       max-width: 343px;
