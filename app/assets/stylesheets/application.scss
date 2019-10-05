@@ -1,3 +1,10 @@
+@import "./reset";
+@import"./mixins/mixins.scss";
+@import "./modules/rgs-header";
+@import "./modules/sub-footer";
+@import "./modules/sub-header";
+@import "./modules/rgs-main";
+@import "font-awesome";
 @import 'reset';
 @import 'color';
 @import 'font-awesome';

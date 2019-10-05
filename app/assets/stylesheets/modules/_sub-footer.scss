@@ -1,0 +1,43 @@
+@mixin sub-footer(){
+  .sub-footer {
+    background-color: #F5F5F5;
+    width:456px;
+    height: 220px;
+    margin: 0 auto;
+    text-align: center;
+    .nav{
+      text-align: center;
+      padding-top: 40px;
+      ul{
+        li{
+          display: inline-block;
+          font-size: 12px;
+          margin-left: 16px;
+        }
+        a {
+          color: black;
+          text-decoration: none;
+  
+        }
+      }
+    }
+    .footer-link {
+      height: 80px;
+      width: 65px;
+    }
+    .footer-logo {
+      display: block;
+      height: 65px;
+      width: 80px;
+      margin: 40px auto 0;
+      pointer-events: none;
+    }
+    p{
+      font-size: 13px;
+      color: #333;
+      margin: 8px 0 0;
+      padding-bottom: 40px;
+    }
+  }
+}
+
