@@ -1,32 +1,8 @@
-%header
-  .header-wrapper
-    .header-upper
-      .header-logo
-        = image_tag 'header-logo.svg', alt: 'header-logo'
-      %form{ class:'search'}
-        %input{ type: "search", name: "keyword", placeholder: "何かお探しですか？",class: 'search__text-field'}
-        %button{class: 'search__button' }
-          = fa_icon 'search lg'
-    .header-lower
-      .menu-left
-        .menu-left__item
-          = fa_icon 'list lg', class:'menu-left__item--icon'
-          %strong カテゴリーから探す
-        .menu-left__item
-          = fa_icon 'tag lg',class:'menu-left__item--icon'
-          %strong ブランドから探す
-      .menu-right
-        .menu-right__item
-          .signup
-            新規会員登録
-        .menu-right__item
-          .login
-            ログイン
-
-.wrapper 
-  .container
+= render 'main-header'
+.top-wrapper 
+  .top-container
     .jumbotron
-      = image_tag 'mercari-top.png', alt: 'camp-image'
+      = image_tag 'mercari-top.png', alt: 'mercari-top'
     .category-info
       .category-info__text 
         %h2 人気のカテゴリー
@@ -39,32 +15,33 @@
           家電・スマホ・カメラ
         %li.category-tag
           おもちゃ・ホビー・グッズ
-    .category-title
-      %h3 レディース新着アイテム
-      .more
-        もっと見る
-        = fa_icon 'chevron-right'
-    %ul.category-items
-      %li.category-item 
-        = image_tag 'product-sample.png'
-      %li.category-item
-        = image_tag 'product-sample.png'
-      %li.category-item
-        = image_tag 'product-sample.png'
-      %li.category-item
-        = image_tag 'product-sample.png'
-      %li.category-item
-        = image_tag 'product-sample.png'
-      %li.category-item 
-        = image_tag 'product-sample.png'
-      %li.category-item
-        = image_tag 'product-sample.png'
-      %li.category-item
-        = image_tag 'product-sample.png'
-      %li.category-item
-        = image_tag 'product-sample.png'
-      %li.category-item
-        = image_tag 'product-sample.png'
+    .new-items-container
+      .category-title
+        %h3 レディース新着アイテム
+        .more
+          もっと見る
+          = fa_icon 'chevron-right'
+      %ul.category-items
+        %li.category-item 
+          = image_tag 'product-sample.png'
+        %li.category-item
+          = image_tag 'product-sample.png'
+        %li.category-item
+          = image_tag 'product-sample.png'
+        %li.category-item
+          = image_tag 'product-sample.png'
+        %li.category-item
+          = image_tag 'product-sample.png'
+        %li.category-item 
+          = image_tag 'product-sample.png'
+        %li.category-item
+          = image_tag 'product-sample.png'
+        %li.category-item
+          = image_tag 'product-sample.png'
+        %li.category-item
+          = image_tag 'product-sample.png'
+        %li.category-item
+          = image_tag 'product-sample.png'
     .brand-info
       .brand-info__text
         %h2 人気のブランド
@@ -77,92 +54,34 @@
           シュプリーム
         %li.brand-tag
           ナイキ
-    .brand-title
-      %h3 シャネル新着アイテム
-      .more
-        もっと見る
-        = fa_icon 'chevron-right'
-    %ul.brand-items
-      %li.brand-item
-        = image_tag 'brand-sample.png'
-      %li.brand-item
-        = image_tag 'brand-sample.png'
-      %li.brand-item
-        = image_tag 'brand-sample.png'
-      %li.brand-item
-        = image_tag 'brand-sample.png'
-      %li.brand-item
-        = image_tag 'brand-sample.png'
-      %li.brand-item
-        = image_tag 'brand-sample.png'
-      %li.brand-item
-        = image_tag 'brand-sample.png'
-      %li.brand-item
-        = image_tag 'brand-sample.png'
-      %li.brand-item
-        = image_tag 'brand-sample.png'
-      %li.brand-item
-        = image_tag 'brand-sample.png'
+    .new-items-container
+      .brand-title
+        %h3 シャネル新着アイテム
+        .more
+          もっと見る
+          = fa_icon 'chevron-right'
+      %ul.brand-items
+        %li.brand-item
+          = image_tag 'brand-sample.png'
+        %li.brand-item
+          = image_tag 'brand-sample.png'
+        %li.brand-item
+          = image_tag 'brand-sample.png'
+        %li.brand-item
+          = image_tag 'brand-sample.png'
+        %li.brand-item
+          = image_tag 'brand-sample.png'
+        %li.brand-item
+          = image_tag 'brand-sample.png'
+        %li.brand-item
+          = image_tag 'brand-sample.png'
+        %li.brand-item
+          = image_tag 'brand-sample.png'
+        %li.brand-item
+          = image_tag 'brand-sample.png'
+        %li.brand-item
+          = image_tag 'brand-sample.png'
+= render 'sell-button'
+= render 'main-footer'
 
-.sell-button-container
-  .sell-button
-    .text
-      出品
-    = fa_icon 'camera',class:'icon'
-%aside
-  = image_tag 'mercari-aside.png', alt: 'aside-image'
-%footer
-  %nav.footer-items      
-    .footer-item
-      .text
-        %h2 メルカリについて
-      %ul 
-        %li 会社概要（運営会社）
-        %li 採用情報
-        %li プレスリリース
-        %li 公式ブログ
-        %li メルカリロゴ利用ガイドライン
-        %li
-          .icon 
-            = fa_icon 'twitter 3x'
-            = fa_icon 'facebook-square 3x'
-        
-    .footer-item
-      .text
-        %h2 ヘルプ＆ガイド
-      %ul 
-        %li メルカリガイド
-        %li らくらくメルカリ便
-        %li ゆうゆうメルカリ便
-        %li 大型メルカリ便
-        %li 車体取引ガイド
-        %li メルカリあんしん・あんぜん宣言！
-        %li 偽ブランド品撲滅への取り組み
-        %li メルカリボックス
-    .footer-item
-      .text
-        %h2 プライバシーと利用規約
-      .contract__items
-        .contract-item
-          %ul 
-            %li プライバシーポリシー
-            %li メルカリ利用規約
-            %li あんしんスマホサイト制度に関する利用特約
-            %li コンプライアンスポリシー
-        .contract-item
-          %ul 
-            %li 個人データの安全管理に係る基本方針
-            %li 特定商取引に関する表記
-            %li 資金決済法に基づく表示
-            %li 法令順守と犯罪抑止のために
-    .footer-item 
-      .text
-        %h2 国
-      %ul
-        %li 日本　 
-        %li United States
-  .footer-bottom
-    = image_tag 'footer-logo.svg', alt: 'footer-logo'
-    .copyright
-      %span © 2019 Mercari
 

@@ -15,8 +15,6 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 
-app/assets/images
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -25,12 +23,9 @@ app/assets/images
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
-config/master.key
-config/secrets.yml
-config/credentials.yml.enc
 
 # Only include if you have production secrets in this file, which is no longer a Rails default
-# config/secrets.yml
+config/secrets.yml
 
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
@@ -75,3 +70,5 @@ yarn-debug.log*
 !/storage/.keep
 
 # End of https://www.gitignore.io/api/rails
+# Ignore master key for decrypting credentials and more.
+/config/master.key
