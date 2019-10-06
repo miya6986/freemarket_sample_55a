@@ -2,4 +2,5 @@
   background-color: #F5F5F5;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   @include logo-header();
+  @include sub-footer();
 }
