@@ -7,7 +7,6 @@
 @import "font-awesome";
 @import 'reset';
 @import 'color';
-@import 'font-awesome';
 @import './mixins/top-main';
 @import './mixins/sell-button';
 @import './mixins/mypage_mixins';
@@ -21,6 +20,7 @@
 @import './modules/mypage_main';
 @import './modules/mypage_tab-contents';
 @import './modules/mypage_tab-tabs';
+@import './modules/buy';
 
 /* 基本設定 */
 
