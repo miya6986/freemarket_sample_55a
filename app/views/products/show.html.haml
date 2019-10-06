@@ -1,17 +1,69 @@
 = render 'main-header'
-%section.item-box-container.l-single-container
+%section.item-box-container
   %h1.item-name
-    テスト
+    THE SHOP TK ボディバッグ ショルダーバッグ
   %p.item-wording
-    
+    『THE SHOP TK ボディバッグ ショルダーバッグ』は、山田太郎さんから出品されました。タケオ キクチ（ボディーバッグ/メンズ）の商品で、長崎県から2~3日で発送されます。
   .item-main-content.clearfix
-
+    = image_tag 'item-show.jpg', alt: 'item-show-sample',class: 'item-photo'
+    %table.item-detail-table
+      %tbody
+        %tr
+          %th 出品者
+          %td 
+            山田太郎
+        %tr
+          %th カテゴリー
+          %td 
+            .category-name メンズ
+            .item-detail-table__sub-category
+              = fa_icon 'chevron-right'
+              バッグ
+            .item-detail-table-sub-sub-category
+              = fa_icon 'chevron-right'
+              ボディーバッグ
+        %tr
+          %th ブランド
+          %td タケオ キクチ
+        %tr
+          %th 商品の状態
+          %td 目立った傷や汚れなし
+        %tr
+          %th 配送料の負担	
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送料の方法
+          %td 山田太郎
+        %tr
+          %th 配送元地域
+          %td 長崎県
+        %tr
+          %th 発送日の目安	
+          %td 2~3日で発送
   .item-price-box 
-
+    %span.item-price
+      ¥3,000
+    %span.item-tax
+      (税込)
+    %span.item-shipping-fee
+      送料込み
   .item-buy-btn
+    購入画面に進む
 
   .item-description
+    %p.item-description__inner 数回のみの使用。　ほぼ美品
   
   .item-button-container.clearfix
+    .item-button-left
+      .item-button.item-button__like 
+        = fa_icon 'heart'
+        %span いいね
+      .item-button.item-button__report
+        = fa_icon 'flag'
+        %span 不適切な商品の報告
+    .item-button-right
+      = fa_icon 'lock'
+      %span あんしん・あんぜんへの取り組み
+
 
 = render 'main-footer'
