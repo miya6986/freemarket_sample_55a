@@ -80,6 +80,9 @@
             color:rgb(234, 53, 45);
           }
         }
+        &__item:hover {
+          color: $blue;
+        }
       }
       .menu-right {
         display: flex;
