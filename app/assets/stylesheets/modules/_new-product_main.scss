@@ -168,27 +168,10 @@
               margin: 8px 0 0;
               position: relative;
               .icon-angle-down {
-                position: absolute;
-                right: 16px;
-                top: 50%;
-                z-index: 2;
-                color: #888;
-                font-size: 28px;
-                -webkit-transform: translate(0, -50%);
+                @include icon-angle-down;
               }
               select {
-                width: 100%;
-                z-index: 2;
-                height: 48px;
-                padding: 0 16px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
-                cursor: pointer;
-                appearance: none;
-                -webkit-appearance: none;
+                @include select;
               }
             }
           }
@@ -210,27 +193,10 @@
               margin: 8px 0 0;
               position: relative;
               .icon-angle-down {
-                position: absolute;
-                right: 16px;
-                top: 50%;
-                z-index: 2;
-                color: #888;
-                font-size: 28px;
-                -webkit-transform: translate(0, -50%);
+                @include icon-angle-down;
               }
               select {
-                width: 100%;
-                z-index: 2;
-                height: 48px;
-                padding: 0 16px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
-                cursor: pointer;
-                appearance: none;
-                -webkit-appearance: none;
+                @include select;
               }
             }
           }
