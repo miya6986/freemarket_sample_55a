@@ -202,6 +202,95 @@
           }
         }
       }
+      &__shipping {
+        padding: 40px;
+        border-top: 1px solid #eee;
+        display: flex;
+        h3 {
+          color: #888;
+          font-size: 14px;
+          font-weight: 600;
+          margin-right: auto;
+        }
+        &__form-box {
+          width: 400px;
+          margin: 0;
+          &__fee {
+            label {
+              font-weight: 600;
+            }
+            span {
+              background: #ea352d;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .form-select {
+              margin: 8px 0 0;
+              position: relative;
+              .icon-angle-down {
+                @include icon-angle-down;
+              }
+              select {
+                @include select;
+              }
+            }
+          }
+          &__area {
+            margin: 40px 0 0;
+            label {
+              font-weight: 600;
+            }
+            span {
+              background: #ea352d;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .form-select {
+              margin: 8px 0 0;
+              position: relative;
+              .icon-angle-down {
+                @include icon-angle-down;
+              }
+              select {
+                @include select;
+              }
+            }
+          }
+          &__day {
+            margin: 40px 0 0;
+            label {
+              font-weight: 600;
+            }
+            span {
+              background: #ea352d;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .form-select {
+              margin: 8px 0 0;
+              position: relative;
+              .icon-angle-down {
+                @include icon-angle-down;
+              }
+              select {
+                @include select;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

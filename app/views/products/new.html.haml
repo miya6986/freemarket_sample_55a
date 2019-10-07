@@ -59,4 +59,28 @@
               = fa_icon 'angle-down', class: 'icon-angle-down'
               %select
                 %option{hidden: "", value: ""} ---
+      .form__shipping
+        %h3 配送について
+        .form__shipping__form-box
+          .form__shipping__form-box__fee
+            %label 配送料の負担
+            %span 必須
+            .form-select
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              %select
+                %option{hidden: "", value: ""} ---
+          .form__shipping__form-box__area
+            %label 配送元の地域
+            %span 必須
+            .form-select
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              %select
+                %option{hidden: "", value: ""} ---
+          .form__shipping__form-box__day
+            %label 配送までの日数
+            %span 必須
+            .form-select
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              %select
+                %option{hidden: "", value: ""} ---
   =render "./registrations/sub-footer"
