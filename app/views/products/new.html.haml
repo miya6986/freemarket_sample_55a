@@ -29,5 +29,34 @@
           %label 商品の説明
           %span 必須
           %textarea{name: 'description', rows: "5", cols: 40, placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'}
-              
+      .form__details
+        %h3 商品の詳細
+        .form__details__form-box
+          .form__details__form-box__category
+            %label カテゴリー
+            %span 必須
+            .form-select
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              %select
+                %option{hidden: "", value: ""} ---
+                %option{value: ""} レディース
+                %option{value: ""} メンズ
+                %option{value: ""} ベビー・キッズ
+                %option{value: ""} インテリア・住まい・小物
+                %option{value: ""} 本・音楽・ゲーム
+                %option{value: ""} おもちゃ・ホビー・グッズ
+                %option{value: ""} コスメ・香水・美容
+                %option{value: ""} 家電・スマホ・カメラ
+                %option{value: ""} スポーツ・レジャー
+                %option{value: ""} ハンドメイド
+                %option{value: ""} チケット
+                %option{value: ""} 自動車・オートバイ
+                %option{value: ""} その他
+          .form__details__form-box__condition
+            %label 商品の状態
+            %span 必須
+            .form-select
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              %select
+                %option{hidden: "", value: ""} ---
   =render "./registrations/sub-footer"
