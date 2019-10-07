@@ -20,7 +20,7 @@
             新規会員登録
           %li.menu-right__item.login
             ログイン
-        - else 
+        - elsif controller.controller_name == "users"
           %li.menu-right__item.likes
             .icon
               = fa_icon 'heart lg'
