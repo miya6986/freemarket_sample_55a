@@ -1,4 +1,4 @@
-@import "./reset";
+// @import "./reset";
 @import"./mixins/mixins.scss";
 @import "./modules/rgs-header";
 @import "./modules/sub-footer";
@@ -43,6 +43,7 @@ button, input, select, textarea {
   font-family: inherit;
   font-size: 100%;
 }
+
 
 
 
