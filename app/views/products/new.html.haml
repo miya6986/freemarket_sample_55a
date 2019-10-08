@@ -83,4 +83,20 @@
               = fa_icon 'angle-down', class: 'icon-angle-down'
               %select
                 %option{hidden: "", value: ""} ---
+      .form__price
+        %h3 販売価格(300〜9,999,999)
+        .form__price__form-box
+          .form__price__form-box__price
+            %label.left 価格
+            .require
+              %span 必須
+            .price-input
+              .price-input__logo ¥
+              %input{name: 'price', placeholder: '例）300'}
+          .form__price__form-box__charge
+            .form__price__form-box__charge__left 販売手数料 (10%)
+            .form__price__form-box__charge__right -
+          .form__price__form-box__profit
+            .form__price__form-box__profit__left 販売利益
+            .form__price__form-box__profit__right -
   =render "./registrations/sub-footer"
