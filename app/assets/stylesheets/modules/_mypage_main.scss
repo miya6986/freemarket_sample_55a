@@ -76,13 +76,13 @@
     height: 362px;
     background: #fff;
     padding: 40px 16px;
-    .textarea{
+    &_textarea{
       width: 668px;
       height: 216px;
       border: 1px solid #ccc;
       padding: 10px;
     }
-    button{
+    &_button{
       @include btn-l;
       background: $red;
       width: 668px;
