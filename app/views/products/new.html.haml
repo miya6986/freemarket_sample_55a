@@ -61,6 +61,7 @@
                 %option{hidden: "", value: ""} ---
       .form__shipping
         %h3 配送について
+        = link_to "？", "", class: "question"
         .form__shipping__form-box
           .form__shipping__form-box__fee
             %label 配送料の負担
@@ -85,6 +86,7 @@
                 %option{hidden: "", value: ""} ---
       .form__price
         %h3 販売価格(300〜9,999,999)
+        = link_to "？", "", class: "question"
         .form__price__form-box
           .form__price__form-box__price
             %label.left 価格
