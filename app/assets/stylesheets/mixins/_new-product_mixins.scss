@@ -53,3 +53,9 @@
   text-align: center;
   text-decoration: none;
 }
+
+@mixin label {
+  label {
+    font-weight: 600;
+  }
+}

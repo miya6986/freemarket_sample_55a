@@ -127,17 +127,13 @@
           width: 400px;
           margin: 0;
           &__category {
-            label {
-              font-weight: 600;
-            }
+            @include label;
             @include require-sapn;
             @include form-select;
           }
           &__condition {
             margin: 40px 0 0;
-            label {
-              font-weight: 600;
-            }
+            @include label;
             @include require-sapn;
             @include form-select;
           }
@@ -161,25 +157,19 @@
           width: 400px;
           margin: 0;
           &__fee {
-            label {
-              font-weight: 600;
-            }
+            @include label;
             @include require-sapn;
             @include form-select;
           }
           &__area {
             margin: 40px 0 0;
-            label {
-              font-weight: 600;
-            }
+            @include label;
             @include require-sapn;
             @include form-select;
           }
           &__day {
             margin: 40px 0 0;
-            label {
-              font-weight: 600;
-            }
+            @include label;
             @include require-sapn;
             @include form-select;
           }
