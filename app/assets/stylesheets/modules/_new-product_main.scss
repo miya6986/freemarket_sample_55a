@@ -131,16 +131,7 @@
               font-weight: 600;
             }
             @include require-sapn;
-            .form-select {
-              margin: 8px 0 0;
-              position: relative;
-              .icon-angle-down {
-                @include icon-angle-down;
-              }
-              select {
-                @include select;
-              }
-            }
+            @include form-select;
           }
           &__condition {
             margin: 40px 0 0;
@@ -148,16 +139,7 @@
               font-weight: 600;
             }
             @include require-sapn;
-            .form-select {
-              margin: 8px 0 0;
-              position: relative;
-              .icon-angle-down {
-                @include icon-angle-down;
-              }
-              select {
-                @include select;
-              }
-            }
+            @include form-select;
           }
         }
       }
@@ -192,16 +174,7 @@
               font-weight: 600;
             }
             @include require-sapn;
-            .form-select {
-              margin: 8px 0 0;
-              position: relative;
-              .icon-angle-down {
-                @include icon-angle-down;
-              }
-              select {
-                @include select;
-              }
-            }
+            @include form-select;
           }
           &__area {
             margin: 40px 0 0;
@@ -209,16 +182,7 @@
               font-weight: 600;
             }
             @include require-sapn;
-            .form-select {
-              margin: 8px 0 0;
-              position: relative;
-              .icon-angle-down {
-                @include icon-angle-down;
-              }
-              select {
-                @include select;
-              }
-            }
+            @include form-select;
           }
           &__day {
             margin: 40px 0 0;
@@ -226,16 +190,7 @@
               font-weight: 600;
             }
             @include require-sapn;
-            .form-select {
-              margin: 8px 0 0;
-              position: relative;
-              .icon-angle-down {
-                @include icon-angle-down;
-              }
-              select {
-                @include select;
-              }
-            }
+            @include form-select;
           }
         }
       }
