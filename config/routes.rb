@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'products#index'
-  resources :users,only: 'index'
+  resources :users,only: 'index' do
+    collection do
+      get :user_identification
+    end
+  end
   get 'step1', to: 'registrations#step1'
   get 'step2', to: 'registrations#step2'
   get 'step3', to: 'registrations#step3'

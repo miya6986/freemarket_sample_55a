@@ -1,0 +1,36 @@
+.identification-main
+  %h2.identification-main__title 本人情報の登録
+  = form_with url: root_path, class: "identification-form" do |form|
+    .identification-exp
+      %p
+        お客様の本人情報をご登録ください。
+        %br
+        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      %p.identification-exp__notice 本人確認書類のアップロードについて
+    %label.identification-form__name--label
+    .identification-form__name 名前
+    %label.identification-form__name-kana--label
+    .identification-form__name-kana なまえ
+    %label.identification-form__birth--label
+    .identification-form__birth 2000/01/01
+    .identification-form__postalcode
+      %label.identification-form__postalcode--label 郵便番号
+      %p.form-optionaly 任意
+      = form.text_field :postalcode
+    .identification-form__prefecture
+      %label.identification-form__prefecture--label 都道府県
+      %p.form-optionaly 任意
+      = form.text_field :prefecture
+    .identification-form__city
+      %label.identification-form__city--label 市区町村
+      %p.form-optionaly 任意
+      = form.text_field :city
+    .identification-form__address1
+      %label.identification-form__address1--label 番地
+      %p.form-optionaly 任意
+      = form.text_field :address1
+    .identification-form__address2
+      %label.identification-form__address2--label 建物名
+      %p.form-optionaly 任意
+      = form.text_field :address2
+    = form.submit
