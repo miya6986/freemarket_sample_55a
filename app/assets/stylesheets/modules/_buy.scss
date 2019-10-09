@@ -28,7 +28,7 @@
       opacity: 0.7 ;
     }
   }
-  
+
   /* メイン */
   .single-main {
     height: 800px;
@@ -84,17 +84,17 @@
           margin: 8px 0 0;
           line-height: 1.5;
         }
-        .buy-price-ja {
+        &__price {
           margin: 16px 0 0;
           font-size: 22px;
           font-weight: 600;
-          .item-shipping-fee {
+          .shipping-fee {
             margin: 0 0 0 8px;
             font-size: 14px;
             font-weight: 400;
           }
         }
-        .buy-accordion {
+        &__accordion {
           margin: 16px 0 0;
           .accordion-toggle {
             padding: 16px;
@@ -102,23 +102,23 @@
             position: relative;
           }
         }
-        .buy-price-table {
+        &__price-table {
           display: table;
           border-collapse: collapse;
           width: 100%;
-          .buy-price-row {
+          .buy-price {
             display: table-row;
             border-top: 1px solid #ccc;
-            .buy-price-cell {
+            &__cell {
               display: table-cell;
               padding: 16px 0;
               text-align: right;
             }
-            .buy-price-cell:first-child {
+            &__cell:first-child {
               text-align: left;
             }
           }
-          .buy-price-row:first-child {
+          .buy-price:first-child {
             border: 0;
           }
           .buy-you-pay {
@@ -157,7 +157,7 @@
       address {
         display: block;
       }
-      .buy-user-info-text {
+      &__text {
         margin: 8px 0 0;
         font-size: 14px;
         line-height: 1.4;
@@ -168,14 +168,14 @@
       a:visited {
         color: $blue;
       }
-      .buy-user-info-fix {
+      &__fix {
         display: block;
         text-align: right;
         color: $blue;
       }
-      .buy-user-info-fix:hover {
+      &__fix:hover {
         text-decoration: underline;
-        opacity: .7;
+        opacity: 0.7;
       }
     }
     .buy-content:last-of-type {

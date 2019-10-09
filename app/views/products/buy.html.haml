@@ -14,19 +14,19 @@
           %p.buy-item-name
             THE SHOP TK ボディバッグ ショルダーバッグ
           %form.buy-form
-            %p.buy-price-ja
+            %p.buy-form__price
               ¥3,000
-              %span.item-shipping-fee
+              %span.shipping-fee
                 送料込み
-            %ul.buy-accordion.not-have
+            %ul.buy-form__accordion
               %li.accrodion-parent
                 .accordion-toggle 
                   ポイントはありません
-            %ul.buy-price-table
-              %li.buy-price-row.buy-you-pay
-                .buy-price-cell
+            %ul.buy-form__price-table
+              %li.buy-price.buy-you-pay
+                .buy-price__cell
                   支払い金額
-                .buy-price-cell
+                .buy-price__cell
                   %span ¥3,000
             %button.btn-red
               購入する
@@ -34,13 +34,13 @@
       %section.buy-content.buy-user-info
         .buy-content-inner
           %h3 配送先
-          %address.buy-user-info-text
+          %address.buy-user-info__text
             〒123-4567
             %br
             大阪府大阪市●●
             %br
             テストユーザー
-          .buy-user-info-fix 
+          .buy-user-info__fix 
             = link_to '変更する', '#'
             = fa_icon 'chevron-right'
       %section.buy-content.buy-user-info
@@ -52,7 +52,7 @@
           09/25
           %br
           = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
-          .buy-user-info-fix 
+          .buy-user-info__fix 
             = link_to '変更する', '#'
             = fa_icon 'chevron-right'
   %footer.single-footer
