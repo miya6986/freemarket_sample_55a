@@ -153,6 +153,10 @@
           @include question;
           margin-right: auto;
         }
+        .question:hover {
+          background-color: #7ECEF4;
+          text-decoration: underline;
+        }
         &__form-box {
           width: 400px;
           margin: 0;
@@ -188,6 +192,10 @@
         .question {
           @include question;
           margin-right: auto;
+        }
+        .question:hover {
+          background-color: #7ECEF4;
+          text-decoration: underline;
         }
         &__form-box {
           width: 400px;
@@ -290,7 +298,12 @@
           background: #aaa;
           border: 1px solid #aaa;
           color: #fff;
-
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+        }
+        .btn-gray:hover {
+          background-color: #cccccc;
         }
       }
     }
