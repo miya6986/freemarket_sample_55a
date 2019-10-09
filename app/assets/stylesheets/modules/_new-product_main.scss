@@ -418,7 +418,11 @@
         &__description {
           line-height: 1.5;
           p {
-
+            font-size: 14px;
+            .description-link {
+              color: #0099e8;
+              text-decoration: none;
+            }
           }
         }
         .btn-default {
