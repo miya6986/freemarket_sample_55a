@@ -214,6 +214,11 @@
     li:first-child {
       margin: 0;
     }
+    li:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      opacity: 0.7;
+    }
     p {
       margin: 8px 0 0;
       color: #333;
@@ -228,6 +233,6 @@
     margin: 40px auto 0;
   }
   .single-footer-logo:hover {
-    opacity: 0.7 ;
+    opacity: 0.7;
   }
 }
