@@ -1,7 +1,7 @@
 .single-container
   %header.single-header
     %h1
-      = image_tag 'header-logo.svg', alt: 'header-logo'
+      = link_to image_tag('header-logo.svg', alt: 'header-logo'), root_path
 
   %main.single-main
     %section.buy-item-container.l-single-container
@@ -10,12 +10,12 @@
       %section.buy-content.buy-item
         .buy-content-inner
           %h3.buy-item-image
-            = image_tag 'm27124190794_1.jpg'
-          %p.buy-item-name.bold
-            パタゴニア ストレッチレインシャドージャケット
+            = image_tag 'item-show.jpg'
+          %p.buy-item-name
+            THE SHOP TK ボディバッグ ショルダーバッグ
           %form.buy-form
-            %p.buy-price-ja.bold 
-              ¥18,800
+            %p.buy-price-ja
+              ¥3,000
               %span.item-shipping-fee
                 送料込み
             %ul.buy-accordion.not-have
@@ -23,12 +23,12 @@
                 .accordion-toggle 
                   ポイントはありません
             %ul.buy-price-table
-              %li.buy-price-row.buy-you-pay.bold
+              %li.buy-price-row.buy-you-pay
                 .buy-price-cell
                   支払い金額
                 .buy-price-cell
-                  %span ¥18,800
-            %button.btn-default.btn-red.bold
+                  %span ¥3,000
+            %button.btn-red
               購入する
 
       %section.buy-content.buy-user-info
@@ -41,17 +41,19 @@
             %br
             テストユーザー
           .buy-user-info-fix 
-            %span 変更する
+            = link_to '変更する', '#'
             = fa_icon 'chevron-right'
       %section.buy-content.buy-user-info
         .buy-content-inner
           %h3 支払い方法
           %p.buy-user-info-text
             ************1234
-          %figure
-            = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
+          %br
+          09/25
+          %br
+          = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
           .buy-user-info-fix 
-            %span 変更する
+            = link_to '変更する', '#'
             = fa_icon 'chevron-right'
   %footer.single-footer
     %nav
@@ -60,6 +62,6 @@
         %li メルカリ利用規約
         %li 特定商取引に関する表記
     .single-footer-logo
-      = image_tag 'logo-gray.svg'
+      = link_to image_tag('logo-gray.svg'), root_path
     %p
       %small © 2019 Mercari
