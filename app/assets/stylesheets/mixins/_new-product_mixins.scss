@@ -22,3 +22,16 @@
   appearance: none;
   -webkit-appearance: none;
 }
+
+@mixin require-sapn {
+  span {
+    background-color: #E93F36;
+    color: #fff;
+    font-size: 12px;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    vertical-align:top;
+    font-weight: 600;
+  }
+}
