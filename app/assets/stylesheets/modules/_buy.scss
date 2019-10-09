@@ -33,6 +33,7 @@
   .single-main {
     height: 800px;
     width: 745px;
+    margin: 10px auto 0;
   }
   .l-single-container {
     background: #fff;
@@ -76,6 +77,7 @@
         width: calc(100% - 80px);
         margin: 0 0 0 16px;
         text-align: left;
+        font-size: 16px;
         font-weight: 600;
       }
       .buy-form {
