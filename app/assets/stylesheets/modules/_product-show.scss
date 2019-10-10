@@ -73,6 +73,7 @@
     .item-price {
       margin: 0 8px 0 0;
       font-size: 32px;
+      font-weight: 600;
       @media screen and (min-width: 768px) {
         margin: 0 16px 0 0;
         font-size: 50px;
@@ -93,6 +94,7 @@
     font-weight: 600;
     -webkit-transition: all ease-out .3s;
     transition: all ease-out .3s;
+    cursor: pointer;
     @media screen and (min-width: 768px) {
       font-size: 24px;
       line-height: 60px;
@@ -143,6 +145,7 @@
         color: #333;
         border: 1px solid #f5f5f5;
         background: #f5f5f5;
+        cursor: pointer;
         i {
           color: #ccc;
         }
@@ -151,14 +154,19 @@
         margin: 0 0 0 8px;
         color: #333;
         background: #f5f5f5;
+        cursor: pointer;
         @media screen and (min-width: 768px) {
           margin: 0 0 0 16px;
         }
+      }
+      &__report:hover {
+        opacity: 0.7;
       }
     }
     .item-button-right {
       color: #0099e8;
       margin: 16px 0 0;
+      cursor: pointer;
       @media screen and (min-width: 768px) {
         margin: 8px 0 0;
         float: right;
@@ -167,6 +175,10 @@
         }
       }
     }
+    .item-button-right:hover {
+      opacity: 0.7;
+    }
+
   }
 }
 
