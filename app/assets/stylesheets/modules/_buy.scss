@@ -97,6 +97,7 @@
         }
         &__accordion {
           margin: 16px 0 0;
+          background-color: $background_color;
           .accordion-toggle {
             padding: 16px;
             border: 1px solid #ccc;
