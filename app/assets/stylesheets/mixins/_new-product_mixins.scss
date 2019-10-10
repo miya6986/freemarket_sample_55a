@@ -60,6 +60,9 @@
   }
 }
 
-@mixin input {
-  
+@mixin question-hover {
+  .question:hover {
+    background-color: #7ECEF4;
+    text-decoration: underline;
+  }
 }

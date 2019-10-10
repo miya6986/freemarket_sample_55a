@@ -152,10 +152,7 @@
           @include question;
           margin-right: auto;
         }
-        .question:hover {
-          background-color: #7ECEF4;
-          text-decoration: underline;
-        }
+        @include question-hover;
         &__form-box {
           width: 400px;
           margin: 0;
@@ -192,10 +189,7 @@
           @include question;
           margin-right: auto;
         }
-        .question:hover {
-          background-color: #7ECEF4;
-          text-decoration: underline;
-        }
+        @include question-hover;
         &__form-box {
           width: 400px;
           margin: 0;
