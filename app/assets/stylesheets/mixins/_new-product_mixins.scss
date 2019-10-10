@@ -23,6 +23,8 @@
       color: #888;
       font-size: 28px;
       -webkit-transform: translate(0, -50%);
+      cursor: pointer;
+      pointer-events: none;
     }
     select {
       width: 100%;
