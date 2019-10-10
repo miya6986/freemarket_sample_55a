@@ -12,6 +12,17 @@
           %th 出品者
           %td 
             山田太郎
+            .user-ratings-box
+              .user-ratings 
+                %i.fas.fa-grin.icon-good
+                  %span 1 
+              .user-ratings 
+                %i.fas.fa-meh.icon-normal
+                  %span 0
+              .user-ratings 
+                %i.fas.fa-frown.icon-bad
+                  %span 0
+
         %tr
           %th カテゴリー
           %td 
@@ -64,6 +75,5 @@
     .item-button-right
       = fa_icon 'lock'
       %span あんしん・あんぜんへの取り組み
-
 
 = render 'main-footer'

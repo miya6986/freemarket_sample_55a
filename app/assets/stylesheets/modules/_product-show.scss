@@ -65,6 +65,36 @@
         background: #fff;
       }
       
+      .user-ratings {
+        display: inline-block;
+        margin-top: 5px;
+        font-size: 16px;
+        vertical-align: middle;
+        .icon-good {
+          color: #ef5185;
+          span {
+            color: #333;
+            font-size:14px;
+            font-weight: normal;
+          }
+        }
+        .icon-normal {
+          color: #fba933;
+          span {
+            color: #333;
+            font-size:14px;
+            font-weight: normal;
+          }
+        }
+        .icon-bad {
+          color: #6ab5d8;
+          span {
+            color: #333;
+            font-size:14px;
+            font-weight: normal;
+          }
+        }
+      }
     }
   }
   .item-price-box {
