@@ -45,7 +45,7 @@ th,
 td {
 	margin:0;
 	padding:0;
-	color: #3D3D3D;
+	
 }
 table {
 	border-collapse:collapse;
@@ -67,6 +67,7 @@ em,
 strong,
 th,
 var {
+
 	font-style:normal;
 	font-weight:normal;
 }
@@ -75,11 +76,14 @@ ol,
 ul
 {
 	list-style:none;
+
 }
 
 caption,
 th {
+
 	text-align:left;
+
 }
 h1,
 h2,
@@ -108,7 +112,8 @@ sub {
 }
 input,
 textarea,
-select {
+select,
+button {
 	font-family:inherit;
 	font-size:inherit;
 	font-weight:inherit;

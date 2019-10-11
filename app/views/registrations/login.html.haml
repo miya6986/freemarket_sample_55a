@@ -1,0 +1,29 @@
+.rgs-body
+  .logo-header
+    %h1
+      = link_to root_path, class: 'header-link' do
+        = image_tag '/assets/logo.svg', alt: 'mercari', class: 'header-logo', height: '49', width: '185'
+  .login-main
+    .no-account
+      アカウントをお持ちでない方はこちら
+      .btn-new
+        = link_to '新規会員登録', root_path, class:'about__registered'
+    .exist-account
+      .btn-facebook
+        = fa_icon 'facebook-square'
+        = link_to 'facebookでログイン', root_path, class:'about__registered'
+      .btn-google
+        = link_to 'googleでログイン', root_path, class:'about__registered'
+    .login-form
+      .login-form__group
+        %input.email{ name: 'email', placeholder: 'メールアドレス',  class: 'input-default-login'}
+      .login-form__group
+        %input.password{ name: 'password', placeholder: 'パスワード', class: 'input-default-login'}
+      .login-form__group
+        = image_tag '/assets/robo.png', alt: 'robot'
+      .login-form__group
+        %button.btn-default-login{type: "submit"} ログイン
+      .login-form__group
+        %p.about
+        = link_to '本人情報の登録について', root_path, class:'about__registered'
+  =render "./registrations/sub-footer"
