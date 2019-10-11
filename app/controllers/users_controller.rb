@@ -2,6 +2,6 @@ class UsersController < ApplicationController
   def index    
   end
   
-  def index2    
+  def edit    
   end
 end
