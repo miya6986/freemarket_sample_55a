@@ -1,5 +1,101 @@
-.identification-main {
-  height: 1208px;
-  width: 700px;
-  
+.identification {
+  &-main {
+    width: 700px;
+    float: right;
+    background-color: #fff;
+    &__title {
+      height: 50px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.4;
+      margin: 0;
+      padding: 8px 24px;
+      border-bottom: 1px solid $background_color;
+    }
+  }
+  &-form {
+    border-top: 1px solid $background_color;
+    padding: 64px;
+    .exp {
+      p {
+        margin: 8px 0 0;
+        line-height: 1.5;
+      }
+      &--right {
+        color: $blue;
+        text-align: right;
+        a {
+          color: $blue;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+            text-decoration-color: $blue;
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+    .form-set {
+      margin-top: 40px;
+      p { 
+        margin-top: 8px;
+        line-height: 1.5;
+      }
+      label {
+        font-weight: 600;
+        display: inline-block;
+      }
+      input {
+        display: block;
+        height: 48px;
+        width: 100%;
+        font-size: 16px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        line-height: 1.5;
+        margin-top: 8px;
+        padding: 10px 16px 8px;
+      }
+      .optional {
+        font-size: 12px;
+        color: #fff;
+        border-radius: 2px;
+        background-color: #ccc;
+        margin-left: 8px;
+        padding: 2px 4px;
+        vertical-align: top;
+      }
+      .form-wrapper {
+        position: relative;
+        cursor: pointer;
+        i {
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          z-index: 2;
+          color: $gray;
+          font-size: 8px;
+        }
+      }
+    }
+    .submit {
+      display: block;
+      width: 100%;
+      margin-top: 40px;
+      cursor: pointer;
+      &__btn {
+        font-size: 14px;
+        text-align: center;
+        line-height: 48px;
+        color: #FFF;
+        transition: all;
+        &--red {
+          border: 1px solid $red;
+          background-color: $red;
+        }
+      }
+    }
+  }
 }
