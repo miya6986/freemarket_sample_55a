@@ -4,10 +4,10 @@
 @import "./modules/sub-footer";
 @import "./modules/sub-header";
 @import "./modules/rgs-main";
-@import "font-awesome";
+// @import "font-awesome";
+@import 'font-awesome';
 @import 'reset';
 @import 'color';
-@import 'font-awesome';
 @import './mixins/top-main';
 @import './mixins/sell-button';
 @import './mixins/mypage_mixins';
@@ -30,7 +30,7 @@ body {
   min-height: 100vh;
   color: rgb(51, 51, 51);
   background-color: rgb(245, 245, 245);
-  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-family: Arial, "游ゴシック体", YuGothic, "メイリオ", "Meiryo", "Font Awesome 5 Free", sans-serif;
   font-size: 14px;
   line-height: 1;
 }
@@ -39,12 +39,8 @@ img {
   vertical-align: middle;
 }
 
-button, input, select, textarea {
-  font-family: inherit;
-  font-size: 100%;
+
+
+.icon{
+  font-weight: 900;
 }
-
-
-
-
-
