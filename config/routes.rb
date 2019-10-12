@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'products#index'
   resources :users,only: 'index'
   get 'step1', to: 'registrations#step1'
