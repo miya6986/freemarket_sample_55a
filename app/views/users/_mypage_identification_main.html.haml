@@ -11,7 +11,7 @@
         %p.exp--right
           %a.exp__notice{href: "#"}
             本人確認書類のアップロードについて
-            %i.fas.fa-angle-right
+            %i.fas.fa-angle-right.fa-lg
     .form-set
       %label.name__label お名前
       %p.name__text 名前
@@ -24,13 +24,14 @@
     .form-set
       %label.postalcode__label 郵便番号
       %span.optional 任意
-      = form.text_field :postalcode, class: "postalcode", placeholder: "1234567"
+      = form.text_field :postalcode, class: "postalcode", placeholder: "例）1234567"
     .form-set
       %label.prefecture__label 都道府県
       %span.optional 任意
-      .form-wrapper
-        %i.fas.fa-angle-down
-        = form.text_field :prefecture, class: "prefecture"
+      .prefectrure-wrapper
+        %label.icon-wrapper
+          %i.fas.fa-angle-down.icon-sizing
+          = form.text_field :prefecture, class: "prefecture"
     .form-set
       %label.city__label 市区町村
       %span.optional 任意
@@ -49,4 +50,4 @@
         %p.exp--right
           %a.exp__notice{href: "#"}
             本人情報の登録について
-            %i.fas.fa-angle-right
+            %i.fas.fa-angle-right.fa-lg
