@@ -17,9 +17,13 @@
   &-form {
     border-top: 1px solid $background_color;
     padding: 64px;
+    input[type="text"]:focus {
+      border: 1px solid $blue;
+      outline: 0;
+    }
     .exp {
       p {
-        margin: 8px 0 0;
+        margin-top: 8px;
         line-height: 1.5;
       }
       &--right {
@@ -34,6 +38,9 @@
             opacity: 0.7;
           }
         }
+      }
+      &-under {
+        margin-top: 40px;
       }
     }
     .form-set {
@@ -80,21 +87,19 @@
         }
       }
     }
-    .submit {
-      display: block;
+    .btn {
       width: 100%;
+      min-height: 1.5em;
+      font-size: 14px;
+      text-align: center;
+      line-height: 48px;
+      color: #FFF;
       margin-top: 40px;
       cursor: pointer;
-      &__btn {
-        font-size: 14px;
-        text-align: center;
-        line-height: 48px;
-        color: #FFF;
-        transition: all;
-        &--red {
-          border: 1px solid $red;
-          background-color: $red;
-        }
+      &--color {
+        border: 1px solid $red;
+        background-color: $red;
+        transition: 0.3s;
       }
     }
   }

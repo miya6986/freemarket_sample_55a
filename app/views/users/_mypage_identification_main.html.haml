@@ -23,7 +23,7 @@
     .form-set
       %label.postalcode__label 郵便番号
       %span.optional 任意
-      = form.text_field :postalcode, class: "postalcode"
+      = form.text_field :postalcode, class: "postalcode", placeholder: "1234567"
     .form-set
       %label.prefecture__label 都道府県
       %span.optional 任意
@@ -33,13 +33,19 @@
     .form-set
       %label.city__label 市区町村
       %span.optional 任意
-      = form.text_field :city, class: "city"
+      = form.text_field :city, class: "city", placeholder: "例）横浜市緑区"
     .form-set
       %label.address1__label 番地
       %span.optional 任意
-      = form.text_field :address1, class: "address1"
+      = form.text_field :address1, class: "address-1", placeholder: "例）青山1-1-1"
     .form-set
       %label.address2__label 建物名
       %span.optional 任意
-      = form.text_field :address2, class: "address2"
-    = form.submit "登録する", class: "submit__btn--red"
+      = form.text_field :address2, class: "address-2"
+    = form.submit "登録する", class: "btn btn--color", placeholder: "例）柳ビル103"
+    .exp-under
+      .exp
+        %p.exp--right
+          %a.exp__notice{href: "#"}
+            本人情報の登録について
+            %i.fas.fa-angle-right
