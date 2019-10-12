@@ -1,5 +1,3 @@
-Registrationsコントローラー
-
 class RegistrationsController < ApplicationController
   
   def step1
