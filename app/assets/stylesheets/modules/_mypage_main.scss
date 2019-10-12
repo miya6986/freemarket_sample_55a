@@ -7,17 +7,29 @@
     margin: 64px auto;
     background: $red;
   }
+  .header_title{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    background: #fff;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  .single-container{
+    padding: 64px;
+    div{
+      margin: 0 auto;
+      h3{
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 auto;
+      }
+    }
+  }
   &__header{
     height: 200px;
     background: url(/assets/user-bg.jpg);
     position: relative;
-    .header_title{
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      background: #fff;
-      padding: 8px 0;
-    }
     .mystore-name-edit{
       padding: 70px 16px 30px;
       text-align: center;
@@ -93,6 +105,7 @@
       height: 216px;
       border: 1px solid #ccc;
       padding: 10px;
+      font-size: 16px;
     }
     &_button{
       @include btn-l;

@@ -1,5 +1,26 @@
-= render partial: "bread_crumb"
+= render 'shared/main-header'
+%nav.bread-crumbs.l-container
+  %ul.container
+    %li
+      = link_to "" do
+        %span メルカリ
+      = fa_icon 'chevron-right'
+    %li
+      = link_to "" do
+        %span マイページ
+      = fa_icon 'chevron-right'
+    %li
+      %span.page_now 支払い方法
 %main
-  = render partial: 'mypage_side'
-  = render partial: 'mypage_main'
+  = render partial: 'shared/mypage_side'
+  .mypage-main
+    %h2.header_title
+      支払い方法
+    .single-container
+      %section
+        %div
+          %h3 クレジットカード一覧
+        
+
+    
 = render 'shared/sell-button'
