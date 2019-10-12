@@ -1,4 +1,5 @@
 = render 'shared/main-header'
+
 %section.item-box-container
   %h1.item-name
     THE SHOP TK ボディバッグ ショルダーバッグ
@@ -22,7 +23,6 @@
               .user-ratings 
                 %i.fas.fa-frown.icon-bad
                   %span 0
-
         %tr
           %th カテゴリー
           %td 
@@ -62,7 +62,7 @@
     購入画面に進む
 
   .item-description
-    %p.item-description__inner 数回のみの使用。　ほぼ美品
+    %p.item-description__inner 数回のみの使用。ほぼ美品
   
   .item-button-container.clearfix
     .item-button-left
@@ -76,4 +76,6 @@
       = fa_icon 'lock'
       %span あんしん・あんぜんへの取り組み
 
+.product-bread-crumb
+  = render 'users/bread_crumb', current: 'THE SHOP TK ボディバッグ ショルダーバッグ'
 = render 'shared/main-footer'
