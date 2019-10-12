@@ -1,4 +1,5 @@
 Rails.application.routes.draw do 
+  get 'creditcards/index'
   root 'products#index'
   resources :users,only: [:index,:edit]
   get 'logout' => "users#logout"
