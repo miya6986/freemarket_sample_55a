@@ -77,25 +77,19 @@
         .icon-good {
           color: #ef5185;
           span {
-            color: #333;
-            font-size:14px;
-            font-weight: normal;
+            @include rating-icon();
           }
         }
         .icon-normal {
           color: #fba933;
           span {
-            color: #333;
-            font-size:14px;
-            font-weight: normal;
+            @include rating-icon();
           }
         }
         .icon-bad {
           color: #6ab5d8;
           span {
-            color: #333;
-            font-size:14px;
-            font-weight: normal;
+            @include rating-icon();
           }
         }
       }
