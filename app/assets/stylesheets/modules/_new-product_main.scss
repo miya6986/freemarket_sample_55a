@@ -72,7 +72,7 @@
           }
           @include require-sapn;
           .input-space {
-            input {
+            .input-name {
               width: 100%;
               margin: 8px 0 0;
               height: 48px;
@@ -94,7 +94,7 @@
             display: inline-block;
           }
           @include require-sapn;
-          textarea {
+          .input-description {
             display: block;
             width: 100%;
             max-width: 100%;
@@ -208,7 +208,7 @@
                 font-size: 12px;
                 margin-left: auto;
               }
-              input {
+              .input-price {
                 margin: 0 0 0 5%;
                 width: 80%;
                 height: 48px;
