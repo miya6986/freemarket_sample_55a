@@ -2,7 +2,7 @@
   &-main {
     width: 700px;
     float: right;
-    background-color: #fff;
+    background-color: $white;
     &__title {
       height: 50px;
       font-size: 24px;
@@ -58,8 +58,8 @@
         height: 48px;
         width: 100%;
         font-size: 16px;
-        background-color: #fff;
-        border: 1px solid #ccc;
+        background-color: $white;
+        border: 1px solid $light-gray;
         border-radius: 4px;
         line-height: 1.5;
         margin-top: 8px;
@@ -67,9 +67,9 @@
       }
       .optional {
         font-size: 12px;
-        color: #fff;
+        color: $white;
         border-radius: 2px;
-        background-color: #ccc;
+        background-color: $light-gray;
         margin-left: 8px;
         padding: 2px 4px;
         vertical-align: top;
@@ -93,13 +93,12 @@
       font-size: 14px;
       text-align: center;
       line-height: 48px;
-      color: #FFF;
+      color: $white;
       margin-top: 40px;
       cursor: pointer;
       &--color {
         border: 1px solid $red;
         background-color: $red;
-        transition: 0.3s;
       }
     }
   }
