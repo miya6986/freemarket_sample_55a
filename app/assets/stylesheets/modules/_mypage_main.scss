@@ -1,6 +1,12 @@
 .mypage-main{
   width: 700px;
   float: left;
+  background: #fff;
+  .logout-btn{
+    @include btn-l;
+    margin: 64px auto;
+    background: $red;
+  }
   &__header{
     height: 200px;
     padding: 20px;
