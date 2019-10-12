@@ -12,10 +12,10 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :source_area,     null: false
       t.string :shipping_days,   null: false
       t.integer :price,          null: false
-      t.references :buyer_id,    foreign_key: { to_table: :users }
-      t.references :seller_id,   foreign_key: { to_table: :users }
-      t.references :category_id, foreign_key: true
-      t.references :bland_id,    foreign_key: true
+      t.references :buyer,    foreign_key: { to_table: :users }
+      t.references :seller,   foreign_key: { to_table: :users }
+      t.references :category, foreign_key: true
+      t.references :bland,    foreign_key: true
 
       t.timestamps
     end
