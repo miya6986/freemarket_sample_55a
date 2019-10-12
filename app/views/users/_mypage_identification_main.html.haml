@@ -1,16 +1,17 @@
 = render partial: 'mypage_side'
 .identification-main
   %h2.identification-main__title 本人情報の登録
-  = form_with url: root_path, class: "identification-form" do |form|
-    .exp
-      %p
-        お客様の本人情報をご登録ください。
-        %br
-        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-      %p.exp--right
-        %a.exp__notice{href: "#"}
-          本人確認書類のアップロードについて
-          %i.fas.fa-angle-right
+  = form_with url: "#", class: "identification-form" do |form|
+    .exp-top
+      .exp
+        %p
+          お客様の本人情報をご登録ください。
+          %br
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %p.exp--right
+          %a.exp__notice{href: "#"}
+            本人確認書類のアップロードについて
+            %i.fas.fa-angle-right
     .form-set
       %label.name__label お名前
       %p.name__text 名前
@@ -41,8 +42,8 @@
     .form-set
       %label.address2__label 建物名
       %span.optional 任意
-      = form.text_field :address2, class: "address-2"
-    = form.submit "登録する", class: "btn btn--color", placeholder: "例）柳ビル103"
+      = form.text_field :address2, class: "address-2", placeholder: "例）柳ビル103"
+    = form.submit "登録する", class: "btn btn--color"
     .exp-under
       .exp
         %p.exp--right
