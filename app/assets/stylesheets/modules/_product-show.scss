@@ -10,15 +10,10 @@
     /* 商品名 リード文 */
     .item-name {
       font-size: 24px;
+      font-weight: 600;
       text-align: center;
       word-wrap: break-word;
       line-height: 1.4;
-    }
-    .item-wording {
-      margin: 8px 0 0;
-      font-size: 14px;
-      color: #888;
-      line-height: 1.5;
     }
     .clearfix:after {
       content: '';
