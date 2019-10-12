@@ -34,9 +34,7 @@ aside img{
         padding: 0px 40px 0px 0px;
       }
       h2 {
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 1.4em;
+        @include subheading();
       }
       &__cell {
         line-height: 1.4em;
@@ -62,9 +60,7 @@ aside img{
         width: auto;
       }
       h2 {
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 1.4em;
+        @include subheading();
       }
       .middle-item {
         display: inline-block;
@@ -89,9 +85,7 @@ aside img{
         width: auto;
       }
       h2 {
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 1.4em;
+        @include subheading();
       }
       &__cell {
         line-height: 1.4em;
