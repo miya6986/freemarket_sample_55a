@@ -1,6 +1,6 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
   root 'products#index'
-  resources :users,only: 'index'
+  resources :users,only: [:index,:edit]
   get 'logout' => "users#logout"
   get 'step1', to: 'registrations#step1'
   get 'step2', to: 'registrations#step2'
