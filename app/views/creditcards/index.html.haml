@@ -20,6 +20,19 @@
       %section
         %div
           %h3 クレジットカード一覧
+        .creditcard-info
+          = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
+          %p.creditcard-info__number
+            ************1234
+          %p.creditcard-info__period 
+            09 / 25
+          %button.creditcard-info__delete 
+            削除する
+      .payment-explain
+        = fa_icon 'chevron-right', class:"arrows"
+        = link_to '支払い方法について', '#'
+          
+
         
 
     
