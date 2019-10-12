@@ -96,6 +96,3 @@ gem 'gretel'
 #商品購入＆検索機能
 gem 'payjp'
 gem 'ransack'
-
-#プルダウンメニュー
-gem 'active_hash'
