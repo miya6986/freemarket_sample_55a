@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'products#index'
-  resources :products,only: 'new'
+  resources :products,only: [:index, :new]
   resources :users,only: 'index'
   get 'step1', to: 'registrations#step1'
   get 'step2', to: 'registrations#step2'
