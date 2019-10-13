@@ -3,6 +3,7 @@
   @media screen and (min-width: 768px) {
     padding: 0 0 220px;
   }
+
   /* ヘッダー */
   .deal-header {
     text-align: center;
@@ -57,18 +58,18 @@
   }
 
   /* メイン */
-  .buy {
+  .main-wrapper {
     height: 800px;
     width: 745px;
     margin: 0 auto;
   
-    .l-single-container {
+    .buy-info {
       background: #fff;
       @media screen and (min-width: 768px) {
         width: 700px;
         margin: 0 auto;
       }
-      .l-single-head {
+      &__head {
         padding: 24px 8px;
         font-size: 18px;
         line-height: 1.5;
@@ -79,20 +80,23 @@
           font-weight: 600;
         }
       }
-      .buy-content{
+      &__content{
         margin: 40px 0 0;
         padding: 24px 12.5% 0;
         border-top: 1px solid #f5f5f5;
         &:first-of-type {
           margin: 0;
         }
-        .buy-content-inner {
+        &:last-of-type {
+          padding: 24px 12.5% 40px;
+        }
+        .buy-inner {
           max-width: 320px;
           margin: 0 auto;
         }
       }
-      .buy-item {
-        & > .buy-content-inner {
+      &__item {
+        & > .buy-inner {
           display: flex;
           flex-wrap: wrap;
         }
@@ -107,7 +111,7 @@
           font-size: 16px;
           font-weight: 600;
         }
-        .buy-form {
+        &__form {
           width: 100%;
           p {
             margin: 8px 0 0;
@@ -143,20 +147,23 @@
                 display: table-cell;
                 padding: 16px 0;
                 text-align: right;
+                span {
+                  font-size: 28px;
+                }
               }
               &__cell:first-child {
                 text-align: left;
               }
-            }
-            .buy-price:first-child {
-              border: 0;
+              &:first-child {
+                border: 0;
+              }
             }
             .buy-you-pay {
               font-size: 18px;
               font-weight: 600;
             }
           }
-          .btn-red {
+          &__btn-red {
             display: block;
             width: 100%;
             line-height: 48px;
@@ -173,7 +180,7 @@
           }     
         }
       }
-      .buy-user-info {
+      &__user {
         -webkit-transition: all ease-out .3s;
         transition: all ease-out .3s;
         h3:first-child {
@@ -187,7 +194,7 @@
         address {
           display: block;
         }
-        &__text {
+        &--text {
           margin: 8px 0 0;
           font-size: 14px;
           line-height: 1.4;
@@ -199,18 +206,15 @@
         a:visited {
           color: $blue;
         }
-        &__fix {
+        &--fix {
           display: block;
           text-align: right;
           color: $blue;
+          &:hover {
+            text-decoration: underline;
+            opacity: 0.7;
+          }
         }
-        &__fix:hover {
-          text-decoration: underline;
-          opacity: 0.7;
-        }
-      }
-      .buy-content:last-of-type {
-        padding: 24px 12.5% 40px;
       }
     }
   }

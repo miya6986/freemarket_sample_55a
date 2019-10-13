@@ -3,61 +3,64 @@
     %h1
       = link_to image_tag('header-logo.svg', alt: 'header-logo'), root_path
 
-  %main.buy
-    %section.buy-item-container.l-single-container
-      %h2.l-single-head
+  %main.main-wrapper
+    %section.buy-info
+      %h2.buy-info__head
         購入内容の確認
-      %section.buy-content.buy-item
-        .buy-content-inner
-          %h3.buy-item__image
+        
+      %section.buy-info__content.buy-info__item
+        .buy-inner
+          %h3.buy-info__item__image
             = image_tag 'item-show.jpg'
-          %p.buy-item__name
+          %p.buy-info__item__name
             THE SHOP TK ボディバッグ ショルダーバッグ
-          %form.buy-form
-            %p.buy-form__price
+          %form.buy-info__item__form
+            %p.buy-info__item__form__price
               ¥3,000
               %span.shipping-fee
                 送料込み
-            %ul.buy-form__accordion
+            %ul.buy-info__item__form__accordion
               %li.accrodion-parent
                 .accordion-toggle 
                   ポイントはありません
-            %ul.buy-form__price-table
+            %ul.buy-info__item__form__price-table
               %li.buy-price.buy-you-pay
                 .buy-price__cell
                   支払い金額
                 .buy-price__cell
                   %span ¥3,000
-            %button.btn-red
+            %button.buy-info__item__form__btn-red
               購入する
 
-      %section.buy-content.buy-user-info
-        .buy-content-inner
+      %section.buy-info__content.buy-info__user
+        .buy-inner
           %h3 配送先
-          %address.buy-user-info__text
+          %address.buy-info__user--text
             〒123-4567
             %br
             大阪府大阪市●●
             %br
             テストユーザー
-          .buy-user-info__fix 
+          .buy-info__user--fix
             = link_to '変更する', '#'
             = fa_icon 'chevron-right'
-      %section.buy-content.buy-user-info
-        .buy-content-inner
+
+      %section.buy-info__content.buy-info__user
+        .buy-inner
           %h3 支払い方法
-          %p.buy-user-info-text
+          %p.buy-user-info--text
             ************1234
           %br
           09/25
           %br
           = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
-          .buy-user-info__fix 
+          .buy-info__user--fix 
             = link_to '変更する', '#'
             = fa_icon 'chevron-right'
+
   %footer.deal-footer
     %nav
-      %ul.clear-fix
+      %ul
         %li プライバシーポリシー
         %li メルカリ利用規約
         %li 特定商取引に関する表記
