@@ -19,7 +19,7 @@
     }
     .form {
       border-top: 1px solid $border-top-gray;
-      &__image {
+      &-image {
         width: 620px;
         padding: 40px;
         &__title {
@@ -62,7 +62,7 @@
           }
         }
       }
-      &__container {
+      &-container {
         padding: 40px;
         border-top: 1px solid $border-top-gray;
         &__name {
@@ -115,7 +115,7 @@
           }
         }
       }
-      &__details {
+      &-details {
         padding: 40px;
         border-top: 1px solid $border-top-gray;
         display: flex;
@@ -141,7 +141,7 @@
           }
         }
       }
-      &__shipping {
+      &-shipping {
         padding: 40px;
         border-top: 1px solid $border-top-gray;
         display: flex;
@@ -176,7 +176,7 @@
           }
         }
       }
-      &__price {
+      &-price {
         padding: 40px;
         border-top: 1px solid $border-top-gray;
         display: flex;
@@ -253,7 +253,7 @@
           }
         }
       }
-      &__submit {
+      &-submit {
         padding: 40px;
         border-top: 1px solid $border-top-gray;
         &__description {
