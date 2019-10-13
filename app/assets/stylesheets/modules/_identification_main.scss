@@ -83,6 +83,25 @@
           z-index: 2;
           color: $gray;
         }
+        select {
+          display: block;
+          height: 48px;
+          width: 100%;
+          font-size: 16px;
+          background-color: $white;
+          border: 1px solid $light-gray;
+          border-radius: 4px;
+          line-height: 1.5;
+          margin-top: 8px;
+          padding: 10px 16px 8px;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          &:focus {
+            border: 1px solid $blue;
+            outline: 0;
+          }
+        }
         .icon-sizing {
           font-size: 25px;
           -webkit-font-smoothing: antialiased;

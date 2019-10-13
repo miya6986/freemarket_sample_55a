@@ -31,7 +31,7 @@
       .prefectrure-wrapper
         %label.icon-wrapper
           %i.fas.fa-angle-down.icon-sizing
-          = form.text_field :prefecture, class: "prefecture"
+          = form.select :prefecture, [["test", ""]], prompt: "--", class: "prefecture"
     .form-set
       %label.city__label 市区町村
       %span.optional 任意
