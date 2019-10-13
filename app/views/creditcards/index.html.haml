@@ -26,15 +26,11 @@
             ************1234
           %p.creditcard-info__period 
             09 / 25
-          %button.creditcard-info__delete 
-            削除する
+          = button_to "削除する", creditcard_path(1), method: :delete, class:"creditcard-info__delete"
+            
       .payment-explain
         = fa_icon 'chevron-right', class:"arrows"
         = link_to '支払い方法について', '#'
-          
-
-        
-
     
 = render 'shared/sell-button'
 = render 'shared/main-footer'
