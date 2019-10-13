@@ -75,13 +75,13 @@
       }
       .icon-wrapper {
         position: relative;
-        cursor: pointer;
         i {
           position: absolute;
           left: 540px;
           top: 12px;
           z-index: 2;
           color: $gray;
+          pointer-events: none;
         }
         select {
           display: block;
@@ -97,6 +97,7 @@
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;
+          cursor: pointer;
           &:focus {
             border: 1px solid $blue;
             outline: 0;
