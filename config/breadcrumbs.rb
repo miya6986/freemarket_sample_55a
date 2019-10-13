@@ -1,5 +1,20 @@
 crumb :root do
-  link "Home", root_path
+  link "トップページ", root_path
+end
+
+crumb :mypage do
+  link "マイページ", users_path
+  parent :root
+end
+
+crumb :profile do
+  link "プロフィール", edit_user_path
+  parent :mypage
+end
+
+crumb :logout do
+  link "ログアウト", logout_path
+  parent :mypage
 end
 
 # crumb :projects do
