@@ -64,7 +64,7 @@
     margin: 0 auto;
   
     .buy-info {
-      background: #fff;
+      background: $white;
       @media screen and (min-width: 768px) {
         width: 700px;
         margin: 0 auto;
@@ -83,7 +83,7 @@
       &__content{
         margin: 40px 0 0;
         padding: 24px 12.5% 0;
-        border-top: 1px solid #f5f5f5;
+        border-top: 1px solid $background_color;
         &:first-of-type {
           margin: 0;
         }
@@ -129,10 +129,10 @@
           }
           &__accordion {
             margin: 16px 0 0;
-            background-color: #CCC;
+            background-color: $border-gray;
             .accordion-toggle {
               padding: 16px;
-              border: 1px solid #ccc;
+              border: 1px solid $border-gray;
               position: relative;
             }
           }
@@ -142,7 +142,7 @@
             width: 100%;
             .buy-price {
               display: table-row;
-              border-top: 1px solid #ccc;
+              border-top: 1px solid $border-gray;
               &__cell {
                 display: table-cell;
                 padding: 16px 0;
@@ -174,8 +174,8 @@
             cursor: pointer;
             text-align: center;
             margin: 8px 0 0;
-            background: #ea352d;
-            border: 1px solid #ea352d;
+            background: $red;
+            border: 1px solid $red;
             color: #fff;
           }     
         }
@@ -254,7 +254,7 @@
     }
     p {
       margin: 8px 0 0;
-      color: #333;
+      color: $black;
     }
     small {
       font-size: 12px;
