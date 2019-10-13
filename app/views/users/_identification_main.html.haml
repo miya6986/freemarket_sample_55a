@@ -2,14 +2,14 @@
 .identification-main
   %h2.identification-main__title 本人情報の登録
   = form_with url: "#", class: "identification-form" do |form|
-    .exp-top
-      .exp
+    .explanation-top
+      .explanation
         %p
           お客様の本人情報をご登録ください。
           %br
           登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-        %p.exp--right
-          %a.exp__notice{href: "#"}
+        %p.explanation--right
+          %a.explanation__notice{href: "#"}
             本人確認書類のアップロードについて
             %i.fas.fa-angle-right.fa-lg
     .form-set
@@ -44,10 +44,10 @@
       %label.address2__label 建物名
       %span.optional 任意
       = form.text_field :address2, class: "address-2", placeholder: "例）柳ビル103"
-    = form.submit "登録する", class: "btn btn--color"
-    .exp-under
-      .exp
-        %p.exp--right
-          %a.exp__notice{href: "#"}
+    = form.submit "登録する", class: "submit-identification"
+    .explanation-under
+      .explanation
+        %p.explanation--right
+          %a.explanation__notice{href: "#"}
             本人情報の登録について
             %i.fas.fa-angle-right.fa-lg
