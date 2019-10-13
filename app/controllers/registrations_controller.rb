@@ -5,7 +5,6 @@ class RegistrationsController < ApplicationController
 
   def step2
     @user = User.new
-    @user.build_address
   end
 
   def step3
@@ -26,6 +25,8 @@ class RegistrationsController < ApplicationController
   def step4
     session[:phone_number] = user_params[:phone_number]
     @user = User.new
+    @user.build_address
+    
   end
 
   def step5
@@ -38,6 +39,7 @@ class RegistrationsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -52,10 +54,12 @@ class RegistrationsController < ApplicationController
       birth_day: session[:birth_day],
       phone_number: session[:phone_number],
     )
+    @user.build_address(user_params[:address_attributes])
+
 
     if @user.save
       session[:id] = @user.id
-      redirect_to root_path
+      redirect_to step5_registrations_path
     else
       redirect_to step2_registrations_path
     end
@@ -76,10 +80,24 @@ class RegistrationsController < ApplicationController
       :birth_month,
       :birth_day,
       :phone_number,
-      
+
+      address_attributes: [
+      :id,
+      :address_firstname,
+      :address_lastname,
+      :address_firstname_kana,
+      :address_lastname_kana,
+      :prefecture_id,
+      :postalcode,
+      :city_name,
+      :address_number,
+      :building_name,
+      :address_phone_number,
+      ]
   )
   end
 end
+
 
 
 

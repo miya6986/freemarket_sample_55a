@@ -3,7 +3,7 @@
   .rgs-main
     .rgs-main__section
       %h2 電話番号の確認
-      = form_for @user, url: registrations_path, method: :post, html: { class: 'form' } do |f|
+      = form_for @user, url: step4_registrations_path, method: :get, html: { class: 'form' } do |f|
         .form__upper
           .form__upper__group
             %label 携帯電話の番号
