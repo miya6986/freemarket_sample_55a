@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PHONE_REGEX = /\A\d{11}\z/
+  
   # step2入力項目
   validates :nickname,          presence: true
   validates :email,             presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX } 
@@ -19,6 +20,7 @@ class User < ApplicationRecord
   validates :birth_year,        presence: true
   validates :birth_month,       presence: true
   validates :birth_day,         presence: true
+  
   # step3入力項目
   validates :phone_number,      presence: true, uniqueness: true, format: { with: VALID_PHONE_REGEX } 
 
