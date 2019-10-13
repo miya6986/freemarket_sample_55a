@@ -1,12 +1,12 @@
 .new-product {  
-  background-color: #F5F5F5;
+  background-color: $background_color;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   @include logo-header();
   @include sub-footer();
   .main {
     width: 700px;
     margin: 0 auto;
-    background-color: #FFFFFF;
+    background-color: $white;
     .head {
       padding: 32px 16px;
       text-align: center;
@@ -14,11 +14,11 @@
       line-height: 1.5;
       h2 {
         font-weight: bold;
-        color: #333;
+        color: $black;
       }
     }
     .form {
-      border-top: 1px solid #eee;
+      border-top: 1px solid $border-top-gray;
       &__image {
         width: 620px;
         padding: 40px;
@@ -42,8 +42,8 @@
             width: 620px;
             padding: 40px;
             min-height: 162px;
-            background: #f5f5f5;
-            border: 1px dashed #ccc;
+            background: $background_color;
+            border: 1px dashed $border-form-gray;
             font-size: 0;
             text-align: center;
             display: table;
@@ -64,7 +64,7 @@
       }
       &__container {
         padding: 40px;
-        border-top: 1px solid #eee;
+        border-top: 1px solid $border-top-gray;
         &__name {
           font-weight: bold;
           label {
@@ -78,8 +78,8 @@
               height: 48px;
               padding: 10px 16px 8px;
               border-radius: 4px;
-              border: 1px solid #ccc;
-              background: #fff;
+              border: 1px solid $border-form-gray;
+              background: $white;
               line-height: 1.5;
               font-size: 16px;
               font-weight: 500;
@@ -100,8 +100,8 @@
             max-width: 100%;
             min-height: 142px;
             padding: 10px;
-            border: 1px solid #ccc;
-            background: #fff;
+            border: 1px solid $border-form-gray;
+            background: $white;
             font-size: 16px;
             line-height: 1.5;
             font-weight: 500;
@@ -111,10 +111,10 @@
       }
       &__details {
         padding: 40px;
-        border-top: 1px solid #eee;
+        border-top: 1px solid $border-top-gray;
         display: flex;
         h3 {
-          color: #888;
+          color: $h3-text-gray;
           font-size: 14px;
           font-weight: 600;
           margin-right: auto;
@@ -137,10 +137,10 @@
       }
       &__shipping {
         padding: 40px;
-        border-top: 1px solid #eee;
+        border-top: 1px solid $border-top-gray;
         display: flex;
         h3 {
-          color: #888;
+          color: $h3-text-gray;
           font-size: 14px;
           font-weight: 600;
         }
@@ -173,10 +173,10 @@
       }
       &__price {
         padding: 40px;
-        border-top: 1px solid #eee;
+        border-top: 1px solid $border-top-gray;
         display: flex;
         h3 {
-          color: #888;
+          color: $h3-text-gray;
           font-size: 14px;
           font-weight: 600;
         }
@@ -214,8 +214,8 @@
                 height: 48px;
                 padding: 10px 16px 8px;
                 border-radius: 4px;
-                border: 1px solid #ccc;
-                background: #fff;
+                border: 1px solid $border-form-gray;
+                background: $white;
                 line-height: 1.5;
                 font-size: 16px;
                 text-align: right;
@@ -225,14 +225,14 @@
           }
           &__charge {
             padding: 24px 0;
-            border-top: 1px solid #ccc;
+            border-top: 1px solid $border-form-gray;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
           }
           &__profit {
             padding: 24px 0;
-            border-top: 1px solid #ccc;
+            border-top: 1px solid $border-form-gray;
             font-weight: 600;
             display: flex;
             justify-content: space-between;
@@ -248,13 +248,13 @@
       }
       &__submit {
         padding: 40px;
-        border-top: 1px solid #eee;
+        border-top: 1px solid $border-top-gray;
         &__description {
           line-height: 1.5;
           p {
             font-size: 14px;
             .description-link {
-              color: #0099e8;
+              color: $blue;
               text-decoration: none;
             }
             .description-link:hover {
@@ -262,17 +262,17 @@
               text-decoration: underline;
             }
             .description-link:visited {
-              color: #0099e8;
+              color: $blue;
               text-decoration: none;
             }
           }
         }
         .btn-default {
           margin: 40px 0 0;
-          background: #ea352d;
-          border: 1px solid #ea352d;
+          background: $red;
+          border: 1px solid $red;
           display: block;
-          color: #fff;
+          color: $white;
           width: 100%;
           line-height: 48px;
           font-size: 14px;
@@ -284,9 +284,9 @@
         .btn-gray {
           width: 45%;
           margin: 24px auto 0;
-          background: #aaa;
-          border: 1px solid #aaa;
-          color: #fff;
+          background: $btn-gray;
+          border: 1px solid $btn-gray;
+          color: $white;
           border: 1px solid transparent;
           -webkit-transition: all ease-out .3s;
           transition: all ease-out .3s;
