@@ -1,5 +1,5 @@
 .item-box-container {
-    background: #fff;
+    background: $white;
     margin: 40px auto 40px;
     padding: 24px 16px 55px 16px;
     
@@ -20,7 +20,6 @@
       display: block;
       clear: both;
     }
-
     /* 商品詳細 */
     .item-main-content {
       margin: 16px 0 0;
@@ -30,7 +29,7 @@
         max-width: 360px;
         min-height: 280px;
         margin: 0 auto;
-        background: #fafafa;
+        background: $white;
         @media screen and (min-width: 768px) {
           float: left;
           min-width: 300px;
@@ -43,9 +42,8 @@
         max-width: 360px;
         margin: 8px auto 0;
         border-collapse: collapse;
-        border: 1px solid #f5f5f5;
         th, td {
-          border: 1px solid #f5f5f5;
+          border: 1px solid $background_color;
         }
         @media screen and (min-width: 768px) {
           float: right;
@@ -60,11 +58,11 @@
           width: 39%;
           text-align: left;
           font-weight: 400;
-          background: #fafafa;
+          background: $white;
         }
         td {
           width: 61%;
-          background: #fff;
+          background: $white;
           @include require-link();
         }
         .user-ratings {
@@ -73,19 +71,19 @@
           font-size: 16px;
           vertical-align: middle;
           .icon-good {
-            color: #ef5185;
+            color: $evaluation-red;
             span {
               @include rating-icon();
             }
           }
           .icon-normal {
-            color: #fba933;
+            color: $evaluation-yellow;
             span {
               @include rating-icon();
             }
           }
           .icon-bad {
-            color: #6ab5d8;
+            color: $evaluation-blue;
             span {
               @include rating-icon();
             }
@@ -120,9 +118,9 @@
     .item-buy-btn {
       display: block;
       margin-top: 16px;
-      background: #ea352d;
+      background: $red;
       font-size: 14px;
-      color: #fff;
+      color: $white;
       line-height: 56px;
       text-align: center;
       font-weight: 600;
@@ -180,18 +178,18 @@
         -webkit-transition: all ease-out .3s;
         transition: all ease-out .3s;
         &__like {
-          color: #333;
-          border: 1px solid #f5f5f5;
-          background: #f5f5f5;
+          color: $black;
+          border: 1px solid $background_color;
+          background: $background_color;
           cursor: pointer;
           i {
-            color: #ccc;
+            color: $light-gray;
           }
         }
         &__report {
           margin: 0 0 0 8px;
-          color: #333;
-          background: #f5f5f5;
+          color: $black;
+          background: $background_color;
           cursor: pointer;
           @media screen and (min-width: 768px) {
             margin: 0 0 0 16px;
@@ -202,7 +200,7 @@
         }
       }
       .item-button-right {
-        color: #0099e8;
+        color: $blue;
         margin: 16px 0 0;
         cursor: pointer;
         @media screen and (min-width: 768px) {
@@ -220,7 +218,7 @@
 }
 .product-bread-crumb {
   position: relative;
-  border-top: 1px solid #eee;
+  border-top: 1px solid $border-gray;
   height: 49px;
   .bread-crumbs {
     position: relative;
@@ -246,7 +244,7 @@
       .arrow-icon {
         margin: 0 8px;
         font-size: 9px;
-        color: #888;
+        color: $gray;
       }
     }
   }
