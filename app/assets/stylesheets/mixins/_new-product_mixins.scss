@@ -57,17 +57,14 @@
   font-size: 12px;
   text-align: center;
   text-decoration: none;
+  &:hover{
+    background-color: #7ECEF4;
+    text-decoration: underline;
+  }
 }
 
 @mixin label {
   label {
     font-weight: 600;
-  }
-}
-
-@mixin question-hover {
-  .question:hover {
-    background-color: #7ECEF4;
-    text-decoration: underline;
   }
 }

@@ -154,7 +154,6 @@
           @include question;
           margin-right: auto;
         }
-        @include question-hover;
         &__form-box {
           width: 400px;
           margin: 0;
@@ -190,7 +189,6 @@
           @include question;
           margin-right: auto;
         }
-        @include question-hover;
         &__form-box {
           width: 400px;
           margin: 0;
