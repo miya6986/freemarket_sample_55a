@@ -84,6 +84,9 @@
               font-size: 16px;
               font-weight: 500;
             }
+            .input-name:focus {
+              outline: 1px $blue solid;
+            }
           }
 
         }
@@ -106,6 +109,9 @@
             line-height: 1.5;
             font-weight: 500;
             margin: 8px 0 0;
+          }
+          .input-description:focus {
+            outline: 1px $blue solid;
           }
         }
       }
@@ -219,6 +225,9 @@
                 line-height: 1.5;
                 font-size: 16px;
                 text-align: right;
+              }
+              .input-price:focus {
+                outline: 1px $blue solid;
               }
             }
             

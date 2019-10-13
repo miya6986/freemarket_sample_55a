@@ -40,6 +40,9 @@
       appearance: none;
       -webkit-appearance: none;
     }
+    .select-default:focus {
+      outline: 1px $blue solid;
+    }
   }
 }
 
