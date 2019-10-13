@@ -65,8 +65,8 @@
         td {
           width: 61%;
           background: #fff;
+          @include require-link();
         }
-        
         .user-ratings {
           display: inline-block;
           margin-top: 5px;
@@ -90,6 +90,12 @@
               @include rating-icon();
             }
           }
+        }
+        .category-name, 
+        .sub-category,
+        .brand-name,
+        .prefecture {
+          @include require-link();
         }
       }
     }

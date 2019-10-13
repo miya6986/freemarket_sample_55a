@@ -10,7 +10,7 @@
         %tr
           %th 出品者
           %td 
-            山田太郎
+            =link_to '山田太郎', "", class: 'seller-name'
             .user-ratings-box
               .user-ratings 
                 %i.fas.fa-grin.icon-good
@@ -24,16 +24,19 @@
         %tr
           %th カテゴリー
           %td 
-            .category-name メンズ
-            .item-detail-table__sub-category
+            .category-name
+              = link_to 'メンズ', ""
+            .sub-category
               = fa_icon 'chevron-right'
-              バッグ
-            .item-detail-table-sub-sub-category
+              = link_to 'バッグ', ""
+            .sub-category
               = fa_icon 'chevron-right'
-              ボディーバッグ
+              = link_to 'ボディーバッグ', ""
         %tr
           %th ブランド
-          %td タケオ キクチ
+          %td
+            .brand-name 
+              = link_to 'タケオ キクチ', ""
         %tr
           %th 商品の状態
           %td 目立った傷や汚れなし
@@ -45,7 +48,9 @@
           %td らくらくメルカリ便
         %tr
           %th 配送元地域
-          %td 長崎県
+          %td 
+            .prefecture
+              = link_to '長崎県', ""
         %tr
           %th 発送日の目安	
           %td 2~3日で発送
