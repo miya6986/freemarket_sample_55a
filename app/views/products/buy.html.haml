@@ -1,9 +1,9 @@
-.single-container
-  %header.single-header
+.deal-container
+  %header.deal-header
     %h1
       = link_to image_tag('header-logo.svg', alt: 'header-logo'), root_path
 
-  %main.single-main
+  %main.buy
     %section.buy-item-container.l-single-container
       %h2.l-single-head
         購入内容の確認
@@ -55,13 +55,13 @@
           .buy-user-info__fix 
             = link_to '変更する', '#'
             = fa_icon 'chevron-right'
-  %footer.single-footer
+  %footer.deal-footer
     %nav
       %ul.clear-fix
         %li プライバシーポリシー
         %li メルカリ利用規約
         %li 特定商取引に関する表記
-    .single-footer-logo
+    .deal-footer__logo
       = link_to image_tag('logo-gray.svg'), root_path
     %p
       %small © 2019 Mercari
