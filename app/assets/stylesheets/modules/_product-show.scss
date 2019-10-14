@@ -1,10 +1,10 @@
 .item-container {
     background: $white;
-    margin: 40px auto 40px;
+    margin: 40px auto 5px;
     padding: 24px 16px 55px 16px;
     
     @media screen and (min-width: 768px) {
-      padding: 24px 40px 40px;
+      padding: 24px 40px 5px;
       width: 700px;
     }
     /* 商品名 */
@@ -211,6 +211,61 @@
         }
         &:hover {
           opacity: 0.7;
+      }
+    }
+  }
+}
+
+/* コメント フォーム */
+.comment-wrapper {
+  margin: 20px auto;
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
+  .comment-container {
+    .comment{
+      padding: 24px 7.5%;
+      background: $white;
+      @media screen and (min-width: 768px) {
+        padding: 24px;
+      }
+      &__form {
+        &--notice {
+          padding: 8px;
+          font-size: 14px;
+          background: #fff6de;
+        }
+        &--textarea {
+          margin: 8px 0 0;
+          display: block;
+          width: 100%;
+          max-width: 100%;
+          min-height: 104px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          background: #fff;
+          font-size: 16px;
+          line-height: 1.5;
+          outline: none;
+          &:focus {
+            border-color: $blue;
+          }
+        }
+        &--button {
+          width: 100%;
+          margin: 8px 0 0;
+          font-size: 0;
+          background: #aaa;
+          border: 1px solid #aaa;
+          color: $white;
+          text-align: center;
+          line-height: 48px;
+          cursor: pointer;
+          span {
+            font-size: 14px;
+            vertical-align: middle;
+          }
+        }
       }
     }
   }

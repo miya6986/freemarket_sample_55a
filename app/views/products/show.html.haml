@@ -79,6 +79,16 @@
       = fa_icon 'lock'
       %span あんしん・あんぜんへの取り組み
 
+.comment-wrapper
+  .comment-container
+    .comment
+      %form{ class:'comment__form'}
+        %p.comment__form--notice 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea{ class: 'comment__form--textarea' }
+        %button{type: 'submit', class: 'comment__form--button'}
+          %span コメントする
 .product-bread-crumb
   = render 'users/bread_crumb', current: 'THE SHOP TK ボディバッグ ショルダーバッグ'
+
+
 = render 'shared/main-footer'
