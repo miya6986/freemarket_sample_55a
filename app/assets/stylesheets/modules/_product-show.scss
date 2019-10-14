@@ -1,4 +1,4 @@
-.item-box-container {
+.item-container {
     background: $white;
     margin: 40px auto 40px;
     padding: 24px 16px 55px 16px;
@@ -21,9 +21,9 @@
       clear: both;
     }
     /* 商品詳細 */
-    .item-main-content {
+    .item-main {
       margin: 16px 0 0;
-      .item-photo {
+      &__photo {
         position: relative;
         min-width: 280px;
         max-width: 360px;
@@ -37,7 +37,7 @@
           min-height: 375px;
         }
       }
-      .item-detail-table {
+      &__detail-table {
         width: 100%;
         max-width: 360px;
         margin: 8px auto 0;
@@ -96,57 +96,58 @@
           @include require-link();
         }
       }
-    }
-    .item-price-box {
-      margin: 24px 0 0;
-      text-align: center;
-      .item-price {
-        margin: 0 8px 0 0;
-        font-size: 32px;
+      &__price-box {
+        margin: 24px 0 0;
+        text-align: center;
+        &--price {
+          margin: 0 8px 0 0;
+          font-size: 32px;
+          font-weight: 600;
+          @media screen and (min-width: 768px) {
+            margin: 0 16px 0 0;
+            font-size: 50px;
+          } 
+        }
+        &--tax {
+          font-size: 10px;
+        }
+        &--shipping-fee {
+          font-size: 16px;
+        }
+      }
+      /* 購入ボタン */
+      &__buy-btn {
+        display: block;
+        margin-top: 16px;
+        background: $red;
+        font-size: 14px;
+        color: $white;
+        line-height: 56px;
+        text-align: center;
         font-weight: 600;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        cursor: pointer;
         @media screen and (min-width: 768px) {
-          margin: 0 16px 0 0;
-          font-size: 50px;
-        } 
+          font-size: 24px;
+          line-height: 60px;
+        }
       }
-      .item-tax {
-        font-size: 10px;
+
+      /* 出品者コメント */
+      &__description {
+        padding: 24px 0 0;
+        line-height: 1.5;
+        font-size: 14px;
+        @media screen and (min-width: 768px) {
+          padding: 32px 0 0;
+          font-size: 18px;
+        }
+        p {
+          white-space: pre-wrap;
+        }
       }
     }
-
-    /* 購入ボタン */
-    .item-buy-btn {
-      display: block;
-      margin-top: 16px;
-      background: $red;
-      font-size: 14px;
-      color: $white;
-      line-height: 56px;
-      text-align: center;
-      font-weight: 600;
-      -webkit-transition: all ease-out .3s;
-      transition: all ease-out .3s;
-      cursor: pointer;
-      @media screen and (min-width: 768px) {
-        font-size: 24px;
-        line-height: 60px;
-      }
-    }
-
-    /* 出品者コメント */
-    .item-description {
-      padding: 24px 0 0;
-      line-height: 1.5;
-      font-size: 14px;
-      @media screen and (min-width: 768px) {
-        padding: 32px 0 0;
-        font-size: 18px;
-      }
-      &__inner {
-        white-space: pre-wrap;
-      }
-    }
-
     /* footer */
     .item-button-container {
       margin: 16px 0 0;
@@ -214,6 +215,8 @@
     }
   }
 }
+
+/* 商品詳細 パンくずリスト */
 .product-bread-crumb {
   position: relative;
   border-top: 1px solid $border-gray;
