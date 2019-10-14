@@ -99,3 +99,6 @@ gem 'ransack'
 
 #アクティブハッシュ
 gem 'active_hash'
+
+# バリデーションエラーメッセージ日本語化
+gem 'rails-i18n'
