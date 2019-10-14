@@ -11,12 +11,12 @@ class User < ApplicationRecord
   VALID_PHONE_REGEX = /\A\d{11}\z/
   
   # step2入力項目
-  validates :nickname,          presence: true
+  validates :nickname,          presence: true, length: { minimum: 20}
   validates :email,             presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX } 
-  validates :firstname,         presence: true
-  validates :lastname,          presence: true
-  validates :firstname_kana,    presence: true
-  validates :lastname_kana,     presence: true
+  validates :firstname,         presence: true, length: { minimum: 35}
+  validates :lastname,          presence: true, length: { minimum: 35}
+  validates :firstname_kana,    presence: true, length: { minimum: 35}
+  validates :lastname_kana,     presence: true, length: { minimum: 35}
   validates :birth_year,        presence: true
   validates :birth_month,       presence: true
   validates :birth_day,         presence: true
