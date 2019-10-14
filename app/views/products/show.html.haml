@@ -79,11 +79,11 @@
 
 .comment-wrapper
   .comment-container
-    .comment-inner
-      %form{ class:'comment'}
-        %p.comment__notice 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %textarea{ class: 'comment__textarea' }
-        %button{type: 'submit', class: 'comment__button'}
+    .comment
+      %form{ class:'comment__form'}
+        %p.comment__form__notice 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea{ class: 'comment__form__textarea' }
+        %button{type: 'submit', class: 'comment__form__button'}
           %span コメントする
 
 .product-bread-crumb
