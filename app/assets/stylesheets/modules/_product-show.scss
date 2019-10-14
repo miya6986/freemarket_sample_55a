@@ -219,19 +219,19 @@
     width: 700px;
   }
   .comment-container {
-    .comment{
+    .comment-inner{
       padding: 24px 7.5%;
       background: $white;
       @media screen and (min-width: 768px) {
         padding: 24px;
       }
-      &__form {
-        &--notice {
+      .comment {
+        &__notice {
           padding: 8px;
           font-size: 14px;
           background: #fff6de;
         }
-        &--textarea {
+        &__textarea {
           margin: 8px 0 0;
           display: block;
           width: 100%;
@@ -247,7 +247,7 @@
             border-color: $blue;
           }
         }
-        &--button {
+        &__button {
           width: 100%;
           margin: 8px 0 0;
           font-size: 0;
