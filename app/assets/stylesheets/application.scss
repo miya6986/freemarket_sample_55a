@@ -1,20 +1,20 @@
-@import "./reset";
-@import "./modules/rgs-header";
-@import "./modules/sub-footer";
-@import "./modules/sub-header";
-@import "./modules/rgs-main";
-@import "font-awesome";
 @import 'reset';
+@import "font-awesome";
 @import 'color';
-@import 'font-awesome';
+@import 'font';
 @import './mixins/top-main';
 @import './mixins/top-footer';
+@import "./mixins/sub-footer";
+@import "./mixins/sub-header";
+@import "./mixins/rgs-header";
 @import './mixins/sell-button';
-@import './mixins/mypage_mixins';
-@import './modules/top-header';
+@import './mixins/top-main';
 @import './modules/top-main';
+@import './modules/top-header';
 @import './modules/top-footer';
+@import "./modules/rgs-main";
 @import './modules/sell-button';
+@import './mixins/mypage_mixins';
 @import './modules/mypage_body';
 @import './modules/mypage_bread-crumbs';
 @import './modules/mypage_side';
@@ -30,7 +30,7 @@ body {
   min-height: 100vh;
   color: rgb(51, 51, 51);
   background-color: rgb(245, 245, 245);
-  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-family: Arial, "游ゴシック体", YuGothic, "メイリオ", "Meiryo", "Font Awesome 5 Free", sans-serif;
   font-size: 14px;
   line-height: 1;
 }
@@ -38,12 +38,3 @@ body {
 img {
   vertical-align: middle;
 }
-
-button, input, select, textarea {
-  font-family: inherit;
-  font-size: 100%;
-}
-
-
-
-
