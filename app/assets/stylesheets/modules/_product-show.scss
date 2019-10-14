@@ -70,9 +70,6 @@
           font-size: 16px;
           vertical-align: middle;
           margin: 8px 10px 0 0;
-          // &:not(:last-child) {
-          //   margin-right: 10px;
-          // }
           .icon-good {
             color: $evaluation-red;
             span {
@@ -152,10 +149,8 @@
 
     /* footer */
     .item-button-container {
-      font-size: 0;
-    }
-    .item-button-container {
       margin: 16px 0 0;
+      font-size: 0;
       i {
         font-size: 14px;
         vertical-align: middle;
