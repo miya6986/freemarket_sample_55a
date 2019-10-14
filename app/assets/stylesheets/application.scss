@@ -1,7 +1,9 @@
 @import 'reset';
+@import "font-awesome";
 @import 'color';
 @import 'font';
-@import 'font-awesome';
+@import './mixins/top-main';
+@import './mixins/top-footer';
 @import "./mixins/sub-footer";
 @import "./mixins/sub-header";
 @import "./mixins/rgs-header";
