@@ -1,7 +1,9 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
   root 'products#index'
   resources :products,only: [:index, :new]
-  resources :users,only: 'index'
+  resources :users, only: [:index,:edit]
+  resources :creditcards, only: [:index, :destroy]
+  get 'logout' => "users#logout"
   get 'step1', to: 'registrations#step1'
   get 'step2', to: 'registrations#step2'
   get 'step3', to: 'registrations#step3'

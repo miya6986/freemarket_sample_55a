@@ -1,4 +1,7 @@
-= render partial: "bread_crumb"
+= render partial: "shared/main-header"
+= render partial: "shared/bread_crumb"
 %main
-  = render partial: 'mypage_side'
+  = render partial: 'shared/mypage_side'
   = render partial: 'mypage_main'
+= render 'shared/sell-button'
+= render 'shared/main-footer'
