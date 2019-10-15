@@ -1,7 +1,9 @@
 @import 'reset';
+@import "font-awesome";
 @import 'color';
 @import 'font';
-@import 'font-awesome';
+@import './mixins/top-main';
+@import './mixins/top-footer';
 @import "./mixins/sub-footer";
 @import "./mixins/sub-header";
 @import "./mixins/rgs-header";
@@ -20,6 +22,7 @@
 @import './modules/mypage_bread-crumbs';
 @import './modules/mypage_side';
 @import './modules/mypage_main';
+@import './modules/mypage_creditcard';
 @import './modules/mypage_tab-contents';
 @import './modules/mypage_tab-tabs';
 @import './modules/identification_main';

@@ -1,6 +1,6 @@
 .mypage-side{
   width: 280px;
-  height: 100vh;
+  min-height: 100vh;
   margin-right: 40px;
   float: left;
   &__nav_lists{
@@ -46,7 +46,7 @@
       }
       &.active{
         background: #EEEEEE;
-        font-weight: normal;
+        font-weight: bold;
         &::after{
           border-top: 2px solid #333333;
           border-right: 2px solid #333333;
