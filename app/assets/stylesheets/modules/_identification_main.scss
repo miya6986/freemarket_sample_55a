@@ -1,0 +1,115 @@
+.identification {
+  &-main {
+    width: 700px;
+    float: right;
+    background-color: $white;
+    &__title {
+      height: 50px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.4;
+      margin: 0;
+      padding: 8px 24px;
+      border-bottom: 1px solid $background_color;
+    }
+  }
+  &-form {
+    border-top: 1px solid $background_color;
+    padding: 64px;
+    .explanation {
+      p {
+        margin-top: 8px;
+        line-height: 1.5;
+      }
+      &--right {
+        color: $blue;
+        text-align: right;
+        a {
+          color: $blue;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+            text-decoration-color: $blue;
+            opacity: 0.7;
+          }
+        }
+      }
+      &-under {
+        margin-top: 40px;
+      }
+    }
+    .form-set {
+      margin-top: 40px;
+      p { 
+        margin-top: 8px;
+        line-height: 1.5;
+      }
+      label {
+        font-weight: 600;
+      }
+      input {
+        @include identification-form-setting;
+        padding: 10px 16px 8px;
+        &[type="text"]:focus {
+          border: 1px solid $blue;
+          outline: 0;
+        }
+      }
+      .optional {
+        font-size: 12px;
+        color: $white;
+        border-radius: 2px;
+        background-color: $light-gray;
+        margin-left: 8px;
+        padding: 2px 4px;
+        vertical-align: top;
+      }
+      .icon-wrapper {
+        position: relative;
+        i {
+          position: absolute;
+          left: 540px;
+          top: 12px;
+          z-index: 2;
+          color: $gray;
+          pointer-events: none;
+        }
+        select {
+          @include identification-form-setting;
+          font-weight: 400;
+          padding: 10px 16px 8px;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          cursor: pointer;
+          &:focus {
+            border: 1px solid $blue;
+            outline: 0;
+          }
+        }
+        .icon-sizing {
+          font-size: 25px;
+          -webkit-font-smoothing: antialiased;
+          -webkit-text-stroke-width: 0.5px;
+        }
+        .prefecture {
+          cursor: pointer;
+        }
+      }
+    }
+    .submit-identification {
+      width: 100%;
+      min-height: 1.5em;
+      font-size: 14px;
+      background-color: $red;
+      border: 1px solid $red;
+      color: $white;
+      text-align: center;
+      line-height: 48px;
+      margin-top: 40px;
+      outline: 0;
+      cursor: pointer;
+    }
+  }
+}
