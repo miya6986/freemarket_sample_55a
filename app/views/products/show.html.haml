@@ -22,19 +22,19 @@
                   %span 0
         %tr
           %th カテゴリー
-          %td
-            .category-name
+          %td.category
+            .category__name
               = link_to 'メンズ', ""
-            .category-sub
+            .category__sub
               = fa_icon 'chevron-right'
               = link_to 'バッグ', ""
-            .category-sub
+            .category__sub
               = fa_icon 'chevron-right'
               = link_to 'ボディーバッグ', ""
         %tr
           %th ブランド
-          %td
-            = link_to 'タケオ キクチ', "",class: 'brand-name'
+          %td.brand 
+            = link_to 'タケオ キクチ', "",class: 'brand__name'
         %tr
           %th 商品の状態
           %td 目立った傷や汚れなし
@@ -46,9 +46,8 @@
           %td らくらくメルカリ便
         %tr
           %th 配送元地域
-          %td 
-            .prefecture
-              = link_to '長崎県', ""
+          %td.prefecture
+            = link_to '長崎県', "",class: 'prefecture__name'
         %tr
           %th 発送日の目安	
           %td 2~3日で発送

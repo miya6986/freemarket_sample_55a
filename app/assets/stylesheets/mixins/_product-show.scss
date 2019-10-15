@@ -5,7 +5,7 @@
 }
 
 @mixin require-link {
-  a, .category-sub {
+  a, .category__sub {
     text-decoration: none;
     color: $blue;
     cursor: pointer;

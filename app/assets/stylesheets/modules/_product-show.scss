@@ -89,8 +89,8 @@
           }
         }
       }
-      .category-name, 
-      .category-sub,
+      .category__name, 
+      .category__sub,
       .brand-name,
       .prefecture {
         @include require-link();
