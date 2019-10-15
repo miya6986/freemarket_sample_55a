@@ -1,5 +1,6 @@
 Rails.application.routes.draw do 
   root 'products#index'
+  resources :products,only: [:index, :new]
   resources :users, only: [:index,:edit]
   resources :creditcards, only: [:index, :destroy]
   get 'logout' => "users#logout"

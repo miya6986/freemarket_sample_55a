@@ -8,6 +8,9 @@
 @import "./mixins/sub-header";
 @import "./mixins/rgs-header";
 @import './mixins/sell-button';
+@import './mixins/mypage_mixins';
+@import './mixins/new-product_mixins';
+@import './modules/top-header';
 @import './mixins/top-main';
 @import './modules/top-main';
 @import './modules/top-header';
@@ -22,6 +25,7 @@
 @import './modules/mypage_creditcard';
 @import './modules/mypage_tab-contents';
 @import './modules/mypage_tab-tabs';
+@import './modules/new-product_main';
 
 /* 基本設定 */
 
