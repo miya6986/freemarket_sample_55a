@@ -32,16 +32,28 @@ Things you may want to cover:
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|unique: true, null: false|
-|password|string|null: false|
 |firstname|string|null: false|
 |lastname|string|null: false|
 |firstname_kana|string|null: false|
 |lastname_kana|string|null: false|
-|birthday|date|null: false|
-|gender|string||
+|birthday_year|integer|null: false|
+|birthday_month|integer|null: false|
+|birthday_day|integer|null: false|
 |phone_number|string|unique: true, null: false|
+|password|string|null: false|
+|postalcode|integer||
+|prefecture|string||
+|city_name|string||
+|address_number|string||
+|building_name|string||
+|gender|string||
 |avatar|string||
 |profile|text||
+
+
+<!-- 住所関係のカラムは後から追加 -->
+<!-- gender以下のカラムはプロフィールページを細かく作るなら必要 -->
+<!-- phone_numberはstringの方が適切かと... 現状integer -->
 
 ### Association
 - has_many :addresses
