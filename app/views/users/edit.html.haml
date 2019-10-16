@@ -19,7 +19,7 @@
         %h2.header_title
           プロフィール
         .mystore-name-edit
-          %img.mystore_icon{src: "/assets/member_photo_noimage_thumb.png"}
+          = image_tag "member_photo_noimage_thumb.png", class:"mystore_icon"
           %input.input{name:"nickname",placeholder: "",type:"text"}
       .profile
         %textarea.profile_textarea{name:"introduction", placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
