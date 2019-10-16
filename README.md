@@ -114,7 +114,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
-- has_many :product_categories
 - belongs_to :category
 - has_many :comments
 - has_many :trade_messages
