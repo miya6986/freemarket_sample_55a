@@ -211,8 +211,6 @@ Things you may want to cover:
 - belongs_to :follower, class_name: "User"
 - belongs_to :following, class_name: "User"
 
-<!-- フォロー機能、以前作ったアプリと同じアソシエーションにした。 -->
-
 
 ## creditcardsテーブル
 |Column|Type|Options|
