@@ -42,7 +42,7 @@ Things you may want to cover:
 |phone_number|string|unique: true, null: false|
 |password|string|null: false|
 |postalcode|integer||
-|prefecture|string||
+|prefecture_id|string||
 |city_name|string||
 |address_number|string||
 |building_name|string||
@@ -50,10 +50,10 @@ Things you may want to cover:
 |avatar|string||
 |profile|text||
 
-
 <!-- 住所関係のカラムは後から追加 -->
 <!-- gender以下のカラムはプロフィールページを細かく作るなら必要 -->
 <!-- phone_numberはstringの方が適切かと... 現状integer -->
+<!-- address_phone_numberは本人の住所情報には必要なさそう -->
 
 ### Association
 - has_many :addresses
