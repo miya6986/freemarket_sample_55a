@@ -42,7 +42,7 @@ Things you may want to cover:
 |phone_number|string|unique: true, null: false|
 |password|string|null: false|
 |postalcode|integer||
-|prefecture_id|string||
+|prefecture_id|integer||
 |city_name|string||
 |address_number|string||
 |building_name|string||
