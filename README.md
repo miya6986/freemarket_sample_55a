@@ -108,8 +108,10 @@ Things you may want to cover:
 |source_area|string|null: false|
 |shipping_days|string|null: false|
 |price|integer|null: false|
-|buyer_id|references|foreign_key: true|
-|seller_id|references|foreign_key: true|
+|buyer_id|references|foreign_key: { to_table: :users }|
+|seller_id|references|foreign_key: { to_table: :users }|
+|category_id|references|foreign_key: true|
+|bland_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :seller, class_name: "User"
