@@ -5,7 +5,7 @@
   /* マイページ */
   &__header{
     height: 200px;
-    background: url(/assets/user-bg.jpg);
+    background: image-url("user-bg.jpg"); 
     position: relative;
     .mystore-name-edit{
       padding: 70px 16px 30px;
