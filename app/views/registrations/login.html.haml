@@ -2,7 +2,7 @@
   .logo-header
     %h1
       = link_to root_path, class: 'header-link' do
-        = image_tag '/assets/logo.svg', alt: 'mercari', class: 'header-logo', height: '49', width: '185'
+        = image_tag 'logo.svg', alt: 'mercari', class: 'header-logo', height: '49', width: '185'
   .login-main
     .no-account
       アカウントをお持ちでない方はこちら
@@ -20,7 +20,7 @@
       .login-form__group
         %input.password{ name: 'password', placeholder: 'パスワード', class: 'input-default-login'}
       .login-form__group
-        = image_tag '/assets/robo.png', alt: 'robot'
+        = image_tag 'robo.png', alt: 'robot'
       .login-form__group
         %button.btn-default-login{type: "submit"} ログイン
       .login-form__group
