@@ -113,7 +113,6 @@ Things you may want to cover:
 |seller_id|references|foreign_key: { to_table: :users }|
 |category_id|references|foreign_key: true|
 |bland_id|references|foreign_key: true|
-|user_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :seller, class_name: "User"
