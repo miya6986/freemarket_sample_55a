@@ -73,6 +73,7 @@ Things you may want to cover:
 - has_many :followers, through: :follower_relationships
 - has_many :creditcards
 - has_many :sns_credentials, dependent: :destroy
+- belongs_to_active_hash :prefecture
 
 
 ## addressesテーブル
@@ -92,6 +93,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+- belongs_to_active_hash :prefecture
 
 
 ## productsテーブル
@@ -112,6 +114,7 @@ Things you may want to cover:
 |seller_id|references|foreign_key: { to_table: :users }|
 |category_id|references|foreign_key: true|
 |bland_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :seller, class_name: "User"
@@ -123,6 +126,7 @@ Things you may want to cover:
 - has_many :likes
 - has_many :liked_users, through: :likes, source: :user
 - belongs_to :brand
+- belongs_to_active_hash :prefecture
 
 
 ## categoriesテーブル
