@@ -50,10 +50,9 @@ Things you may want to cover:
 |avatar|string||
 |profile|text||
 
-<!-- 住所関係のカラムは後から追加 -->
 <!-- gender以下のカラムはプロフィールページを細かく作るなら必要 -->
 <!-- phone_numberはstringの方が適切かと... 現状integer -->
-<!-- address_phone_numberは本人の住所情報には必要なさそう -->
+<!-- address_phone_numberは本人の住所情報には必要ない -->
 
 ### Association
 - has_many :addresses
