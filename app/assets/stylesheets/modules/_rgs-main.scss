@@ -202,7 +202,7 @@
       margin: 0 auto;
       margin-top: 16px;
       border: #979797 solid 1px;
-      background: #fff url(/assets//google.svg) no-repeat 3px top;
+      background: #fff image-url('google.svg') no-repeat 3px top;
       .about__registered {
         color: black;
         text-decoration: none;
@@ -266,7 +266,7 @@
         margin: 0 auto;
         margin-top: 16px;
         border: #979797 solid 1px;
-        background: #fff url(/assets//google.svg) no-repeat 3px top;
+        background: #fff image-url('google.svg') no-repeat 3px top;
         .about__registered {
           color: black;
           text-decoration: none;
