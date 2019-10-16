@@ -8,7 +8,9 @@ html{
 main{
   margin: 40px auto 0;
   width: 1020px;
-  height: 1456px;
+  min-height: 1193px;
   padding-bottom: 40px; 
+  @include clearfix;
 }
+
 
