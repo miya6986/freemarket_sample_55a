@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_131907) do
     t.integer "birth_year", null: false
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
-    t.integer "phone_number", null: false
+    t.string "phone_number"
     t.integer "postalcode"
     t.string "city_name"
     t.integer "address_number"
