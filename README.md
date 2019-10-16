@@ -78,11 +78,16 @@ Things you may want to cover:
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|address_firstname|string|null: false|
+|address_lastname|string|null: false|
+|address_firstname_kana|string|null: false|
+|address_lastname_kana|string|null: false|
 |postalcode|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|string|null: false|
 |city_name|string|null: false|
 |address_number|string|null: false|
 |building_name|string||
+|address_phone_number|string||
 |user_id|references|foreign_key: true|
 
 ### Association
