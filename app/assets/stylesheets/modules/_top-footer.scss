@@ -13,6 +13,7 @@ aside
   font-size: 12px;
   padding: 0px 20px 10px;
   &__container{
+    @include clearfix;
     @media (min-width: 768px) {
       width: 700px;
       margin: 0px auto;
@@ -22,7 +23,8 @@ aside
     }
     .item {
       @include footer-column();
-      &.left {
+      &.left {  
+        float: left;
         @media (min-width: 1068px) {
           width: auto;
           padding: 0px 40px 0px 0px;
@@ -34,8 +36,8 @@ aside
         width: auto;
         .middle-item {
           display: inline-block;
-          &:last-child {
-            margin-left: 15px;
+          &:not(:last-child) {
+            margin-right: 15px;
           }
         }
       }
@@ -52,13 +54,12 @@ aside
           a:hover{
             text-decoration: underline;
           }
-          &.icon {
-            i {
-              font-size:28px;
-              margin: 30px 0 0;
-              &:not(:last-child){
-                margin-right: 20px;
-              }
+          i {
+            color: #fff;
+            font-size:28px;
+            margin: 30px 0 0;
+            &:not(:last-child){
+              margin-right: 20px;
             }
           }
         }
