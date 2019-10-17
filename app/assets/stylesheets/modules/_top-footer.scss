@@ -20,14 +20,16 @@ aside img{
     .item {
       @include footer-column();
       &.left {
-        width: auto;
-        padding: 0px 40px 0px 0px;
+        @media (min-width: 1068px) {
+          width: auto;
+          padding: 0px 40px 0px 0px;
+        }
       }
-      &.middle {
+      &.middle{
         margin-top: 18px;
         padding-right: 40px;
         width: auto;
-        &-item {
+        .middle-item {
           display: inline-block;
           &:last-child {
             margin-left: 15px;
