@@ -75,7 +75,7 @@ Things you may want to cover:
 - belongs_to_active_hash :prefecture
 
 
-## addressesテーブル
+## delivery_addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |address_firstname|string|null: false|
