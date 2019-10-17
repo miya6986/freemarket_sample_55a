@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get 'step5', to: 'registrations#step5'
   get 'step6', to: 'registrations#step6'
   get 'login', to: 'registrations#login'
+  get 'buy', to: 'products#buy'
 end
