@@ -69,6 +69,7 @@
         %li
           = link_to "United States"
   .main-footer__bottom
-    = image_tag 'footer-logo.svg', alt: 'footer-logo'
+    = link_to root_path do
+      = image_tag 'footer-logo.svg', alt: 'footer-logo'
     .copyright
       %span © 2019 Mercari
