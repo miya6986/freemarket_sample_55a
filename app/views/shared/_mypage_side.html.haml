@@ -1,7 +1,7 @@
 .mypage-side
   %nav.mypage-side__nav
     %ul.mypage-side__nav_lists
-      %li.nav-list.active
+      %li{class: "nav-list #{active_class(users_path)}"}
         = link_to "",users_path, class:"nav-list__link"
         %p マイページ
       %li.nav-list
@@ -53,24 +53,24 @@
         %p ポイント
     %h3.mypage-side_head 設定
     %ul.mypage-side__nav_lists
-      %li.nav-list
+      %li{class: "nav-list #{active_class(edit_user_path(1))}"}
         = link_to "", edit_user_path(1), class:"nav-list__link"
         %p プロフィール
       %li.nav-list
         = link_to "", class:"nav-list__link"
         %p 発送元・お届け先住所
-      %li.nav-list
+      %li{class: "nav-list #{active_class(creditcards_path)}"}
         = link_to "", creditcards_path, class:"nav-list__link"
         %p 支払い方法
       %li.nav-list
         = link_to "", class:"nav-list__link"
         %p メール/パスワード
-      %li.nav-list
+      %li{class: "nav-list #{active_class(user_identification_users_path)}"}
         = link_to "", user_identification_users_path, class:"nav-list__link"
         %p 本人確認
       %li.nav-list
         = link_to "", class:"nav-list__link"
         %p 電話番号の確認
-      %li.nav-list
+      %li{class: "nav-list #{active_class(logout_path)}"}
         = link_to "", logout_path, class:"nav-list__link"
         %p ログアウト
