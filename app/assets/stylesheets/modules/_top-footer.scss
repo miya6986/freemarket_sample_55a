@@ -17,7 +17,8 @@ aside img{
     @media (min-width: 1068px) {
       width: 1100px;
     }
-    div{
+    .item{
+      @include footer-column();
       h2 {
         @include subheading();
       }
@@ -33,7 +34,6 @@ aside img{
     }
 
     .left-item {
-      @include footer-column();
       &:first-child {
         padding-left: 0px;
       }
@@ -55,7 +55,6 @@ aside img{
       }
     }
     .middle-items {
-      @include footer-column();
       @media (min-width: 1068px) {
         margin-top: 18px;
         padding-right: 40px;
@@ -69,7 +68,6 @@ aside img{
       }
     }
     .right-item {
-      @include footer-column();
       @media (min-width: 1068px) {
         margin-top: 18px;
         width: auto;
