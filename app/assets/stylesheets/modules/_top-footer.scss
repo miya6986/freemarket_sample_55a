@@ -50,7 +50,9 @@ aside
       }
       ul {
         li {
-          @include footer-item();
+          line-height: 1.4em;
+          margin: 16px 0px 0px;
+          color: #BCBCBC;
           a:hover{
             text-decoration: underline;
           }
