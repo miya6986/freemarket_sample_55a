@@ -4,12 +4,12 @@ aside img{
   width:100%;
   height: 263px;
 }
-.footer-wrapper {
+.main-footer {
   background-color: rgb(34, 34, 34);
   color: rgb(255, 255, 255);
   font-size: 12px;
   padding: 0px 20px 10px;
-  .footer-container{
+  &__container{
     @media (min-width: 768px) {
       width: 700px;
       margin: 0px auto;
@@ -76,7 +76,7 @@ aside img{
       }
     }
   }
-  .footer-bottom {
+  &__bottom {
     align-items: center;
     margin-top: 55px;
     display: flex;
