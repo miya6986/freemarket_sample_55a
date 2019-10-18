@@ -1,8 +1,8 @@
 = render partial: "shared/main-header"
 - breadcrumb :mypage
-= render partial: "bread_crumb"
-
-%main
-  = render partial: 'mypage_side'
+= render partial: "shared/bread_crumb"
+%main.mypage-body
+  = render partial: 'shared/mypage_side'
   = render partial: 'mypage_main'
 = render 'shared/sell-button'
+= render 'shared/main-footer'

@@ -1,5 +1,6 @@
 .sell-button-container
-  .sell-button
-    .text
-      出品
-    = fa_icon 'camera',class:'icon'
+  = link_to new_product_path, class:"sell-button__path" do
+    .sell-button
+      .text
+        出品
+      = fa_icon 'camera',class:'icon'

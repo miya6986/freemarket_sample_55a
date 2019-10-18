@@ -1,6 +1,12 @@
 Rails.application.routes.draw do 
   root 'products#index'
-  resources :users,only: [:index,:edit]
+  resources :users, only: [:index,:edit] do
+    collection do
+      get :user_identification
+    end
+  end
+  resources :products,only: [:index, :show, :new]
+  resources :creditcards, only: [:index, :destroy]
   get 'logout' => "users#logout"
   get 'step1', to: 'registrations#step1'
   get 'step2', to: 'registrations#step2'
@@ -9,4 +15,5 @@ Rails.application.routes.draw do
   get 'step5', to: 'registrations#step5'
   get 'step6', to: 'registrations#step6'
   get 'login', to: 'registrations#login'
+  get 'buy', to: 'products#buy'
 end

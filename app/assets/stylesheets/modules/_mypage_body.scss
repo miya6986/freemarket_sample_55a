@@ -1,15 +1,10 @@
-*{
-  box-sizing: border-box;
-}
-html{
-  background-color: $background_color;
-}
 
-main{
+.mypage-body{
   margin: 40px auto 0;
   width: 1020px;
-  height: 1456px;
+  min-height: 100%;
   padding-bottom: 40px; 
+  @include clearfix;
 }
 
 

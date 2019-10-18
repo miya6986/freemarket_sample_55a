@@ -1,0 +1,271 @@
+.deal-container {
+  padding: 0 0 250px;
+  @media screen and (min-width: 768px) {
+    padding: 0 0 220px;
+  }
+
+  /* ヘッダー */
+  .deal-header {
+    text-align: center;
+    @media screen and (min-width: 768px) {
+      height: 128px;
+    }
+    h1 {
+      display: inline-block;
+      margin: 11px 0 12px;
+      @media screen and (min-width: 768px) {
+        margin: 40px 0 0;
+      }
+    }
+    a {
+      display: inline-block;
+      width: 120px;
+      height: 33px;
+      margin: 0 8px 0 0;
+      line-height: 33px;
+      @media screen and (min-width: 768px) {
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+      }
+  
+    }
+    img {
+      width: 120px;
+      height: 33px;
+      @media screen and (min-width: 768px) {
+        width: 185px;
+        height: 49px;
+      }
+    }
+    h1 {
+      display: inline-block;
+      margin: 11px 0 12px;
+      width: 120px;
+      height: 33px;
+      margin: 0 8px 0 0;
+      line-height: 33px;
+      &:hover {
+        opacity: 0.7 ;
+      }
+      @media screen and (min-width: 768px) {
+        margin: 40px 0 0;
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+      }
+    }
+  }
+
+  /* メイン */
+  .main-wrapper {
+    height: 800px;
+    width: 745px;
+    margin: 0 auto;
+  
+    .buy-info {
+      background: $white;
+      @media screen and (min-width: 768px) {
+        width: 700px;
+        margin: 0 auto;
+      }
+      &__head {
+        padding: 24px 8px;
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: center;
+        @media screen and (min-width: 768px) {
+          padding: 32px 16px;
+          font-size: 22px;
+          font-weight: 600;
+        }
+      }
+      &__content{
+        margin: 40px 0 0;
+        padding: 24px 12.5% 0;
+        border-top: 1px solid $background_color;
+        &:first-of-type {
+          margin: 0;
+        }
+        &:last-of-type {
+          padding: 24px 12.5% 40px;
+        }
+        .buy-inner {
+          max-width: 320px;
+          margin: 0 auto;
+        }
+      }
+      &__item {
+        & > .buy-inner {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        text-align: center;
+        img {
+          width: 64px;
+        }
+        &__name {
+          width: calc(100% - 80px);
+          margin: 0 0 0 16px;
+          text-align: left;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        &__form {
+          width: 100%;
+          p {
+            margin: 8px 0 0;
+            line-height: 1.5;
+          }
+          &__price {
+            margin: 16px 0 0;
+            font-size: 22px;
+            font-weight: 600;
+            .shipping-fee {
+              margin: 0 0 0 8px;
+              font-size: 14px;
+              font-weight: 400;
+            }
+          }
+          &__accordion {
+            margin: 16px 0 0;
+            background-color: $border-gray;
+            .accordion-toggle {
+              padding: 16px;
+              border: 1px solid $border-gray;
+              position: relative;
+            }
+          }
+          &__price-table {
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+            .buy-price {
+              display: table-row;
+              border-top: 1px solid $border-gray;
+              &__cell {
+                display: table-cell;
+                padding: 16px 0;
+                text-align: right;
+                span {
+                  font-size: 28px;
+                }
+              }
+              &__cell:first-child {
+                text-align: left;
+              }
+              &:first-child {
+                border: 0;
+              }
+            }
+            .buy-you-pay {
+              font-size: 18px;
+              font-weight: 600;
+            }
+          }
+          &__btn-red {
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            -webkit-transition: all ease-out .3s;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
+            margin: 8px 0 0;
+            background: $red;
+            border: 1px solid $red;
+            color: #fff;
+          }     
+        }
+      }
+      &__user {
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        h3:first-child {
+          margin: 0;
+        }
+        h3 {
+          margin: 40px 0 0;
+          font-size: 14px;
+          font-weight: 600;
+        }
+        address {
+          display: block;
+        }
+        &--text {
+          margin: 8px 0 0;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        a {
+          text-decoration: none;
+          color: $blue;
+        }
+        a:visited {
+          color: $blue;
+        }
+        &--fix {
+          display: block;
+          text-align: right;
+          color: $blue;
+          &:hover {
+            text-decoration: underline;
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+  /* フッター */
+  .deal-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: 250px;
+    padding: 40px 0;
+    text-align: center;
+    @media screen and (min-width: 768px) {
+      width: 456px;
+      margin: 0 auto;
+    }
+    ul {
+      font-size: 0;
+    }
+    li {
+      font-size: 12px;
+      color: #333;
+      margin: 16px 0 0;
+      &:first-child {
+        margin: 0;
+      }
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        opacity: 0.7;
+      }
+      @media screen and (min-width: 768px) {
+        display: inline-block;
+        margin: 0 0 0 16px;
+      }
+    }
+    p {
+      margin: 8px 0 0;
+      color: $black;
+    }
+    small {
+      font-size: 12px;
+    }
+    &__logo {
+      width: 80px;
+      height: 65px;
+      margin: 40px auto 0;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

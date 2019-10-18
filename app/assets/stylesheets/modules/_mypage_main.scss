@@ -2,22 +2,11 @@
   width: 700px;
   float: left;
   background: #fff;
-  .logout-btn{
-    @include btn-l;
-    margin: 64px auto;
-    background: $red;
-  }
+  /* マイページ */
   &__header{
     height: 200px;
-    background: url(/assets/user-bg.jpg);
+    background: image-url("user-bg.jpg"); 
     position: relative;
-    .header_title{
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      background: #fff;
-      padding: 8px 0;
-    }
     .mystore-name-edit{
       padding: 70px 16px 30px;
       text-align: center;
@@ -48,6 +37,7 @@
       bottom: 0;
       margin: auto;
       text-decoration: none;
+      color: inherit;
       &:hover{
         opacity: 0.7;
         & h2{
@@ -72,12 +62,19 @@
       &__count{
         font-size: 14px;
         text-align: center;
-        span:last-child{
-          margin: 0 0 0 16px;
+        margin-top: 8px;
+        span{
+          &:nth-child(2n){
+            margin: 0 0 0 8px;
+          }
+          &:nth-child(3n){
+            margin: 0 0 0 16px;
+          }
         }
       }
     }
   }
+  /* プロフィール変更画面 */
   .profile{
     height: 362px;
     background: #fff;
@@ -87,6 +84,7 @@
       height: 216px;
       border: 1px solid #ccc;
       padding: 10px;
+      font-size: 16px;
     }
     &_button{
       @include btn-l;
@@ -95,6 +93,13 @@
       border: none;
       margin-top: 16px;
     }
+  }
+  
+  /* ログアウト画面 */
+  .logout-btn{
+    @include btn-l;
+    margin: 64px auto;
+    background: $red;
   }
 }
 
