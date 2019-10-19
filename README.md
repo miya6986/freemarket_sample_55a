@@ -60,6 +60,7 @@ Things you may want to cover:
 - has_many :bought_products, foreign_key: "buyer_id", class_name: "Product"
 - has_many :selling_products, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Product"
 - has_many :sold_products, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Product"
+- has_many :images
 - has_many :comments
 - has_many :trade_messages
 - has_many :evaluations
@@ -126,6 +127,16 @@ Things you may want to cover:
 - has_many :liked_users, through: :likes, source: :user
 - belongs_to :brand
 - belongs_to_active_hash :prefecture
+
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|product_id|references|foreign_key: true|
+
+### Association
+- belongs_to :product
 
 
 ## categoriesテーブル
