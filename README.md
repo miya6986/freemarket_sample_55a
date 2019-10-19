@@ -60,7 +60,6 @@ Things you may want to cover:
 - has_many :bought_products, foreign_key: "buyer_id", class_name: "Product"
 - has_many :selling_products, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Product"
 - has_many :sold_products, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Product"
-- has_many :images
 - has_many :comments
 - has_many :trade_messages
 - has_many :evaluations
@@ -119,6 +118,7 @@ Things you may want to cover:
 - belongs_to :buyer, class_name: "User"
 - belongs_to :users
 - belongs_to :category
+- has_many :images
 - has_many :comments
 - has_many :trade_messages
 - has_one :evaluations
