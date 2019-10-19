@@ -8,6 +8,7 @@
           .form__upper__group
             %label 携帯電話の番号
             = f.text_field :phone_number, placeholder: '例:電話番号', class: 'input-default'
+            = render partial: 'error-text', locals: {user: @user, column: "phone_number"}
             %p.attention 本人確認のため、携帯電話のSMS(ショートメッセ
             ージサービス)を利用して認証を行います。
           
