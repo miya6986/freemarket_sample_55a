@@ -101,7 +101,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|images|json|null: false|
 |description|text|null: false|
 |size|string||
 |condition|string|null: false|
