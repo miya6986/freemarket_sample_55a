@@ -51,7 +51,6 @@ Things you may want to cover:
 |profile|text||
 
 <!-- gender以下のカラムはプロフィールページを細かく作るなら必要 -->
-<!-- phone_numberはstringの方が適切かと... 現状integer -->
 <!-- address_phone_numberは本人の住所情報には必要ない -->
 
 ### Association
