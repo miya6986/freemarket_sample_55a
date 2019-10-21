@@ -87,7 +87,7 @@ Things you may want to cover:
 |address_number|string|null: false|
 |building_name|string||
 |address_phone_number|string||
-|user_id|references|foreign_key: true|
+|user_id|references|foreign_key: true, null: false|
 
 ### Association
 - belongs_to :user
@@ -151,8 +151,8 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|foreign_key: true|
-|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true, null: false|
+|user_id|references|foreign_key: true, null: false|
 |comment|text|null: false|
 
 ### Association
@@ -163,8 +163,8 @@ Things you may want to cover:
 ## trade_messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|foreign_key: true|
-|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true, null: false|
+|user_id|references|foreign_key: true, null: false|
 |message|text|null: false|
 
 ### Association
@@ -176,8 +176,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |rate|integer|null: false|
-|evaluate_id|integer|foreign_key: true|
-|evaluated_id|intefer|foreign_key: true|
+|evaluate_id|integer|foreign_key: true, null: false|
+|evaluated_id|intefer|foreign_key: true, null: false|
 |product_id|integer|foreign_key: true|
 |review|text||
 
