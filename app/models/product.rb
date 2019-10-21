@@ -3,4 +3,5 @@ class Product < ApplicationRecord
   belongs_to :buyer, class_name: "User"
   belongs_to :user
   has_many :images, dependent: :destroy
+  belongs_to :category
 end
