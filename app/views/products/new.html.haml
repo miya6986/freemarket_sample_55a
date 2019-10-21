@@ -3,7 +3,7 @@
   .main
     .head
       %h2 商品の情報を入力
-    = form_with model: @product, class: "form" do |form|
+    = form_with model: @product, class: "form" do |f|
       .form-image
         .form-image__title
           %label 出品画像
@@ -15,17 +15,17 @@
               ドラッグアンドドロップ
               %br
               またはクリックしてファイルをアップロード
-            = form.file_field :images, class: "hidden"
+            = f.file_field :images, class: "hidden"
       .form-container
         .form-container__name
           %label 商品名
           %span 必須
           .input-space
-            = form.text_field :name, class: "input-name", placeholder: "商品名（必須 40文字まで）"
+            = f.text_field :name, class: "input-name", placeholder: "商品名（必須 40文字まで）"
         .form-container__description
           %label 商品の説明
           %span 必須
-          = form.text_area :description, class: "input-description", rows: "5", cols: 40, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          = f.text_area :description, class: "input-description", rows: "5", cols: 40, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
       .form-details
         %h3 商品の詳細
         .form-details__form-box
@@ -34,13 +34,13 @@
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = form.select :category, [["---", ""], ["レディース"], ["メンズ"], ["ベビー・キッズ"], ["インテリア・住まい・小物"], ["本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容"], ["家電・スマホ・カメラ"], ["スポーツ・レジャー"], ["ハンドメイド"], ["チケット"], ["自動車・オートバイ"], ["その他"]], {}, {class: "select-default"}
+              = f.select :category, [["---", ""], ["レディース"], ["メンズ"], ["ベビー・キッズ"], ["インテリア・住まい・小物"], ["本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容"], ["家電・スマホ・カメラ"], ["スポーツ・レジャー"], ["ハンドメイド"], ["チケット"], ["自動車・オートバイ"], ["その他"]], {}, {class: "select-default"}
           .form-details__form-box__condition
             %label 商品の状態
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = form.select :condition, [["---", ""], ["新品、未使用"], ["未使用に近い"], ["目立った傷や汚れなし"], ["やや傷や汚れあり"], ["傷や汚れあり"], ["全体的に状態が悪い"]], {}, {class: "select-default"}
+              = f.select :condition, [["---", ""], ["新品、未使用"], ["未使用に近い"], ["目立った傷や汚れなし"], ["やや傷や汚れあり"], ["傷や汚れあり"], ["全体的に状態が悪い"]], {}, {class: "select-default"}
       .form-shipping
         %h3 配送について
         = link_to "？", "", class: "question"
@@ -50,19 +50,19 @@
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = form.select :postage, [["---", ""], ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, {class: "select-default"}
+              = f.select :postage, [["---", ""], ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, {class: "select-default"}
           .form-shipping__form-box__area
             %label 配送元の地域
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = form.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"},{class: "select-default"}
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"},{class: "select-default"}
           .form-shipping__form-box__day
             %label 配送までの日数
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = form.select :shipping_days, [["---", ""], ["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]], {}, {class: "select-default"}
+              = f.select :shipping_days, [["---", ""], ["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]], {}, {class: "select-default"}
       .form-price
         %h3 販売価格(300〜9,999,999)
         = link_to "？", "", class: "question"
@@ -73,7 +73,7 @@
               %span 必須
             .price-input
               .price-input__logo ¥
-              = form.text_field :price, class: "input-price", placeholder: "例）300"
+              = f.text_field :price, class: "input-price", placeholder: "例）300"
           .form-price__form-box__charge
             .form-price__form-box__charge__left 販売手数料 (10%)
             .form-price__form-box__charge__right -
