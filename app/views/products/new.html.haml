@@ -95,6 +95,6 @@
             また、出品をもちまして
             = link_to "加盟店規約", "", class: "description-link"
             に同意したことになります。
-        %botton.btn-default{type: "submit"} 出品する
+        = f.submit "出品する", class: "btn-default"
         = link_to "もどる", :back, class: "btn-default btn-gray"
   =render "./registrations/sub-footer"
