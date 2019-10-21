@@ -4,13 +4,6 @@ class CreditcardsController < ApplicationController
   def index
   end
 
-  def show
-    card = Creditcard.where(user_id: current_user.id).first
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @card_info = customer.cards.retrieve(card.card_id)
-  end
-
   def new
     card = Creditcard.where(user_id: current_user.id).first
     redirect_to action: "index" if card.exists?    
@@ -35,6 +28,23 @@ class CreditcardsController < ApplicationController
     end
   end
 
+  def show
+    card = Creditcard.where(user_id: current_user.id).first
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @card_info = customer.cards.retrieve(card.card_id)
+  end
+
+
   def destroy     
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    @card = Creditcard.where(user_id: current_user.id).first
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    customer.delete
+    if @card.destroy
+      redirect_to action: "index", notice: "削除しました"
+    else
+      redirect_to action: "index", alert: "削除できませんでした"
+    end
   end
 end
