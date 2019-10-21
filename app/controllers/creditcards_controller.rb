@@ -1,7 +1,27 @@
 class CreditcardsController < ApplicationController
   require "payjp"
+  before_action :set_card
 
   def index
+    if @card.present?
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @card_info = customer.cards.retrieve(card.card_id)
+      @card_brand = @card_info.card_brand
+      case @card_brand
+      when "Visa"
+        @card_image = "visa.svg"
+      when "JCB"
+        @card_image = "jcb.svg"
+      when "MasterCard"
+        @card_image = "master-card.svg"
+      when "American Express"
+        @card_image = "american_express.svg"
+      when "Diners Club"
+        @card_image = "dinersclub.svg"
+      when "Discover"
+        @card_image = "discover.svg"
+      end
+    end
   end
 
   def new
@@ -10,10 +30,10 @@ class CreditcardsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.create(
       email: current_user.email,
       card: params['payjp-token'],
@@ -46,5 +66,10 @@ class CreditcardsController < ApplicationController
     else
       redirect_to action: "index", alert: "削除できませんでした"
     end
+  end
+
+  private
+  def set_card
+    @card = Creditcard.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
 end
