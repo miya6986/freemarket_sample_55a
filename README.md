@@ -78,10 +78,10 @@ Things you may want to cover:
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|address_firstname|string|null: false|
-|address_lastname|string|null: false|
-|address_firstname_kana|string|null: false|
-|address_lastname_kana|string|null: false|
+|firstname|string|null: false|
+|lastname|string|null: false|
+|firstname_kana|string|null: false|
+|lastname_kana|string|null: false|
 |postalcode|integer|null: false|
 |prefecture_id|string|null: false|
 |city_name|string|null: false|
