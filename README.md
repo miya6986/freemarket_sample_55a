@@ -132,7 +132,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|product_id|references|foreign_key: true|
+|product_id|references|foreign_key: true, null: false|
 
 ### Association
 - belongs_to :product
