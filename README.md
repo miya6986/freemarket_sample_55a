@@ -223,7 +223,7 @@ Things you may want to cover:
 ## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
+|user_id|references|foreign_key: true, null: false|
 |card_id|string|null: false|
 
 ### Association
