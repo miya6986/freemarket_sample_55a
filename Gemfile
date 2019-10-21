@@ -76,6 +76,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave'
+gem 'active_hash'
 
 #デプロイ関係
 gem 'fog-aws'
@@ -96,3 +97,5 @@ gem 'gretel'
 #商品購入＆検索機能
 gem 'payjp'
 gem 'ransack'
+
+
