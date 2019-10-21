@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_093738) do
+ActiveRecord::Schema.define(version: 2019_10_21_093100) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -38,15 +38,6 @@ ActiveRecord::Schema.define(version: 2019_10_21_093738) do
     t.index ["buyer_id"], name: "index_products_on_buyer_id"
     t.index ["name"], name: "index_products_on_name"
     t.index ["seller_id"], name: "index_products_on_seller_id"
-  end
-
-  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "uid"
-    t.string "provider"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -81,5 +72,4 @@ ActiveRecord::Schema.define(version: 2019_10_21_093738) do
   add_foreign_key "images", "products"
   add_foreign_key "products", "users", column: "buyer_id"
   add_foreign_key "products", "users", column: "seller_id"
-  add_foreign_key "sns_credentials", "users"
 end
