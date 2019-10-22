@@ -49,17 +49,15 @@ class CreditcardsController < ApplicationController
   end
 
   def show
-    card = Creditcard.where(user_id: current_user.id).first
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @card_info = customer.cards.retrieve(card.card_id)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @card_info = customer.cards.retrieve(@card.card_id)
   end
 
 
   def destroy     
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    @card = Creditcard.where(user_id: current_user.id).first
-    customer = Payjp::Customer.retrieve(card.customer_id)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     if @card.destroy
       redirect_to action: "index", notice: "削除しました"
