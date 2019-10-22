@@ -168,6 +168,12 @@
             @include require-sapn;
             @include form-select;
           }
+          &__method {
+            margin: 40px 0 0;
+            @include label;
+            @include require-sapn;
+            @include form-select;
+          }
           &__day {
             margin: 40px 0 0;
             @include label;

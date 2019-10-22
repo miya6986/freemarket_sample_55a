@@ -29,12 +29,12 @@
       .form-details
         %h3 商品の詳細
         .form-details__form-box
-          .form-details__form-box__category
-            %label カテゴリー
-            %span 必須
-            .form-select
-              = fa_icon 'angle-down', class: 'icon-angle-down'
-              = f.select :category, [["---", ""], ["レディース"], ["メンズ"], ["ベビー・キッズ"], ["インテリア・住まい・小物"], ["本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容"], ["家電・スマホ・カメラ"], ["スポーツ・レジャー"], ["ハンドメイド"], ["チケット"], ["自動車・オートバイ"], ["その他"]], {}, {class: "select-default"}
+          -# .form-details__form-box__category
+          -#   %label カテゴリー
+          -#   %span 必須
+          -#   .form-select
+          -#     = fa_icon 'angle-down', class: 'icon-angle-down'
+          -#     = f.select :category, [["---", ""], ["レディース"], ["メンズ"], ["ベビー・キッズ"], ["インテリア・住まい・小物"], ["本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容"], ["家電・スマホ・カメラ"], ["スポーツ・レジャー"], ["ハンドメイド"], ["チケット"], ["自動車・オートバイ"], ["その他"]], {}, {class: "select-default"}
           .form-details__form-box__condition
             %label 商品の状態
             %span 必須
@@ -51,6 +51,16 @@
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
               = f.select :postage, [["---", ""], ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, {class: "select-default"}
+        
+          .form-shipping__form-box__method
+            .form-shipping__form-box__fee
+              %label 配送の方法
+              %span 必須
+              .form-select
+                = fa_icon 'angle-down', class: 'icon-angle-down'
+                = f.select :shipping_method, [["---", ""], ["未定"], ["らくらくメルカリ便"],["ゆうメール"],["レターパック"],["普通郵便（定形・定型外）"],["クロネコヤマト"],["ゆーパック"],["クリックポスト"],["ゆうパケット"]], {}, {class: "select-default"}
+          
+         
           .form-shipping__form-box__area
             %label 配送元の地域
             %span 必須
