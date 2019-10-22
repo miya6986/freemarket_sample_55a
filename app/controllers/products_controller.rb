@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def create
@@ -23,7 +24,7 @@ class ProductsController < ApplicationController
     params.require(:product).permit(
       :name,
       :description,
-      :category,
+      :category_id,
       :size,
       :condition,
       :postage,
