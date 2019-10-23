@@ -81,6 +81,11 @@
             background: #fff;
             line-height: 1.5;
             font-size: 16px;
+            &.exp{
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+            }
           }
           &-select{
             width: 76px;
