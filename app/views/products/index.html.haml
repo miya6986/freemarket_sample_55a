@@ -23,7 +23,15 @@
           = fa_icon 'chevron-right'
       %ul.category-items
         %li.category-item 
-          = image_tag 'product-sample.png'
+          = link_to '#',class: "category-item--link" do
+            .item-box
+              .item-box__top
+                .item-box__top__image
+                  = image_tag 'mercari.png', size: '188x188', class: 'product-image'
+                  .product-price
+                    ¥1,000
+              .item-box__description
+                %span あああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
         %li.category-item
           = image_tag 'product-sample.png'
         %li.category-item
