@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load',function(){
   Payjp.setPublicKey('');
   var form = $("#charge-form"),
-      number = form.find('input[name="number"]'),
+      number = form.find('input[name="card_number"]'),
       cvc = form.find('input[name="cvc"]'),
       exp_month = form.find('select[name="exp_month"]'),
       exp_year = form.find('input[name="exp_year"]');
