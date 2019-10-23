@@ -7,7 +7,7 @@
             = image_tag 'mercari.png', size: '188x188', class: 'product-image'
             .product-price
               ¥
-              = product.price
+              = product.price.to_s(:delimited)
         .item-box__description
           %span 
             = product.name
