@@ -6,7 +6,7 @@ class CreditcardsController < ApplicationController
     if @card.present?
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_info = customer.cards.retrieve(@card.customer_id.default_card)
-      @card_brand = @card_info.card_brand
+      @card_brand = @card_info.brand
       case @card_brand
       when "Visa"
         @card_image = "visa.svg"
