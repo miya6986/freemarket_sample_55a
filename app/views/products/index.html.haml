@@ -22,6 +22,7 @@
           もっと見る
           = fa_icon 'chevron-right'
       %ul.category-items
+        = render partial: 'products/product-list'
         %li.category-item 
           = link_to '#',class: "category-item--link" do
             .item-box
@@ -41,10 +42,6 @@
         %li.category-item
           = image_tag 'product-sample.png'
         %li.category-item 
-          = image_tag 'product-sample.png'
-        %li.category-item
-          = image_tag 'product-sample.png'
-        %li.category-item
           = image_tag 'product-sample.png'
         %li.category-item
           = image_tag 'product-sample.png'
