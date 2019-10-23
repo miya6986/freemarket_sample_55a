@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
   resources :products,only: [:index, :show, :new]
-  resources :creditcards, only: [:index, :destroy]
+  resources :creditcards, only: [:index, :create, :destroy]
   get 'logout' => "users#logout"
   get 'step1', to: 'registrations#step1'
   get 'step2', to: 'registrations#step2'

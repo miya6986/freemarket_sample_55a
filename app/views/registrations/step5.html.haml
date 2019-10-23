@@ -3,7 +3,7 @@
   .rgs-main
     .rgs-main__section
       %h2 支払い方法
-      .form#charge-form
+      = form_with usl: creditcards_path, method: :post, html: { name: "inputForm" },class:"form", id: "charge-form" do |f|
         .form__upper
           .form__upper__group
             %label カード番号
@@ -28,10 +28,10 @@
             .name
               %label 有効期限
               %span.form-require 必須
-            %input{ name: "exp_year", class: 'input-default-harf' } 年
+            %input{type: "number", name: "exp_year", class: 'input-default-harf' } 年
           .form__upper__group
 
-            %input.last-name{ name: "exp_month", class: 'input-default-harf' } 月
+            %input.last-name{type: "number", name: "exp_month", class: 'input-default-harf' } 月
           .form__upper__group
             %label セキュリティーコード
             %span.form-require 必須
