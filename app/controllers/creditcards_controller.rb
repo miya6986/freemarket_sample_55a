@@ -4,8 +4,8 @@ class CreditcardsController < ApplicationController
 
   def index
     if @card.present?
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @card_info = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_info = customer.cards.retrieve(@card.customer_id.default_card)
       @card_brand = @card_info.card_brand
       case @card_brand
       when "Visa"
@@ -39,7 +39,7 @@ class CreditcardsController < ApplicationController
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
       )
-      @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id)
       if @card.save
         redirect_to action: "index"
       else
@@ -51,7 +51,7 @@ class CreditcardsController < ApplicationController
   def show
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(@card.customer_id)
-    @card_info = customer.cards.retrieve(@card.card_id)
+    @card_info = customer.cards.retrieve(@card.customer_id.default_card)
   end
 
 
