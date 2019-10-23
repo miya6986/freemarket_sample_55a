@@ -1,13 +1,22 @@
 Rails.application.routes.draw do 
-  devise_for :users
+  devise_for :users,
+    controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations',
+      omniauth_callbacks: 'users/omniauth_callbacks'
+    }
+
   root 'products#index'
+
   resources :users, only: [:index,:edit] do
     collection do
       get :user_identification
     end
   end
+
   resources :products,only: [:index, :show, :new]
   resources :creditcards, only: [:index, :destroy]
+  
   get 'logout' => "users#logout"
   get 'step1', to: 'registrations#step1'
   get 'step2', to: 'registrations#step2'

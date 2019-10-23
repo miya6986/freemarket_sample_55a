@@ -43,6 +43,10 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  # For Authentication by SNS
+  gem 'omniauth'
+  gem 'omniauth-facebook'
+  gem 'omniauth-rails_csrf_protection'
 end
 
 group :development do
