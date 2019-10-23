@@ -1,10 +1,13 @@
-%li.category-item 
-  = link_to '#',class: "category-item--link" do
-    .item-box
-      .item-box__top
-        .item-box__top__image
-          = image_tag 'mercari.png', size: '188x188', class: 'product-image'
-          .product-price
-            ¥1,000
-      .item-box__description
-        %span あああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+- @products.each do |product|
+  %li.category-item 
+    = link_to '#',class: "category-item--link" do
+      .item-box
+        .item-box__top
+          .item-box__top__image
+            = image_tag 'mercari.png', size: '188x188', class: 'product-image'
+            .product-price
+              ¥
+              = product.price
+        .item-box__description
+          %span 
+            = product.name
