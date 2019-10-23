@@ -3,12 +3,12 @@
   .rgs-main
     .rgs-main__section
       %h2 支払い方法
-      .form
+      .form#charge-form
         .form__upper
           .form__upper__group
             %label カード番号
             %span.form-require 必須
-            %input.nickname{ type: 'text', name: 'nickname', placeholder: '半角数字のみ', class: 'input-default' }
+            %input{ type: 'text', name: "number", placeholder: '半角数字のみ', class: 'input-default' }
             %ol
               %li
                 %object{type: "image/svg+xml", data: "#{asset_path 'visa.svg'}", width:"35", height:"20"}
@@ -28,14 +28,14 @@
             .name
               %label 有効期限
               %span.form-require 必須
-            %input{ name: 'first-name', class: 'input-default-harf' } 年
+            %input{ name: "exp_year", class: 'input-default-harf' } 年
           .form__upper__group
 
-            %input.last-name{ name: 'last-name', class: 'input-default-harf' } 月
+            %input.last-name{ name: "exp_month", class: 'input-default-harf' } 月
           .form__upper__group
             %label セキュリティーコード
             %span.form-require 必須
-            %input.nickname{ type: 'text', name: 'nickname', placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default' }
+            %input{ type: 'text', name: "cvc", placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default' }
           .form__upper__group
             %p.about
               = fa_icon 'question-circle'
