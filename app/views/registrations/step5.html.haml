@@ -44,5 +44,5 @@
               %span
               = link_to 'カード裏面の番号とは？', root_path, class:'about__registered'
           .form__upper__group
-            %button.btn-default{type: "submit"} 次へ進む
+            = f.submit '次へ進む', class: 'btn-default'
   =render "sub-footer"
