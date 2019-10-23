@@ -72,3 +72,4 @@ yarn-debug.log*
 # End of https://www.gitignore.io/api/rails
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/public
