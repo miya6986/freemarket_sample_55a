@@ -7,7 +7,7 @@ $(document).on('turbolinks:load',function(){
       exp_year = form.find('input[name="exp_year"]');
 
 
-  $("#charge-form").submit(function() {
+  $("#charge-form").click(function() {
     form.find("input[type=submit]").prop("disabled", true);
 
     var card = {
