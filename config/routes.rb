@@ -22,5 +22,6 @@ Rails.application.routes.draw do
       get  'step5'
       get 'step6'
     end
+  end
 end
 
