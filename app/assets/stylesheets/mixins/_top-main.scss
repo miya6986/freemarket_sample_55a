@@ -15,12 +15,27 @@
   font-weight: 600;
 }
 
-@mixin new-items-container {
-  padding: 30px 0px 60px;
+@mixin new-items-container-top {
+  padding: 30px 0px 0px;
   @media (min-width: 768px) {
-      padding: 42px 0px 100px;
+      padding: 42px 0px 0px;
   }
 }
+
+@mixin new-items-container-middle {
+  margin-top: 40px;
+  @media (min-width: 768px) {
+    margin-top: 60px;
+  }
+}
+
+@mixin new-items-container-bottom {
+  padding: 40px 0px 60px;
+  @media (min-width: 768px) {
+      padding: 60px 0px 100px;
+  }
+}
+
 @mixin items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

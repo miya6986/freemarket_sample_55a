@@ -1,0 +1,40 @@
+.new-items-container-top
+  .brand-title
+    %h3 シャネル新着アイテム
+    .more
+      もっと見る
+      = fa_icon 'chevron-right'
+  %ul.brand-items
+    - @products.each do |product|
+      %li.brand-item 
+        = render partial: 'products/product-list', locals: { product: product }
+.new-items-container-middle
+  .brand-title
+    %h3 ルイヴィトン新着アイテム
+    .more
+      もっと見る
+      = fa_icon 'chevron-right'
+  %ul.brand-items
+    - @products.each do |product|
+      %li.brand-item 
+        = render partial: 'products/product-list', locals: { product: product }
+.new-items-container-middle
+  .brand-title
+    %h3 シュプリーム新着アイテム
+    .more
+      もっと見る
+      = fa_icon 'chevron-right'
+  %ul.brand-items
+    - @products.each do |product|
+      %li.brand-item 
+        = render partial: 'products/product-list', locals: { product: product }
+.new-items-container-bottom
+  .brand-title
+    %h3 ナイキ新着アイテム
+    .more
+      もっと見る
+      = fa_icon 'chevron-right'
+  %ul.brand-items
+    - @products.each do |product|
+      %li.brand-item 
+        = render partial: 'products/product-list', locals: { product: product }

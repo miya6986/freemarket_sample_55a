@@ -15,16 +15,17 @@
           家電・スマホ・カメラ
         %li.category-tag
           おもちゃ・ホビー・グッズ
-    .new-items-container
-      .category-title
-        %h3 レディース新着アイテム
-        .more
-          もっと見る
-          = fa_icon 'chevron-right'
-      %ul.category-items
-        - @products.each do |product|
-          %li.category-item 
-            = render partial: 'products/product-list', locals: { product: product }
+    = render partial: 'products/category_product-list'
+    -# .new-items-container
+    -#   .category-title
+    -#     %h3 レディース新着アイテム
+    -#     .more
+    -#       もっと見る
+    -#       = fa_icon 'chevron-right'
+    -#   %ul.category-items
+    -#     - @products.each do |product|
+    -#       %li.category-item 
+    -#         = render partial: 'products/product-list', locals: { product: product }
     .brand-info
       .brand-info__text
         %h2 人気のブランド
@@ -37,16 +38,17 @@
           シュプリーム
         %li.brand-tag
           ナイキ
-    .new-items-container
-      .brand-title
-        %h3 シャネル新着アイテム
-        .more
-          もっと見る
-          = fa_icon 'chevron-right'
-      %ul.brand-items
-        - @products.each do |product|
-          %li.brand-item
-            = render partial: 'products/product-list', locals: { product: product }
+    = render partial: 'products/brand_product-list'
+    -# .new-items-container
+    -#   .brand-title
+    -#     %h3 シャネル新着アイテム
+    -#     .more
+    -#       もっと見る
+    -#       = fa_icon 'chevron-right'
+    -#   %ul.brand-items
+    -#     - @products.each do |product|
+    -#       %li.brand-item
+    -#         = render partial: 'products/product-list', locals: { product: product }
 = render 'shared/sell-button'
 = render 'shared/main-footer'
 

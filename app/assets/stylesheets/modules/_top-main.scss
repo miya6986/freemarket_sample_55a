@@ -40,8 +40,16 @@
     }
   }
   /* カテゴリ・ブランド共通設定 */
-  .new-items-container {
-    @include new-items-container();
+  .new-items-container-top {
+    @include new-items-container-top();
+  }
+
+  .new-items-container-middle {
+    @include new-items-container-middle();
+  }
+
+  .new-items-container-bottom {
+    @include new-items-container-bottom();
   }
 
   /* 人気のカテゴリ */

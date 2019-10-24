@@ -1,0 +1,40 @@
+.new-items-container-top
+  .category-title
+    %h3 レディース新着アイテム
+    .more
+      もっと見る
+      = fa_icon 'chevron-right'
+  %ul.category-items
+    - @products.each do |product|
+      %li.category-item 
+        = render partial: 'products/product-list', locals: { product: product }
+.new-items-container-middle
+  .category-title
+    %h3 メンズ新着アイテム
+    .more
+      もっと見る
+      = fa_icon 'chevron-right'
+  %ul.category-items
+    - @products.each do |product|
+      %li.category-item 
+        = render partial: 'products/product-list', locals: { product: product }
+.new-items-container-middle
+  .category-title
+    %h3 家電・スマホ・カメラ新着アイテム
+    .more
+      もっと見る
+      = fa_icon 'chevron-right'
+  %ul.category-items
+    - @products.each do |product|
+      %li.category-item 
+        = render partial: 'products/product-list', locals: { product: product }
+.new-items-container-bottom
+  .category-title
+    %h3 おもちゃ・ホビー・グッズ新着アイテム
+    .more
+      もっと見る
+      = fa_icon 'chevron-right'
+  %ul.category-items
+    - @products.each do |product|
+      %li.category-item 
+        = render partial: 'products/product-list', locals: { product: product }
