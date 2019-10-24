@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   resources :products,only: [:index, :show, :new]
   resources :creditcards, only: [:index, :destroy]
   get 'logout' => "users#logout"
-  get 'step1', to: 'registrations#step1'
   get 'login', to: 'registrations#login'
   get 'buy', to: 'products#buy'
   
   resources :users,only: 'index'
   resources :registrations do
     collection do
+      get  'step1'
       get  'step2'
       get  'step3'
       get  'step4'
