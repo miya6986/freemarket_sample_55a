@@ -20,13 +20,14 @@
       %section.creditcard_section
         %div
           %h3 クレジットカード一覧
-        .creditcard-info
-          = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
-          %p.creditcard-info__number
-            ************1234
-          %p.creditcard-info__period 
-            09 / 25
-          = button_to "削除する", creditcard_path(1), method: :delete, class:"creditcard-info__delete"
+        - if @card.present?
+          .creditcard-info
+            = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
+            %p.creditcard-info__number
+              = "************" + @card_info.last4
+            %p.creditcard-info__period 
+            = @exp_month + " / " + @exp_year
+            = button_to "削除する", creditcard_path(1), method: :delete, class:"creditcard-info__delete"
             
       .payment-explain
         = fa_icon 'chevron-right', class:"arrows"
