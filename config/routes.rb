@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get 'login', to: 'registrations#login'
   get 'buy', to: 'products#buy'
   
-  resources :users,only: 'index'
   resources :registrations do
     collection do
       get  'step1'
