@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.images.build
     @parents = Category.all.order("id ASC").limit(13)
   end
 
@@ -31,7 +32,8 @@ class ProductsController < ApplicationController
       :shipping_method,
       :prefecture_id,
       :shipping_days,
-      :price
+      :price,
+      images_attributes: [:name]
     )
   end
   

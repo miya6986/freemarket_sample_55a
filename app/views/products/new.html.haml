@@ -8,14 +8,15 @@
         .form-image__title
           %label 出品画像
           %span 必須
-        .form-image__text 最大10枚までアップロードできます
-        .form-image__field
-          %label.upload-box
-            .upload-box__text
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
-            = f.file_field :images, class: "hidden"
+          .form-image__text 最大10枚までアップロードできます
+          = f.fields_for :images do |image|
+            .form-image__field
+              %label.upload-box
+                .upload-box__text
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+                = image.file_field :name, class: "hidden"
       .form-container
         .form-container__name
           %label 商品名
