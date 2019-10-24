@@ -31,8 +31,9 @@
               = fa_icon 'check lg'
             やることリスト
           %li.menu-right__item.mypage
-            = image_tag 'member_photo_noimage_thumb.png', class: 'member-image'
-            マイページ
+            = link_to users_path do
+              = image_tag 'member_photo_noimage_thumb.png', class: 'member-image'
+              マイページ
         - else
           %li
             = link_to "新規会員登録", step1_registrations_path, class:"menu-right__item signup"

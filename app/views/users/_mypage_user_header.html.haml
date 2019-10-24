@@ -2,7 +2,8 @@
   = link_to "",class:"mystore-link" do
     %figure.mystore-link__image
       = image_tag "member_photo_noimage_thumb.png",class:"mystore-link__image_icon", alt: ""
-    %h2.mystore-link__name ユーザー名
+    %h2.mystore-link__name 
+      = current_user.nickname
     .mystore-link__count
       %span 評価 
       %span 0
