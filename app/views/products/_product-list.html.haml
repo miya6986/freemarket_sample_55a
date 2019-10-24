@@ -1,12 +1,12 @@
 = link_to '#',class: "show-link" do
-  .item-box
-    .item-box__top
-      .item-box__top__image
+  .product-box
+    .product-box__top
+      .product-box__top__image
         - product.images.each do |image|
           = image_tag image.name, size: '188x188', class: 'product-image'
         .product-price
           ¥
           = product.price.to_s(:delimited)
-    .item-box__description
+    .product-box__description
       %span 
         = product.name
