@@ -22,7 +22,9 @@
           もっと見る
           = fa_icon 'chevron-right'
       %ul.category-items
-        = render partial: 'products/product-list'
+        - @products.each do |product|
+          %li.category-item 
+            = render partial: 'products/product-list', locals: { product: product }
     .brand-info
       .brand-info__text
         %h2 人気のブランド
