@@ -44,26 +44,9 @@
           もっと見る
           = fa_icon 'chevron-right'
       %ul.brand-items
-        %li.brand-item
-          = image_tag 'brand-sample.png'
-        %li.brand-item
-          = image_tag 'brand-sample.png'
-        %li.brand-item
-          = image_tag 'brand-sample.png'
-        %li.brand-item
-          = image_tag 'brand-sample.png'
-        %li.brand-item
-          = image_tag 'brand-sample.png'
-        %li.brand-item
-          = image_tag 'brand-sample.png'
-        %li.brand-item
-          = image_tag 'brand-sample.png'
-        %li.brand-item
-          = image_tag 'brand-sample.png'
-        %li.brand-item
-          = image_tag 'brand-sample.png'
-        %li.brand-item
-          = image_tag 'brand-sample.png'
+        - @products.each do |product|
+          %li.brand-item
+            = render partial: 'products/product-list', locals: { product: product }
 = render 'shared/sell-button'
 = render 'shared/main-footer'
 
