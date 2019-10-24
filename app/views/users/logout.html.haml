@@ -1,0 +1,23 @@
+= render 'shared/main-header'
+%nav.bread-crumbs.l-container
+  %ul.container
+    %li
+      = link_to "" do
+        %span メルカリ
+      = fa_icon 'chevron-right'
+    %li
+      = link_to "" do
+        %span マイページ
+      = fa_icon 'chevron-right'
+    %li
+      %span.page_now ログアウト
+%main.mypage-body
+  = render partial: 'shared/mypage_side'
+  .mypage-main
+    = link_to "", class:"logout-btn" do
+      ログアウト
+= render 'shared/sell-button'
+= render 'shared/main-footer'
+
+
+

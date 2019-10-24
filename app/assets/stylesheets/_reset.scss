@@ -76,7 +76,6 @@ ol,
 ul
 {
 	list-style:none;
-
 }
 
 caption,
@@ -122,4 +121,8 @@ button {
 /*because legend doesn't inherit in IE */
 legend {
 	color:#000;
+}
+a{
+	text-decoration: none;
+	color: inherit;
 }

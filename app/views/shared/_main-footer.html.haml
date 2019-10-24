@@ -1,0 +1,75 @@
+%aside
+  .img-wapper
+    = image_tag 'mercari-aside.png', alt: 'aside-image'
+%footer.main-footer
+  %nav.main-footer__container
+    .item.left
+      %h2 メルカリについて
+      %ul 
+        %li
+          = link_to "会社概要（運営会社）"
+        %li
+          = link_to "採用情報"
+        %li
+          = link_to "プレスリリース"
+        %li
+          = link_to "公式ブログ"
+        %li
+          = link_to "メルカリロゴ利用ガイドライン"
+        %li
+          %i.fab.fa-twitter
+          %i.fab.fa-facebook-square
+    .item.left
+      %h2 ヘルプ＆ガイド
+      %ul 
+        %li
+          = link_to "メルカリガイド"
+        %li 
+          = link_to "らくらくメルカリ便"
+        %li
+          = link_to "ゆうゆうメルカリ便"
+        %li
+          = link_to "大型メルカリ便"
+        %li
+          = link_to "車体取引ガイド"
+        %li
+          = link_to "メルカリあんしん・あんぜん宣言！"
+        %li
+          = link_to "偽ブランド品撲滅への取り組み"
+        %li
+          = link_to "メルカリボックス"
+      
+    .item.middle
+      %h2 プライバシーと利用規約
+      .middle-item
+        %ul     
+          %li
+            = link_to "プライバシーポリシー"
+          %li
+            = link_to "メルカリ利用規約"
+          %li 
+            = link_to "あんしんスマホサイト制度に関する利用特約"
+          %li
+            = link_to "コンプライアンスポリシー"
+      .middle-item
+        %ul
+          %li
+            = link_to "個人データの安全管理に係る基本方針"
+          %li
+            = link_to "特定商取引に関する表記"
+          %li
+            = link_to "資金決済法に基づく表示"
+          %li
+            = link_to "法令順守と犯罪抑止のために"
+    .item.right
+      %h2 国
+      %ul
+        %li
+          = link_to "日本"
+        %li
+          = link_to "United States"
+  .main-footer__bottom
+    = link_to root_path do
+      = image_tag 'footer-logo.svg', alt: 'footer-logo'
+    .copyright
+      %span © 2019 Mercari

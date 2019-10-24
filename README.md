@@ -32,16 +32,26 @@ Things you may want to cover:
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|unique: true, null: false|
-|password|string|null: false|
 |firstname|string|null: false|
 |lastname|string|null: false|
 |firstname_kana|string|null: false|
 |lastname_kana|string|null: false|
-|birthday|date|null: false|
-|gender|string||
+|birthday_year|integer|null: false|
+|birthday_month|integer|null: false|
+|birthday_day|integer|null: false|
 |phone_number|string|unique: true, null: false|
+|password|string|null: false|
+|postalcode|integer||
+|prefecture_id|integer||
+|city_name|string||
+|address_number|string||
+|building_name|string||
+|gender|string||
 |avatar|string||
 |profile|text||
+
+<!-- gender以下のカラムはプロフィールページを細かく作るなら必要 -->
+<!-- address_phone_numberは本人の住所情報には必要ない -->
 
 ### Association
 - has_many :addresses
@@ -61,20 +71,27 @@ Things you may want to cover:
 - has_many :followers, through: :follower_relationships
 - has_many :creditcards
 - has_many :sns_credentials, dependent: :destroy
+- belongs_to_active_hash :prefecture
 
 
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|firstname|string|null: false|
+|lastname|string|null: false|
+|firstname_kana|string|null: false|
+|lastname_kana|string|null: false|
 |postalcode|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|string|null: false|
 |city_name|string|null: false|
 |address_number|string|null: false|
 |building_name|string||
-|user_id|references|foreign_key: true|
+|address_phone_number|string||
+|user_id|references|foreign_key: true, null: false|
 
 ### Association
 - belongs_to :user
+- belongs_to_active_hash :prefecture
 
 
 ## productsテーブル
@@ -82,7 +99,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|images|json|null: false|
 |description|text|null: false|
 |size|string||
 |condition|string|null: false|
@@ -91,20 +107,34 @@ Things you may want to cover:
 |source_area|string|null: false|
 |shipping_days|string|null: false|
 |price|integer|null: false|
-|buyer_id|references|foreign_key: true|
-|seller_id|references|foreign_key: true|
+|buyer_id|references|foreign_key: { to_table: :users }|
+|seller_id|references|foreign_key: { to_table: :users }|
+|category_id|references|foreign_key: true|
+|bland_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
-- has_many :product_categories
+- belongs_to :user
 - belongs_to :category
+- has_many :images
 - has_many :comments
 - has_many :trade_messages
 - has_one :evaluations
 - has_many :likes
 - has_many :liked_users, through: :likes, source: :user
 - belongs_to :brand
+- belongs_to_active_hash :prefecture
+
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|product_id|references|foreign_key: true, null: false|
+
+### Association
+- belongs_to :product
 
 
 ## categoriesテーブル
@@ -121,8 +151,8 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|foreign_key: true|
-|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true, null: false|
+|user_id|references|foreign_key: true, null: false|
 |comment|text|null: false|
 
 ### Association
@@ -133,8 +163,8 @@ Things you may want to cover:
 ## trade_messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|foreign_key: true|
-|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true, null: false|
+|user_id|references|foreign_key: true, null: false|
 |message|text|null: false|
 
 ### Association
@@ -146,8 +176,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |rate|integer|null: false|
-|evaluate_id|integer|foreign_key: true|
-|evaluated_id|intefer|foreign_key: true|
+|evaluate_id|integer|foreign_key: true, null: false|
+|evaluated_id|intefer|foreign_key: true, null: false|
 |product_id|integer|foreign_key: true|
 |review|text||
 
@@ -189,14 +219,11 @@ Things you may want to cover:
 - belongs_to :follower, class_name: "User"
 - belongs_to :following, class_name: "User"
 
-<!-- フォロー機能、以前作ったアプリと同じアソシエーションにした。 -->
-
 
 ## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false|
-|customer_id|string|null; false|
+|user_id|references|foreign_key: true, null: false|
 |card_id|string|null: false|
 
 ### Association
@@ -208,7 +235,7 @@ Things you may want to cover:
 |------|----|-------|
 |uid|string||	
 |provider|string||
-|user_id|references|foreign_key: true|
+|user_id|references|foreign_key: true, null: false|
 
 ### Association
 - belongs_to :user, optional: true
