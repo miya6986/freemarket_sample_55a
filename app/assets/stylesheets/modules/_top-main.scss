@@ -67,16 +67,12 @@
     @include more();
   }
   .category-items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px 6px;
+    @include items();
     .category-item {
       height: 100%;
-      width: 100%;
-      cursor: pointer;
+      @include item();
       img {
-        width: 100%;
-        cursor: pointer;
+        @include item();
       }
       &--link {
         width: 100%;
@@ -93,7 +89,7 @@
               .product-image {
               }
               .product-price {
-                color: #fff;
+                color: $white;
                 background: rgba(0,0,0,.4);
                 border-radius: 0 14px 14px 0;
                 position: absolute;
@@ -112,7 +108,7 @@
             
           }
           &__description {
-            background-color: white;
+            background-color: $white;
             box-sizing: border-box;
             color: #222;
             font-size: 14px;
@@ -130,7 +126,7 @@
               overflow: hidden;
             }
             span::after {
-              background: linear-gradient(90deg,hsla(0,0%,100%,0),#fff 72%);
+              background: linear-gradient(90deg,hsla(0,0%,100%,0),$white 72%);
               bottom: 0;
               content: "";
               height: 50%;
