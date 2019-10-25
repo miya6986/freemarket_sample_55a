@@ -17,9 +17,9 @@
     .login-form
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .login-form__group
-          = f.email_field :email, autofocus: true, autocomplete: "email", name: 'email', placeholder: 'メールアドレス', class: 'input-default-login'
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス', class: 'input-default-login'
         .login-form__group
-          = f.password_field :password, autocomplete: "current-password", name: 'password', placeholder: 'パスワード', class: 'input-default-login'
+          = f.password_field :password, autocomplete: "current-password", placeholder: 'パスワード', class: 'input-default-login'
         .login-form__group
           = image_tag 'robo.png', alt: 'robot'
         .login-form__group
