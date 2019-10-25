@@ -16,3 +16,33 @@
     = f.submit "Log in"
 = render "devise/shared/links"
 
+.rgs-body
+  .logo-header
+    %h1
+      = link_to root_path, class: 'header-link' do
+        = image_tag 'logo.svg', alt: 'mercari', class: 'header-logo', height: '49', width: '185'
+  .login-main
+    .no-account
+      アカウントをお持ちでない方はこちら
+      .btn-new
+        = link_to '新規会員登録', root_path, class:'about__registered'
+    .exist-account
+      .btn-facebook
+        %i.fab.fa-facebook-square
+        = link_to 'facebookでログイン', root_path, class:'about__registered'
+      .btn-google
+        = link_to 'googleでログイン', root_path, class:'about__registered'
+    .login-form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .login-form__group
+          = f.email_field :email, autofocus: true, autocomplete: "email", name: 'email', placeholder: 'メールアドレス', class: 'input-default-login'
+        .login-form__group
+          %input.password{ name: 'password', placeholder: 'パスワード', class: 'input-default-login'}
+        .login-form__group
+          = image_tag 'robo.png', alt: 'robot'
+        .login-form__group
+          %button.btn-default-login{type: "submit"} ログイン
+        .login-form__group
+          %p.about
+          = link_to '本人情報の登録について', root_path, class:'about__registered'
+  =render "./registrations/sub-footer"
