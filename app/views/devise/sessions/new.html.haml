@@ -37,12 +37,13 @@
         .login-form__group
           = f.email_field :email, autofocus: true, autocomplete: "email", name: 'email', placeholder: 'メールアドレス', class: 'input-default-login'
         .login-form__group
-          %input.password{ name: 'password', placeholder: 'パスワード', class: 'input-default-login'}
+          = f.password_field :password, autocomplete: "current-password", name: 'password', placeholder: 'パスワード', class: 'input-default-login'
         .login-form__group
           = image_tag 'robo.png', alt: 'robot'
         .login-form__group
-          %button.btn-default-login{type: "submit"} ログイン
+          = f.submit "ログイン", class:"btn-default-login"
         .login-form__group
           %p.about
           = link_to '本人情報の登録について', root_path, class:'about__registered'
+          
   =render "./registrations/sub-footer"
