@@ -12,10 +12,11 @@ class ProductsController < ApplicationController
     # トップページから詳細ページへの移管を行う
     @product = Product.find(params[:id])
     # 出品者
-    # @seller
+    @seller = @product.seller.nickname
     # アイテム名
     @name = @product.name
     # カテゴリー
+    # @parents = Category.all.order("id").limit(3)
     # ブランド
     @brand = @product.brand.name
     # 状態
@@ -25,6 +26,7 @@ class ProductsController < ApplicationController
     # 配送の方法
     @shipping_method = @product.shipping_method
     # 配送元の地域
+    
     # 配送の目安
     @shipping_days = @product.shipping_days
     # 値段
