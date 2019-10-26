@@ -5,8 +5,24 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-    @parents = Category.all.order("id ASC").limit(13)
+    @parents = Category.where(ancestry: nil)
   end
+
+  def get_category_children
+    respond_to do |format| 
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def get_category_grandchildren
+    @grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
+
+
 
   def create
     @product = Product.new(product_params)
@@ -36,5 +52,4 @@ class ProductsController < ApplicationController
       images_attributes: [:name]
     )
   end
-  
 end
