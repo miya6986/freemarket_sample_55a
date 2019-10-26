@@ -67,7 +67,7 @@ $(function(){
   //子カテゴリー選択後のイベント
   $('.form-details__form-box__category').on('change','#child-category',function(){
     var childCategory = $('#child-category option:selected').data('category'); 
-    if (childCategory != ""){ 
+    if (childCategory != "---"){ 
       $.ajax({
         url: 'get_category_grandchildren',
         type: 'GET',
