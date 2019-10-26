@@ -18,6 +18,19 @@ $(function(){
     $('.form-details__form-box__category').append(childSelectHtml);
   }
 
+  // 孫カテゴリーの表示
+  function appendGrandchidrenBox(insertHTML){
+    var grandchildSelectHtml = '';
+    grandchildSelectHtml = `<div class='form-select' id="grandchild-category">
+                              <select class= 'select-default'name="category_id">
+                               <option value="---" data-category="---">---</option>
+                                ${insertHTML}
+                               </select>
+                              <i class='fa fa-angle-down icon-angle-down'></i>
+                            </div>`
+    $('.form-details__form-box__category').append(grandchildSelectHtml);
+  }
+
   // 親カテゴリー選択後のイベント
   $("#parent-category").on("change", function(){
     var parentCategory = document.getElementById("parent-category").value;
@@ -48,6 +61,39 @@ $(function(){
       //親カテゴリーが初期値（---)の場合、子カテゴリー以下は非表示にする
       $('#child-category').remove(); 
       $('#grandchild-category').remove();
+    }
+  });
+
+  //子カテゴリー選択後のイベント
+  $('.form-details__form-box__category').on('change','#child-category',function(){
+    var childCategory = $('#child-category option:selected').data('category'); 
+    if (childCategory != ""){ 
+      $.ajax({
+        url: 'get_category_grandchildren',
+        type: 'GET',
+        data: { child_id: childCategory },
+        dataType: 'json'
+      })
+      .done(function(grandchildren){
+        if (grandchildren.length != 0) {
+          $('#grandchild-category').remove(); 
+          $('#size').remove();
+          $('#brand').remove();
+          var insertHTML = '';
+          grandchildren.forEach(function(grandchild){
+            insertHTML += appendOption(grandchild);
+          });
+          appendGrandchidrenBox(insertHTML);
+        }
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    } else {
+      //子カテゴリーが初期値（---)の場合、孫カテゴリー以下は非表示にする
+      $('#grandchild-category').remove(); 
+      $('#size').remove();
+      $('#brand').remove();
     }
   });
 });
