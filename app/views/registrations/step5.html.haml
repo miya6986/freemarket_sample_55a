@@ -3,12 +3,12 @@
   .rgs-main
     .rgs-main__section
       %h2 支払い方法
-      = form_with usl: creditcards_path, method: :post, html: { name: "inputForm" },class:"form", id: "charge-form" do |f|
+      = form_with usl: creditcards_path, html: { name: "inputForm" },class:"form" do |f|
         .form__upper
           .form__upper__group
             = f.label :カード番号
             %span.form-require 必須
-            = f.text_field :card_number, name: "card_number", type: "text", placeholder: '半角数字のみ', class: 'input-default', maxlength: "16"
+            = f.text_field :card_number, name: "card_number", id:"card_number", type: "text", placeholder: '半角数字のみ', class: 'input-default', maxlength: "16"
             %ol
               %li
                 %object{type: "image/svg+xml", data: "#{asset_path 'visa.svg'}", width:"35", height:"20"}
@@ -43,5 +43,5 @@
               %span
               = link_to 'カード裏面の番号とは？', root_path, class:'about__registered'
           .form__upper__group
-            = f.submit '次へ進む', class: 'btn-default'
+            = f.submit '次へ進む', class: 'btn-default', id: "charge-form"
   =render "sub-footer"
