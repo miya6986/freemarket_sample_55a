@@ -1,6 +1,7 @@
 $(document).on('turbolinks:load',function(){
   Payjp.setPublicKey('');
-  var form = $("#charge-form"),
+  console.log('OK')
+  var form = $(".form"),
       number = form.find('input[name="card_number"]'),
       cvc = form.find('input[name="cvc"]'),
       exp_month = form.find('select[name="exp_month"]'),
@@ -16,12 +17,14 @@ $(document).on('turbolinks:load',function(){
       exp_month: $("#exp_month").val(),
       exp_year: $("#exp_year").val(),
     };
+    console.log("OK2")
 
     Payjp.createToken(card, function(status, response) {
 
       if (response.error){
         form.find('.payment-errors').text(response.error.message);
         form.find('button').prop('disabled', false);
+        console.log('OK3')
       }   
       else {
         $("#card_number").removeAttr("name");
@@ -32,6 +35,7 @@ $(document).on('turbolinks:load',function(){
         
         form.append($('<input type="hidden" name="payjpToken" />').val(token));
         form.get(0).submit();
+        console.log('OK4')
       };
     });
   });
