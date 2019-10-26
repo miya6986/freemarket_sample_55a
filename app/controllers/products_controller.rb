@@ -35,6 +35,7 @@ class ProductsController < ApplicationController
       :price,
       images_attributes: [:name]
     )
+    # .merge(seller_id: current_user.id)
   end
   
 end

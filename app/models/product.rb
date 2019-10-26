@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
-  # belongs_to :seller, class_name: "User"
-  # belongs_to :buyer, class_name: "User"
-  # belongs_to :user
+  # belongs_to :seller, class_name: "User", foreign_key: "seller_id"
+  #belongs_to :buyer, class_name: "User"
+  #belongs_to :user
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
   belongs_to :category
