@@ -30,8 +30,8 @@
           font-size: 14px;
           &__passed{
             color: #888;
-            .clock_icon{
-              font-weight: 400;
+            .icon{
+              font-weight: 100;
             }
           }
           &__tag{
@@ -68,7 +68,7 @@
     }
   }
   .notice__none{
-    background: url(/assets/logo-gray-icon.svg);
+    background: image-url("logo-gray-icon.svg");
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: 50% 25%;

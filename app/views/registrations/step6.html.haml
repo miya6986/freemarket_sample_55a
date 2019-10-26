@@ -10,6 +10,7 @@
           %p
             会員登録が完了しました
           .form__upper__group
-            %button.btn-default{type: "submit"} メルカリを始める
-  = image_tag '/assets/footer.png', alt: 'mercari'
+            = button_tag root_path, class:"btn-default" do
+              メルカリを始める
+  = image_tag 'footer.png', alt: 'mercari'
   =render "sub-footer"

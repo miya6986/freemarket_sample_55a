@@ -4,23 +4,25 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string  :nickname,                  null: false
-      t.string  :email,                     null: false, unique: true
-      t.string  :firstname,                 null: false 
-      t.string  :lastname,                  null: false
-      t.string  :firstname,                 null: false
-      t.string  :firstname_kana,            null: false
-      t.string  :lastname_kana,             null: false
-      t.integer :birth_year,                null: false
-      t.integer :birth_month,               null: false
-      t.integer :birth_day,                 null: false
-      t.integer :phone_number,              null: false, unique: true
+      t.string  :nickname,                   null: false
+      t.string  :email,                      null: false, unique: true, default: ""
+      t.string  :firstname,                  null: false 
+      t.string  :lastname,                   null: false
+      t.string  :firstname_kana,             null: false
+      t.string  :lastname_kana,              null: false
+      t.integer :birth_year,                 null: false
+      t.integer :birth_month,                null: false
+      t.integer :birth_day,                  null: false
+      t.string  :phone_number,               null: false, unique: true
+      t.string  :encrypted_password,         null: false, default: ""
       t.integer :postalcode
+      t.integer :prefecture_id
       t.string  :city_name
-      t.integer :address_number
+      t.string  :address_number
       t.string  :building_name
-      t.integer :address_phone_number
-      t.string  :encrypted_password,        null: false, default: ""
+      t.string  :gender
+      t.string  :avatar
+      t.text    :profile
 
       ## Recoverable
       t.string   :reset_password_token
@@ -57,4 +59,3 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
     # add_index :users, :unlock_token,         unique: true
   end
 end
-

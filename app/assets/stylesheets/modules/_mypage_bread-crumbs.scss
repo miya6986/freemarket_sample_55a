@@ -1,16 +1,19 @@
 .bread-crumbs {
   width: 100vw;
+  height: 49px;
+  border-top: 1px solid #eee;
   background: #fff;
   box-shadow: 0px 3px 3px #CFCFCF;
   ul{
-    padding: 16px 0;
     @include container;
     li{
-      font-size: 14px;
       display: inline-block;
+      font-size: 14px;
+      line-height: 49px;
       a{
         text-decoration: none;
         color: inherit;
+        font-size: 14px;
       }
       i{
         color: #8B8B8B;

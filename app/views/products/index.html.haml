@@ -1,8 +1,8 @@
-= render 'main-header'
+= render 'shared/main-header'
+.img_wapper
+  = image_tag 'mercari-top.png', alt: 'mercari-top'
 .top-wrapper 
   .top-container
-    .jumbotron
-      = image_tag 'mercari-top.png', alt: 'mercari-top'
     .category-info
       .category-info__text 
         %h2 人気のカテゴリー
@@ -81,7 +81,7 @@
           = image_tag 'brand-sample.png'
         %li.brand-item
           = image_tag 'brand-sample.png'
-= render 'sell-button'
-= render 'main-footer'
+= render 'shared/sell-button'
+= render 'shared/main-footer'
 
 

@@ -1,11 +1,32 @@
 .mypage-main{
   width: 700px;
   float: left;
+  background: #fff;
+  /* マイページ */
   &__header{
     height: 200px;
-    padding: 20px;
-    background: url(/assets/user-bg.jpg);
+    background: image-url("user-bg.jpg"); 
     position: relative;
+    .mystore-name-edit{
+      padding: 70px 16px 30px;
+      text-align: center;
+      .mystore_icon{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .input{
+        width: 220px;
+        height: 48px;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+    }
     .mystore-link{
       position: absolute;
       display: block;
@@ -16,6 +37,7 @@
       bottom: 0;
       margin: auto;
       text-decoration: none;
+      color: inherit;
       &:hover{
         opacity: 0.7;
         & h2{
@@ -36,14 +58,49 @@
         font-weight: bold;
         font-size: 14px;
         text-align: center;
+        margin-top: 8px;
       }
       &__count{
         font-size: 14px;
         text-align: center;
-        span:last-child{
-          margin: 0 0 0 16px;
+        margin-top: 8px;
+        span{
+          &:nth-child(2n){
+            margin: 0 0 0 8px;
+          }
+          &:nth-child(3n){
+            margin: 0 0 0 16px;
+          }
         }
       }
     }
   }
+  /* プロフィール変更画面 */
+  .profile{
+    height: 362px;
+    background: #fff;
+    padding: 40px 16px;
+    &_textarea{
+      width: 668px;
+      height: 216px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 16px;
+    }
+    &_button{
+      @include btn-l;
+      background: $red;
+      width: 668px;
+      border: none;
+      margin-top: 16px;
+    }
+  }
+  
+  /* ログアウト画面 */
+  .logout-btn{
+    @include btn-l;
+    margin: 64px auto;
+    background: $red;
+  }
 }
+

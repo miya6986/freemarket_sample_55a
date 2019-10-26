@@ -145,9 +145,8 @@
       color: #FFFFFF;
       font-size: 15px;
     }
-    .btn-email{
+    .btn-registration{
       color: #fff;
-      background-color: #ea352d;
       border-radius: 4px;
       width: 50%;
       line-height: 48px;
@@ -155,57 +154,37 @@
       text-align: center;
       margin: 0 auto;
       position: relative;
-      .fa-envelope{
+      i{
         font-size:20px;
         position: absolute;
-        top:12px;
+        top:13.5px;
         left:15px;
       }
       .about__registered {
         color: #FFFFFF;
         text-decoration: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
       }
-    }
-    .btn-facebook{
-      color: #fff;
-      background-color:#385184;
-      border-radius: 4px;
-      width: 50%;
-      line-height: 48px;
-      border: 1px solid transparent;
-      text-align: center;
-      border-radius: 4px;
-      margin: 0 auto;
-      margin-top: 16px;
-      position: relative;
-        .fa-facebook-square{
-          font-size:26px;
-          position: absolute;
-          top:12px;
-          left:15px;
-        }
-        .about__registered {
-          color: #FFFFFF;
-          text-decoration: none;
-        }
+      &.email{
+        background-color: #ea352d;
       }
-    }
-    .btn-google{
-      font-size: 14px;
-      color: black;
-      background-color:#FFFFFF;
-      border-radius: 4px;
-      width: 50%;
-      line-height: 48px;
-      border: 1px solid transparent;
-      text-align: center;
-      margin: 0 auto;
-      margin-top: 16px;
-      border: #979797 solid 1px;
-      background: #fff url(/assets//google.svg) no-repeat 3px top;
-      .about__registered {
+      &.facebook{
+        background-color:#385184;
+      }
+      &.google{
+        background-color:#FFFFFF;
         color: black;
-        text-decoration: none;
+        background: #fff image-url('google.svg') 
+        no-repeat 3px top;
+        border: #979797 solid 1px;
+      }
+      &:not( :first-child ){
+        margin-top: 16px;
       }
     }
   }
@@ -254,24 +233,6 @@
           }
         }
       }
-      .btn-google{
-        font-size: 14px;
-        color: black;
-        background-color:#FFFFFF;
-        border-radius: 4px;
-        width: 100%;
-        line-height: 48px;
-        border: 1px solid transparent;
-        text-align: center;
-        margin: 0 auto;
-        margin-top: 16px;
-        border: #979797 solid 1px;
-        background: #fff url(/assets//google.svg) no-repeat 3px top;
-        .about__registered {
-          color: black;
-          text-decoration: none;
-        }
-      }
       .login-form{
       padding: 24px  64px 32px ;
       background-color:#FFFFFF;
@@ -296,7 +257,9 @@
           background-color: #E93F36;
           color: #FFFFFF;
           font-size: 15px;
+          cursor: pointer;
         }
       }
     }
+  }
 }

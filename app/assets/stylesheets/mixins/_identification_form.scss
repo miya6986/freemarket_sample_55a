@@ -1,0 +1,11 @@
+@mixin identification-form-setting {
+  display: block;
+  height: 48px;
+  width: 100%;
+  font-size: 16px;
+  background-color: $white;
+  border: 1px solid $light-gray;
+  border-radius: 4px;
+  line-height: 1.5;
+  margin-top: 8px;
+}

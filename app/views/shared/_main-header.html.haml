@@ -1,0 +1,42 @@
+%header.top-header
+  .top-header-container
+    .header-upper
+      .header-upper--logo
+        = link_to root_path do
+          = image_tag 'header-logo.svg', alt: 'header-logo', class:'image'
+      %form{ class:'search'}
+        %input{ type: "search", name: "keyword", placeholder: "何かお探しですか？",class: 'search__text-field'}
+        %button{class: 'search__button' }
+          = fa_icon 'search lg'
+    .header-lower
+      .menu-left
+        .menu-left__item
+          = fa_icon 'list lg', class:'menu-left__item--icon'
+          カテゴリーから探す
+        .menu-left__item
+          = fa_icon 'tag lg',class:'menu-left__item--icon'
+          ブランドから探す
+      %ul.menu-right
+        - if  user_signed_in?
+          %li.menu-right__item.likes
+            .icon
+              = fa_icon 'heart lg'
+            いいね！一覧
+          %li.menu-right__item.notice
+            .icon
+              = fa_icon 'bell lg'
+            お知らせ
+          %li.menu-right__item.todo
+            .icon
+              = fa_icon 'check lg'
+            やることリスト
+          %li.menu-right__item.mypage
+            = link_to users_path do
+              = image_tag 'member_photo_noimage_thumb.png', class: 'member-image'
+              マイページ
+        - else
+          %li
+            = link_to "新規会員登録", step1_registrations_path, class:"menu-right__item signup"
+          %li
+            = link_to "ログイン", new_user_session_path, class:"menu-right__item login"
+          

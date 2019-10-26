@@ -2,7 +2,7 @@
   margin: 0 auto;
   width: 1020px;
 }
-@mixin clearfix(){
+@mixin clearfix{
   &:after {
     content: "";
     clear: both;
@@ -50,4 +50,15 @@
   &.red{
     background: $red;
   }
+}
+
+@mixin btn-l{
+  display: block;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  height: 48px;
+  width: 318px;
 }
