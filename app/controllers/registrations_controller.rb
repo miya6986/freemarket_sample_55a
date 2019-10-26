@@ -134,16 +134,16 @@ class RegistrationsController < ApplicationController
 
       address_attributes: [
       :id,
-      :address_firstname,
-      :address_lastname,
-      :address_firstname_kana,
-      :address_lastname_kana,
+      :firstname,
+      :lastname,
+      :firstname_kana,
+      :lastname_kana,
       :prefecture_id,
       :postalcode,
       :city_name,
       :address_number,
       :building_name,
-      :address_phone_number,
+      :phone_number,
       ]
   )
   end
