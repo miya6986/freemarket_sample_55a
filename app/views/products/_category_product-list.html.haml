@@ -6,7 +6,7 @@
       = fa_icon 'chevron-right'
   %ul.category-items
     - @products.each do |product|
-      %li.category-item 
+      %li.category-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-middle
   .category-title
@@ -16,7 +16,7 @@
       = fa_icon 'chevron-right'
   %ul.category-items
     - @products.each do |product|
-      %li.category-item 
+      %li.category-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-middle
   .category-title
@@ -26,7 +26,7 @@
       = fa_icon 'chevron-right'
   %ul.category-items
     - @products.each do |product|
-      %li.category-item 
+      %li.category-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-bottom
   .category-title
@@ -36,5 +36,5 @@
       = fa_icon 'chevron-right'
   %ul.category-items
     - @products.each do |product|
-      %li.category-item 
+      %li.category-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
