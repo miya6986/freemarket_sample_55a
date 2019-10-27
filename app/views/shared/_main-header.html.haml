@@ -2,7 +2,7 @@
   .top-header-container
     .header-upper
       .header-upper--logo
-        = link_to root_path do
+        = link_to root_path, data: {"turbolinks" => false} do
           = image_tag 'header-logo.svg', alt: 'header-logo', class:'image'
       %form{ class:'search'}
         %input{ type: "search", name: "keyword", placeholder: "何かお探しですか？",class: 'search__text-field'}

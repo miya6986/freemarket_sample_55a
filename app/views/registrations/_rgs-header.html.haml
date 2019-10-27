@@ -1,6 +1,6 @@
 .rgs-header
   %h1
-    = link_to root_path, class: 'header-link' do
+    = link_to root_path, class: 'header-link', data: {"turbolinks" => false} do
       = image_tag 'logo.svg', alt: 'mercari', class: 'header-logo', height: '49', width: '185'
   %nav.progress
     %ol.proguress-bar
