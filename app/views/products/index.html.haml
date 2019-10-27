@@ -7,48 +7,20 @@
       .category-info__text 
         %h2 人気のカテゴリー
       %ul.category-info__tags
-        %li.category-tag
-          レディース
-        %li.category-tag
-          メンズ
-        %li.category-tag
-          家電・スマホ・カメラ
-        %li.category-tag
-          おもちゃ・ホビー・グッズ
+        = link_to "レディース", "#lady_items", class: "category-tag"
+        = link_to "メンズ", "#men_items", class: "category-tag"
+        = link_to "家電・スマホ・カメラ", "#home-appliance_items", class: "category-tag"
+        = link_to "おもちゃ・ホビー・グッズ", "#toy_items", class: "category-tag"
     = render partial: 'products/category_product-list'
-    -# .new-items-container
-    -#   .category-title
-    -#     %h3 レディース新着アイテム
-    -#     .more
-    -#       もっと見る
-    -#       = fa_icon 'chevron-right'
-    -#   %ul.category-items
-    -#     - @products.each do |product|
-    -#       %li.category-item 
-    -#         = render partial: 'products/product-list', locals: { product: product }
     .brand-info
       .brand-info__text
         %h2 人気のブランド
       %ul.brand-info__tags
-        %li.brand-tag
-          シャネル
-        %li.brand-tag
-          ルイヴィトン
-        %li.brand-tag
-          シュプリーム
-        %li.brand-tag
-          ナイキ
+        = link_to "シャネル", "#chanel_items", class: "brand-tag"
+        = link_to "ルイヴィトン", "#louis-vuitton_items", class: "brand-tag"
+        = link_to "シュプリーム", "#supreme_items", class: "brand-tag"
+        = link_to "ナイキ", "#nike_items", class: "brand-tag"
     = render partial: 'products/brand_product-list'
-    -# .new-items-container
-    -#   .brand-title
-    -#     %h3 シャネル新着アイテム
-    -#     .more
-    -#       もっと見る
-    -#       = fa_icon 'chevron-right'
-    -#   %ul.brand-items
-    -#     - @products.each do |product|
-    -#       %li.brand-item
-    -#         = render partial: 'products/product-list', locals: { product: product }
 = render 'shared/sell-button'
 = render 'shared/main-footer'
 

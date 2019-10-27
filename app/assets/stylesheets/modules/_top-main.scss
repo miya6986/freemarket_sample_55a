@@ -131,17 +131,27 @@
     }
   }
   /* 画面外にいる状態 */
-.fadein {
+  .fadein {
   opacity : 0;
   transform : translate(0, 0);
   transition : all 500ms;
   }
 
 /* 画面内に入った状態 */
-.fadein.scrollin {
+  .fadein.scrollin {
   opacity : 1;
   transform : translate(0, 0);
   }
+  
+  // #ladies_item {
+  //   padding-top: 20px;
+  //   margin-top: 20px;
+  // }
+  // #mens_item {
+  //   padding-top: 20px;
+  //   margin-top: 20px;
+  // }
+  
 }
 
 

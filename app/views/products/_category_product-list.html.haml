@@ -1,5 +1,5 @@
 .new-items-container-top
-  .category-title
+  .category-title#lady_items
     %h3 レディース新着アイテム
     .more
       もっと見る
@@ -9,7 +9,7 @@
       %li.category-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-middle
-  .category-title
+  .category-title#men_items
     %h3 メンズ新着アイテム
     .more
       もっと見る
@@ -19,7 +19,7 @@
       %li.category-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-middle
-  .category-title
+  .category-title#home-appliance_items
     %h3 家電・スマホ・カメラ新着アイテム
     .more
       もっと見る
@@ -29,7 +29,7 @@
       %li.category-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-bottom
-  .category-title
+  .category-title#toy_items
     %h3 おもちゃ・ホビー・グッズ新着アイテム
     .more
       もっと見る
