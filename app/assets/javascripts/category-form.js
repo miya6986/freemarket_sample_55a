@@ -1,7 +1,7 @@
 $(function(){
   // カテゴリーセレクトボックスのオプション
   function appendOption(category) {
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`
     return html;
   }
 
@@ -9,7 +9,7 @@ $(function(){
   function appendChildBox(insertHTML) {
     var childSelectHtml = '';
     childSelectHtml = `<div class='form-select' id="child-category">
-                        <select class= 'select-default' name="category_id">
+                        <select class= 'select-default' name="product[category_ids][]">
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
                           </select>
@@ -22,7 +22,7 @@ $(function(){
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='form-select' id="grandchild-category">
-                              <select class= 'select-default'name="category_id">
+                              <select class= 'select-default'name="product[category_ids][]">
                                <option value="---" data-category="---">---</option>
                                 ${insertHTML}
                                </select>
