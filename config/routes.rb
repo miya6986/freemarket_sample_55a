@@ -6,7 +6,12 @@ Rails.application.routes.draw do
       get :user_identification
     end
   end
-  resources :products
+  resources :products do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end 
   resources :creditcards, only: [:index, :destroy]
   get 'logout' => "users#logout"
   get 'step1', to: 'registrations#step1'
