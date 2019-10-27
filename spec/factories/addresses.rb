@@ -1,6 +1,7 @@
 FactoryBot.define do
 
   factory  :address do
+    id                         {"99"}
     firstname                  {"mercari"}
     lastname                   {"taro"}
     firstname_kana             {"mercari"}
@@ -10,7 +11,7 @@ FactoryBot.define do
     city_name                  {"city"}
     address_number             {"1"}
     building_name              {"mercari"}
-    phone_number               {"11111111111"}
+    phone_number               {"07011111111"}
     
     association :user
   end
