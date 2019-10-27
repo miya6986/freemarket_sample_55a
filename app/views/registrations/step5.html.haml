@@ -3,7 +3,7 @@
   .rgs-main
     .rgs-main__section
       %h2 支払い方法
-      = form_with usl: creditcards_path, html: { name: "inputForm" },class:"form" do |f|
+      = form_with usl: creditcards_path, method: :post, html: { name: "inputForm" },class:"form" do |f|
         .form__upper
           .form__upper__group
             = f.label :カード番号
@@ -43,5 +43,5 @@
               %span
               = link_to 'カード裏面の番号とは？', root_path, class:'about__registered'
           .form__upper__group
-            = f.submit '次へ進む', class: 'btn-default', id: "charge-form"
+            = f.submit '次へ進む', class: 'btn-default', id: 'token_submit'
   =render "sub-footer"
