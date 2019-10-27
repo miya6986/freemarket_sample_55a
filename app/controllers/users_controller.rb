@@ -10,4 +10,8 @@ class UsersController < ApplicationController
   
   def user_identification
   end
+
+  def my_selling_products
+  end
+
 end

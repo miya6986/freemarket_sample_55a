@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index,:edit] do
     collection do
       get :user_identification
+      get :my_selling_products
     end
   end
   resources :products,only: [:index, :show, :new]
