@@ -2,7 +2,7 @@
   .product-box
     .product-box__top
       .product-box__top__image
-        - product.images.each do |image|
+        - product.images.first(1).each do |image|
           = image_tag image.name, size: '188x188', class: 'product-image'
         .product-price
           ¥
