@@ -86,7 +86,7 @@ Things you may want to cover:
 |city_name|string|null: false|
 |address_number|string|null: false|
 |building_name|string||
-|address_phone_number|string||
+|phone_number|string||
 |user_id|references|foreign_key: true, null: false|
 
 ### Association
