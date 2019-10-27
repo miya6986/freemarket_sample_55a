@@ -41,7 +41,6 @@ class ProductsController < ApplicationController
     params.require(:product).permit(
       :name,
       :description,
-      :category_id,
       :size,
       :condition,
       :postage,
@@ -49,7 +48,8 @@ class ProductsController < ApplicationController
       :prefecture_id,
       :shipping_days,
       :price,
-      images_attributes: [:name]
+      images_attributes: [:name],
+      category_ids: []
     )
   end
 end
