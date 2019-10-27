@@ -11,6 +11,7 @@ FactoryBot.define do
     price {"3000"}
     buyer 
     seller 
+    # user
     category 
     brand 
     # association :user 
