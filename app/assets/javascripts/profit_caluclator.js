@@ -1,14 +1,17 @@
 $(function(){
+  var chargeBox = $(".form-price__form-box__charge__right");
+  var profitBox = $(".form-price__form-box__profit__right")
+
   function calculateProfit(price) {
     var charge = Math.floor(price / 10)
-    var profit = (price - charge);
-    $(".form-price__form-box__charge__right").text("¥" + charge.toLocaleString());
-    $(".form-price__form-box__profit__right").text("¥" + profit.toLocaleString());
+    var profit = price - charge;
+    chargeBox.text("¥" + charge.toLocaleString());
+    profitBox.text("¥" + profit.toLocaleString());
   }
   
   function priceNone() {
-    $(".form-price__form-box__charge__right").text("-");
-    $(".form-price__form-box__profit__right").text("-");
+    chargeBox.text("-");
+    profitBox.text("-");
   }
   
   $("#price").on('keyup',function(e){
