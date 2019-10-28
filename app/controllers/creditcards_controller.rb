@@ -46,7 +46,7 @@ class CreditcardsController < ApplicationController
       if @card.save
         redirect_to action: "index"
       else
-        redirect_to action: "new"
+        redirect_to action: "create"
       end
     end
   end

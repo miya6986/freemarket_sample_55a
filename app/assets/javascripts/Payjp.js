@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load',function(){
-  Payjp.setPublicKey('');
+  Payjp.setPublicKey('pk_test_62c91b0f0f85efaf575ea6b5');
   console.log('OK')
   var form = $(".form"),
       number = form.find('input[name="card_number"]'),
