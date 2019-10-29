@@ -36,13 +36,14 @@ class CreditcardsController < ApplicationController
     if params['payjp-token'].blank?
       redirect_to action: "index"
     else
-      customer = Payjp::Customer.create(
-        description: 'test',
-        email: current_user.email,
-        card: params['payjp-token'],
-        metadata: {user_id: current_user.id}
-      )
-      @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id)
+    customer = Payjp::Customer.create(
+      description: 'test',
+      email: current_user.email,
+      card: params['payjp-token'],
+      metadata: {user_id: current_user.id}
+    )
+    @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id)
+    @card.save
       if @card.save
         redirect_to action: "index"
       else
