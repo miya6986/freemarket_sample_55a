@@ -18,7 +18,7 @@
       支払い方法
     .single-container
       %section.creditcard_section
-        %div
+        .title
           %h3 クレジットカード一覧
         - if @card.present?
           .creditcard-info
@@ -29,8 +29,10 @@
             = @exp_month + " / " + @exp_year
             = button_to "削除する", creditcard_path(@card), method: :delete, class:"creditcard-info__delete"
         - else
-          %div
-            = link_to "クレジットカードを追加する", new_creditcard_path, class:"new-card-btn"
+          .new-card
+            = link_to new_creditcard_path, class:"new-card-btn" do
+              %i.far.fa-credit-card 
+              クレジットカードを追加する
             
       .payment-explain
         = fa_icon 'chevron-right', class:"arrows"
