@@ -5,12 +5,11 @@ $(document).on('turbolinks:load',function(){
       number = form.find('input[name="card_number"]'),
       cvc = form.find('input[name="cvc"]'),
       exp_month = form.find('select[name="exp_month"]'),
-      exp_year = form.find('input[name="exp_year"]');
+      exp_year = form.find('select[name="exp_year"]');
 
 
   $("#charge-form").click(function() {
     form.find("input[type=submit]").prop("disabled", true);
-
     var card = {
       number: $("#card_number").val(),
       cvc: $("#cvc").val(),
