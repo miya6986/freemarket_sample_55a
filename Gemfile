@@ -105,3 +105,7 @@ gem 'rails-i18n'
 
 #カテゴリ機能
 gem 'ancestry'
+
+#私はロボットではありません
+gem 'recaptcha', require: "recaptcha/rails"
+gem 'dotenv-rails'
