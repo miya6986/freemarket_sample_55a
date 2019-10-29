@@ -5,7 +5,7 @@
       もっと見る
       = fa_icon 'chevron-right'
   %ul.brand-items
-    - @products.each do |product|
+    - @products.first(10).each do |product|
       %li.brand-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-middle
@@ -15,7 +15,7 @@
       もっと見る
       = fa_icon 'chevron-right'
   %ul.brand-items
-    - @products.each do |product|
+    - @products.first(10).each do |product|
       %li.brand-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-middle
@@ -25,7 +25,7 @@
       もっと見る
       = fa_icon 'chevron-right'
   %ul.brand-items
-    - @products.each do |product|
+    - @products.first(10).each do |product|
       %li.brand-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-bottom
@@ -35,6 +35,6 @@
       もっと見る
       = fa_icon 'chevron-right'
   %ul.brand-items
-    - @products.each do |product|
+    - @products.first(10).each do |product|
       %li.brand-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
