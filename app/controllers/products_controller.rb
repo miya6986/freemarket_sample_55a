@@ -7,5 +7,8 @@ class ProductsController < ApplicationController
 
   def buy
   end
+
+  def item
+  end
   
 end
