@@ -78,9 +78,6 @@
     @include items();
     .category-item {
       height: 100%;
-      &:hover {
-        outline: 1px $blue solid;
-      }
       @include item();
       img {
         @include item();
@@ -116,9 +113,6 @@
     @include items();
     .brand-item {
       height: 100%;
-      &:hover {
-        outline: 1px $blue solid;
-      }
       @include item();
       img {
         @include item();

@@ -94,6 +94,9 @@
     margin: 0;
     position: relative;
     box-shadow: 0 2px 4px rgba(0,0,0,.18);
+    &:hover {
+      outline: 1px $blue solid;
+    }
     &__top {
       &__image {
         bottom: 0;
