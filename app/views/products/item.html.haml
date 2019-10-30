@@ -1,4 +1,70 @@
 = render 'shared/main-header'
-%main.mypage-body
-  
+= render 'shared/bread_crumb'
+
+%section.product-container
+  %h1.head 
+    THE SHOP TK ボディバッグ ショルダーバッグ
+  .product.clearfix
+    = image_tag 'item-show.jpg', alt: 'item-show-sample',class: 'product__photo'
+    %table.product__table
+      %tbody
+        %tr
+          %th 出品者
+          %td 
+            =link_to '山田太郎', "", class: 'user-name'
+        %tr
+          %th カテゴリー
+          %td.category
+            .category__name
+              = link_to 'メンズ', ""
+            .category__sub
+              = fa_icon 'chevron-right'
+              = link_to 'バッグ', ""
+            .category__sub
+              = fa_icon 'chevron-right'
+              = link_to 'ボディーバッグ', ""
+        %tr
+          %th ブランド
+          %td.brand 
+            = link_to 'タケオ キクチ', "",class: 'brand__name'
+        %tr
+          %th 商品の状態
+          %td 目立った傷や汚れなし
+        %tr
+          %th 配送料の負担	
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td らくらくメルカリ便
+        %tr
+          %th 配送元地域
+          %td.prefecture
+            = link_to '長崎県', "",class: 'prefecture__name'
+        %tr
+          %th 発送日の目安	
+          %td 2~3日で発送
+  .product__price-box 
+    %span.product__price-box__price
+      ¥3,000
+    %span.product__price-box__tax
+      (税込)
+    %span.product__price-box__shipping-fee
+      送料込み
+  .product__description
+    %p 数回のみの使用。ほぼ美品
+.product-action
+  = link_to "商品の編集", "#", class: "product-action__edit"
+  %p.product-action__separate or
+  = form_with url: "#" do |form|
+    = form.submit "出品を一旦停止する", class: "product-action__reselling"
+  .product-action__delete この商品を削除する
+.comment-wrapper
+  .comment-container
+    .comment
+      %form{ class:'comment__form'}
+        %p.comment__form__notice 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea{ class: 'comment__form__textarea' }
+        %button{type: 'submit', class: 'comment__form__button'}
+          %span コメントする
+
 = render 'shared/main-footer'

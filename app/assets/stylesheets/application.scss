@@ -33,7 +33,8 @@
 @import './modules/new-product_main';
 @import './mixins/selling_products_mixin';
 @import './modules/selling_products';
-@import './modules/item';
+@import './mixins/product_item_mixin';
+@import './modules/product_item';
 
 /* 基本設定 */
 
