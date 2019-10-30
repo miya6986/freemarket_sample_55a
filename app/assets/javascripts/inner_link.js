@@ -11,7 +11,7 @@ $(function(){
       function scrollToAnker(hash) {
         var target = $(hash);
         var headerHight = 20; // ヘッダーの高さを入れる
-        var position = target.offset().top-headerHight;
+        var position = target.offset().top - headerHight;
         console.log('position');
         $('body,html').stop().animate({scrollTop:position}, 250);
       }
