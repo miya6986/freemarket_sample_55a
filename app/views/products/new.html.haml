@@ -11,6 +11,13 @@
           .form-image__text 最大10枚までアップロードできます
           = f.fields_for :images do |image|
             .form-image__field
+              %ul
+                %li.image-preview
+                  .image-preview_wapper
+                    = image_tag "mercari_profile_icon.png"
+                  .image-preview_btn 
+                    = link_to "編集"
+                    = link_to "削除"
               %label.upload-box
                 .upload-box__text
                   ドラッグアンドドロップ
