@@ -1,7 +1,7 @@
 .rgs-body
   .logo-header
     %h1
-      = link_to root_path, class: 'header-link', data: {"turbolinks" => false} do
+      = link_to root_path, class: 'header-link' do
         = image_tag 'logo.svg', alt: 'mercari', class: 'header-logo', height: '49', width: '185'
   .login-main
     .no-account
@@ -25,5 +25,5 @@
         %button.btn-default-login{type: "submit"} ログイン
       .login-form__group
         %p.about
-        = link_to '本人情報の登録について', root_path, class:'about__registered', data: {"turbolinks" => false}
+        = link_to '本人情報の登録について', root_path, class:'about__registered'
   =render "./registrations/sub-footer"
