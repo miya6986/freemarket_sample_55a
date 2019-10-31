@@ -12,12 +12,6 @@
           = f.fields_for :images do |image|
             .clearfix
               %ul#previewes
-                %li.image-preview
-                  .image-preview_wapper
-                    = image_tag "gray-logo.png", id:"preview"
-                  .image-preview_btn 
-                    = link_to "編集"
-                    = link_to "削除"
               .form-image__field
                 %label.upload-label
                   .upload-label__text
