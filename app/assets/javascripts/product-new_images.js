@@ -22,13 +22,21 @@ $(document).on('turbolinks:load', function(){
                                 <a href="/products/new">削除</a>
                               </div>
                               </li>`
-                          );                      
+                          );   
+    // 画像ファイルを読み込む
+    reader.readAsDataURL(e.target.files[0]);
+    //画像ファイルが読み込んだら、処理が実行される。
     reader.onload = function(e){
       $(append_preview).find('.preview').attr('src', e.target.result);
     }
-    reader.readAsDataURL(e.target.files[0]);
+    //画像ファイルをimagesに保存する。
     images.push(append_preview);
-    $('#previewes').append(images)
+    if (images.length <= 4) {
+      $('#previewes').empty();
+      $.each(images,function(index, image){
+        $('#previewes').append(image)
+      })
+    }
 
 
     // // 画像が4枚以下のとき
