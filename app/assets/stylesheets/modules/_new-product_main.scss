@@ -20,7 +20,7 @@
     .form {
       border-top: 1px solid $border-top-gray;
       &-image {
-        width: 620px;
+        width: 100%;
         padding: 40px;
         &__title {
           font-weight: bold;
@@ -28,10 +28,14 @@
             font-size: 16px;
           } 
           @include require-sapn;
+          @include clearfix;
         }
         &__text {
           margin: 8px 0 0;
           line-height: 1.5;
+        }
+        .clearfix{
+          @include clearfix;
         }
         #previewes {
           @include previewes

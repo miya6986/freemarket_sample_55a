@@ -69,43 +69,46 @@
   }
 }
 
-@mixin upload-box{
-  width: 100%;
-  max-width: 620px;
-  padding: 40px;
-  min-height: 162px;
-  background: $background_color;
-  border: 1px dashed $border-form-gray;
-  font-size: 0;
-  text-align: center;
-  display: table;
-  cursor: pointer;
-  float: left;
-  &__text {
-    text-align: center;
-    font-size: 14px;
-    line-height: 1.5;
-    display: table-cell;
-    vertical-align: middle;
-    font-weight: bold;
-  }
-  .hidden {
-    display: none;
-  }
-}
+
 @mixin image_upload_area($display){
   display: $display;
   width: 620px;
   margin: 16px auto 0;
   min-height: 162px;
-  @include clearfix;
+  float: left;
   .upload-label {
-    @include upload-box
+    width: 100%;
+    max-width: 620px;
+    padding: 40px;
+    min-height: 162px;
+    background: $background_color;
+    border: 1px dashed $border-form-gray;
+    font-size: 0;
+    text-align: center;
+    display: table;
+    cursor: pointer;
+    float: left;
+    position: relative;
+    &__text {
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+      display: table-cell;
+      vertical-align: middle;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform : translate(-50%, -50%);
+    }
+    .hidden {
+      display: none;
+    }
   }
 }
 
 @mixin previewes{
   float: left;
+  margin: 16px 0 0;
   .image-preview{
     width: 114px;
     height: 162px;

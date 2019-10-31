@@ -34,9 +34,14 @@ $(document).on('turbolinks:load', function(){
     if (images.length <= 4) {
       $('#previewes').empty();
       $.each(images,function(index, image){
+        image.data('image', index);
         $('#previewes').append(image)
       })
+      image_upload_area.css({
+        'width': `calc(100% - (20% * ${images.length}))`
+      })
     }
+
 
 
     // // 画像が4枚以下のとき
@@ -46,9 +51,9 @@ $(document).on('turbolinks:load', function(){
     //     image.data('image', index);
     //     previewes.append(image);
     //   })
-    //   image_upload_area.css({
-    //     'width': `calc(100% - (20% * ${images.length}))`
-    //   })
+      // image_upload_area.css({
+      //   'width': `calc(100% - (20% * ${images.length}))`
+      // })
 
     //   // 画像が5枚のとき
     // } else if (images.length == 5) {
