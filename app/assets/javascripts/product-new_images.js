@@ -23,15 +23,12 @@ $(document).on('turbolinks:load', function(){
                               </div>
                               </li>`
                           );                      
-    // var file = $(this).prop('files')[0];
-    // inputs.push($(this));
-    $('#previewes').append(append_preview);
     reader.onload = function(e){
-      $('.preview:last-child').attr('src', e.target.result);
+      $(append_preview).find('.preview').attr('src', e.target.result);
     }
     reader.readAsDataURL(e.target.files[0]);
-    // images.push(append_preview);
-    console.log('OK2');
+    images.push(append_preview);
+    $('#previewes').append(images)
 
 
     // // 画像が4枚以下のとき
