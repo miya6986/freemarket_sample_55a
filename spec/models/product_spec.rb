@@ -13,6 +13,18 @@ RSpec.describe Product do
       it "is valid with required items" do
         expect(product).to be_valid
       end
+
+      #2 price = 300円であれば出品ができること
+      it "is valid with price = 300" do 
+        product = build(:product, categories: [parent, child, grandchild], price: 300) 
+        expect(product).to be_valid
+      end
+
+      #3 price = 9999999円であれば出品ができること
+      it "is valid with price = 9999999" do 
+        product = build(:product, categories: [parent, child, grandchild], price: 9999999) 
+        expect(product).to be_valid
+      end
     end
 
     context "cannot save" do 
@@ -85,7 +97,27 @@ RSpec.describe Product do
         product.valid?
         expect(product.errors[:price]).to include("can't be blank")
       end
+      
+      #11 価格が数値でなければ保存できないこと
+      it "is invalid when price is not a number" do
+        product = build(:product, price: "aaa")
+        product.valid?
+        expect(product.errors[:price]).to include("is not a number")
+      end
+
+      #12 価格が300円未満であれば保存できないこと
+      it "is invalid with a price less than 300" do
+        product = build(:product, price: 299) 
+        product.valid?
+        expect(product.errors[:price]).to include("must be greater than or equal to 300")
+      end
+
+      #13 価格が9999999円を超えていれば保存できないこと
+      it "is invalid with a price greater than 9999999" do
+        product = build(:product, price: 10000000) 
+        product.valid?
+        expect(product.errors[:price]).to include("must be less than or equal to 9999999")
+      end
     end
   end
-
 end
