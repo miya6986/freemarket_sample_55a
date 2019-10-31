@@ -8,6 +8,9 @@ class ProductsController < ApplicationController
   def buy
   end
 
+  def destroy
+  end
+
   def item
   end
   
