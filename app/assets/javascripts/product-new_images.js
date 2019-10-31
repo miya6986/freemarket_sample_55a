@@ -41,8 +41,7 @@ $(document).on('turbolinks:load', function(){
         'width': `calc(100% - (20% * ${images.length}))`
       })
     }
-    if (images.length == 5) {
-      $('#previewes').empty();
+    else if (images.length == 5) {
       $.each(images,function(index, image){
         image.data('image', index);
         $('#previewes').append(image)
@@ -54,8 +53,7 @@ $(document).on('turbolinks:load', function(){
         'display': 'block'
       })
     }
-    if (images.length >= 6) {
-      $('#previewes').empty();
+    else if (images.length >= 6) {
       $.each(images,function(index, image){
         image.data('image', index);
         $('#previewes2').append(image)
@@ -64,7 +62,15 @@ $(document).on('turbolinks:load', function(){
         'width': `calc(100% - (20% * ${images.length - 5}))`
       })
     }
-
+    else if (images.length == 10) {
+      $.each(images,function(index, image){
+        image.data('image', index);
+        $('#previewes2').append(image)
+      })
+      image_upload_area2.css({
+        'display': 'none'
+      })
+    }
 
 
     // // 画像が4枚以下のとき
