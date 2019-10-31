@@ -54,6 +54,16 @@ $(document).on('turbolinks:load', function(){
         'display': 'block'
       })
     }
+    if (images.length >= 6) {
+      $('#previewes').empty();
+      $.each(images,function(index, image){
+        image.data('image', index);
+        $('#previewes2').append(image)
+      })
+      image_upload_area2.css({
+        'width': `calc(100% - (20% * ${images.length - 5}))`
+      })
+    }
 
 
 
