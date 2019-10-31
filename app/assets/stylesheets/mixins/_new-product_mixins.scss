@@ -68,3 +68,28 @@
     font-weight: 600;
   }
 }
+
+@mixin upload-box{
+  width: 100%;
+  max-width: 620px;
+  padding: 40px;
+  min-height: 162px;
+  background: $background_color;
+  border: 1px dashed $border-form-gray;
+  font-size: 0;
+  text-align: center;
+  display: table;
+  cursor: pointer;
+  float: left;
+  &__text {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: bold;
+  }
+  .hidden {
+    display: none;
+  }
+}

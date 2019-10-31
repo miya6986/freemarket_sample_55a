@@ -24,18 +24,19 @@
                   .image-preview_btn 
                     = link_to "編集"
                     = link_to "削除"
-              = image.label :image, class:"upload-box" do
+              %label.upload-box
                 .upload-box__text
                   ドラッグアンドドロップ
                   %br
                   またはクリックしてファイルをアップロード
                 = image.file_field :name, multiple: true, name:'images[image][]', class: "hidden", 'data-image':0
               %ul.previews2
-              = image.label :image, class:"upload-box2" do
+              %label.upload-box2
                 .upload-box__text
                   ドラッグアンドドロップ
                   %br
                   またはクリックしてファイルをアップロード
+                = image.file_field :name, multiple: true, name:'images[image][]', class: "hidden", 'data-image':0
       .form-container
         .form-container__name
           %label 商品名
