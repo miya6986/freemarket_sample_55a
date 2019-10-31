@@ -10,29 +10,24 @@
           %span 必須
           .form-image__text 最大10枚までアップロードできます
           = f.fields_for :images do |image|
+            %ul#previewes
+              %li.image-preview
+                .image-preview_wapper
+                  = image_tag "gray-logo.png"
+                .image-preview_btn 
+                  = link_to "編集"
+                  = link_to "削除"
             .form-image__field
-              %ul.previews
-                %li.image-preview
-                  .image-preview_wapper
-                    = image_tag "gray-logo.png"
-                  .image-preview_btn 
-                    = link_to "編集"
-                    = link_to "削除"
-                %li.image-preview
-                  .image-preview_wapper
-                    = image_tag "mercari_profile_icon.png"
-                  .image-preview_btn 
-                    = link_to "編集"
-                    = link_to "削除"
-              %label.upload-box
-                .upload-box__text
+              %label.upload-label
+                .upload-label__text
                   ドラッグアンドドロップ
                   %br
                   またはクリックしてファイルをアップロード
                 = image.file_field :name, multiple: true, name:'images[image][]', class: "hidden", 'data-image':0
-              %ul.previews2
-              %label.upload-box2
-                .upload-box__text
+            %ul#previewes2
+            .form-image__field2
+              %label.upload-label2
+                .upload-label2__text
                   ドラッグアンドドロップ
                   %br
                   またはクリックしてファイルをアップロード
