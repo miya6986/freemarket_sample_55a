@@ -40,30 +40,10 @@
           @include previewes
         }
         &__field {
-          display: block;
-          width: 620px;
-          margin: 16px auto 0;
-          min-height: 162px;
-          @include clearfix;
-          .upload-label {
-            @include upload-box
-          }
-          .upload-label2 {
-            @include upload-box
-          }
+          @include image_upload_area(block)
         }
         &__field2 {
-          display: none;
-          width: 620px;
-          margin: 16px auto 0;
-          min-height: 162px;
-          @include clearfix;
-          .upload-label {
-            @include upload-box
-          }
-          .upload-label2 {
-            @include upload-box
-          }
+          @include image_upload_area(none)
         }
       }
       &-container {

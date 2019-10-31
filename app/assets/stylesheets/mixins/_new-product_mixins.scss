@@ -93,6 +93,16 @@
     display: none;
   }
 }
+@mixin image_upload_area($display){
+  display: $display;
+  width: 620px;
+  margin: 16px auto 0;
+  min-height: 162px;
+  @include clearfix;
+  .upload-label {
+    @include upload-box
+  }
+}
 
 @mixin previewes{
   float: left;
