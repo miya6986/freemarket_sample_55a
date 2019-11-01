@@ -18,8 +18,8 @@ $(document).on('turbolinks:load', function(){
                                 <img class="preview">
                               </div>
                               <div class="image-preview_btn">
-                                <a href="/products/new" class="image-preview_btn_edit">編集</a>
-                                <a href="/products/new" class="image-preview_btn"delete_btn">削除</a>
+                                <div class="image-preview_btn_edit">編集</div>
+                                <div class="image-preview_btn_delete">削除</div>
                               </div>
                             </li>`
                           );   
@@ -78,6 +78,8 @@ $(document).on('turbolinks:load', function(){
     }
   })
   //削除機能
-  // $('#previewes, #previewes2').on('click',"image-preview_btn delete_btn")
-
+  $(document).on('click',"image-preview_btn_delete",function(){
+    // var index = $('image-preview').index(this);
+    console.log("OK");
+  })
 });
