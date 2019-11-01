@@ -142,6 +142,7 @@
       border-width: thin;
       border: 0.02px #EEEEEE solid;
       font-weight: 300;
+      pointer-events: none;
       &:not(:first-child){
         border-left: none;
       }

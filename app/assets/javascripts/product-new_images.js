@@ -18,10 +18,10 @@ $(document).on('turbolinks:load', function(){
                                 <img class="preview">
                               </div>
                               <div class="image-preview_btn">
-                                <a href="/products/new">編集</a>
-                                <a href="/products/new">削除</a>
+                                <a href="/products/new" class="image-preview_btn_edit">編集</a>
+                                <a href="/products/new" class="image-preview_btn"delete_btn">削除</a>
                               </div>
-                              </li>`
+                            </li>`
                           );   
     // 画像ファイルを読み込む
     reader.readAsDataURL(e.target.files[0]);
@@ -76,55 +76,8 @@ $(document).on('turbolinks:load', function(){
         })
       }
     }
-
-
-    // // 画像が4枚以下のとき
-    // if (images.length <= 4) {
-    //   $('#previewes').empty();
-    //   $.each(images, function(index, image) {
-    //     image.data('image', index);
-    //     previewes.append(image);
-    //   })
-      // image_upload_area.css({
-      //   'width': `calc(100% - (20% * ${images.length}))`
-      // })
-
-    //   // 画像が5枚のとき
-    // } else if (images.length == 5) {
-    //   $("#previewes").empty();
-    //   $.each(images, function(index, image) {
-    //     image.data("image", index);
-    //     previewes.append(image);
-    //   });
-    //   image_upload_area.css({
-    //     display: "none"
-    //   });
-    //   image_upload_area2.css({
-    //     display: "block"
-    //   });
-    //   previewes2.empty();
-    //   // 画像が６枚以上のとき
-    // } else if (images.length >= 6) {
-    //   image_upload_area.css({
-    //     'display': 'none'
-    //   })
-    //   image_upload_area2.css({
-    //     'display': 'block'
-    //   })
-    //   $.each(images, function(index, image){
-    //     image.attr('data-image', index);
-    //     previewes2.append(image);
-    //     image_upload_area2({
-    //       'width': `calc(100% - (135px * ${images.lenght - 5}))`
-    //     });
-    //   });
-    // } else if (images.length == 10){
-    //   image_upload_area.css({
-    //     'display': 'none'
-    //   });
-    //   image_upload_area2.css({
-    //     'display': 'none'
-    //   });
-    // }
   })
+  //削除機能
+  // $('#previewes, #previewes2').on('click',"image-preview_btn delete_btn")
+
 });
