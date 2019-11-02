@@ -7,8 +7,8 @@ Rails.application.routes.draw do
       get :my_selling_products
     end
   end
-  resources :products,only: [:index, :show, :new] do
-    collection do
+  resources :products,only: [:index, :show, :new, :destroy] do
+    member do
       get :item
     end
   end

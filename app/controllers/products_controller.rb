@@ -9,9 +9,36 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(products_params[:id])
+
+
   end
 
   def item
+    @product = Product.find(products_params[:id])
+    @buyer = @product.user.find(products_params[:buyer_id])
+    @seller = @product.user.find(products_params[:seller_id])
+  end
+
+  private
+
+  def products_params
+    params.require(:products).permit( :id,
+                                      :name,
+                                      :text,
+                                      :size,
+                                      :condition,
+                                      :postage,
+                                      :shipping_method,
+                                      :prefecture_id,
+                                      :shipping_days,
+                                      :price,
+                                      :buyer_id,
+                                      :seller_id,
+                                      :brand_id,
+                                      :category_id,
+                                      :user_id
+                                      )
   end
   
 end

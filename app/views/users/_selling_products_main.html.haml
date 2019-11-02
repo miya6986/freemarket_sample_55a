@@ -10,21 +10,23 @@
         = link_to "売却済み", "#", class: "sold-link"
     .my-products-main__contents
       %ul.transaction
-        %li.product
-          = link_to "#", class: "product-link" do
-            %figure
-              = image_tag "m27124190794_1.jpg", class: "product-image"
-            .product-body
-              .product-body__title タイトル
-              .product-body__element
-                %span.icon
-                  %i.far.fa-heart
-                    %span 0
-                %span.icon
-                  %i.far.fa-comment-alt
-                    %span 0
-                .product-status.inactive 公開停止中
-            %i.fas.fa-angle-right.fa-2x.icon-sizing
+        - own_products.eace do |own_product|
+          %li.product
+            = link_to "/products/#{own_product.id}/item", class: "product-link" do
+              %figure
+                = image_tag "#{own_product.image.first}", class: "product-image"
+              .product-body
+                .product-body__title 
+                  = own_product.name
+                .product-body__element
+                  %span.icon
+                    %i.far.fa-heart
+                      %span 0
+                  %span.icon
+                    %i.far.fa-comment-alt
+                      %span 0
+                  .product-status.active 出品中
+              %i.fas.fa-angle-right.fa-2x.icon-sizing
   %ul.my-products-history
     %li.my-products-history__preview.page-btn
       = link_to "#", class: "history-link" do
