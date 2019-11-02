@@ -12,7 +12,6 @@ class Product < ApplicationRecord
   
   validates :name, presence: true
   validates :description, presence: true
-  # validates :category_ids, presence: true
   validates :condition, presence: true
   validates :postage, presence: true
   validates :shipping_method, presence: true
