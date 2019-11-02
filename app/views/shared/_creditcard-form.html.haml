@@ -1,5 +1,5 @@
 .rgs-main__section
-  = form_with model: @creditcard, method: :post, html: { name: "inputForm" },class:"form" do |f|
+  = form_with url:creditcards_path, method: :post, html: { name: "inputForm" },class:"form" do |f|
     .form__upper
       .form__upper__group
         = f.label :カード番号
@@ -32,7 +32,7 @@
       .form__upper__group
         = f.label :セキュリティーコード
         %span.form-require 必須
-        = f.text_field :cvc, name: "cvc", id:"cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default', maxlength: "16"
+        = f.text_field :cvc, name: "cvc", id:"cvc", class:"cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default', maxlength: "16"
       .form__upper__group
         %p.about
           = fa_icon 'question-circle'
