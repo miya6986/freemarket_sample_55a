@@ -8,5 +8,8 @@ class ProductsController < ApplicationController
 
   def buy
   end
+
+  def search
+  end
   
 end
