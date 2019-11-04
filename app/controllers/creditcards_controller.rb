@@ -35,7 +35,7 @@ class CreditcardsController < ApplicationController
   def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjpToken'].blank?
-      redirect_to action: "index"
+      render "new"
     else
     customer = Payjp::Customer.create(
       description: 'test',
@@ -45,7 +45,7 @@ class CreditcardsController < ApplicationController
     )
     @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id)
       if @card.save
-        render 'index'
+        redirect_to action: "index"
       else
         render 'new'
       end
