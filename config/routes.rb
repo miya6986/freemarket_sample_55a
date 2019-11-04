@@ -6,10 +6,11 @@ Rails.application.routes.draw do
       get :user_identification
     end
   end
-  resources :products,only: [:index, :show, :new]
+  resources :products,only: [:index, :show, :new] do
     collection do
       get 'search'
     end
+  end  
   resources :creditcards, only: [:index, :destroy]
   get 'logout' => "users#logout"
   get 'step1', to: 'registrations#step1'
