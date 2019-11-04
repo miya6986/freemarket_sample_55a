@@ -72,6 +72,7 @@
           background: #fff;
           line-height: 1.5;
           font-size: 16px;
+          -webkit-appearance: none;
           &-harf{
             width: calc(45% - 6px);
             margin: 8px 8px 0 0;
@@ -92,6 +93,15 @@
             line-height: 1.5;
             font-size: 16px;
           }
+        }
+        .icon-arrow-down{
+          font-size: 30px;
+          color: #888;
+          position: relative;
+          left: 170px;
+          top: 50px;
+          cursor: pointer;
+          pointer-events: none;
         }
         .error-text {
           @include error_text
