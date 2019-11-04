@@ -1,0 +1,1 @@
+cloth = Size.create(kind: "洋服のサイズ")
