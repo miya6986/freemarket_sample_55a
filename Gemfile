@@ -99,3 +99,6 @@ gem 'ransack'
 
 #カテゴリ機能
 gem 'ancestry'
+
+#検索機能
+gem 'ransack'
