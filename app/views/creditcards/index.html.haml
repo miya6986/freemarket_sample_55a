@@ -18,17 +18,18 @@
       支払い方法
     .single-container
       %section.creditcard_section
-        .title
+        .container
           %h3 クレジットカード一覧
         
         - if @card.present?
-          .creditcard-info
-            = image_tag @card_image,width:'34',height:'20', alt:'master-card'
-            %p.creditcard-info__number
-              = "************" + @card_info.last4
-            %p.creditcard-info__period 
-            = @exp_month + " / " + @exp_year
-            = button_to "削除する", creditcard_path(@card), method: :delete, class:"creditcard-info__delete"
+          .container
+            .creditcard-info
+              = image_tag @card_image,width:'34',height:'20', alt:'master-card'
+              %p.creditcard-info__number
+                = "************" + @card_info.last4
+              %p.creditcard-info__period 
+              = @exp_month + " / " + @exp_year
+              = button_to "削除する", creditcard_path(@card), method: :delete, class:"creditcard-info__delete"
         - else
           .new-card
             = link_to new_creditcard_path, class:"new-card-btn" do
