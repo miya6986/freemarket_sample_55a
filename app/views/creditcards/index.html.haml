@@ -20,9 +20,10 @@
       %section.creditcard_section
         .title
           %h3 クレジットカード一覧
+        
         - if @card.present?
           .creditcard-info
-            = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
+            = image_tag @card_image,width:'34',height:'20', alt:'master-card'
             %p.creditcard-info__number
               = "************" + @card_info.last4
             %p.creditcard-info__period 

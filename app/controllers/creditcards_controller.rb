@@ -4,8 +4,9 @@ class CreditcardsController < ApplicationController
 
   def index
     if @card.present?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
-      @card_info = customer.cards.retrieve(@card.customer_id.default_card)
+      @card_info = customer.cards.retrieve(customer.default_card)
       @card_brand = @card_info.brand
       @exp_month = @card_info.exp_month.to_s
       @exp_year = @card_info.exp_year.to_s.slice(2,3) 
