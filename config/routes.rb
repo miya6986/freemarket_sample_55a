@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     end
   end
   resources :products,only: [:index, :show, :new]
+    collection do
+      get 'search'
+    end
   resources :creditcards, only: [:index, :destroy]
   get 'logout' => "users#logout"
   get 'step1', to: 'registrations#step1'
