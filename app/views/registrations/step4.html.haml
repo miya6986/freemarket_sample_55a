@@ -25,7 +25,7 @@
           .form__upper__group
             %label 都道府県
             %span.form-require 必須
-            = fa_icon 'angle-down', class: 'icon-arrow-down'
+            = fa_icon 'angle-down', class: 'icon-arrow-down-prefecture'
             = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"},{class: "input-default"}
           .form__upper__group
             %label 市区町村

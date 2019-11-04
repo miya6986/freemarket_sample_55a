@@ -43,18 +43,22 @@
             = render partial: 'error-text', locals: {user: @user, column: "firstname_kana"}
             = render partial: 'error-text', locals: {user: @user, column: "lastname_kana"}
           .form__upper__group
-            .birth
-              %span.label 生年月日
-              %span.form-require 必須
-              .select-wrap
-                = f.number_field :birth_year, placeholder: '',class: 'input-default-select'
-                %span 年
-                = f.number_field :birth_month, placeholder: '',class: 'input-default-select'
-                %span 月
-                = f.number_field :birth_day, placeholder: '',class: 'input-default-select'
-                %span 日
-                = render partial: 'error-text', locals: {user: @user, column: "birth_year"}
-
+            %span.label 生年月日
+            %span.form-require 必須
+            .birthday-wrap
+              .select-year
+                = fa_icon 'angle-down', class: 'icon-arrow-down-birth'
+                = f.select :birth_year, [["---", ""], ["2019"], ["2018"], ["2017"],["2016"],["2015"],["2014"],["2013"],["2012"],["2011"],["2010"],["2009"],["2008"],["2007"],["2006"],["2005"],["2004"],["2003"],["2002"],["2002"],["2001"],["2000"],["1999"],["1998"],["1997"],["1996"],["1995"],["1994"],["1993"],["1992"],["1991"],["1990"],["1989"]], {}, {class: "input-default-select"}
+              %span.birthday 年
+              .select-year
+                = fa_icon 'angle-down', class: 'icon-arrow-down-birth'
+                = f.select :birth_month, [["---", ""], ["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"],["11"],["12"]], {}, {class: "input-default-select"}
+              %span.birthday 月
+              .select-year
+                = fa_icon 'angle-down', class: 'icon-arrow-down-birth'
+                = f.select :birth_day, [["---", ""], ["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"],["11"],["12"], ["13"], ["14"], ["15"],["16"],["17"],["18"],["19"],["20"],["21"],["22"],["23"],["24"],["25"],["26"],["27"],["28"],["29"],["30"],["31"]], {}, {class: "input-default-select"}
+              %span.birthday 日
+              = render partial: 'error-text', locals: {user: @user, column: "birth_year"}
           %p.form-info-text
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           .form__upper__group
