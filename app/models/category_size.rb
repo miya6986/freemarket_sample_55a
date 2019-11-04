@@ -1,0 +1,2 @@
+class CategorySize < ApplicationRecord
+end
