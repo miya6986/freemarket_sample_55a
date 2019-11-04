@@ -45,7 +45,7 @@ class CreditcardsController < ApplicationController
     )
     @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id)
       if @card.save
-        redirect_to action: "index"
+        redirect_to action: "index", notice:"支払い情報の登録が完了しました"
       else
         render 'new'
       end
