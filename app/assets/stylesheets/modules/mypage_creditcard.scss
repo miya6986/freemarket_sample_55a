@@ -20,33 +20,33 @@
           font-weight: bold;
           margin: 0 auto;
         }
-      }
-      .creditcard-info{
-        padding: 24px 0;
-        font-size: 16px;
-        position: relative;
-        &__number{
-          margin: 8px 0 0 0;
-        }
-        &__period{
-          margin: 8px 0 0 0;
-        }
-        &__delete{
-          position: absolute;
-          right: 0;
-          top: 24px;
-          display: block;
-          color: $red;
-          background: #fff;
-          border: 1px solid $red;
-          border-radius: 2px;
-          font-size: 14px;
-          line-height: 14px;
-          width: 70px;
-          height: 24px;
-          padding: 4px 6px;
-          cursor: pointer;
-          outline: none;
+        .creditcard-info{
+          padding: 24px 0;
+          font-size: 16px;
+          position: relative;
+          &__number{
+            margin: 8px 0 0 0;
+          }
+          &__period{
+            margin: 8px 0 0 0;
+          }
+          &__delete{
+            position: absolute;
+            right: 0;
+            top: 24px;
+            display: block;
+            color: $red;
+            background: #fff;
+            border: 1px solid $red;
+            border-radius: 2px;
+            font-size: 14px;
+            line-height: 14px;
+            width: 70px;
+            height: 24px;
+            padding: 4px 6px;
+            cursor: pointer;
+            outline: none;
+          }
         }
       }
     }
