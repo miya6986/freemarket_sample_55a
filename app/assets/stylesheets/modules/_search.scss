@@ -1,0 +1,33 @@
+.search-container {
+  margin: 40px auto 0;
+  width: 1020px;
+  display: flex;
+  .search-side {
+    width: 280px;
+    margin: 0 40px 0 0;
+    .search-sort {
+      width: auto;
+      .select-order {
+        height: 48px;
+        padding: 0 16px;
+        border: 1px solid #ccc;
+        width: 100%;
+      }
+    }
+    .search-content {
+      // position: static;
+      // display: block;
+      // -webkit-box-shadow: none;
+      // box-shadow: none;
+      margin: 40px 0 0;
+      background-color: $white;
+      padding: 16px;
+      // 高さ幅は仮置きです
+      height: 1000px;
+      width:100%;
+    }
+  }
+  .search-main {
+    width: 700px;
+  }
+}
