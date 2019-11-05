@@ -5,13 +5,13 @@
   %h1.head 
     = @product.name
   .product.clearfix
-    = image_tag 'item-show.jpg', alt: 'item-show-sample',class: 'product__photo'
+    = image_tag @product.images.first, alt: 'item-show-sample',class: 'product__photo'
     %table.product__table
       %tbody
         %tr
           %th 出品者
           %td 
-            = link_to "#{@seller.name}", "users/#{@seller.id}/edit", class: 'user-name'
+            = link_to "出品者", "#", class: 'user-name'
         %tr
           %th カテゴリー
           %td.category
@@ -57,7 +57,7 @@
   %p.product-action__separate or
   = form_with url: "#" do |form|
     = form.submit "出品を一旦停止する", class: "product-action__reselling"
-  = form_with url: "#" method: :delete do |form|
+  = form_with url: "#", method: :delete do |form|
     = form.submit "この商品を削除する", class: "product-action__delete"
 .comment-wrapper
   .comment-container

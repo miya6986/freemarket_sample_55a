@@ -11,13 +11,13 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(products_params[:id])
 
-
   end
 
   def item
-    @product = Product.find(products_params[:id])
-    @buyer = @product.user.find(products_params[:buyer_id])
-    @seller = @product.user.find(products_params[:seller_id])
+    @product = Product.find(params[:id])
+    binding.pry
+    # @buyer = @product.user.find(products_params[:buyer_id])
+    # @seller = @product.user.find(products_params[:seller_id])
   end
 
   private
