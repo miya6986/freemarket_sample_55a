@@ -15,8 +15,7 @@ $(document).on('turbolinks:load', function() {
       profitBox.text("-");
     }
     
-    $("#price").on('keyup',function(e){
-      e.preventDefault();
+    $("#price").on('keyup',function(){
       var price = document.getElementById("price").value;
       if(300<= price && price <= 9999999) {
         calculateProfit(price);
