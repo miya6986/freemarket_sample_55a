@@ -3,8 +3,8 @@ $(document).on('turbolinks:load', function(){
   var image_upload_area = $('.form-image__field');
   var image_upload_area2 = $('.form-image__field2');
   var label = $('.upload-label');
-  var previewes = $('#previewes')
-  var previewes2 = $('#previewes2');
+  var previews = $('#previews')
+  var previews2 = $('#previews2');
   var images = [];
   var inputs = [];
   var input_area = $('.input_area');
@@ -32,20 +32,20 @@ $(document).on('turbolinks:load', function(){
     //画像ファイルをimagesに保存する。
     images.push(append_preview);
     if (images.length <= 4) {
-      $('#previewes').empty();
+      $('#previews').empty();
       $.each(images,function(index, image){
         image.data('image', index);
-        $('#previewes').append(image)
+        $('#previews').append(image)
       })
       image_upload_area.css({
         'width': `calc(100% - (20% * ${images.length}))`
       })
     }
     else if (images.length == 5) {
-      $('#previewes').empty();
+      $('#previews').empty();
       $.each(images,function(index, image){
         image.data('image', index);
-        $('#previewes').append(image)
+        $('#previews').append(image)
       })
       image_upload_area.css({
         'display': 'none'
@@ -57,15 +57,15 @@ $(document).on('turbolinks:load', function(){
     else if (images.length >= 6) {
       var images_0_5 = images.slice(0,5);
       var images_6_10 = images.slice(5);
-      $('#previewes').empty();
-      $('#previewes2').empty();
+      $('#previews').empty();
+      $('#previews2').empty();
       $.each(images_0_5,function(index, image){
         image.data('image', index);
-        $('#previewes').append(image)
+        $('#previews').append(image)
       })
       $.each(images_6_10,function(index, image){
         image.data('image', index);
-        $('#previewes2').append(image)
+        $('#previews2').append(image)
       })
       image_upload_area2.css({
         'width': `calc(100% - (20% * ${images.length - 5}))`

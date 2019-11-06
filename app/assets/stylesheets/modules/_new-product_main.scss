@@ -37,11 +37,11 @@
         .clearfix{
           @include clearfix;
         }
-        #previewes {
-          @include previewes
+        #previews {
+          @include previews
         }
-        #previewes2 {
-          @include previewes
+        #previews2 {
+          @include previews
         }
         &__field {
           @include image_upload_area(block)

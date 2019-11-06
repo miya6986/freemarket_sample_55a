@@ -11,7 +11,7 @@
           .form-image__text 最大10枚までアップロードできます
           = f.fields_for :images do |image|
             .clearfix
-              %ul#previewes
+              %ul#previews
               .form-image__field
                 %label.upload-label
                   .upload-label__text
@@ -21,7 +21,7 @@
                     .input-area
                       = image.file_field :name, multiple: true, name:'images[image][]', class: "hidden image_upload", 'data-image':0
             .clearfix
-              %ul#previewes2
+              %ul#previews2
               .form-image__field2
                 %label.upload-label
                   .upload-label__text
