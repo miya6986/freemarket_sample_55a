@@ -25,6 +25,7 @@ class Product < ApplicationRecord
       less_than_or_equal_to: 9999999,
       allow_blank: true
     }
+
   validate :category_count
     def category_count
       category_validation = category_ids
@@ -33,6 +34,13 @@ class Product < ApplicationRecord
       end
     end
 
+  validate :require_image
+    def require_image
+      image_validation = images
+      if image_validation.empty?
+        errors.add(:images, "画像がありません")
+      end
+    end
 end
 
 
