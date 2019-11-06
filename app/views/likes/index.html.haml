@@ -9,10 +9,15 @@
       %ul.show
         %li.notice
           = link_to "",class:"notice__link " do
-            = image_tag "mercari_profile_icon.png", class:"notice__link_img", alt: ""
+            .notice__link_img
+              = image_tag "mercari_profile_icon.png", class:"notice__link_img", alt: "" 
+              .soldout
+                .soldout_text 
+                  %p SOLD
             .notice__link-message
               %p 事務所からの個別メッセージ
               %span.notice__link-message__passed
+                ¥500
             = fa_icon 'chevron-right', class:"mypage-notice_arrow_right"
 = render 'shared/sell-button'
 = render 'shared/main-footer'
