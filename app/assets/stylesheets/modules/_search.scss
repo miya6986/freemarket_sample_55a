@@ -29,5 +29,103 @@
   }
   .search-main {
     width: 700px;
+    .main-container {
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      &__head {
+        font-size: 21px;
+        margin: 0 0 8px;
+        font-weight: 600;
+        line-height: 1.4;
+        span {
+          font-size: 17px;
+          margin: 0 0 0 4px;
+          font-weight: 400;
+        }
+      }
+      &__result-number {
+        margin: 16px 0;
+        font-size: 11px;
+        color: #888;
+      }
+      &__items {
+        width: auto;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px 20px;
+        &__item {
+          width: 100%;
+          cursor: pointer;
+          .show-link {
+            .product-box {
+              margin: 0;
+              position: relative;
+              box-shadow: 0 2px 4px rgba(0,0,0,.18);
+              &:hover {
+                outline: 1px $blue solid;
+              }
+              .product-box__top {
+                &__image {
+                  bottom: 0;
+                  position: relative;
+                  top: 0;
+                  .prodyct-image {
+  
+                  }
+                  .product-price {
+                    color: $white;
+                    position: absolute;
+                    bottom: 6px;
+                    // top: 136px;
+                    height: 22px;
+                    padding: 4px 12px 4px 8px;
+                    border-radius: 0 16px 16px 0;
+                    font-weight: 600;
+                    background-color: rgba(0,0,0,0.3);
+                    letter-spacing: .02em;
+                    margin: 0;
+                    z-index: 2;
+                    font-size: 15px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  }
+                }
+              }
+              .product-box__description {
+                background-color: $white;
+                box-sizing: border-box;
+                color: #222;
+                font-size: 14px;
+                height: 58px;
+                line-height: 1.4em;
+                padding: 0 12px;
+                white-space: normal;
+                word-break: break-word;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+                span {
+                  height: 2.8em;
+                  overflow: hidden;
+                  &::after {
+                    background: linear-gradient(90deg,hsla(0,0%,100%,0),$white 72%);
+                    bottom: 0;
+                    content: "";
+                    height: 50%;
+                    position: absolute;
+                    right: 0;
+                    width: 50%;
+                  }  
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
