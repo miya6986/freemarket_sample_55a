@@ -75,7 +75,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave'
 gem 'mini_magick', '~> 4.8'
 gem 'active_hash'
-gem 'ancestry'
 
 #デプロイ関係
 gem 'fog-aws'
