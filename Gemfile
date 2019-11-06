@@ -98,3 +98,6 @@ gem 'payjp'
 gem 'ransack'
 
 
+#カテゴリ機能
+gem 'ancestry'
+
