@@ -5,5 +5,14 @@
   .mypage-main
     %h2.header_title
       いいね！一覧
+    .likes-lists
+      %ul.show
+        %li.notice
+          = link_to "",class:"notice__link " do
+            = image_tag "mercari_profile_icon.png", class:"notice__link_img", alt: ""
+            .notice__link-message
+              %p 事務所からの個別メッセージ
+              %span.notice__link-message__passed
+            = fa_icon 'chevron-right', class:"mypage-notice_arrow_right"
 = render 'shared/sell-button'
 = render 'shared/main-footer'
