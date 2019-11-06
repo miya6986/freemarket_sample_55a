@@ -80,6 +80,5 @@ $(document).on('turbolinks:load', function(){
   //削除機能
   $(document).on('click',"image-preview_btn_delete",function(){
     // var index = $('image-preview').index(this);
-    console.log("OK");
   })
 });
