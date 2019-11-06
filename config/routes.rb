@@ -1,4 +1,5 @@
 Rails.application.routes.draw do 
+  get 'likes/index'
   devise_for :users
   root 'products#index'
   resources :users, only: [:index,:edit] do
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :products,only: [:index, :show, :new]
   resources :creditcards, only: [:index, :destroy]
+  resources :likes, only: [:index, :create, :destroy]
   get 'logout' => "users#logout"
   get 'step1', to: 'registrations#step1'
   get 'step2', to: 'registrations#step2'
