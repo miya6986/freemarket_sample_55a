@@ -14,7 +14,7 @@ $(document).on('turbolinks:load', function(){
   $('.image_upload').on('change', function (e) {
     var reader = new FileReader();
     var append_preview = $(`<li class="image-preview">
-                              <div class="image-preview_wapper">
+                              <div class="image-preview__wapper">
                                 <img class="preview">
                               </div>
                               <div class="image-preview_btn">
