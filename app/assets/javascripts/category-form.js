@@ -1,4 +1,6 @@
 $(document).on('turbolinks:load', function() {
+  var categoryBox = $('.form-details__form-box__category')
+
   $(function(){
     // カテゴリーセレクトボックスのオプション
     function appendOption(category) {
@@ -16,7 +18,7 @@ $(document).on('turbolinks:load', function() {
                             </select>
                             <i class='fa fa-angle-down icon-angle-down'></i>
                         </div>`
-      $('.form-details__form-box__category').append(childSelectHtml);
+      categoryBox.append(childSelectHtml);
     }
 
     // 孫カテゴリーの表示
@@ -66,7 +68,7 @@ $(document).on('turbolinks:load', function() {
     });
 
     //子カテゴリー選択後のイベント
-    $('.form-details__form-box__category').on('change','#child-category',function(){
+    categoryBox.on('change','#child-category',function(){
       var childCategory = $('#child-category option:selected').data('category'); 
       if (childCategory != "---"){ 
         $.ajax({
