@@ -80,10 +80,12 @@
         padding: 16px;
         @include clearfix();
         &_img{
-          width: 48px;
-          height: 48px;
           float: left;
           position: relative;
+          img{
+            width: 48px;
+            height: 48px;
+          }
           .soldout{
             position: absolute;
             top: 0;
