@@ -10,8 +10,8 @@
       %li.nav-list
         = link_to "", class:"nav-list__link"
         %p やることリスト
-      %li.nav-list
-        = link_to "", class:"nav-list__link"
+      %li{class: "nav-list #{active_class(likes_path)}"}
+        = link_to "", likes_path, class:"nav-list__link"
         %p いいね！一覧
       %li.nav-list
         = link_to "", new_product_path, class:"nav-list__link"
