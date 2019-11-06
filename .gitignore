@@ -59,6 +59,7 @@ node_modules/
 /public/packs
 /public/packs-test
 /public/assets
+/public/uploads
 
 # Ignore yarn files
 /yarn-error.log
@@ -72,4 +73,3 @@ yarn-debug.log*
 # End of https://www.gitignore.io/api/rails
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/public
