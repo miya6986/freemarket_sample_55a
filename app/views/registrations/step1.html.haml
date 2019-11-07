@@ -7,12 +7,15 @@
     .rgs-main__section
       %h2 新規会員登録
       .form
-        .btn-email
-          = link_to 'メールアドレスで登録する', root_path, class:'about__registered'
+        .btn-registration.email
+          = link_to '', step2_registrations_path, class:'about__registered'
+          %p メールアドレスで登録する
           %i.fas.fa-envelope
-        .btn-facebook
+        .btn-registration.facebook
+          = link_to '', root_path, class:'about__registered'
+          %p facebookで登録する
           %i.fab.fa-facebook-square
-          = link_to 'facebookで登録する', root_path, class:'about__registered'
-        .btn-google
-          = link_to 'googleで登録する', root_path, class:'about__registered'
+        .btn-registration.google
+          = link_to '', root_path, class:'about__registered'
+          %p googleで登録する
   =render "sub-footer"
