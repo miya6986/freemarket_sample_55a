@@ -3,7 +3,7 @@
   %h1.head 
     = @name
   .product.clearfix
-    = image_tag 'item-show.jpg', alt: 'item-show-sample',class: 'product__photo'
+    = image_tag @image, alt: 'item-show-sample',class: 'product__photo'
     %table.product__table
       %tbody
         %tr

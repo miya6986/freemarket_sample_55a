@@ -15,8 +15,10 @@ class ProductsController < ApplicationController
     @seller = @product.seller.nickname
     # アイテム名
     @name = @product.name
+    # 商品画像
+    @image = @product.images.name
     # カテゴリー
-    # @parents = Category.all.order("id").limit(3)
+    @category = Category.all.order("id").limit(3)
     # ブランド
     @brand = @product.brand.name
     # 状態
