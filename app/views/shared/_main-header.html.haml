@@ -4,10 +4,10 @@
       .header-upper--logo
         = link_to root_path do
           = image_tag 'header-logo.svg', alt: 'header-logo', class:'image'
-      %form{ class:'search'}
-        %input{ type: "search", name: "keyword", placeholder: "何かお探しですか？",class: 'search__text-field'}
-        %button{class: 'search__button' }
-          = fa_icon 'search lg'
+      = search_form_for @q, url: search_products_path, html: {class: "search"} do |f|
+        = f.text_field :name_cont , placeholder: "何かお探しですか？", class: 'search__text-field'
+        = button_tag class: 'search__button' do
+          = fa_icon 'search lg' 
     .header-lower
       .menu-left
         .menu-left__item
@@ -38,4 +38,3 @@
           %li.menu-right__item.mypage
             = image_tag 'member_photo_noimage_thumb.png', class: 'member-image'
             マイページ
-          
