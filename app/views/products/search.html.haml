@@ -27,7 +27,7 @@
         -#   = image_tag 'product-sample.png', size: '160x218'
         -# .main-container__items__item
         -#   = image_tag 'product-sample.png', size: '160x218'
-        = @search_products.each do |product|
+        - @search_products.each do |product|
           .main-container__items__item
             = link_to root_path ,class: "show-link" do
               .product-box
