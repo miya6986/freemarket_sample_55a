@@ -27,7 +27,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    binding.pry
     if @product.save
       redirect_to users_path, notice: "商品を出品しました"
     else 
