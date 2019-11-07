@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
                                       :brand_id,
                                       :category_id,
                                       :user_id
-                                      )
+                                    )
   end
 
 end
