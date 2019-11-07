@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 
   def item
     @product = Product.find(params[:id])
-    binding.pry
+    @category = @product.category_ids
     # @buyer = @product.user.find(products_params[:buyer_id])
     # @seller = @product.user.find(products_params[:seller_id])
   end
@@ -40,5 +40,5 @@ class ProductsController < ApplicationController
                                       :user_id
                                       )
   end
-  
+
 end
