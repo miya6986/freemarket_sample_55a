@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.order('created_at DESC').includes(:images)
   end
   
 end
