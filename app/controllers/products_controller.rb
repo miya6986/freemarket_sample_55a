@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    binding.pry
     if @product.save
       redirect_to users_path, notice: "商品を出品しました"
     else 
@@ -52,6 +53,6 @@ class ProductsController < ApplicationController
       images_attributes: [:name],
       category_ids: []
     )
-    # .merge(seller_id: current_user.id)
+    .merge(seller_id: current_user.id)
   end
 end
