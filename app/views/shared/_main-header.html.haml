@@ -17,12 +17,7 @@
           = fa_icon 'tag lg',class:'menu-left__item--icon'
           ブランドから探す
       %ul.menu-right
-        - if controller.controller_name == "products"
-          %li.menu-right__item.signup
-            新規会員登録
-          %li.menu-right__item.login
-            ログイン
-        - elsif controller.controller_name == "users"
+        - if  user_signed_in?
           %li.menu-right__item.likes
             .icon
               = fa_icon 'heart lg'
@@ -36,6 +31,12 @@
               = fa_icon 'check lg'
             やることリスト
           %li.menu-right__item.mypage
-            = image_tag 'member_photo_noimage_thumb.png', class: 'member-image'
-            マイページ
+            = link_to users_path do
+              = image_tag 'member_photo_noimage_thumb.png', class: 'member-image'
+              マイページ
+        - else
+          %li
+            = link_to "新規会員登録", step1_registrations_path, class:"menu-right__item signup"
+          %li
+            = link_to "ログイン", new_user_session_path, class:"menu-right__item login"
           
