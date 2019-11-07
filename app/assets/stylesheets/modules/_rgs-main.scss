@@ -109,7 +109,7 @@
           }
         }
         .icon-arrow-down-prefecture{
-        @include icon-arrow-down(170px, 45px)
+        @include icon-arrow-down(-30px, 5px)
         }
         .error-text {
         @include error_text
