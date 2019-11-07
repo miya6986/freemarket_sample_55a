@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
 
+  before_action :set_search
+
+  def set_search
+    @q = Product.ransack(params[:q])
+    @search_products = @q.result(distinct: true)
+  end
+
   private
 
   def production?
