@@ -11,8 +11,9 @@
   .search-main
     .main-container
       .main-container__head
-        aaa
-        %span.main-container__head__text の検索結果
+        = params[:q][:name_cont]
+        %span.main-container__head__text 
+          の検索結果
       .main-container__result-number 1 - 132件表示
       .main-container__items
         -# .main-container__items__item
