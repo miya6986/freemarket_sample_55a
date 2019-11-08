@@ -1,6 +1,6 @@
 $(function(){
   $(document).on('turbolinks:load',function(){
-    $(window).scroll(function (){
+    function scroll_fadein(){
         $('.fadein').each(function(){
             var elemPos = $(this).offset().top;
             var scroll = $(window).scrollTop();
@@ -9,6 +9,12 @@ $(function(){
                 $(this).addClass('scrollin');
             }
         });
+    }
+    $(function(){
+      $(window).scroll(function(){
+          scroll_fadein();
+      });
+      scroll_fadein();
     });
   });
 });
