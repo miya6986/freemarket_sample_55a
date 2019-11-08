@@ -28,7 +28,7 @@
         -# .main-container__items__item
         -#   = image_tag 'product-sample.png', size: '160x218'
         - @search_products.each do |product|
-          .main-container__items__item
+          .main-container__items__item.fadein
             = link_to root_path ,class: "show-link" do
               .product-box
                 .product-box__top
