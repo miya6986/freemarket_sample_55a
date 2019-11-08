@@ -62,6 +62,8 @@
     = link_to "出品を一時停止する",product_path, method: :delete ,class:"product__buy-btn"
     = link_to "この商品を削除する",product_path, method: :delete ,class:"product__buy-btn"
     = link_to "購入画面に進む",product_path, method: :delete ,class:"product__buy-btn"
+    %button#openModal
+      Open modal
 
   .product__description
     %p 数回のみの使用。ほぼ美品
@@ -89,6 +91,12 @@
 
 .product-bread-crumb
   = render 'shared/bread_crumb', current: 'THE SHOP TK ボディバッグ ショルダーバッグ'
-
-
   = render 'shared/main-footer'
+
+<!-- モーダルエリアここから -->
+%section#modalArea.modalArea
+.modalBg#modalBg
+.modalWrapper
+  .modalContents
+    %h1 Here are modal contents!
+    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
