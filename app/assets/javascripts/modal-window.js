@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load',function(){
   $('#openModal').click(function(){
       $('#modalArea').fadeIn();
   });
