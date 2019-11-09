@@ -2,6 +2,7 @@
   margin: 40px auto 0;
   width: 1020px;
   display: flex;
+  padding: 0 0 60px;
   .search-side {
     width: 280px;
     margin: 0 40px 0 0;
@@ -33,6 +34,14 @@
       background-repeat: no-repeat;
       margin: 0;
       padding: 0;
+      &__noresult {
+        margin: 16px 0 40px;
+      }
+      &__new-products {
+        margin: 0 0 16px;
+        font-size: 22px;
+        font-weight: 600;
+      }
       &__head {
         font-size: 21px;
         margin: 0 0 8px;
