@@ -21,13 +21,6 @@ $(document).on('turbolinks:load', function() {
                           </select>
                            <i class='fa fa-angle-down icon-angle-down'></i>
                           </div>
-                        </div>
-                        <div id="brand">
-                          <label>ブランド</label>
-                          <span class="optional">任意</span>
-                          <div class='form-select'>
-                            <input class= 'input-default' name="product[brand_attributes][name]" placeholder="例）シャネル">                   
-                          </div>
                         </div>`
       categoryBox.append(sizeSelectHtml);
     }
