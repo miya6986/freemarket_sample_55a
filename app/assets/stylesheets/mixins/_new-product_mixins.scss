@@ -110,7 +110,7 @@
   margin: 16px 0 0;
   .image-preview{
     width: 114px;
-    height: 162px;
+    min-height: 162px;
     margin: 0 0 10px;
     overflow: hidden;
     display: inline-block;

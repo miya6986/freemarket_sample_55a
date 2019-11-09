@@ -12,6 +12,14 @@
           = f.fields_for :images do |image|
             .clearfix
               %ul#previews
+                %li.image-preview
+                  .image-preview__wapper
+                    %img.preview
+                  .image-preview_btn
+                    .image-preview_btn_edit 編集
+                    .image-preview_btn_delete 削除
+                  = image.file_field :name
+
               .form-image__field
                 %label.upload-label
                   .upload-label__text
