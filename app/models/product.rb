@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
-  # belongs_to :seller, class_name: "User", foreign_key: "seller_id"
-  # belongs_to :buyer, class_name: "User"
-  # belongs_to :user
+  
+  belongs_to :seller, class_name: "User", foreign_key: "seller_id"
+  belongs_to :buyer, class_name: "User", foreign_key: "buyer_id",optional:true
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
   has_many :product_categories, dependent: :destroy
@@ -12,7 +12,6 @@ class Product < ApplicationRecord
   
   validates :name, presence: true
   validates :description, presence: true
-  # validates :category_ids, presence: true
   validates :condition, presence: true
   validates :postage, presence: true
   validates :shipping_method, presence: true
@@ -26,6 +25,7 @@ class Product < ApplicationRecord
       less_than_or_equal_to: 9999999,
       allow_blank: true
     }
+
   validate :category_count
     def category_count
       category_validation = category_ids
@@ -34,6 +34,13 @@ class Product < ApplicationRecord
       end
     end
 
+  validate :require_image
+    def require_image
+      image_validation = images
+      if image_validation.empty?
+        errors.add(:images, "画像がありません")
+      end
+    end
 end
 
 

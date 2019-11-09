@@ -75,7 +75,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave'
 gem 'mini_magick', '~> 4.8'
 gem 'active_hash'
-gem 'ancestry'
 
 #デプロイ関係
 gem 'fog-aws'
@@ -97,6 +96,15 @@ gem 'gretel'
 gem 'payjp'
 gem 'ransack'
 
+#アクティブハッシュ
+gem 'active_hash'
+
+# バリデーションエラーメッセージ日本語化
+gem 'rails-i18n'
+
 #カテゴリ機能
 gem 'ancestry'
 
+#私はロボットではありません
+gem 'recaptcha', require: "recaptcha/rails"
+gem 'dotenv-rails'

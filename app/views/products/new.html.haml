@@ -30,6 +30,7 @@
                     またはクリックしてファイルをアップロード
                     .input-area
                       = image.file_field :name, multiple: true, name:'images[image][]', class: "hidden image_upload", 'data-image':0
+
       .form-container
         .form-container__name
           %label 商品名
@@ -97,7 +98,7 @@
               %span 必須
             .price-input
               .price-input__logo ¥
-              = f.text_field :price, class: "input-price", id: "price", placeholder: "例）300"
+              = f.text_field :price, class: "input-price", id: "price", placeholder: "例）300", autocomplete: "off"
           .form-price__form-box__charge
             .form-price__form-box__charge__left 販売手数料 (10%)
             .form-price__form-box__charge__right -

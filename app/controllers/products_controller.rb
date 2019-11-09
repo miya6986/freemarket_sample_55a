@@ -52,6 +52,6 @@ class ProductsController < ApplicationController
       images_attributes: [:name],
       category_ids: []
     )
-    # .merge(seller_id: current_user.id)
+    .merge(seller_id: current_user.id)
   end
 end
