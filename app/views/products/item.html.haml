@@ -11,18 +11,18 @@
         %tr
           %th 出品者
           %td 
-            = link_to "出品者", "#", class: 'user-name'
+            = link_to "#{@seller.nickname.to_s}", "#", class: 'user-name'
         %tr
           %th カテゴリー
           %td.category
             .category__name
-              = link_to "#{@category[0]}", "#"
+              = link_to "#{@category[0].to_s}", "#"
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to "#{@category[1]}", "#"
+              = link_to "#{@category[1].to_s}", "#"
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to "#{@category[2]}", "#"
+              = link_to "#{@category[2].to_s}", "#"
         %tr
           %th ブランド
           %td.brand 
