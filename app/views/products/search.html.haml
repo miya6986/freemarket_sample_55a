@@ -49,6 +49,7 @@
                   .product-box__description
                     %span 
                       = product.name
+          = paginate @search_products
       - else
         .main-container__head
           = params[:q][:name_cont]
