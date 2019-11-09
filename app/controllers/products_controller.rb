@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
   def item
     @category = []
     @product = Product.find(params[:id])
-    @price = @product.price * 1.08
+    @price = (@product.price * 1.08).ceil
     @product.categories.each do |category|
       @category << category.name
     end
