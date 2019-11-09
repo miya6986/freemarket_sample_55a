@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def set_search
     @q = Product.ransack(params[:q])
     @search_products = @q.result(distinct: true)
-    @count = @search_products.count
+    # @count = @search_products.count
   end
 
   private
