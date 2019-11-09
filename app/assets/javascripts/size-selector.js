@@ -1,4 +1,6 @@
 $(document).on('turbolinks:load', function() {
+  var categoryBox = $('.form-details__form-box__category')
+
   $(function(){
     // サイズセレクトボックスのオプション表示
     function appendSizeOption(size){
@@ -27,11 +29,11 @@ $(document).on('turbolinks:load', function() {
                             <input class= 'input-default' name="product[brand_attributes][name]" placeholder="例）シャネル">                   
                           </div>
                         </div>`
-      $('.form-details__form-box__category').append(sizeSelectHtml);
+      categoryBox.append(sizeSelectHtml);
     }
 
     //孫カテゴリー選択後のイベント
-    $('.form-details__form-box__category').on('change','#grandchild-category',function(){
+    categoryBox.on('change','#grandchild-category',function(){
       var grandchildCategory = $('#grandchild-category option:selected').data('category'); 
       if (grandchildCategory != "---"){ 
         $.ajax({

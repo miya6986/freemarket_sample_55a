@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', function() {
     }
 
     // 親カテゴリー選択後のイベント
-    $("#parent-category").on("change", function(){
+    categoryBox.on("change","#parent-category", function(){
       var parentCategory = document.getElementById("parent-category").value;
       if(parentCategory !== "") {
           $.ajax ({
