@@ -5,7 +5,7 @@
   %h1.head 
     = @product.name
   .product.clearfix
-    -# = image_tag @product.images.first, alt: 'item-show-sample',class: 'product__photo'
+    = image_tag @product.images.first, alt: 'item-show-sample',class: 'product__photo'
     %table.product__table
       %tbody
         %tr
@@ -29,36 +29,43 @@
             = link_to '製作中', "#",class: 'brand__name'
         %tr
           %th 商品の状態
-          %td 目立った傷や汚れなし
+          %td
+            = @product.condition.to_s
         %tr
-          %th 配送料の負担	
-          %td 送料込み(出品者負担)
+          %th 配送料の負担
+          %td
+            = @product.postage.to_s
         %tr
           %th 配送の方法
-          %td らくらくメルカリ便
+          %td
+            = @product.shipping_method.to_s
         %tr
           %th 配送元地域
           %td.prefecture
             = link_to '製作中', "#",class: 'prefecture__name'
         %tr
           %th 発送日の目安	
-          %td 2~3日で発送
+          %td
+            = @product.shipping_days.to_s
   .product__price-box 
     %span.product__price-box__price
-      ¥3,000
+      = @price.to_s(:delimited)
     %span.product__price-box__tax
       (税込)
     %span.product__price-box__shipping-fee
-      送料込み
+      - if @product.shipping_method == "着払い(購入者負担)"
+        送料別
+      - else
+        送料込み
   .product__description
-    %p 数回のみの使用。ほぼ美品
+    %p
+      = @producte.description.to_s
 .product-action
   = link_to "商品の編集", edit_product_path(@product), class: "product-action__edit"
   %p.product-action__separate or
   = form_with model: @product, url: "#" do |f|
     = f.submit "出品を一旦停止する", class: "product-action__reselling"
-  = form_with model: @product, url: product_path, method: :delete do |f|
-    = f.submit "この商品を削除する", class: "product-action__delete"
+  = link_to "商品を削除する", product_path(@product), method: :delete, class: "product-action__delete"
 .comment-wrapper
   .comment-container
     .comment

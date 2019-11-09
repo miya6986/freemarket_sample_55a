@@ -9,12 +9,21 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(products_params[:id])
+    @product = Product.find(params[:id])
+    if @product.destroy
+      redirect_to user_path, notice: "商品を削除しました"
+    else
+      render :item, collection: @product
+    end
   end
 
   def item
+    @category = []
     @product = Product.find(params[:id])
-    @category = @product.category_ids
+    @price = @product.price * 1.08
+    @product.categories.each do |category|
+      @category << category.name
+    end
     # @buyer = @product.user.find(products_params[:buyer_id])
     # @seller = @product.user.find(products_params[:seller_id])
   end
