@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def my_selling_products
     @user = User.find(current_user.id)
-    @products = @user.products.includes(:users).where(id: current_user.id).order(id: "DESC").limit(15)
+    @products = @user.products.includes(:product).where(seller_id: current_user.id).order(id: "DESC").limit(15)
   end
 
 end
