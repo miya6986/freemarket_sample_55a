@@ -1,0 +1,16 @@
+# 服のサイズ
+clothes_lady_tops =  CategorySize.create(category_id: 14, size_id: 1)
+clothes_lady_jacket =  CategorySize.create(category_id: 33, size_id: 1)
+clothes_lady_pants =  CategorySize.create(category_id: 55, size_id: 1)
+clothes_lady_skirts =  CategorySize.create(category_id: 68, size_id: 1)
+clothes_lady_onepiece =  CategorySize.create(category_id: 74, size_id: 1)
+clothes_lady_housedress = CategorySize.create(category_id: 90, size_id: 1)
+clothes_lady_yukata_swimsuits = CategorySize.create(category_id: 181, size_id: 1)
+clothes_lady_formal_suits = CategorySize.create(category_id: 190, size_id: 1)
+clothes_lady_maternity = CategorySize.create(category_id: 198, size_id: 1)
+clothes_men_tops = CategorySize.create(category_id: 212, size_id: 1)
+clothes_men_jacket = CategorySize.create(category_id: 225, size_id: 1)
+clothes_men_pants = CategorySize.create(category_id: 249, size_id: 1)
+clothes_men_formal_suits = CategorySize.create(category_id: 281, size_id: 1) 
+clothes_men_swim_suits = CategorySize.create(category_id: 341, size_id: 1) 
+
