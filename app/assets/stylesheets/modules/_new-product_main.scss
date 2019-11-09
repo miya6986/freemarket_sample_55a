@@ -27,7 +27,7 @@
           label {
             font-size: 16px;
           } 
-          @include require-sapn;
+          @include require-span;
         }
         &__text {
           margin: 8px 0 0;
@@ -70,7 +70,7 @@
           label {
             display: inline-block;
           }
-          @include require-sapn;
+          @include require-span;
           .input-space {
             .input-name {
               width: 100%;
@@ -96,7 +96,7 @@
           label {
             display: inline-block;
           }
-          @include require-sapn;
+          @include require-span;
           .input-description {
             display: block;
             width: 100%;
@@ -130,14 +130,17 @@
           margin: 0;
           &__category {
             @include label;
-            @include require-sapn;
+            @include require-span;
             @include form-select;
           }
           &__condition {
             margin: 40px 0 0;
             @include label;
-            @include require-sapn;
+            @include require-span;
             @include form-select;
+          }
+          #size, #brand {
+            margin-top: 40px;
           }
         }
       }
@@ -159,25 +162,25 @@
           margin: 0;
           &__fee {
             @include label;
-            @include require-sapn;
+            @include require-span;
             @include form-select;
           }
           &__area {
             margin: 40px 0 0;
             @include label;
-            @include require-sapn;
+            @include require-span;
             @include form-select;
           }
           &__method {
             margin: 40px 0 0;
             @include label;
-            @include require-sapn;
+            @include require-span;
             @include form-select;
           }
           &__day {
             margin: 40px 0 0;
             @include label;
-            @include require-sapn;
+            @include require-span;
             @include form-select;
           }
         }
@@ -208,7 +211,7 @@
               font-weight: 600;
             } 
             .require {
-              @include require-sapn;
+              @include require-span;
             } 
             .price-input {
               margin-left: auto;

@@ -1,4 +1,4 @@
-@mixin require-sapn {
+@mixin require-span {
   span {
     background-color: #E93F36;
     color: $white;
@@ -9,7 +9,12 @@
     vertical-align:top;
     font-weight: 600;
   }
+  span.optional {
+    background-color: $light-gray;
+  }
 }
+
+
 
 @mixin form-select {
   .form-select {
@@ -26,7 +31,7 @@
       cursor: pointer;
       pointer-events: none;
     }
-    .select-default {
+    .select-default,.input-default {
       width: 100%;
       z-index: 2;
       height: 48px;
@@ -39,9 +44,9 @@
       cursor: pointer;
       appearance: none;
       -webkit-appearance: none;
-    }
-    .select-default:focus {
-      outline: 1px $blue solid;
+      &:focus {
+        outline: 1px $blue solid;
+      }
     }
   }
 }
