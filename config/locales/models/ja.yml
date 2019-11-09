@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        firstname: 姓
+        lastname: 名
+        firstname_kana: 姓カナ
+        lastname_kana: 名カナ
+        birth_year: 生年月日
+        birth_month: 生年月日
+        birth_day: 生年月日
+        phone_number: 電話番号
+        # postalcode:
+        # city_name:
+        # address_number:
+        # building_name:
+        # address_phone_number:
+      address:
+        address_firstname: 姓
+        address_lastname: 名
+        address_firstname_kana: 姓カナ
+        address_lastname_kana: 名カナ
+        postalcode: 郵便番号
+        prefecture_id: 県
+        city_name: 市区町村
+        address_number: 番地 
+        building_name: 建物名
+        address_phone_number: 電話

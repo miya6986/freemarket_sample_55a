@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   def index
+    @products = Product.order('created_at DESC').includes(:images)
   end
 
   def new
@@ -56,6 +57,6 @@ class ProductsController < ApplicationController
       brand_attributes: [:name],
       category_ids: []
     )
-    # .merge(seller_id: current_user.id)
+    .merge(seller_id: current_user.id)
   end
 end
