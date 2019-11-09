@@ -13,7 +13,7 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1'
     }
     config.fog_directory  = 'frema55a'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/bucket'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/frema55a'
   else
     config.storage :file
     config.asset_host = 'https://localhost:3000'
