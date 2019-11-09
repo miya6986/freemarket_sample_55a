@@ -42,7 +42,7 @@
         %tr
           %th 配送元地域
           %td.prefecture
-            = link_to '', "#",class: 'prefecture__name'
+            = link_to "#{@product.prefecture.name.to_s}", "#",class: 'prefecture__name'
         %tr
           %th 発送日の目安	
           %td
@@ -78,7 +78,6 @@
 
 = render 'shared/main-footer'
 
-<!-- モーダルエリアここから -->
 .modalArea#modalArea
   .modalBg#modalBg
   .modalWrapper

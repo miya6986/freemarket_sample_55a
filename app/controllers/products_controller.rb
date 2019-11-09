@@ -24,6 +24,6 @@ class ProductsController < ApplicationController
     @product.categories.each do |category|
       @category << category.name
     end
-    @seller = @product.user.find(products_params[:seller_id])
+    @seller = @product.seller
   end
 end
