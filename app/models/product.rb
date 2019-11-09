@@ -6,7 +6,8 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :images
   has_many :product_categories, dependent: :destroy
   has_many :categories, through: :product_categories
-  # belongs_to :brand
+  belongs_to :brand
+  accepts_nested_attributes_for :brand
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   
