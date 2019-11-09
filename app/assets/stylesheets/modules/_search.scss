@@ -64,7 +64,7 @@
       }
       &__items {
         width: auto;
-        margin: 0 auto;
+        margin: 0 auto 40px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 20px 20px;
@@ -150,6 +150,9 @@
           opacity : 1;
           transform : translate(0, 0);
         }
+      }
+      .search-pagination {
+        margin: 40px 0 0;
       }
     }
   }
