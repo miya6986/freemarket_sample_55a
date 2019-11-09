@@ -49,6 +49,7 @@
             = @product.shipping_days.to_s
   .product__price-box 
     %span.product__price-box__price
+      = "¥"
       = @price.to_s(:delimited)
     %span.product__price-box__tax
       (税込)
@@ -65,7 +66,7 @@
   %p.product-action__separate or
   = form_with model: @product, url: "#" do |f|
     = f.submit "出品を一旦停止する", class: "product-action__reselling"
-  = link_to "商品を削除する", product_path(@product), method: :delete, class: "product-action__delete", id: "openModal"
+  = link_to "商品を削除する", product_path(@product), method: :delete, class: "product-action__delete"
 .comment-wrapper
   .comment-container
     .comment
@@ -76,3 +77,11 @@
           %span コメントする
 
 = render 'shared/main-footer'
+
+<!-- モーダルエリアここから -->
+.modalArea#modalArea
+  .modalBg#modalBg
+  .modalWrapper
+    .modalContents
+      %h1 Here are modal contents!
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
