@@ -5,7 +5,7 @@
   %h1.head 
     = @product.name
   .product.clearfix
-    = image_tag @product.images.first, alt: 'item-show-sample',class: 'product__photo'
+    = image_tag @product.images.first.name.to_s, alt: 'item-show-sample',class: 'product__photo'
     %table.product__table
       %tbody
         %tr
@@ -58,14 +58,14 @@
       - else
         送料込み
   .product__description
-    %p
-      = @producte.description.to_s
+    %p<
+      = @product.description.to_s
 .product-action
   = link_to "商品の編集", edit_product_path(@product), class: "product-action__edit"
   %p.product-action__separate or
   = form_with model: @product, url: "#" do |f|
     = f.submit "出品を一旦停止する", class: "product-action__reselling"
-  = link_to "商品を削除する", product_path(@product), method: :delete, class: "product-action__delete"
+  = link_to "商品を削除する", product_path(@product), method: :delete, class: "product-action__delete", id: "openModal"
 .comment-wrapper
   .comment-container
     .comment
