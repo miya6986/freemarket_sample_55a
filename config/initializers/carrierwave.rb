@@ -16,9 +16,9 @@ CarrierWave.configure do |config|
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/bucket'
   else
     config.storage :file
+    config.asset_host = 'https://localhost:3000'
     config.enable_processing = false if Rails.env.test?
   end
-
-  config.asset_host = 'https://localhost:3000'
-  CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 end
+
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
