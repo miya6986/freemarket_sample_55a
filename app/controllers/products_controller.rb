@@ -16,9 +16,9 @@ class ProductsController < ApplicationController
     # アイテム名
     @name = @product.name
     # 商品画像
-    @image = @product.images.name
+    @image = @product.images.first.name
     # カテゴリー
-    @category = Category.all.order("id").limit(3)
+    # @category = Category.all.order("id").limit(3)
     # ブランド
     @brand = @product.brand.name
     # 状態
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
     # 配送の方法
     @shipping_method = @product.shipping_method
     # 配送元の地域
-    
+    # @prefecture = @product.prefecture_id
     # 配送の目安
     @shipping_days = @product.shipping_days
     # 値段
