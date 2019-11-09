@@ -62,6 +62,8 @@ $(document).on('turbolinks:load', function() {
         //親カテゴリーが初期値（---)の場合、子カテゴリー以下は非表示にする
         $('#child-category').remove(); 
         $('#grandchild-category').remove();
+        $('#size').remove();
+        $('#brand').remove();
       }
     });
 
