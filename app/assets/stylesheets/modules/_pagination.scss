@@ -1,24 +1,109 @@
-// .pagination {
-//   display: flex;
-//   justify-content: center;
-//   span {
-//     display: inline-block;
-//     width: 44px;
-//     height: 44px;
-//     border-radius: 4px;
-//     background: #fff;
-//     border: 1px solid #ccc;
-//     font-size: 14px;
-//     line-height: 42px;
-//     text-align: center;
-//     cursor: pointer;
-//   }
-//   .first {
-//   }
-//   .prev {
-//   }
-//   .next {
-//   }
-//   .last {
-//   }
-// }
+.pagination {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  span {
+  }
+  &__left {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .first {
+      a {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 30px;
+        line-height: 42px;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+    .prev {
+      a {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 30px;
+        line-height: 42px;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+  }
+  &__number {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    .page {
+      a {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 12px;
+        line-height: 42px;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+    .current {
+      display: inline-block;
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 30px;
+      line-height: 42px;
+      text-align: center;
+      cursor: pointer;
+      background-color: red;
+      color: $white;
+      font-size: 12px;
+    }
+  }
+  &__right {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    .next {
+      a {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 30px;
+        line-height: 42px;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+    .last {
+      a {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 30px;
+        line-height: 42px;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+  }
+}
