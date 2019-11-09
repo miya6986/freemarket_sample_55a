@@ -128,10 +128,13 @@
         &__form-box {
           width: 400px;
           margin: 0;
-          &__category {
+          &__category, &__brand {
             @include label;
             @include require-span;
             @include form-select;
+          }
+          &__brand {
+            margin: 40px 0 0;
           }
           &__condition {
             margin: 40px 0 0;

@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
+    @product.build_brand
     @parents = Category.where(ancestry: nil)
   end
 

@@ -17,13 +17,13 @@
 
 
 @mixin form-select {
-  .form-select {
+  .form-select,.form-input {
     margin: 8px 0 0;
     position: relative;
     .icon-angle-down {
       position: absolute;
       right: 16px;
-      top: 50%;
+      top: 25%;
       z-index: 2;
       color: #888;
       font-size: 28px;
