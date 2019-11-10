@@ -7,11 +7,13 @@
 @import "./mixins/sub-footer";
 @import "./mixins/sub-header";
 @import "./mixins/rgs-header";
+@import './mixins/validate-message';
 @import './mixins/sell-button';
 @import './mixins/mypage_mixins';
 @import'./mixins/product-show';
 @import './mixins/identification_form';
 @import './mixins/new-product_mixins';
+@import "./mixins/registration.scss";
 @import './modules/top-header';
 @import './mixins/top-main';
 @import './modules/top-main';
