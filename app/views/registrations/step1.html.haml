@@ -12,10 +12,10 @@
           %p メールアドレスで登録する
           %i.fas.fa-envelope
         .btn-registration.facebook
-          = link_to '', root_path, class:'about__registered'
+          = link_to '', user_facebook_omniauth_authorize_path, class:'about__registered'
           %p facebookで登録する
           %i.fab.fa-facebook-square
         .btn-registration.google
-          = link_to '', root_path, class:'about__registered'
+          = link_to '', user_google_oauth2_omniauth_authorize_path, class:'about__registered'
           %p googleで登録する
   =render "sub-footer"
