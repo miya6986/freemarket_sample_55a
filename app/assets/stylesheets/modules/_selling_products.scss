@@ -1,0 +1,181 @@
+.my-products {
+  &-container {
+    float: right;
+    width: 700px;
+  }
+  &-main {
+    background-color: $white;
+    &__header {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 76px;
+      background-color: $table-gray ;
+      padding: 0 16px;
+    }
+    &__tab {
+      letter-spacing: -1em; /* 文字の間を詰める */
+      white-space: nowrap; /* 自動で折り返しをしない */
+      background-color: $border-gray;
+      li {
+        width: 33.3%;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 72px;
+        text-align: center;
+        vertical-align: top;
+        letter-spacing: normal; /* 文字の間を元に戻す */
+        white-space: normal; /* 自動で折り返しする(元に戻す) */
+        a {
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+      .active {
+        box-sizing: border-box;
+        border-top: 2px solid $red;
+        background-color: $white;
+      }
+    }
+    &__contents {
+      ul {
+        display: block;
+        li {
+          position: relative;
+          &:first-child {
+            border-bottom: 1px solid $border-gray;
+          }
+          &:last-child {
+            border: 0;
+          }
+        }
+      }
+      .transaction {
+        .product {
+          a {
+            text-decoration: none;
+          }
+          .product-link {
+            position: relative;
+            display: block;
+            min-height: 80px;
+            color: $black;
+            padding: 16px;
+            i {
+              font-weight: 900;
+              line-height: 1;
+            }
+            figure {
+              float: left;
+              height: 48px;
+              width: 48px;
+              position: relative;
+              overflow: hidden;
+              display: block;
+              margin-block-start: 1em;
+              margin-block-end: 1em;
+              margin-inline-start: 40px;
+              margin-inline-end: 40px;
+              margin: 0;
+              padding: 0;
+              .product-image {
+                position: absolute;
+                height: 100%;
+                width: auto;
+                vertical-align: middle;
+                top: 0;
+                right: auto;
+                bottom: 0;
+                left: 50%;
+                z-index: 1;
+                opacity: 1;
+                transition: opacity .3s;
+                transform: translate( -50%, 0);
+              }
+            }
+            .product-body {
+              margin: 0 140px 0 68px;
+              &__title {
+                display: -webkit-box;
+                max-height: 4.4em;
+                overflow: hidden;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                line-height: 1.5;
+              }
+              &__element {
+                .icon {
+                  vertical-align: 2px;
+                  margin-right: 6px;
+                  i {
+                    display: inline-block;
+                    font-weight: 400;
+                    line-height: 1;
+                    vertical-align: middle;
+                    color: $light-gray;
+                    -webkit-font-smoothing: antialiased;
+                    span {
+                      vertical-align: middle;
+                      font-size: 16px;
+                      color: $gray;
+                      margin-left: 2px;
+                    }
+                  }
+                }
+                .product-status {
+                  display: inline-block;
+                  margin-top: 8px;
+                  padding: 5px 6px;
+                  border-radius: 2px;
+                  font-size: 12px;
+                  font-weight: bold;
+                  color: $white;
+                }
+                .active{
+                  background-color: $blue;
+                }
+                .inactive {
+                  background-color: $red;
+                }
+              }
+            }
+            .icon-sizing {
+              position: absolute;
+              top: 35%;
+              right: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &-history {
+    position: relative;
+    height: 44px;
+    text-align: center;
+    margin-top: 40px;
+    &__preview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include history-icon-sizing;
+    }
+    &__next {
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include history-icon-sizing;
+    }
+    .page-btn {
+      display: inline-block;
+      height: 44px;
+      width: 44px;
+      border-radius: 4px;
+      border: 1px solid $light-gray;
+      font-size: 14px;
+      line-height: 42px;
+      background-color: $white;
+    }
+  }
+}

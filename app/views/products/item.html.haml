@@ -1,0 +1,86 @@
+= render 'shared/main-header'
+= render 'shared/bread_crumb'
+
+%section.product-container
+  %h1.head 
+    = @product.name
+  .product.clearfix
+    = image_tag @product.images.first.name.to_s, alt: 'item-show-sample',class: 'product__photo'
+    %table.product__table
+      %tbody
+        %tr
+          %th 出品者
+          %td 
+            = link_to "#{@seller.nickname.to_s}", "#", class: 'user-name'
+        %tr
+          %th カテゴリー
+          %td.category
+            .category__name
+              = link_to "#{@category[0].to_s}", "#"
+            .category__sub
+              = fa_icon 'chevron-right'
+              = link_to "#{@category[1].to_s}", "#"
+            .category__sub
+              = fa_icon 'chevron-right'
+              = link_to "#{@category[2].to_s}", "#"
+        %tr
+          %th ブランド
+          %td.brand 
+            = link_to '', "#",class: 'brand__name'
+        %tr
+          %th 商品の状態
+          %td
+            = @product.condition.to_s
+        %tr
+          %th 配送料の負担
+          %td
+            = @product.postage.to_s
+        %tr
+          %th 配送の方法
+          %td
+            = @product.shipping_method.to_s
+        %tr
+          %th 配送元地域
+          %td.prefecture
+            = link_to "#{@product.prefecture.name.to_s}", "#",class: 'prefecture__name'
+        %tr
+          %th 発送日の目安	
+          %td
+            = @product.shipping_days.to_s
+  .product__price-box 
+    %span.product__price-box__price
+      = "¥"
+      = @price.to_s(:delimited)
+    %span.product__price-box__tax
+      (税込)
+    %span.product__price-box__shipping-fee
+      - if @product.shipping_method == "着払い(購入者負担)"
+        送料別
+      - else
+        送料込み
+  .product__description
+    %p<
+      = @product.description.to_s
+.product-action
+  = link_to "商品の編集", edit_product_path(@product), class: "product-action__edit"
+  %p.product-action__separate or
+  = form_with model: @product, url: "#" do |f|
+    = f.submit "出品を一旦停止する", class: "product-action__reselling"
+  = link_to "商品を削除する", product_path(@product), method: :delete, class: "product-action__delete", data: {confirm: "この商品を削除しますか？"}
+.comment-wrapper
+  .comment-container
+    .comment
+      %form{ class:'comment__form'}
+        %p.comment__form__notice 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea{ class: 'comment__form__textarea' }
+        %button{type: 'submit', class: 'comment__form__button'}
+          %span コメントする
+
+= render 'shared/main-footer'
+
+.modalArea#modalArea
+  .modalBg#modalBg
+  .modalWrapper
+    .modalContents
+      %h1 Here are modal contents!
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
