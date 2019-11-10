@@ -10,7 +10,24 @@
     .search-content
   .search-main
     .main-container
-      - if @search_products.present?
+      - if @search_name == ""
+        .main-container__new-products
+          新着商品
+        .main-container__items 
+          - @products.first(24).each do |product|
+            .main-container__items__item.fadein
+              = link_to root_path ,class: "show-link" do
+                .product-box
+                  .product-box__top
+                    .product-box__top__image
+                      = image_tag product.images.first.name.to_s, size: '160x160', class: 'product-image'
+                      .product-price
+                        ¥
+                        = product.price.to_s(:delimited)
+                  .product-box__description
+                    %span 
+                      = product.name 
+      - elsif @search_products.present?
         .main-container__head
           = params[:q][:name_cont]
           %span.main-container__head__text 
@@ -37,8 +54,7 @@
                     %span 
                       = product.name
         = paginate @search_products, class: "search-pagination"
-          
-      - else
+      - else     
         .main-container__head
           = params[:q][:name_cont]
           %span.main-container__head__text 
@@ -60,6 +76,59 @@
                         = product.price.to_s(:delimited)
                   .product-box__description
                     %span 
-                      = product.name 
+                      = product.name   
+
+
+      -# - if @search_products.present?
+      -#   .main-container__head
+      -#     = params[:q][:name_cont]
+      -#     %span.main-container__head__text 
+      -#       の検索結果
+      -#   .main-container__result-number
+      -#     %p 1
+      -#     %span -
+      -#     .search-container__result-number__length
+      -#       = @search_products.length
+      -#     .search-container__result-number__count
+      -#       件
+      -#   .main-container__items
+      -#     - @search_products.each do |product|
+      -#       .main-container__items__item.fadein
+      -#         = link_to root_path ,class: "show-link" do
+      -#           .product-box
+      -#             .product-box__top
+      -#               .product-box__top__image
+      -#                 = image_tag product.images.first.name.to_s, size: '160x160', class: 'product-image'
+      -#                 .product-price
+      -#                   ¥
+      -#                   = product.price.to_s(:delimited)
+      -#             .product-box__description
+      -#               %span 
+      -#                 = product.name
+      -#   = paginate @search_products, class: "search-pagination"
+          
+      -# - else
+      -#   .main-container__head
+      -#     = params[:q][:name_cont]
+      -#     %span.main-container__head__text 
+      -#       の検索結果
+      -#   .main-container__noresult
+      -#     該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+      -#   .main-container__new-products
+      -#     新着商品
+      -#   .main-container__items 
+      -#     - @products.first(24).each do |product|
+      -#       .main-container__items__item.fadein
+      -#         = link_to root_path ,class: "show-link" do
+      -#           .product-box
+      -#             .product-box__top
+      -#               .product-box__top__image
+      -#                 = image_tag product.images.first.name.to_s, size: '160x160', class: 'product-image'
+      -#                 .product-price
+      -#                   ¥
+      -#                   = product.price.to_s(:delimited)
+      -#             .product-box__description
+      -#               %span 
+      -#                 = product.name 
 = render 'shared/sell-button'
 = render 'shared/main-footer'
