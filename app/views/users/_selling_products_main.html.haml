@@ -10,7 +10,7 @@
         = link_to "売却済み", "#", class: "sold-link"
     .my-products-main__contents
       %ul.transaction
-        - own_products.eace do |own_product|
+        - own_products.each do |own_product|
           %li.product
             = link_to item_product_path(own_product), class: "product-link" do
               %figure

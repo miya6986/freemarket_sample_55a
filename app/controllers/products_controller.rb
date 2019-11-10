@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.order('created_at DESC').includes(:images)
+    @products = Product.includes(:seller,:images).order('created_at DESC')
   end
 
   def new
@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
     # アイテム名
     @name = @product.name
     # 商品画像
-    @image = @product.images.first.name
+    @image = @product.images.first.name.to_s
     # カテゴリー
     # @category = Category.all.order("id").limit(3)
     # ブランド

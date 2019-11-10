@@ -2,7 +2,7 @@
   .product-box
     .product-box__top
       .product-box__top__image
-        = image_tag product.images.first.name.to_s, size: '188x188', class: 'product-image'
+        = link_to image_tag(product.images.first.name.to_s, size: '188x188', class: 'product-image'), product_path(product)
         .product-price
           ¥
           = product.price.to_s(:delimited)
