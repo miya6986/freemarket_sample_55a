@@ -76,7 +76,7 @@
                         = product.price.to_s(:delimited)
                   .product-box__description
                     %span 
-                      = product.name   
+                      = product.name 
 
 
       -# - if @search_products.present?
@@ -131,4 +131,13 @@
       -#               %span 
       -#                 = product.name 
 = render 'shared/sell-button'
+%nav.bread-crumbs_search.l-container
+  %ul.container
+    %li
+      = link_to "" do
+        %span メルカリ
+      = fa_icon 'chevron-right', class: 'arrow-icon'
+    %li
+      %span.page_now 
+        = params[:q][:name_cont]
 = render 'shared/main-footer'
