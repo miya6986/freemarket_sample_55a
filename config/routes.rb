@@ -1,17 +1,25 @@
 Rails.application.routes.draw do 
-  devise_for :users
+  devise_for :users,
+             controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
+
   root 'products#index'
+
   resources :users, only: [:index,:edit] do
     collection do
       get :user_identification
     end
   end
+
   resources :products do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
+    member do
+      get :item
+    end
   end 
+
   resources :creditcards, only: [:index, :destroy]
   get 'logout' => "users#logout"
   get 'login', to: 'registrations#login'
