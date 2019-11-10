@@ -14,3 +14,23 @@ clothes_men_pants = CategorySize.create(category_id: 249, size_id: 1)
 clothes_men_formal_suits = CategorySize.create(category_id: 281, size_id: 1) 
 clothes_men_swim_suits = CategorySize.create(category_id: 341, size_id: 1) 
 
+#子供服のサイズ
+baby_girl = CategorySize.create(category_id: 357, size_id: 12)
+baby_boy = CategorySize.create(category_id: 369, size_id: 12)
+baby_unisex = CategorySize.create(category_id: 378, size_id: 12)
+kids_girl = CategorySize.create(category_id: 387, size_id: 12)
+kids_boy = CategorySize.create(category_id: 406, size_id: 12)
+kids_unisex = CategorySize.create(category_id: 421, size_id: 12)
+
+#女性靴のサイズ
+shoes_lady = CategorySize.create(category_id: 79, size_id: 25)
+
+#男性靴のサイズ
+shoes_man = CategorySize.create(category_id: 259, size_id: 42)
+
+#子供靴のサイズ
+shoes_kids = CategorySize.create(category_id: 430, size_id: 59)
+
+
+
+
