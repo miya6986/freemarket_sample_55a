@@ -59,7 +59,6 @@ node_modules/
 /public/packs
 /public/packs-test
 /public/assets
-/public/images
 /public/uploads
 
 # Ignore yarn files

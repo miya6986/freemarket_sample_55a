@@ -15,12 +15,27 @@
   font-weight: 600;
 }
 
-@mixin new-items-container {
-  padding: 30px 0px 60px;
+@mixin new-items-container-top {
+  padding: 30px 0px 0px;
   @media (min-width: 768px) {
-      padding: 42px 0px 100px;
+      padding: 42px 0px 0px;
   }
 }
+
+@mixin new-items-container-middle {
+  margin-top: 40px;
+  @media (min-width: 768px) {
+    margin-top: 60px;
+  }
+}
+
+@mixin new-items-container-bottom {
+  padding: 40px 0px 60px;
+  @media (min-width: 768px) {
+      padding: 60px 0px 100px;
+  }
+}
+
 @mixin items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -74,3 +89,66 @@
   }
 }
 
+@mixin product-box {
+  .product-box {
+    margin: 0;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,.18);
+    &:hover {
+      outline: 1px $blue solid;
+    }
+    &__top {
+      &__image {
+        bottom: 0;
+        position: relative;
+        top: 0;
+        .product-image {
+        }
+        .product-price {
+          color: $white;
+          background: rgba(0,0,0,.4);
+          border-radius: 0 14px 14px 0;
+          position: absolute;
+          bottom: 8px;
+          height: 28px;
+          padding: 0 12px;
+          letter-spacing: .02em;
+          margin: 0;
+          z-index: 2;
+          font-size: 17px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+    }
+    &__description {
+      background-color: $white;
+      box-sizing: border-box;
+      color: #222;
+      font-size: 14px;
+      height: 64px;
+      line-height: 1.4em;
+      padding: 0 12px;
+      white-space: normal;
+      word-break: break-word;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      span {
+        height: 2.8em;
+        overflow: hidden;
+        &::after {
+          background: linear-gradient(90deg,hsla(0,0%,100%,0),$white 72%);
+          bottom: 0;
+          content: "";
+          height: 50%;
+          position: absolute;
+          right: 0;
+          width: 50%;
+        }
+      }
+    }
+  }
+}
