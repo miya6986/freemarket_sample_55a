@@ -8,13 +8,45 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def callback_for(provider)
-    @user = User.find_oauth(request.env["omniauth.auth"])
-    if @user.persisted?
-      sign_in_and_redirect @user, event: :authentication #after_sign_in_path_forと同じパス
-      set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
+    aouth = request.env["omniauth.auth"]
+    uid = aouth.uid
+    provider = aouth.provider
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+
+    if snscredential.present?
+      @user_sns = User.where(id: snscredential.user_id).first
     else
-      session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
-      redirect_to signup_registration_path
+      @user = User.where(email: auth.info.email).first
+    end
+
+    if @user.present? && (request.refeler == login_path)
+      if @user_sns.present?
+        sign_in_and_redirect @user, event: :authentication
+      end
+      SnsCredential.create(
+        uid: uid,
+        provider: provider,
+        user_id: user.id
+        )
+
+      sign_in_and_redirect @user, event: :authentication
+      set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
+
+    elsif @user.blank? && (request.refeler == step1_registration_path)
+      session[:nickname] = oauth.info.name
+      session[:email] = oauth.info.email
+      session[:password] = Devise.friendly_token[0, 20]
+      session[:uid] = uid
+      session[:provider] = provider
+      redirect_to step2_registration_path
+
+    elsif @user.present? && (request.refeler == step1_registration_path)
+      notice: "ユーザーは既に存在しています"
+      redirect_to root_path
+
+    elsif @user.blank? && (request.refeler == login_path)
+      nogice: "ユーザーは存在しません"
+      redirect_to root_path
     end
   end
 
