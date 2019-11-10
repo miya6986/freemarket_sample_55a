@@ -14,7 +14,7 @@
           %li.product
             = link_to "", item_product_path(own_product), class: "product-link" do
               %figure
-                = image_tag "#{own_product.image.first.name.to_s}", class: "product-image"
+                = image_tag own_product.image.first.name.to_s, class: "product-image"
               .product-body
                 .product-body__title 
                   = own_product.name.to_s
