@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 
   def search
     @products = Product.order('created_at DESC').includes(:images)
+    @search_name = params[:q]['name_cont']
   end
   
 end
