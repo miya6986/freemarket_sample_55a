@@ -10,32 +10,10 @@
     top: 0;
     left: 0;
     .first {
-      a {
-        display: inline-block;
-        width: 44px;
-        height: 44px;
-        border-radius: 4px;
-        background: #fff;
-        border: 1px solid #ccc;
-        font-size: 30px;
-        line-height: 42px;
-        text-align: center;
-        cursor: pointer;
-      }
+      @include pagination-a_tag ();
     }
     .prev {
-      a {
-        display: inline-block;
-        width: 44px;
-        height: 44px;
-        border-radius: 4px;
-        background: #fff;
-        border: 1px solid #ccc;
-        font-size: 30px;
-        line-height: 42px;
-        text-align: center;
-        cursor: pointer;
-      }
+      @include pagination-a_tag ();
     }
   }
   &__number {
@@ -55,6 +33,9 @@
         text-align: center;
         cursor: pointer;
       }
+      a:hover {
+        background: whitesmoke;
+      }
     }
     .current {
       display: inline-block;
@@ -66,7 +47,6 @@
       font-size: 30px;
       line-height: 42px;
       text-align: center;
-      cursor: pointer;
       background-color: red;
       color: $white;
       font-size: 12px;
@@ -78,32 +58,10 @@
     top: 0;
     right: 0;
     .next {
-      a {
-        display: inline-block;
-        width: 44px;
-        height: 44px;
-        border-radius: 4px;
-        background: #fff;
-        border: 1px solid #ccc;
-        font-size: 30px;
-        line-height: 42px;
-        text-align: center;
-        cursor: pointer;
-      }
+      @include pagination-a_tag ();
     }
     .last {
-      a {
-        display: inline-block;
-        width: 44px;
-        height: 44px;
-        border-radius: 4px;
-        background: #fff;
-        border: 1px solid #ccc;
-        font-size: 30px;
-        line-height: 42px;
-        text-align: center;
-        cursor: pointer;
-      }
+      @include pagination-a_tag ();
     }
   }
 }
