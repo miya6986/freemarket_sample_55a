@@ -7,13 +7,14 @@ $(document).on('turbolinks:load', function(){
     $input = $(this);
     $li = $(this).parent('.image-preview');
     $ul = $li.parent('#previews');
+    //inputに画像を読み込んだら、"プレビューの追加"と"新しいli追加"処理が動く
     $('.image_upload').on('change', function (e) {
       //inputで選択した画像を読み込む
       var reader = new FileReader();
       //$liに追加するためのプレビュー画面
       var preview = $('<div class="image-preview__wapper"><img class="preview"></div><div class="image-preview_btn"><div class="image-preview_btn_edit">編集</div><div class="image-preview_btn_delete">削除</div></div>'); 
       //次の画像を読み込むためのinput。処理の最後にappendで追加する。 
-      var append_input = $(`<li class="image-preview"><input class="image_upload" type="file" name="product[images_attributes][0][name]" id="product_images_attributes_0_name">`)
+      var append_input = $(`<li class="image-preview"><input class="image_upload" type="file" id="product_images_attributes_0_name">`)
       
 
       // プレビューに追加させるために、inputから画像ファイルを読み込む。
