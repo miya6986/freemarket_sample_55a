@@ -13,21 +13,7 @@
             .clearfix
               %ul#previews
                 %li.image-preview
-                  .image-preview__wapper
-                    %img.preview
-                  .image-preview_btn
-                    .image-preview_btn_edit 編集
-                    .image-preview_btn_delete 削除
-                  = image.file_field :name
-
-              .form-image__field
-                %label.upload-label
-                  .upload-label__text
-                    ドラッグアンドドロップ
-                    %br
-                    またはクリックしてファイルをアップロード
-                    .input-area
-                      = image.file_field :name, multiple: true, name:'images[image][]', class: "hidden image_upload", 'data-image':0
+                  = image.file_field :name, class:"image_upload"
             .clearfix
               %ul#previews2
               .form-image__field2
