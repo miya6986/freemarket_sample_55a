@@ -17,7 +17,7 @@
 
 
 @mixin form-select {
-  .form-select,.form-input {
+  .form-select, .form-input {
     margin: 8px 0 0;
     position: relative;
     .icon-angle-down {
@@ -30,7 +30,7 @@
       cursor: pointer;
       pointer-events: none;
     }
-    .select-default,.input-default {
+    .select-default, .input-default {
       width: 100%;
       z-index: 2;
       height: 48px;
