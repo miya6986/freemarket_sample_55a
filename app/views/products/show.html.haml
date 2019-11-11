@@ -3,7 +3,49 @@
   %h1.head 
     = @name
   .product.clearfix
-    = image_tag @image, alt: 'item-show-sample',class: 'product__photo'
+    .wrap
+      %ul.slider
+        %li.slide-item
+          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
+        %li.slide-item
+          = image_tag 'product-sample.png', alt: 'mercari-top'
+        %li.slide-item
+          = image_tag 'item-show.jpg', alt: 'mercari-top'
+        %li.slide-item
+          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
+        %li.slide-item
+          = image_tag 'product-sample.png', alt: 'mercari-top'
+        %li.slide-item
+          = image_tag 'item-show.jpg', alt: 'mercari-top'
+        %li.slide-item
+          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
+        %li.slide-item
+          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
+        %li.slide-item
+          = image_tag 'product-sample.png', alt: 'mercari-top'
+        %li.slide-item
+          = image_tag 'item-show.jpg', alt: 'mercari-top'
+      %ul.thumbnail-list
+        %li.thumbnail-item
+          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
+        %li.thumbnail-item
+          = image_tag 'product-sample.png', alt: 'mercari-top'
+        %li.thumbnail-item
+          = image_tag 'item-show.jpg', alt: 'mercari-top'
+        %li.thumbnail-item
+          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
+        %li.thumbnail-item
+          = image_tag 'product-sample.png', alt: 'mercari-top'
+        %li.thumbnail-item
+          = image_tag 'item-show.jpg', alt: 'mercari-top'
+        %li.thumbnail-item
+          = image_tag 'product-sample.png', alt: 'mercari-top'
+        %li.thumbnail-item
+          = image_tag 'item-show.jpg', alt: 'mercari-top'
+        %li.thumbnail-item
+          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
+        %li.thumbnail-item
+          = image_tag 'product-sample.png', alt: 'mercari-top'
     %table.product__table
       %tbody
         %tr
