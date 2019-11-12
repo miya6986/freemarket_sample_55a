@@ -11,6 +11,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def callback_for(provider)
     oauth = request.env["omniauth.auth"]
+    oauth_url = request.env["omniauth.origin"]
     uid = oauth.uid
     # provider = oauth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
@@ -21,7 +22,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user = User.where(email: oauth.info.email).first
     end
 
-    if user.present? && (request.referer == login_path)
+    if user.present? && (oauth_url == login_url)
       if user_sns.present?
         sign_in_and_redirect user, event: :authentication
       end
@@ -34,18 +35,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
 
-    elsif user.blank? && (request.referer == step1_registrations_path)
+    elsif user.blank? && (oauth_url == step1_registrations_url)
       session[:nickname] = oauth.info.name
       session[:email] = oauth.info.email
-      session[:password] = Devise.friendly_token[0, 20]
+      session[:password_token] = Devise.friendly_token[0, 20]
       session[:uid] = uid
       session[:provider] = provider
       redirect_to step2_registrations_path
 
-    elsif user.present? && (request.referer == step1_registrations_path)
+    elsif user.present? && (oauth_url == step1_registrations_url)
       redirect_to root_path, notice: "ユーザーは既に存在しています"
 
-    elsif user.blank? && (request.referer == login_path)
+    elsif user.blank? && (oauth_url == login_url)
       redirect_to root_path, notice: "ユーザーは存在しません"
     end
   end
