@@ -12,8 +12,6 @@
           = f.fields_for :images do |image|
             .clearfix
               %ul#previews
-                %li.image-preview
-                  = image.file_field :name, class:"image_upload"
                 %li.image-preview.input
                   %label.upload-label
                     .upload-label__text

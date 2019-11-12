@@ -40,12 +40,6 @@
         #previews {
           @include previews;
         }
-        &__field {
-          @include image_upload_area(block)
-        }
-        &__field2 {
-          @include image_upload_area(block)
-        }
       }
       &-container {
         padding: 40px;
