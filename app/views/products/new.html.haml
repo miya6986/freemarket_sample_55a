@@ -13,20 +13,15 @@
             .clearfix
               %ul#previews
                 %li.image-preview
-                
                   = image.file_field :name, class:"image_upload"
-
-            .clearfix
-              %ul#previews2
-              .form-image__field2
-                %label.upload-label
-                  .upload-label__text
-                    ドラッグアンドドロップ
-                    %br
-                    またはクリックしてファイルをアップロード
-                    .input-area
-                      = image.file_field :name, multiple: true, class: "hidden image_upload"
-
+                %li.image-preview.input
+                  %label.upload-label
+                    .upload-label__text
+                      ドラッグアンドドロップ
+                      %br
+                      またはクリックしてファイルをアップロード
+                      .input-area
+                        = image.file_field :name, class: "hidden image_upload"
       .form-container
         .form-container__name
           %label 商品名
