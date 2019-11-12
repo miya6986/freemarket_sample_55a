@@ -80,22 +80,6 @@ $(document).on('turbolinks:load', function(){
     $label = $ul.find('.input')
     //"li"ごと削除して、previewとinputを削除させる。
     $li.remove();
-    if($lis.length <= 5 ){
-      $label.css({
-        'width': `calc(100% - (20% * (${$lis.length} )))`
-      })
-    }
-    else if($lis.length <= 9 ){
-      $label.css({
-        'width': `calc(100% - (20% * (${$lis.length} - 5 )))`
-      })
-    }
-    else if($lis.length >= 10 ){
-      $ul.append(append_input);
-      $label.css({
-        'width': `calc(100% - (20% * (${$lis.length} - 5 )))`
-      })
-    }
   })
 });
 
