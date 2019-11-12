@@ -38,16 +38,13 @@
           @include clearfix;
         }
         #previews {
-          @include previews
-        }
-        #previews2 {
-          @include previews
+          @include previews;
         }
         &__field {
           @include image_upload_area(block)
         }
         &__field2 {
-          @include image_upload_area(none)
+          @include image_upload_area(block)
         }
       }
       &-container {
