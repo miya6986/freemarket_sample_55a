@@ -4,8 +4,18 @@
     .search-sort
       .form-group
         .select-wrap
-          .icon
-          %select.select-order
+          = fa_icon 'angle-down', class: 'icon-angle-down'
+          %select{name: :sort_order, class: 'select-order'}
+            %option{value: "location.pathname", name: "location.pathname"}
+              並び替え
+            %option{value: "price_asc"}
+              価格の安い順
+            %option{value: "price_desc"}
+              価格の高い順
+            %option{value: "created_at_asc"}
+              出品の古い順
+            %option{value: "created_at_desc"}
+              出品の新しい順
     .search-content
   .search-main
     .main-container
