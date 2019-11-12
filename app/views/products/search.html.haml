@@ -1,5 +1,4 @@
 = render 'shared/main-header'
-
 .search-container
   .search-side
     .search-sort
@@ -15,18 +14,7 @@
           新着商品
         .main-container__items 
           - @products.first(24).each do |product|
-            .main-container__items__item.fadein
-              = link_to root_path ,class: "show-link" do
-                .product-box
-                  .product-box__top
-                    .product-box__top__image
-                      = image_tag product.images.first.name.to_s, size: '160x160', class: 'product-image'
-                      .product-price
-                        ¥
-                        = product.price.to_s(:delimited)
-                  .product-box__description
-                    %span 
-                      = product.name 
+            = render partial: 'products/search_product-list', locals: { product: product }
       - elsif @search_products.present?
         .main-container__head
           = params[:q][:name_cont]
@@ -41,18 +29,7 @@
             件
         .main-container__items
           - @search_products.each do |product|
-            .main-container__items__item.fadein
-              = link_to root_path ,class: "show-link" do
-                .product-box
-                  .product-box__top
-                    .product-box__top__image
-                      = image_tag product.images.first.name.to_s, size: '160x160', class: 'product-image'
-                      .product-price
-                        ¥
-                        = product.price.to_s(:delimited)
-                  .product-box__description
-                    %span 
-                      = product.name
+            = render partial: 'products/search_product-list', locals: { product: product }
         = paginate @search_products, class: "search-pagination"
       - else     
         .main-container__head
@@ -65,18 +42,7 @@
           新着商品
         .main-container__items 
           - @products.first(24).each do |product|
-            .main-container__items__item.fadein
-              = link_to root_path ,class: "show-link" do
-                .product-box
-                  .product-box__top
-                    .product-box__top__image
-                      = image_tag product.images.first.name.to_s, size: '160x160', class: 'product-image'
-                      .product-price
-                        ¥
-                        = product.price.to_s(:delimited)
-                  .product-box__description
-                    %span 
-                      = product.name 
+            = render partial: 'products/search_product-list', locals: { product: product }
 = render 'shared/sell-button'
 %nav.bread-crumbs_search.l-container
   %ul.container
