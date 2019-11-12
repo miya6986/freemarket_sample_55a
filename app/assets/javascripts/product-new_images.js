@@ -4,9 +4,10 @@ $(document).on('turbolinks:load', function(){
   //'change'イベントでは$(this)で要素が取得できないため、 'click'イベントを入れた。
   //これにより$(this)で'input'を取得することができ、inputの親要素である'li'まで辿れる。
   $(document).on('click', '.image_upload', function(){
-    $label = $(this).parents('.upload-label');
+    $ul = $('#previews')
     $li = $(this).parents('.image-preview');
-    $ul = $li.parent('#previews');
+    $lis = $ul.find('.image-preview');
+    $label = $(this).parents('.upload-label');
     $inputs = $ul.find('.image_upload');
     //inputに画像を読み込んだら、"プレビューの追加"と"新しいli追加"処理が動く
     $('.image_upload').on('change', function (e) {
@@ -34,8 +35,29 @@ $(document).on('turbolinks:load', function(){
       //プレビュー完了後は、inputを非表示にさせる。これによりプレビューだけが残る。
       $label.css('display','none');
       $li.removeClass('input');
+      
+      $('#previews li').css({
+        'width': `114px`
+      })
       //"ul"に新しい"li(inputボタン)"を追加させる。
-      $ul.append(append_input);
+      if($lis.length <= 4 ){
+        $ul.append(append_input)
+        $('#previews li:last-child').css({
+          'width': `calc(100% - (20% * ${$lis.length}))`
+        })
+      }
+      else if($lis.length == 5 ){
+        $ul.append(append_input)
+        $('#previews li:last-child').css({
+          'width': `100%`
+        })
+      }
+      else if($lis.length <= 9 ){
+        $ul.append(append_input)
+        $('#previews li:last-child').css({
+          'width': `calc(100% - (20% * (${$lis.length} - 5 )))`
+        })
+      }
       
       
       //inputの最後の"data-image"を取得して、input nameの番号を更新させてる。
@@ -51,9 +73,29 @@ $(document).on('turbolinks:load', function(){
   })
   //削除機能
   $(document).on('click','.image-preview_btn_delete',function(){
+    var append_input = $(`<li class="image-preview input"><label class="upload-label"><div class="upload-label__text">ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード<div class="input-area"><input class="hidden image_upload" type="file"></div></div></label></li>`)
+    $ul = $('#previews')
     $li = $(this).parents('.image-preview');
+    $lis = $ul.find('.image-preview');
+    $label = $ul.find('.input')
     //"li"ごと削除して、previewとinputを削除させる。
     $li.remove();
+    if($lis.length <= 5 ){
+      $label.css({
+        'width': `calc(100% - (20% * (${$lis.length} )))`
+      })
+    }
+    else if($lis.length <= 9 ){
+      $label.css({
+        'width': `calc(100% - (20% * (${$lis.length} - 5 )))`
+      })
+    }
+    else if($lis.length >= 10 ){
+      $ul.append(append_input);
+      $label.css({
+        'width': `calc(100% - (20% * (${$lis.length} - 5 )))`
+      })
+    }
   })
 });
 
