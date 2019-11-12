@@ -11,20 +11,19 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def callback_for(provider)
     oauth = request.env["omniauth.auth"]
+
     oauth_url = request.env["omniauth.origin"]
     uid = oauth.uid
-    # provider = oauth.provider
-    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    snscredential = SnsCredential.find_by(uid: uid, provider: provider)
 
     if snscredential.present?
-      user_sns = User.where(id: snscredential.user_id).first
-    else
-      user = User.where(email: oauth.info.email).first
+      user_sns = User.find(snscredential.user_id)
+      user = User.find_by(email: oauth.info.email.to_s)
     end
 
-    if user.present? && (oauth_url == login_url)
+    if user.present? && (oauth_url == new_user_session_url)
       if user_sns.present?
-        sign_in_and_redirect user, event: :authentication
+        sign_in_and_redirect user, event: :authentication and return
       end
       SnsCredential.create(
         uid: uid,
@@ -32,7 +31,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         user_id: user.id
         )
 
-      sign_in_and_redirect user, event: :authentication
+      sign_in_and_redirect user, event: :authentication and return
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
 
     elsif user.blank? && (oauth_url == step1_registrations_url)
@@ -41,13 +40,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session[:password_token] = Devise.friendly_token[0, 20]
       session[:uid] = uid
       session[:provider] = provider
-      redirect_to step2_registrations_path
+      redirect_to step2_registrations_path and return
 
     elsif user.present? && (oauth_url == step1_registrations_url)
-      redirect_to root_path, notice: "ユーザーは既に存在しています"
+      redirect_to root_path, notice: "ユーザーは既に存在しています" and return
 
-    elsif user.blank? && (oauth_url == login_url)
-      redirect_to root_path, notice: "ユーザーは存在しません"
+    elsif user.blank? && (oauth_url == new_user_session_url)
+      redirect_to root_path, notice: "ユーザーは存在しません" and return
     end
   end
 

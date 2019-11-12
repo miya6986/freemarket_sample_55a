@@ -11,9 +11,9 @@
     .exist-account
       .btn-facebook
         %i.fab.fa-facebook-square
-        = link_to 'facebookでログイン', root_path, class:'about__registered'
+        = link_to 'facebookでログイン', user_facebook_omniauth_authorize_path(resource), method: :post, class:'about__registered'
       .btn-google
-        = link_to 'googleでログイン', root_path, class:'about__registered'
+        = link_to 'googleでログイン', user_google_oauth2_omniauth_authorize_path(resource), method: :post, class:'about__registered'
     .login-form
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .login-form__group
