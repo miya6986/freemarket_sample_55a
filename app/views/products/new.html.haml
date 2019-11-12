@@ -13,7 +13,9 @@
             .clearfix
               %ul#previews
                 %li.image-preview
+                
                   = image.file_field :name, class:"image_upload"
+
             .clearfix
               %ul#previews2
               .form-image__field2
@@ -23,7 +25,7 @@
                     %br
                     またはクリックしてファイルをアップロード
                     .input-area
-                      = image.file_field :name, multiple: true, name:'images[image][]', class: "hidden image_upload", 'data-image':0
+                      = image.file_field :name, multiple: true, class: "hidden image_upload"
 
       .form-container
         .form-container__name
