@@ -29,7 +29,6 @@ class RegistrationsController < ApplicationController
     session[:phone_number] = user_params[:phone_number]
     @user = User.new
     @user.build_address
-    
   end
 
   def step5
@@ -56,7 +55,14 @@ class RegistrationsController < ApplicationController
       birth_day: session[:birth_day],
       phone_number: session[:phone_number]
     )
+
     @user.build_address(user_params[:address_attributes])
+    @user.build_sns_credential( 
+      uid: session[:uid],
+      provider: session[:provider],
+      user_id: @user.id
+    )
+
 
 
     if @user.save
@@ -116,7 +122,9 @@ class RegistrationsController < ApplicationController
     )
     render '/registrations/step3' unless @user.valid?
   end
+
   private
+
   def user_params
     params.require(:user).permit(
       :nickname, 
@@ -145,7 +153,7 @@ class RegistrationsController < ApplicationController
       :building_name,
       :phone_number,
       ]
-  )
+    )
   end
 end
 

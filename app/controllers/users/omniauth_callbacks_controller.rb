@@ -7,21 +7,23 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:google)
   end
 
+  private
+
   def callback_for(provider)
-    aouth = request.env["omniauth.auth"]
-    uid = aouth.uid
-    provider = aouth.provider
+    oauth = request.env["omniauth.auth"]
+    uid = oauth.uid
+    # provider = oauth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
 
     if snscredential.present?
-      @user_sns = User.where(id: snscredential.user_id).first
+      user_sns = User.where(id: snscredential.user_id).first
     else
-      @user = User.where(email: auth.info.email).first
+      user = User.where(email: oauth.info.email).first
     end
 
-    if @user.present? && (request.refeler == login_path)
-      if @user_sns.present?
-        sign_in_and_redirect @user, event: :authentication
+    if user.present? && (request.referer == login_path)
+      if user_sns.present?
+        sign_in_and_redirect user, event: :authentication
       end
       SnsCredential.create(
         uid: uid,
@@ -29,24 +31,22 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         user_id: user.id
         )
 
-      sign_in_and_redirect @user, event: :authentication
+      sign_in_and_redirect user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
 
-    elsif @user.blank? && (request.refeler == step1_registration_path)
+    elsif user.blank? && (request.referer == step1_registrations_path)
       session[:nickname] = oauth.info.name
       session[:email] = oauth.info.email
       session[:password] = Devise.friendly_token[0, 20]
       session[:uid] = uid
       session[:provider] = provider
-      redirect_to step2_registration_path
+      redirect_to step2_registrations_path
 
-    elsif @user.present? && (request.refeler == step1_registration_path)
-      notice: "ユーザーは既に存在しています"
-      redirect_to root_path
+    elsif user.present? && (request.referer == step1_registrations_path)
+      redirect_to root_path, notice: "ユーザーは既に存在しています"
 
-    elsif @user.blank? && (request.refeler == login_path)
-      nogice: "ユーザーは存在しません"
-      redirect_to root_path
+    elsif user.blank? && (request.referer == login_path)
+      redirect_to root_path, notice: "ユーザーは存在しません"
     end
   end
 
