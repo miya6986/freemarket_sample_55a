@@ -38,16 +38,7 @@
           @include clearfix;
         }
         #previews {
-          @include previews
-        }
-        #previews2 {
-          @include previews
-        }
-        &__field {
-          @include image_upload_area(block)
-        }
-        &__field2 {
-          @include image_upload_area(none)
+          @include previews;
         }
       }
       &-container {
