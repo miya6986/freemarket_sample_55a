@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
   resources :products,only: [:index, :show, :new] do
     collection do
-      get 'search'
+      # get 'search'
+      match 'search' => 'products#search', via: [:get, :post]
     end
   end  
   resources :creditcards, only: [:index, :destroy]

@@ -11,7 +11,22 @@ class ProductsController < ApplicationController
 
   def search
     @products = Product.order('created_at DESC').includes(:images)
-    @search_name = params[:q]['name_cont']
+    if params[:q].present?
+    # 検索フォームからアクセスした時の処理
+      @search = Product.ransack(search_params)
+      @products = @search.result
+    else
+    # 検索フォーム以外からアクセスした時の処理
+      params[:q] = { sorts: 'id desc' }
+      @search = Product.ransack()
+      @products = Product.all
+    end
   end
+
+  private
+  def search_params
+    params.require(:q).permit(:sorts)
+  end
+
   
 end
