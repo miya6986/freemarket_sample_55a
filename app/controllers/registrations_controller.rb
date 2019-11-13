@@ -36,7 +36,7 @@ class RegistrationsController < ApplicationController
 
   def login
   end
-
+# User.newとそれに紐つく住所の設定、SnsCredentialの設定をした後save
   def create
     @user = user_new()
     snscredentials = [
@@ -102,7 +102,7 @@ class RegistrationsController < ApplicationController
       ]
     )
   end
-
+# 新規Userのsessionを生成
   def session_assignment(user_params)
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
@@ -116,7 +116,7 @@ class RegistrationsController < ApplicationController
     session[:birth_month] = user_params[:birth_month]
     session[:birth_day] = user_params[:birth_day]
   end
-
+# SNS認証で設定したパスワードトークンがあればそれを使ってUser.newをする
   def validates_step2_user
     if session[:password_token].present?
       user = User.new(
@@ -151,7 +151,7 @@ class RegistrationsController < ApplicationController
     end
     return user
   end
-
+# SNS認証で設定したパスワードトークンがあればそれを使ってUser.newをする
   def user_new
     if session[:password_token].present?
       user = User.new(
