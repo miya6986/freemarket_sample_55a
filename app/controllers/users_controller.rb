@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def my_selling_products
-    @products = User.find(current_user.id).selling_products.limit(15).order(id: "DESC")
+    @products = current_user.selling_products.limit(15).order(id: "DESC")
   end
 
 end
