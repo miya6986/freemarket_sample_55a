@@ -51,7 +51,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @price = (@product.price * 1.08).ceil
     @category = @product.categories.pluck(:name)
-    end
     @seller = @product.seller
   end
     
