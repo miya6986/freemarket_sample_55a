@@ -48,10 +48,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to step2_registrations_path and return
     # 新規登録画面でUserが存在していればroot_pathに飛ばす
     elsif user.present? && (oauth_url == step1_registrations_url)
-      redirect_to root_path, notice: "ユーザーは既に存在しています" and return
+      redirect_to root_path and return
     # ログイン画面でUserが存在しなければroot_pathに戻す
     elsif user.blank? && (oauth_url == new_user_session_url)
-      redirect_to root_path, notice: "ユーザーは存在しません" and return
+      redirect_to root_path and return
     end
   end
 # 認証エラー時にはalertを出してrootに戻る
