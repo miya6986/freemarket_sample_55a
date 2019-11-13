@@ -14,12 +14,12 @@ class ProductsController < ApplicationController
     if params[:q].present?
     # 検索フォームからアクセスした時の処理
       @search = Product.ransack(search_params)
-      @products = @search.result
+      @products = @search.result.includes(:images)
     else
     # 検索フォーム以外からアクセスした時の処理
       params[:q] = { sorts: 'id desc' }
       @search = Product.ransack()
-      @products = Product.all
+      @products = Product.all.includes(:images)
     end
   end
 
