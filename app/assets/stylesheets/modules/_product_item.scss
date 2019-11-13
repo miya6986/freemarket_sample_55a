@@ -210,6 +210,39 @@
     }
   }
 }
+
+/* 商品の編集・出品状況の変更 */
+.product-action {
+  width: 700px;
+  background-color: $white;
+  margin: 24px auto;
+  padding: 8px 16px;
+  &__edit {
+    @include product-action-button;
+    background-color: $red;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__separate {
+    font-size: 16px;
+    text-align: center;
+  }
+  &__reselling {
+    @include product-action-button;
+    border: 1px solid $btn-gray;
+    background-color: $btn-gray;
+    &:hover {
+      background-color: darken($btn-gray, 10%);
+    }
+  }
+  &__delete {
+    @include product-action-button;
+    border: 1px solid $btn-gray;
+    background-color: $btn-gray;
+  }
+}
+
 /* コメント フォーム */
 .comment-wrapper {
   margin: 20px auto;
@@ -261,41 +294,6 @@
             vertical-align: middle;
           }
         }
-      }
-    }
-  }
-}
-
-/* 商品詳細 パンくずリスト */
-.product-bread-crumb {
-  position: relative;
-  border-top: 1px solid $border-gray;
-  height: 49px;
-  .bread-crumbs {
-    position: relative;
-    background: #f5f5f5;
-    overflow: auto;
-    ul {
-      padding: 16px;
-      font-size: 0;
-      white-space: nowrap;
-      overflow: auto;
-      @media screen and (min-width: 768px) {
-        overflow: visible;
-        width: 700px;
-        margin: 0 auto;
-        padding: 16px 0;
-        white-space: normal;
-      }
-    }
-    li {
-      display: inline-block;
-      font-size: 14px;
-      line-height: 1.2;
-      .arrow-icon {
-        margin: 0 8px;
-        font-size: 9px;
-        color: $gray;
       }
     }
   }
