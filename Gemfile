@@ -25,9 +25,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -76,6 +73,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave'
+gem 'mini_magick', '~> 4.8'
+gem 'active_hash'
 
 #デプロイ関係
 gem 'fog-aws'
@@ -97,6 +96,12 @@ gem 'gretel'
 gem 'payjp'
 gem 'ransack'
 
+#アクティブハッシュ
+gem 'active_hash'
+
+# バリデーションエラーメッセージ日本語化
+gem 'rails-i18n'
+
 #カテゴリ機能
 gem 'ancestry'
 
@@ -105,3 +110,8 @@ gem 'ransack'
 
 #ページネーション
 gem 'kaminari'
+
+#私はロボットではありません
+gem 'recaptcha', require: "recaptcha/rails"
+gem 'dotenv-rails'
+

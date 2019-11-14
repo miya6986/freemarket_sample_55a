@@ -3,29 +3,31 @@
   .main
     .head
       %h2 商品の情報を入力
-    = form_with url: "", class: "form" do |form|
+    = form_with model: @product, class: "form" do |f|
       .form-image
         .form-image__title
           %label 出品画像
           %span 必須
-        .form-image__text 最大10枚までアップロードできます
-        .form-image__field
-          %label.upload-box
-            .upload-box__text
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
-            = form.file_field :images, class: "hidden"
+          .form-image__text 最大10枚までアップロードできます
+          = f.fields_for :images do |image|
+            .form-image__field
+              %label.upload-box
+                .upload-box__text
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+                = image.file_field :name, class: "hidden"
+                
       .form-container
         .form-container__name
           %label 商品名
           %span 必須
           .input-space
-            = form.text_field :name, class: "input-name", placeholder: "商品名（必須 40文字まで）"
+            = f.text_field :name, class: "input-name", placeholder: "商品名（必須 40文字まで）"
         .form-container__description
           %label 商品の説明
           %span 必須
-          = form.text_area :description, class: "input-description", rows: "5", cols: 40, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          = f.text_area :description, class: "input-description", rows: "5", cols: 40, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
       .form-details
         %h3 商品の詳細
         .form-details__form-box
@@ -34,13 +36,13 @@
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = form.select :category, [["---", ""], ["レディース"], ["メンズ"], ["ベビー・キッズ"], ["インテリア・住まい・小物"], ["本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容"], ["家電・スマホ・カメラ"], ["スポーツ・レジャー"], ["ハンドメイド"], ["チケット"], ["自動車・オートバイ"], ["その他"]], {}, {class: "select-default"}
+              = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, name: 'product[category_ids][]', class: "select-default", id: "parent-category"
           .form-details__form-box__condition
             %label 商品の状態
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = form.select :condition, [["---", ""], ["新品、未使用"], ["未使用に近い"], ["目立った傷や汚れなし"], ["やや傷や汚れあり"], ["傷や汚れあり"], ["全体的に状態が悪い"]], {}, {class: "select-default"}
+              = f.select :condition, [["---", ""], ["新品、未使用"], ["未使用に近い"], ["目立った傷や汚れなし"], ["やや傷や汚れあり"], ["傷や汚れあり"], ["全体的に状態が悪い"]], {}, {class: "select-default"}
       .form-shipping
         %h3 配送について
         = link_to "？", "", class: "question"
@@ -50,19 +52,29 @@
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = form.select :postage, [["---", ""], ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, {class: "select-default"}
+              = f.select :postage, [["---", ""], ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, {class: "select-default"}
+        
+          .form-shipping__form-box__method
+            .form-shipping__form-box__fee
+              %label 配送の方法
+              %span 必須
+              .form-select
+                = fa_icon 'angle-down', class: 'icon-angle-down'
+                = f.select :shipping_method, [["---", ""], ["未定"], ["らくらくメルカリ便"],["ゆうメール"],["レターパック"],["普通郵便（定形・定型外）"],["クロネコヤマト"],["ゆーパック"],["クリックポスト"],["ゆうパケット"]], {}, {class: "select-default"}
+          
+         
           .form-shipping__form-box__area
             %label 配送元の地域
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = form.select :prefecture, [["---", ""], ["北海道"],["青森県"], ["岩手県"],["宮城県"],["秋田県"],["山形県"],["福島県"],["茨城県"],["栃木県"],["群馬県"],["埼玉県"],["千葉県"],["東京都"],["神奈川県"],["新潟県"],["富山県"],["石川県"],["福井県"],["山梨県"],["長野県"],["岐阜県"],["静岡県"],["愛知県"],["三重県"],["滋賀県"],["京都府"],["大阪府"],["兵庫県"],["奈良県"],["和歌山県"],["鳥取県"],["島根県"],["岡山県"],["広島県"],["山口県"],["徳島県"],["香川県"],["愛媛県"],["高知県"],["福岡県"],["佐賀県"],["長崎県"],["熊本県"],["大分県"],["宮崎県"],["鹿児島県"],["沖縄県"],["未定"]], {}, {class: "select-default"}
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"},{class: "select-default"}
           .form-shipping__form-box__day
             %label 配送までの日数
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = form.select :shipping_days, [["---", ""], ["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]], {}, {class: "select-default"}
+              = f.select :shipping_days, [["---", ""], ["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]], {}, {class: "select-default"}
       .form-price
         %h3 販売価格(300〜9,999,999)
         = link_to "？", "", class: "question"
@@ -73,7 +85,7 @@
               %span 必須
             .price-input
               .price-input__logo ¥
-              = form.text_field :price, class: "input-price", placeholder: "例）300"
+              = f.text_field :price, class: "input-price", id: "price", placeholder: "例）300", autocomplete: "off"
           .form-price__form-box__charge
             .form-price__form-box__charge__left 販売手数料 (10%)
             .form-price__form-box__charge__right -
@@ -95,6 +107,7 @@
             また、出品をもちまして
             = link_to "加盟店規約", "", class: "description-link"
             に同意したことになります。
-        %botton.btn-default{type: "submit"} 出品する
+        = f.submit "出品する", class: "btn-default"
         = link_to "もどる", :back, class: "btn-default btn-gray"
   =render "./registrations/sub-footer"
+

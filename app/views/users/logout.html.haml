@@ -14,7 +14,7 @@
 %main.mypage-body
   = render partial: 'shared/mypage_side'
   .mypage-main
-    = link_to "", class:"logout-btn" do
+    = link_to destroy_user_session_path, method: :delete, class:"logout-btn" do
       ログアウト
 = render 'shared/sell-button'
 = render 'shared/main-footer'
