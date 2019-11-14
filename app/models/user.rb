@@ -13,7 +13,7 @@ class User < ApplicationRecord
   def already_liked?(product)
     self.likes.exists?(product_id: product.id)
   end
-end
+  
   has_one :address
     accepts_nested_attributes_for :address
 
