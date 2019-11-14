@@ -11,7 +11,7 @@ ja:
       one_page:
         display_entries:
           zero: "No %{entry_name} found"
-          one: "Displaying <b>1</b> %{entry_name}"
-          other: "Displaying <b>all %{count}</b> %{entry_name}"
+          one: "1&nbsp;-&nbsp;1 件表示"
+          other: "1&nbsp;-&nbsp;%{count} 件表示"
       more_pages:
-        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+        display_entries: "%{first}&nbsp;-&nbsp;%{last} 件表示"
