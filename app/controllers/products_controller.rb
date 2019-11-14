@@ -42,6 +42,10 @@ class ProductsController < ApplicationController
   def buy
   end
 
+  def search
+    @products = Product.order('created_at DESC').includes(:images)
+  end
+    
   def destroy
     @product = Product.find(params[:id])
     if @product.destroy
