@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  befor_action :set_product, except: :index
+  before_action :set_product, except: [:index, :new]
   def index
     @products = Product.order('created_at DESC').includes(:images)
   end
@@ -41,6 +41,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+
   end
 
   def buy
