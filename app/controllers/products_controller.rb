@@ -12,11 +12,4 @@ class ProductsController < ApplicationController
   def search
     @products = Product.order('created_at DESC').includes(:images)
   end
-
-  private
-  def search_params
-    params.require(:q).permit(:sorts)
-  end
-
-  
 end
