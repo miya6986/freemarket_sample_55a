@@ -1,0 +1,9 @@
+@mixin history-icon-sizing {
+  .history-link {
+    .history-icon-sizing {
+      position: absolute;
+      top: 16%;
+      right: 15px;
+    }
+  }
+}
