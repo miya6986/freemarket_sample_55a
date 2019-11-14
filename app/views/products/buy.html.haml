@@ -36,7 +36,7 @@
         .buy-inner
           %h3 配送先
           %address.buy-info__user--text
-            〒123-4567
+            = @address.postalcode
             %br
             大阪府大阪市●●
             %br
@@ -48,15 +48,16 @@
       %section.buy-info__content.buy-info__user
         .buy-inner
           %h3 支払い方法
-          %p.buy-user-info--text
-            ************1234
-          %br
-          09/25
-          %br
-          = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
-          .buy-info__user--fix 
-            = link_to '変更する', '#'
-            = fa_icon 'chevron-right'
+          - if @card.present?
+            %p.buy-user-info--text
+              = "************" + @card_info.last4
+            %br
+            = @exp_month + " / " + @exp_year
+            %br
+            = image_tag @card_image,width:'34',height:'20', alt:'master-card'
+            .buy-info__user--fix 
+              = link_to '変更する', creditcards_path
+              = fa_icon 'chevron-right'
 
   %footer.deal-footer
     %nav
