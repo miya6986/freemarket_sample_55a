@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       get :user_identification
       get :my_selling_products
+      get :logout_page
     end
   end
 
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   end 
 
   resources :creditcards, only: [:index, :destroy]
-  get 'logout' => "users#logout"
+  
   get 'login', to: 'registrations#login'
   get 'buy', to: 'products#buy'
   
