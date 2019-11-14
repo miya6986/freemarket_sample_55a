@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     # アイテム名
     @name = @product.name
     # 商品画像
-    @image = @product.images.first.name
+    @image = @product.images.first.name.to_s
     # カテゴリー
     # @category = Category.all.order("id").limit(3)
     # ブランド
