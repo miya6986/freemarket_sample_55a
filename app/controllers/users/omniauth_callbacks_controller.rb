@@ -54,8 +54,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to root_path and return
     end
   end
-# 認証エラー時にはalertを出してrootに戻る
+# 認証エラー時にはrootに戻る
   def failure
-    redirect_to root_path ,alert: "authentication failed" and return
+    redirect_to root_path and return
   end
 end
