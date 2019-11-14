@@ -3,11 +3,11 @@ crumb :root do
 end
 
 crumb :product_show do
-  link product.name, _path
+  link product.name, product_path(product)
 end
 
 crumb :product_edit do
-  link product.name, _path
+  link product.name, edit_product_path(product)
 end
 
 
