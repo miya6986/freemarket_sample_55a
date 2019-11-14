@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :selling_products, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Product"
   has_many :sold_products, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Product"
   has_many :sns_credentials, dependent: :destroy
+
+  def already_liked?(product)
+    self.likes.exists?(product_id: product.id)
+  end
 end
