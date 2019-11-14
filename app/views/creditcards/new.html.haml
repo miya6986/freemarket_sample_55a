@@ -17,7 +17,8 @@
     %h2.header_title
       支払い方法
     .single-container
-      = render "shared/creditcard-form"
+      .rgs-main__section
+        = render "shared/creditcard-form"
       .payment-explain
         = fa_icon 'chevron-right', class:"arrows"
         = link_to '支払い方法について', '#'
