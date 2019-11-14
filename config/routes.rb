@@ -1,5 +1,4 @@
 Rails.application.routes.draw do 
-  get 'likes/index'
   devise_for :users
   root 'products#index'
   resources :users, only: [:index,:edit] do
