@@ -1,7 +1,7 @@
 = render 'shared/main-header'
 %section.product-container
   %h1.head 
-    = @name
+    = @product.name
   .product.clearfix
     = image_tag @image, alt: 'item-show-sample',class: 'product__photo'
     %table.product__table
@@ -9,7 +9,7 @@
         %tr
           %th 出品者
           %td 
-            =link_to @seller, "", class: 'user-name'
+            =link_to @product.seller.nickname, "", class: 'user-name'
             .user-ratings
               .user-ratings__icon 
                 %i.fas.fa-grin.good
@@ -34,31 +34,31 @@
         %tr
           %th ブランド
           %td.brand
-            = link_to @brand, "",class: 'brand__name'
+            = link_to @product.brand.name, "",class: 'brand__name'
         %tr
           %th 商品の状態
           %td 
-            = @condition
+            = @product.condition
         %tr
           %th 配送料の負担
           %td
-            = @postage
+            = @product.postage
         %tr
           %th 配送の方法
           %td 
-            = @shipping_method
+            = @product.shipping_method
         %tr
-          %th 配送元地域
+          %th 配送元地域 
           %td.prefecture
             = link_to '長崎県', "",class: 'prefecture__name'
         %tr
           %th 発送日の目安	
           %td 
-            = @shipping_days
+            = @product.shipping_days
   .product__price-box 
     %span.product__price-box__price
       ¥ 
-      = @price.to_s(:delimited)
+      = @product.price.to_s(:delimited)
     %span.product__price-box__tax
       (税込)
     %span.product__price-box__shipping-fee
@@ -68,7 +68,7 @@
 
   .product__description
     %p 
-    = simple_format(@detail)
+    = simple_format(@product.description)
   .option.clearfix
     .option__left
       .option__left__like 
