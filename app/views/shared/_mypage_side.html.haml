@@ -17,7 +17,7 @@
         = link_to "", new_product_path, class: "nav-list__link"
         %p 出品する
       %li.nav-list
-        = link_to "", class: "nav-list__link"
+        = link_to "", my_selling_products_users_path, class:"nav-list__link"
         %p 出品した商品 - 出品中
       %li.nav-list
         = link_to "", class: "nav-list__link"
@@ -71,6 +71,6 @@
       %li.nav-list
         = link_to "", class: "nav-list__link"
         %p 電話番号の確認
-      %li{class: "nav-list #{active_class(logout_path)}"}
-        = link_to "", logout_path, class: "nav-list__link"
+      %li{class: "nav-list #{active_class(logout_page_users_path)}"}
+        = link_to "", logout_page_users_path, class:"nav-list__link"
         %p ログアウト
