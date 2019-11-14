@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :products,only: [:index, :show, :new] do
     collection do
       # get 'search'
-      match 'search' => 'products#search', via: [:get, :post]
+      match 'search', to: 'products#search', via: [:get, :post]
     end
   end  
   resources :creditcards, only: [:index, :destroy]
