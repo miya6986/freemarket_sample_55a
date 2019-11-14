@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', function() {
     }
 
     // 親カテゴリー選択後のイベント
-    $("#parent-category").on("change", function(){
+    categoryBox.on("change","#parent-category", function(){
       var parentCategory = document.getElementById("parent-category").value;
       if(parentCategory !== "") {
           $.ajax ({
@@ -64,6 +64,8 @@ $(document).on('turbolinks:load', function() {
         //親カテゴリーが初期値（---)の場合、子カテゴリー以下は非表示にする
         $('#child-category').remove(); 
         $('#grandchild-category').remove();
+        $('#size').remove();
+        $('#brand').remove();
       }
     });
 
