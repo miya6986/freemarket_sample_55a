@@ -12,6 +12,22 @@
           = f.fields_for :images do |image|
             .clearfix
               %ul#previews
+                = @product.images.each do |img|
+                  %li.image-preview{style: "width: 114px;"}
+                    %label.upload-label{style:"display: none;"}
+                      .upload-label__text
+                        ドラッグアンドドロップ
+                        %br/
+                        またはクリックしてファイルをアップロード
+                        .input-area
+                          %input#product_images_attributes_0_name.hidden.image_upload{name: "product[images_attributes][0][name]", type: "file"}
+                    .image-preview__wapper
+                      = image_tag img, class:"preview"
+                    .image-preview_btn
+                      .image-preview_btn_edit 編集
+                      .image-preview_btn_delete 削除
+
+
                 %li.image-preview.input
                   %label.upload-label
                     .upload-label__text
