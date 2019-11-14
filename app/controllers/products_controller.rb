@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  befor_action :set_product, except: :index
   def index
     @products = Product.order('created_at DESC').includes(:images)
   end
@@ -39,6 +40,9 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def buy
   end
 
@@ -64,6 +68,10 @@ class ProductsController < ApplicationController
   end
     
   private
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
   def product_params
     params.require(:product).permit(
       :name,
