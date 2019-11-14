@@ -1,0 +1,67 @@
+= render 'shared/main-header'
+.search-container
+  .search-side
+    .search-sort
+      .form-group
+        .select-wrap
+          = fa_icon 'angle-down', class: 'icon-angle-down'
+          %select{name: :sort_order, class: 'select-order'}
+            %option{value: "location.pathname", name: "location.pathname"}
+              並び替え
+            %option{value: "price_asc"}
+              価格の安い順
+            %option{value: "price_desc"}
+              価格の高い順
+            %option{value: "created_at_asc"}
+              出品の古い順
+            %option{value: "created_at_desc"}
+              出品の新しい順
+    .search-content
+  .search-main
+    .main-container
+      - if params[:q]['name_cont'] == ""
+        .main-container__new-products
+          新着商品
+        .main-container__items 
+          - @products.first(24).each do |product|
+            = render partial: 'products/search_product-list', locals: { product: product }
+      - elsif @search_products.present?
+        .main-container__head
+          = params[:q][:name_cont]
+          %span.main-container__head__text 
+            の検索結果
+        .main-container__result-number
+          = page_entries_info @search_products
+          -# %p 1
+          -# %span -
+          -# .search-container__result-number__length
+          -#   = @search_products.total_count
+          -# .search-container__result-number__count
+          -#   件
+        .main-container__items
+          - @search_products.each do |product|
+            = render partial: 'products/search_product-list', locals: { product: product }
+        = paginate @search_products, class: "search-pagination"
+      - else     
+        .main-container__head
+          = params[:q][:name_cont]
+          %span.main-container__head__text 
+            の検索結果
+        .main-container__noresult
+          該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+        .main-container__new-products
+          新着商品
+        .main-container__items 
+          - @products.first(24).each do |product|
+            = render partial: 'products/search_product-list', locals: { product: product }
+= render 'shared/sell-button'
+%nav.bread-crumbs_search.l-container
+  %ul.container
+    %li
+      = link_to "" do
+        %span メルカリ
+      = fa_icon 'chevron-right', class: 'arrow-icon'
+    %li
+      %span.page_now 
+        = params[:q][:name_cont]
+= render 'shared/main-footer'

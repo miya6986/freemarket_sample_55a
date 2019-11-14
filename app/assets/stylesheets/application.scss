@@ -14,6 +14,7 @@
 @import './mixins/product-show';
 @import './mixins/identification_form';
 @import './mixins/new-product_mixins';
+@import './mixins/pagination_mixins';
 @import "./mixins/registration.scss";
 @import './modules/top-header';
 @import './mixins/top-main';
@@ -34,6 +35,8 @@
 @import './modules/buy';
 @import './modules/identification_main';
 @import './modules/new-product_main';
+@import './modules/search';
+@import './modules/pagination';
 @import './mixins/selling_products_mixin';
 @import './modules/selling_products';
 @import './mixins/product_item_mixin';

@@ -30,7 +30,7 @@
       cursor: pointer;
       pointer-events: none;
     }
-    .select-default, .input-default {
+    .select-default {
       width: 100%;
       z-index: 2;
       height: 48px;
@@ -46,6 +46,10 @@
       &:focus {
         outline: 1px $blue solid;
       }
+    }
+    .input-default {
+      @extend .select-default;
+      cursor: default;
     }
   }
 }

@@ -71,10 +71,14 @@ class ProductsController < ApplicationController
     @detail = @product.description
   end
   
+  def search
+    @products = Product.order('created_at DESC').includes(:images)
+  end
+    
   def destroy
     @product = Product.find(params[:id])
     if @product.destroy
-      redirect_to users_path, notice: "商品を削除しました"
+      redirect_to my_selling_products_users_path, notice: "商品を削除しました"
     else
       render :item, collection: @product
     end
@@ -84,9 +88,7 @@ class ProductsController < ApplicationController
     @category = []
     @product = Product.find(params[:id])
     @price = (@product.price * 1.08).ceil
-    @product.categories.each do |category|
-      @category << category.name
-    end
+    @category = @product.categories.pluck(:name)
     @seller = @product.seller
   end
     

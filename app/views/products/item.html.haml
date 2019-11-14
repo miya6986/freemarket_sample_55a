@@ -11,18 +11,18 @@
         %tr
           %th 出品者
           %td 
-            = link_to "#{@seller.nickname.to_s}", "#", class: 'user-name'
+            = link_to "#{@seller.nickname}", "#", class: 'user-name'
         %tr
           %th カテゴリー
           %td.category
             .category__name
-              = link_to "#{@category[0].to_s}", "#"
+              = link_to "#{@category[0]}", "#"
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to "#{@category[1].to_s}", "#"
+              = link_to "#{@category[1]}", "#"
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to "#{@category[2].to_s}", "#"
+              = link_to "#{@category[2]}", "#"
         %tr
           %th ブランド
           %td.brand 
@@ -30,23 +30,23 @@
         %tr
           %th 商品の状態
           %td
-            = @product.condition.to_s
+            = @product.condition
         %tr
           %th 配送料の負担
           %td
-            = @product.postage.to_s
+            = @product.postage
         %tr
           %th 配送の方法
           %td
-            = @product.shipping_method.to_s
+            = @product.shipping_method
         %tr
           %th 配送元地域
           %td.prefecture
-            = link_to "#{@product.prefecture.name.to_s}", "#",class: 'prefecture__name'
+            = link_to "#{@product.prefecture.name}", "#",class: 'prefecture__name'
         %tr
           %th 発送日の目安	
           %td
-            = @product.shipping_days.to_s
+            = @product.shipping_days
   .product__price-box 
     %span.product__price-box__price
       = "¥"
@@ -60,7 +60,7 @@
         送料込み
   .product__description
     %p<
-      = @product.description.to_s
+      = @product.description
 .product-action
   = link_to "商品の編集", edit_product_path(@product), class: "product-action__edit"
   %p.product-action__separate or

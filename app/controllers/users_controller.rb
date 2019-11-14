@@ -4,15 +4,15 @@ class UsersController < ApplicationController
   
   def edit
   end
-
-  def logout
-  end
   
   def user_identification
   end
 
   def my_selling_products
-    @products = User.find(current_user.id).selling_products.limit(15).order(id: "DESC")
+    @products = current_user.selling_products.limit(15).order(id: "DESC")
+  end
+
+  def logout_page
   end
 
 end

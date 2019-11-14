@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       get :user_identification
       get :my_selling_products
+      get :logout_page
     end
   end
 
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'search'
       get 'get_size', defaults: { format: 'json' }
     end
     member do
@@ -22,7 +24,7 @@ Rails.application.routes.draw do
   end 
 
   resources :creditcards, only: [:index, :destroy]
-  get 'logout' => "users#logout"
+  
   get 'login', to: 'registrations#login'
   get 'buy', to: 'products#buy'
   
