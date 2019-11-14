@@ -1,0 +1,12 @@
+@mixin product-action-button {
+  display: block;
+    width: 100%;
+    color: $white;
+    line-height: 48px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid $red;
+    margin: 16px 0;
+    transition: all ease-out .3s;
+    cursor: pointer;
+}

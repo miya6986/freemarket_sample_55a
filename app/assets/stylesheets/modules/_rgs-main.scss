@@ -72,10 +72,12 @@
           background: #fff;
           line-height: 1.5;
           font-size: 16px;
+          -webkit-appearance: none;
           &-harf{
             width: calc(45% - 6px);
             margin: 8px 8px 0 0;
             height: 45px;
+            padding: 10px 16px 8px;
             border-radius: 4px;
             border: 1px solid #ccc;
             background: #fff;
@@ -87,16 +89,34 @@
               appearance: none;
             }
           }
-          &-select{
-            width: 76px;
-            margin-top: 8px;
-            height: 45px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: #fff;
-            line-height: 1.5;
-            font-size: 16px;
+        }
+        .birthday-wrap {
+          display: flex;
+          .select-year {
+            width: 96px;
+            display: flex;
+            .icon-arrow-down-birth{
+              @include icon-arrow-down(65px, 23px)
+            }
+            .input-default-select {
+              width: 76px;
+              margin-top: 8px;
+              padding: 0 10px 0 10px;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              -webkit-appearance: none;
+            }
           }
+        }
+        .icon-arrow-down-prefecture{
+        @include icon-arrow-down(-30px, 5px)
+        }
+        .error-text {
+        @include error_text
         }
         h3 {
           font-size: 16px;
@@ -104,6 +124,7 @@
         }
         .attention{
           margin: 8px 0 0;
+          text-align: left;
         }
         .agree{
           text-align: center;
@@ -114,6 +135,10 @@
         }
         span {
           margin: 0 2px;
+        }
+        .birthday{
+          position: relative;
+          top: 25px;
         }
         .about{
           text-align: right;

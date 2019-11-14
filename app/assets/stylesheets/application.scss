@@ -7,11 +7,15 @@
 @import "./mixins/sub-footer";
 @import "./mixins/sub-header";
 @import "./mixins/rgs-header";
+@import "./mixins/modal_window";
+@import './mixins/validate-message';
 @import './mixins/sell-button';
 @import './mixins/mypage_mixins';
-@import'./mixins/product-show';
+@import './mixins/product-show';
 @import './mixins/identification_form';
 @import './mixins/new-product_mixins';
+@import './mixins/pagination_mixins';
+@import "./mixins/registration.scss";
 @import './modules/top-header';
 @import './mixins/top-main';
 @import './modules/top-main';
@@ -32,6 +36,12 @@
 @import './modules/buy';
 @import './modules/identification_main';
 @import './modules/new-product_main';
+@import './modules/search';
+@import './modules/pagination';
+@import './mixins/selling_products_mixin';
+@import './modules/selling_products';
+@import './mixins/product_item_mixin';
+@import './modules/product_item';
 
 /* 基本設定 */
 

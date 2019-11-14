@@ -1,0 +1,9 @@
+@mixin icon-arrow-down($left, $top){
+  font-size: 20px;
+  color: #888;
+  position: relative;
+  left: $left;
+  top: $top;
+  cursor: pointer;
+  pointer-events: none;
+}
