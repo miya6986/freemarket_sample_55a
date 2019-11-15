@@ -41,7 +41,8 @@ class ProductsController < ApplicationController
 
   def buy
     @address = current_user.address
-    @address.postalcord.insert(3, '-').split('-')
+    @address_full = "#{@address.prefecture_id}#{@address.city_name}#{@address.address_number}#{@address.building_name}"
+    @postalcode = @address.postalcode
     @card = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
     if @card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
