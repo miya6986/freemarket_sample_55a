@@ -45,6 +45,7 @@ class ProductsController < ApplicationController
   end
 
   def buy
+    @product = Product.find(params[:id])
     @address = current_user.address
     @address_full = "#{@address.prefecture.name}#{@address.city_name}#{@address.address_number}#{@address.building_name}"
     @full_name = "#{@address.firstname} #{@address.lastname}"
