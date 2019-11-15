@@ -50,7 +50,7 @@
         %tr
           %th 配送元地域 
           %td.prefecture
-            = link_to '長崎県', "",class: 'prefecture__name'
+            = link_to @product.prefecture.name, "",class: 'prefecture__name'
         %tr
           %th 発送日の目安	
           %td 
