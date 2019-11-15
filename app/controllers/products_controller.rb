@@ -38,6 +38,11 @@ class ProductsController < ApplicationController
       render 'new'
     end
   end
+  
+  def show
+    @product = Product.find(params[:id])
+    @image = @product.images.first.name.to_s
+  end
 
   def buy
   end
@@ -80,10 +85,6 @@ class ProductsController < ApplicationController
       category_ids: []
     )
     .merge(seller_id: current_user.id)
-  end
-  def show
-    @product = Product.find(params[:id])
-    @image = @product.images.first.name.to_s
   end
   
 end
