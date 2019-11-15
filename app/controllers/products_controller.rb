@@ -49,6 +49,14 @@ class ProductsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
+  def update
+    if @product.update(product_params)
+      redirect_to users_path, notice: "商品を更新しました"
+    else 
+      render 'new'
+    end
+  end
+
   def buy
   end
 
