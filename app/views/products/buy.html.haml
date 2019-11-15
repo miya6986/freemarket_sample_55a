@@ -11,12 +11,12 @@
       %section.buy-info__content.buy-info__item
         .buy-inner
           %h3.buy-info__item__image
-            = image_tag 'item-show.jpg'
+            = image_tag @image = @product.images.first.name.to_s
           %p.buy-info__item__name
-            THE SHOP TK ボディバッグ ショルダーバッグ
+            = @product.name
           %form.buy-info__item__form
             %p.buy-info__item__form__price
-              ¥3,000
+              = "¥ #{@product.price.to_s(:delimited)}"
               %span.shipping-fee
                 送料込み
             %ul.buy-info__item__form__accordion
@@ -28,7 +28,8 @@
                 .buy-price__cell
                   支払い金額
                 .buy-price__cell
-                  %span ¥3,000
+                  %span 
+                    = "¥ #{@product.price.to_s(:delimited)}"
             %button.buy-info__item__form__btn-red
               購入する
 
@@ -50,7 +51,7 @@
           %h3 支払い方法
           - if @card.present?
             %p.buy-user-info--text
-              = "**** **** ****" + @card_info.last4
+              = "**** **** **** " + @card_info.last4
             %br
             = @exp_month + " / " + @exp_year
             %br

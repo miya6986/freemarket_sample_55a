@@ -25,7 +25,7 @@
             .creditcard-info
               = image_tag @card_image,width:'34',height:'20', alt:'master-card'
               %p.creditcard-info__number
-                = "**** **** ****" + @card_info.last4
+                = "**** **** **** " + @card_info.last4
               %p.creditcard-info__period 
               = @exp_month + " / " + @exp_year
               = button_to "削除する", creditcard_path(@card), method: :delete, class:"creditcard-info__delete"

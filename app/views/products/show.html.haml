@@ -57,8 +57,7 @@
             = @product.shipping_days
   .product__price-box 
     %span.product__price-box__price
-      ¥ 
-      = @product.price.to_s(:delimited)
+      = "¥ #{@product.price.to_s(:delimited)}"
     %span.product__price-box__tax
       (税込)
     %span.product__price-box__shipping-fee
