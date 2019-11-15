@@ -59,6 +59,8 @@
             .buy-info__user--fix 
               = link_to '変更する', creditcards_path
               = fa_icon 'chevron-right'
+          - else
+            = link_to '追加する', creditcards_path
 
   %footer.deal-footer
     %nav
