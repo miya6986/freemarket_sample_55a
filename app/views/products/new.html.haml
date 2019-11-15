@@ -39,6 +39,12 @@
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
               = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, name: 'product[category_ids][]', class: "select-default", id: "parent-category"
+          .form-details__form-box__brand 
+            = f.fields_for :brand, {} do |brand|
+              %label ブランド
+              %span.optional 任意
+              .form-input
+                = brand.text_field :name, class: "input-default", placeholder: "例）シャネル", autocomplete: "off"
           .form-details__form-box__condition
             %label 商品の状態
             %span 必須
@@ -112,3 +118,4 @@
         = f.submit "出品する", class: "btn-default"
         = link_to "もどる", :back, class: "btn-default btn-gray"
   =render "./registrations/sub-footer"
+

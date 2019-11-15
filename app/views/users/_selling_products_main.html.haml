@@ -1,0 +1,36 @@
+.my-products-container
+  %section.my-products-main
+    %h2.my-products-main__header 出品した商品
+    %ul.my-products-main__tab
+      %li.selling.active
+        = link_to "出品中", "#", class: "my-link"
+      %li.trading
+        = link_to "取引中", "#", class: "trading-link"
+      %li.sold
+        = link_to "売却済み", "#", class: "sold-link"
+    .my-products-main__contents
+      %ul.transaction
+        - own_products.each do |own_product|
+          %li.product
+            = link_to item_product_path(own_product), class: "product-link" do
+              %figure
+                = image_tag own_product.images.first.name.to_s, class: "product-image"
+              .product-body
+                .product-body__title 
+                  = own_product.name.to_s
+                .product-body__element
+                  %span.icon
+                    %i.far.fa-heart
+                      %span 0
+                  %span.icon
+                    %i.far.fa-comment-alt
+                      %span 0
+                  .product-status.active 出品中
+              %i.fas.fa-angle-right.fa-2x.icon-sizing
+  %ul.my-products-history
+    %li.my-products-history__preview.page-btn
+      = link_to "#", class: "history-link" do
+        %i.fas.fa-angle-left.fa-2x.history-icon-sizing
+    %li.my-products-history__next.page-btn
+      = link_to "#", class: "history-link" do
+        %i.fas.fa-angle-right.fa-2x.history-icon-sizing

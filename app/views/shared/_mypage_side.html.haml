@@ -2,7 +2,7 @@
   %nav.mypage-side__nav
     %ul.mypage-side__nav_lists
       %li{class: "nav-list #{active_class(users_path)}"}
-        = link_to "", users_path, class:"nav-list__link"
+        = link_to "", users_path, class: "nav-list__link"
         %p マイページ
       %li.nav-list
         = link_to "", class:"nav-list__link"
@@ -10,51 +10,51 @@
       %li.nav-list
         = link_to "", class:"nav-list__link"
         %p やることリスト
-      %li.nav-list
-        = link_to "", class:"nav-list__link"
+      %li{class: "nav-list #{active_class(likes_path)}"}
+        = link_to "", likes_path, class: "nav-list__link"
         %p いいね！一覧
       %li.nav-list
-        = link_to "", new_product_path, class:"nav-list__link"
+        = link_to "", new_product_path, class: "nav-list__link"
         %p 出品する
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", my_selling_products_users_path, class:"nav-list__link"
         %p 出品した商品 - 出品中
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p 出品した商品 - 取引中
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p 出品した商品 - 売却済み
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p 購入した商品 - 取引中
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p 購入した商品 - 過去の取引
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p ニュース一覧
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p 評価一覧
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p ガイド
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p お問い合わせ
     %h3.mypage-side_head メルペイ
     %ul.mypage-side__nav_lists
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p 売上・振込申請
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p ポイント
     %h3.mypage-side_head 設定
     %ul.mypage-side__nav_lists
       %li{class: "nav-list #{active_class(edit_user_path(1))}"}
-        = link_to "", edit_user_path(1), class:"nav-list__link"
+        = link_to "", edit_user_path(1), class: "nav-list__link"
         %p プロフィール
       %li.nav-list
         = link_to "", class:"nav-list__link"
@@ -63,14 +63,14 @@
         = link_to "", creditcards_path, class:"nav-list__link"
         %p 支払い方法
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p メール/パスワード
       %li{class: "nav-list #{active_class(user_identification_users_path)}"}
-        = link_to "", user_identification_users_path, class:"nav-list__link"
+        = link_to "", user_identification_users_path, class: "nav-list__link"
         %p 本人確認
       %li.nav-list
-        = link_to "", class:"nav-list__link"
+        = link_to "", class: "nav-list__link"
         %p 電話番号の確認
-      %li{class: "nav-list #{active_class(logout_path)}"}
-        = link_to "", logout_path, class:"nav-list__link"
+      %li{class: "nav-list #{active_class(logout_page_users_path)}"}
+        = link_to "", logout_page_users_path, class:"nav-list__link"
         %p ログアウト
