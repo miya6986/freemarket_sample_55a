@@ -34,7 +34,7 @@
         %tr
           %th ブランド
           %td.brand
-            = link_to @product.brand.name, "",class: 'brand__name'
+            = link_to @product.brand.name, "",class: 'brand__name' if @product.brand.present?
         %tr
           %th 商品の状態
           %td 
@@ -50,22 +50,21 @@
         %tr
           %th 配送元地域 
           %td.prefecture
-            = link_to '長崎県', "",class: 'prefecture__name'
+            = link_to @product.prefecture.name, "",class: 'prefecture__name'
         %tr
           %th 発送日の目安	
           %td 
             = @product.shipping_days
   .product__price-box 
     %span.product__price-box__price
-      ¥ 
-      = @product.price.to_s(:delimited)
+      = "¥ #{@product.price.to_s(:delimited)}"
     %span.product__price-box__tax
       (税込)
     %span.product__price-box__shipping-fee
       送料込み
 
   .product__buy-btn
-    = link_to "購入画面に進む",product_path, method: :delete ,class:"product__buy-btn"
+    = link_to "購入画面に進む", buy_product_path, class:"product__buy-btn"
 
   .product__description
     %p 

@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_235751) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "creditcards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "users", column: "buyer_id"

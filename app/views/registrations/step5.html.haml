@@ -3,12 +3,12 @@
   .rgs-main
     .rgs-main__section
       %h2 支払い方法
-      .form
+      = form_with usl: creditcards_path, method: :post, html: { name: "inputForm" },class:"form" do |f|
         .form__upper
           .form__upper__group
-            %label カード番号
+            = f.label :カード番号
             %span.form-require 必須
-            %input.nickname{ type: 'text', name: 'nickname', placeholder: '半角数字のみ', class: 'input-default' }
+            = f.text_field :card_number, name: "card_number", id:"card_number", type: "text", placeholder: '半角数字のみ', class: 'input-default', maxlength: "16"
             %ol
               %li
                 %object{type: "image/svg+xml", data: "#{asset_path 'visa.svg'}", width:"35", height:"20"}
@@ -24,23 +24,24 @@
                 %object{type: "image/svg+xml", data: "#{asset_path 'dinersclub.svg'}", width:"35", height:"20"}
               %li
                 %object{type: "image/svg+xml", data: "#{asset_path 'discover.svg'}", width:"35", height:"20"}
-          .form__upper__group
+          .form__upper__group.exp
             .name
-              %label 有効期限
+              = f.label :有効期限
               %span.form-require 必須
-            %input{ name: 'first-name', class: 'input-default-harf' } 年
+            = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]], {}, class: 'input-default-harf exp', name: "exp_year"
+            %span 年
+          .form__upper__group.exp
+            = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{}, class: 'input-default-harf exp', name: "exp_month"
+            %span 月
           .form__upper__group
-
-            %input.last-name{ name: 'last-name', class: 'input-default-harf' } 月
-          .form__upper__group
-            %label セキュリティーコード
+            = f.label :セキュリティーコード
             %span.form-require 必須
-            %input.nickname{ type: 'text', name: 'nickname', placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default' }
+            = f.text_field :cvc, name: "cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default', maxlength: "16"
           .form__upper__group
             %p.about
               = fa_icon 'question-circle'
-              %span<>
+              %span
               = link_to 'カード裏面の番号とは？', root_path, class:'about__registered'
           .form__upper__group
-            %button.btn-default{type: "submit"} 次へ進む
+            = f.submit '次へ進む', class: 'btn-default', id: 'token_submit'
   =render "sub-footer"

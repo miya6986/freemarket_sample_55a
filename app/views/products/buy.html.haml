@@ -11,12 +11,12 @@
       %section.buy-info__content.buy-info__item
         .buy-inner
           %h3.buy-info__item__image
-            = image_tag 'item-show.jpg'
+            = image_tag @image = @product.images.first.name.to_s
           %p.buy-info__item__name
-            THE SHOP TK ボディバッグ ショルダーバッグ
+            = @product.name
           %form.buy-info__item__form
             %p.buy-info__item__form__price
-              ¥3,000
+              = "¥ #{@product.price.to_s(:delimited)}"
               %span.shipping-fee
                 送料込み
             %ul.buy-info__item__form__accordion
@@ -28,7 +28,8 @@
                 .buy-price__cell
                   支払い金額
                 .buy-price__cell
-                  %span ¥3,000
+                  %span 
+                    = "¥ #{@product.price.to_s(:delimited)}"
             %button.buy-info__item__form__btn-red
               購入する
 
@@ -36,11 +37,11 @@
         .buy-inner
           %h3 配送先
           %address.buy-info__user--text
-            〒123-4567
+            = "〒#{@postalcode}"
             %br
-            大阪府大阪市●●
+            = @address_full
             %br
-            テストユーザー
+            = @full_name
           .buy-info__user--fix
             = link_to '変更する', '#'
             = fa_icon 'chevron-right'
@@ -48,15 +49,16 @@
       %section.buy-info__content.buy-info__user
         .buy-inner
           %h3 支払い方法
-          %p.buy-user-info--text
-            ************1234
-          %br
-          09/25
-          %br
-          = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
-          .buy-info__user--fix 
-            = link_to '変更する', '#'
-            = fa_icon 'chevron-right'
+          - if @card.present?
+            %p.buy-user-info--text
+              = "**** **** **** " + @card_info.last4
+            %br
+            = @exp_month + " / " + @exp_year
+            %br
+            = image_tag @card_image,width:'34',height:'20', alt:'master-card'
+            .buy-info__user--fix 
+              = link_to '変更する', creditcards_path
+              = fa_icon 'chevron-right'
 
   %footer.deal-footer
     %nav

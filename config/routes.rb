@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :creditcards, only: [:index, :new, :create, :destroy]
+
   resources :products do
+
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
     end
     member do
       get :item
+      get :buy
     end
   end 
 
@@ -27,7 +31,6 @@ Rails.application.routes.draw do
   resources :likes, only: [:index, :create, :destroy]
   
   get 'login', to: 'registrations#login'
-  get 'buy', to: 'products#buy'
   
   resources :registrations do
     collection do
