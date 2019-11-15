@@ -34,7 +34,7 @@
         %tr
           %th ブランド
           %td.brand
-            = link_to @product.brand.name, "",class: 'brand__name'
+            = link_to @product.brand.name, "",class: 'brand__name' if @product.brand.present?
         %tr
           %th 商品の状態
           %td 
