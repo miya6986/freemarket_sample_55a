@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-
+    @parents = Category.where(ancestry: nil)
   end
 
   def buy
