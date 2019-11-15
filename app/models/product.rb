@@ -1,11 +1,12 @@
 class Product < ApplicationRecord
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
-  belongs_to :buyer, class_name: "User", foreign_key: "buyer_id",optional:true
+  belongs_to :buyer, class_name: "User", foreign_key: "buyer_id", optional: true
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
   has_many :product_categories, dependent: :destroy
   has_many :categories, through: :product_categories
-  # belongs_to :brand
+  belongs_to :brand, optional:true
+  accepts_nested_attributes_for :brand
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   

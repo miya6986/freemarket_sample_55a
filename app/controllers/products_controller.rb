@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
+    @product.build_brand
     @parents = Category.where(ancestry: nil)
   end
 
@@ -22,8 +23,12 @@ class ProductsController < ApplicationController
     @grandchildren = Category.find("#{params[:child_id]}").children
   end
 
-
-
+  def get_size
+    selected_childid = Category.find("#{params[:grandchild_id]}").parent
+    if category_with_size = selected_childid.sizes[0]
+      @sizes = category_with_size.children
+    end
+  end
 
   def create
     @product = Product.new(product_params)
@@ -37,6 +42,10 @@ class ProductsController < ApplicationController
   def buy
   end
 
+  def search
+    @products = Product.order('created_at DESC').includes(:images)
+  end
+    
   def destroy
     @product = Product.find(params[:id])
     if @product.destroy
@@ -67,8 +76,14 @@ class ProductsController < ApplicationController
       :shipping_days,
       :price,
       images_attributes: [:name],
+      brand_attributes: [:name],
       category_ids: []
     )
     .merge(seller_id: current_user.id)
   end
+  def show
+    @product = Product.find(params[:id])
+    @image = @product.images.first.name.to_s
+  end
+  
 end
