@@ -24,13 +24,13 @@
           %th カテゴリー
           %td.category
             .category__name
-              = link_to 'メンズ', ""
+              = link_to "#{@category[0]}", ""
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to 'バッグ', ""
+              = link_to "#{@category[1]}", ""
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to 'ボディーバッグ', ""
+              = link_to "#{@category[2]}", ""
         %tr
           %th ブランド
           %td.brand
