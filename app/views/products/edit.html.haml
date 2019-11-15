@@ -12,7 +12,7 @@
           = f.fields_for :images do |image|
             .clearfix
               %ul#previews
-                = @product.images.each do |img|
+                = @product.images.first.name.to_s.each do |img|
                   %li.image-preview{style: "width: 114px;"}
                     %label.upload-label{style:"display: none;"}
                       .upload-label__text
