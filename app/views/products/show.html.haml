@@ -64,6 +64,9 @@
     %span.product__price-box__shipping-fee
       送料込み
 
+  .product__buy-btn
+    = link_to "購入画面に進む",product_path, method: :delete ,class:"product__buy-btn"
+
   .product__description
     %p 
     = simple_format(@product.description)
