@@ -515,7 +515,7 @@ $.extend( $.validator, {
 				this.showErrors();
 
 				// Add aria-invalid status for screen readers
-				$( element ).attr( "aria-invalid", !rs );
+				// $( element ).attr( "aria-invalid", !rs );
 			}
 
 			return result;
