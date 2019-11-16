@@ -1,0 +1,5 @@
+$(function(){
+  $("#product-form").validate({
+    
+  });
+})
