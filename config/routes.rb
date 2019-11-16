@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :creditcards, only: [:index, :new, :create, :destroy]
+  resources :creditcards, only: [:index, :new, :create, :destroy] do
+    collection do
+      get 'buy'
+    end
+  end
 
   resources :products do
 
