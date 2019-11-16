@@ -45,7 +45,6 @@ class CreditcardsController < ApplicationController
       )
       @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id)
         if @card.save
-          binding.pry
           redirect_to action: "index", notice:"支払い情報の登録が完了しました"
         else
           render 'new'
@@ -61,6 +60,29 @@ class CreditcardsController < ApplicationController
       redirect_to action: "index", notice: "削除しました"
     else
       redirect_to action: "index", alert: "削除できませんでした"
+    end
+  end
+
+  def buy
+    if @card.blank?
+      redirect_to action: "new"
+      flash[:alert] = '購入にはクレジットカード登録が必要です'
+    else
+      @product = Product.find(params[:product_id])
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp::Charge.create(
+      amount: @product.price, #支払金額
+      customer: @card.customer_id, #顧客ID
+      currency: 'jpy', #日本円
+      )
+     # 商品の金額をamountへ、cardの顧客idをcustomerへ、currencyをjpyへ入れる
+      if @product.update(buyer_id: current_user.id)
+        flash[:notice] = '購入しました。'
+        redirect_to controller: "products", action: 'show'
+      else
+        flash[:alert] = '購入に失敗しました。'
+        redirect_to controller: "products", action: 'show'
+      end
     end
   end
 
