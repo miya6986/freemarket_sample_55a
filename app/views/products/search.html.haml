@@ -26,6 +26,15 @@
             %span.search-content__keyword--label--sapn
               キーワードを追加する
           = f.text_field :name_cont, class: "search-content__keyword__text", placeholder: "例) 値下げ"
+        .search-content__category
+          %label.search-content__category--label
+            %i.fas.fa-bars.search-content__category--label--icon
+            %span.search-content__category--label--title
+              カテゴリーを選択する
+          .search-content__category__select
+            %i.fas.fa-chevron-down.search-content__category__select--icon
+            %select.search-content__category__select--form
+            -# = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, name: 'product[category_ids][]', class: "search-content__category__select", id: "parent-category"
   .search-main
     .main-container
       - if params[:q]['name_cont'] == ""

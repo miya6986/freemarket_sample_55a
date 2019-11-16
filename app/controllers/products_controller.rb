@@ -80,6 +80,7 @@ class ProductsController < ApplicationController
 
   def search
     @products = Product.order('created_at DESC').includes(:images)
+    # @parents = Category.where(ancestry: nil)
   end
     
   def destroy
