@@ -163,7 +163,7 @@
               font-weight: 600;
             }
           }
-          &__btn-red {
+          &__btn {
             display: block;
             width: 100%;
             line-height: 48px;
@@ -177,6 +177,14 @@
             background: $red;
             border: 1px solid $red;
             color: #fff;
+            &.red{
+              background: $red;
+            }
+            &.gray{
+              background: $gray;
+              border: 1px solid $gray;
+              cursor: default;
+            }
           }     
         }
       }
