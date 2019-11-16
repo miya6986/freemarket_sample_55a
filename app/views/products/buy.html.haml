@@ -30,7 +30,7 @@
                 .buy-price__cell
                   %span 
                     = "¥ #{@product.price.to_s(:delimited)}"
-            %button.buy-info__item__form__btn-red
+            = link_to buy_creditcards_path(@product.id), class:"buy-info__item__form__btn-red" do
               購入する
 
       %section.buy-info__content.buy-info__user
