@@ -12,6 +12,10 @@
         .buy-inner
           %h3.buy-info__item__image
             = image_tag @image = @product.images.first.name.to_s
+            - unless @product.buyer.blank?
+              .soldout
+                .soldout_text 
+                  %p SOLD
           %p.buy-info__item__name
             = @product.name
           %form.buy-info__item__form
