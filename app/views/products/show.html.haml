@@ -3,7 +3,12 @@
   %h1.head 
     = @product.name
   .product.clearfix
+    
     = image_tag @image, alt: 'item-show-sample',class: 'product__photo'
+    - if @product.buyer.blank?
+      .soldout
+        .soldout_text 
+          %p SOLD
     %table.product__table
       %tbody
         %tr
