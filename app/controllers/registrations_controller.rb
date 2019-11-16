@@ -58,6 +58,7 @@ def create
 
   if @user.save
     session[:id] = @user.id
+    sign_in(@user)
     redirect_to step5_registrations_path
   else
     redirect_to step2_registrations_path
