@@ -78,10 +78,10 @@ class CreditcardsController < ApplicationController
      # 商品の金額をamountへ、cardの顧客idをcustomerへ、currencyをjpyへ入れる
       if @product.update(buyer_id: current_user.id)
         flash[:notice] = '購入しました。'
-        redirect_to controller: "products", action: 'show'
+        redirect_to controller: 'products', action: 'show', id: @product.id
       else
         flash[:alert] = '購入に失敗しました。'
-        redirect_to controller: "products", action: 'show'
+        redirect_to controller: 'products', action: 'show', id: @product.id
       end
     end
   end
