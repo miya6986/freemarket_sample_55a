@@ -1,22 +1,31 @@
 = render 'shared/main-header'
 .search-container
   .search-side
-    .search-sort
-      .form-group
-        .select-wrap
-          = fa_icon 'angle-down', class: 'icon-angle-down'
-          %select{name: :sort_order, class: 'select-order'}
-            %option{value: "location.pathname", name: "location.pathname"}
-              並び替え
-            %option{value: "price_asc"}
-              価格の安い順
-            %option{value: "price_desc"}
-              価格の高い順
-            %option{value: "created_at_asc"}
-              出品の古い順
-            %option{value: "created_at_desc"}
-              出品の新しい順
-    .search-content
+    = search_form_for @q, url: search_products_path, html: { method: :post } do |f|
+      .search-sort
+        .form-group
+          .select-wrap
+            = fa_icon 'angle-down', class: 'icon-angle-down'
+            %select{name: :sort_order, class: 'select-order'}
+              %option{value: "location.pathname", name: "location.pathname"}
+                並び替え
+              %option{value: "price_asc"}
+                価格の安い順
+              %option{value: "price_desc"}
+                価格の高い順
+              %option{value: "created_at_asc"}
+                出品の古い順
+              %option{value: "created_at_desc"}
+                出品の新しい順
+      .search-content
+        .search-content__detail-titel
+          詳細検索
+        .search-content__keyword
+          %label.search-content__keyword--label
+            %i.fas.fa-plus.search-content__keyword--label--icon
+            %span.search-content__keyword--label--sapn
+              キーワードを追加する
+          = f.text_field :name_cont, class: "search-content__keyword__text", placeholder: "例) 値下げ"
   .search-main
     .main-container
       - if params[:q]['name_cont'] == ""
