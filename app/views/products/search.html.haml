@@ -35,6 +35,12 @@
             %i.fas.fa-chevron-down.search-content__category__select--icon
             %select.search-content__category__select--form
             -# = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, name: 'product[category_ids][]', class: "search-content__category__select", id: "parent-category"
+        .search-content__brand
+          %label.search-content__brand--label
+            %i.fas.fa-tags.search-content__brand--label--icon
+            %span.search-content__brand--label--sapn
+              ブランド名から探す
+          = f.text_field :name_cont, class: "search-content__brand__text", placeholder: "例) シャネル"
   .search-main
     .main-container
       - if params[:q]['name_cont'] == ""
