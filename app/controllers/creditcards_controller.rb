@@ -64,14 +64,14 @@ class CreditcardsController < ApplicationController
   end
 
   def buy
+    # = link_to buy_creditcards_path(product_id: @product.id)のproduct_idを使って@productを定義
     @product = Product.find(params[:product_id])
-    if @card.blank?
+    if @product.buyer.present? #buyerが存在する場合、
+      redirect_back(fallback_location: root_path) #元のページに戻す
+    elsif @card.blank?
       redirect_to action: "new"
       flash[:alert] = '購入にはクレジットカード登録が必要です'
-    elsif @product.buyer.present?
-      redirect_back(fallback_location: root_path)
     else
-      # = link_to buy_creditcards_path(product_id: @product.id)のproduct_idを使って@productを定義
       # Payjpの秘密鍵を設定
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       # Payjpの支払い処理:Payjp::Charge.createを生成。
