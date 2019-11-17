@@ -49,6 +49,8 @@
           .search-content__size__select
             %i.fas.fa-chevron-down.search-content__size__select--icon
             %select.search-content__size__select--form
+          .search-content__submit
+            = button_tag '完了' ,type: 'submit'
   .search-main
     .main-container
       - if params[:q]['name_cont'] == ""
