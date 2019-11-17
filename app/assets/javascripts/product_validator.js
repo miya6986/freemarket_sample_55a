@@ -1,5 +1,7 @@
 $(function(){
   $("#product-form").validate({
+    errorElement: 'li',
+    wrapper: 'ul',
     rules: {
       name: {
         required: true
@@ -63,16 +65,14 @@ $(function(){
     },
     //エラーメッセージの表示位置を指定（ビュー崩れ防止のため）
     errorPlacement: function(error, element) {
-      var hasError = element.attr("name")
+      var hasError = element.attr("name");
       if(hasError == "price")
       {
         error.insertAfter(".form-price__form-box__price");	
-      }
-      else{
+      } else {
         //デフォルトは要素直下にエラーメッセージを表示する
         error.insertAfter(element);	
       } 
     }
-
   });
 })
