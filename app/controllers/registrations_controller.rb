@@ -146,7 +146,7 @@ end
       birth_day: session[:birth_day],
       phone_number: "09053606853",
     )
-    render '/registrations/step2' unless @user.valid?
+    render '/registrations/validates_step2' unless @user.valid?
   end
 
   def validates_step3
