@@ -112,7 +112,7 @@ gem 'ransack'
 gem 'kaminari'
 
 #私はロボットではありません
-# gem 'recaptcha', require: "recaptcha/rails"
+gem 'recaptcha', require: "recaptcha/rails"
 gem 'dotenv-rails'
 
 # For Authentication by SNS
