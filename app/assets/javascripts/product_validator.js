@@ -13,6 +13,9 @@ $(function(){
       "product[category_ids][]":{
         required: true
       },
+      "product[size]": {
+        required: true
+      },
       condition: {
         required: true
       },
@@ -43,6 +46,9 @@ $(function(){
         required: "入力してください"
       },
       "product[category_ids][]":{
+        required: "選択してください"
+      },
+      "product[size]": {
         required: "選択してください"
       },
       condition: {
