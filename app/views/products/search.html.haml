@@ -41,6 +41,14 @@
             %span.search-content__brand--label--sapn
               ブランド名から探す
           = f.text_field :name_cont, class: "search-content__brand__text", placeholder: "例) シャネル"
+        .search-content__size
+          %label.search-content__size--label
+            %i.fas.fa-expand.search-content__category--label--icon
+            %span.search-content__category--label--title
+              サイズを指定する
+          .search-content__size__select
+            %i.fas.fa-chevron-down.search-content__size__select--icon
+            %select.search-content__size__select--form
   .search-main
     .main-container
       - if params[:q]['name_cont'] == ""
