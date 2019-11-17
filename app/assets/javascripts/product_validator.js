@@ -1,5 +1,6 @@
 $(function(){
   $("#product-form").validate({
+    ignore: [],
     errorElement: 'li',
     wrapper: 'ul',
     rules: {
@@ -28,6 +29,9 @@ $(function(){
         required: true
       },
       price: {
+        required: true
+      },
+      "product[images_attributes][0][name]": {
         required: true
       },
     },
@@ -62,6 +66,10 @@ $(function(){
       price: {
         required: "300以上9999999以下で入力してください"
       },
+      "product[images_attributes][0][name]": {
+        required: "画像がありません"
+      },
+
     },
     //エラーメッセージの表示位置を指定（ビュー崩れ防止のため）
     errorPlacement: function(error, element) {
@@ -69,7 +77,11 @@ $(function(){
       if(hasError == "price")
       {
         error.insertAfter(".form-price__form-box__price");	
-      } else {
+      } 
+      else if(hasError == "product[images_attributes][0][name]") {
+        error.insertAfter(".form-image__title")
+      }
+      else {
         //デフォルトは要素直下にエラーメッセージを表示する
         error.insertAfter(element);	
       } 
