@@ -1,5 +1,10 @@
 .rgs-body
   =render "rgs-header"
+  - if @user.errors.any?
+    %h2= "#{@user.errors.full_messages.count}件のエラーが発生しました。"
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message
   .rgs-main
     .rgs-main__section
       %h2 会員情報入力
