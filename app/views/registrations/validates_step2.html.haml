@@ -1,7 +1,0 @@
-- if @user.errors.any?
-  %h2
-    = "#{@user.errors.full_messages.count}件のエラーが発生しました。"
-    %ul
-      - @user.errors.full_messages.each do |message|
-        %li
-          = message
