@@ -32,7 +32,10 @@ $(function(){
         required: true
       },
       price: {
-        required: true
+        required: true,
+        digits: true,
+        min: 300,
+        max: 9999999
       },
       "product[images_attributes][0][name]": {
         required: true
@@ -70,7 +73,10 @@ $(function(){
         required: "選択してください"
       },
       price: {
-        required: "300以上9999999以下で入力してください"
+        required: "300以上9999999以下で入力してください",
+        digits: "300以上9999999以下で入力してください",
+        min: "300以上9999999以下で入力してください",
+        max: "300以上9999999以下で入力してください"
       },
       "product[images_attributes][0][name]": {
         required: "画像がありません"
