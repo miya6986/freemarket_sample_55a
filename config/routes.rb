@@ -20,7 +20,8 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
-      get 'search'
+      # get 'search'
+      match 'search', to: 'products#search', via: [:get, :post]
       get 'get_size', defaults: { format: 'json' }
     end
     member do
