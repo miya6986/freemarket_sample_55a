@@ -20,6 +20,10 @@ crumb :likes do
   link "いいね！一覧", likes_path
   parent :mypage
 end
+crumb :my_selling_products_users do 
+  link "出品した商品 - 出品中", my_selling_products_users_path
+  parent :mypage
+end
 
 crumb :profile do
   link "プロフィール", edit_user_path
