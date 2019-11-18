@@ -43,6 +43,6 @@ crumb :user_identification_users do
 end
 
 crumb :logout do
-  link "ログアウト", logout_path
+  link "ログアウト", logout_page_users_path
   parent :mypage
 end
