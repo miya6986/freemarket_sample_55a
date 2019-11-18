@@ -15,15 +15,14 @@
             %span.form-require 必須
             = f.email_field :email, placeholder: 'PC・携帯どちらでも可', class: 'input-default'
             = render partial: 'error-text', locals: {user: @user, column: "email"}
-          - unless session[:nickname] && session[:email]
-            .form__upper__group
-              %span.label パスワード
-              %span.form-require 必須
-              = f.password_field :password, placeholder: '7文字以上', class: 'input-default'
-            .form__upper__group
-              %span.label パスワード(確認)
-              %span.form-require 必須
-              = f.password_field :password_confirmation, placeholder: '7文字以上', class: 'input-default'
+          .form__upper__group
+            %span.label パスワード
+            %span.form-require 必須
+            = f.password_field :password, placeholder: '7文字以上', class: 'input-default'
+          .form__upper__group
+            %span.label パスワード(確認)
+            %span.form-require 必須
+            = f.password_field :password_confirmation, placeholder: '7文字以上', class: 'input-default'
           .form__upper__group
             %h3 本人確認
             %p.attention 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
