@@ -43,12 +43,24 @@
           = f.text_field :name_cont, class: "search-content__brand__text", placeholder: "例) シャネル"
         .search-content__size
           %label.search-content__size--label
-            %i.fas.fa-expand.search-content__category--label--icon
-            %span.search-content__category--label--title
+            %i.fas.fa-expand.search-content__size--label--icon
+            %span.search-content__size--label--title
               サイズを指定する
           .search-content__size__select
             %i.fas.fa-chevron-down.search-content__size__select--icon
             %select.search-content__size__select--form
+        .search-content__price
+          %label.search-content__price--label
+            %i.fas.fa-coins.search-content__price--label--icon
+            %span.search-content__price--label--title
+              価格
+          .search-content__price__select
+            %i.fas.fa-chevron-down.search-content__price__select--icon
+            %select.search-content__price__select--form
+          .search-content__price__details
+            %input.search-content__price__details__min
+            %span ~
+            %input.search-content__price__details__max
           .search-content__submit
             = button_tag '完了' ,type: 'submit'
   .search-main
