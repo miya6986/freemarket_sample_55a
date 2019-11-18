@@ -102,12 +102,23 @@
           height: 32px;
           transform: scale(1);
           transition: all 0.3s ease-out 0s;
+          i{
+            font-weight: 400;
+          }
+          &.todo{
+            i{
+              font-weight: 900;
+            }
+          }
           @media (min-width: 1068px) {
             padding: 0px 14px;
           }
-        }
-        &__item:hover, .icon:hover {
-          color: $blue;
+          &:hover{
+            color: $blue;
+            .icon {
+              color: $blue;
+            }
+          }
         }
         .signup {
           background-color: rgb(234, 53, 45);

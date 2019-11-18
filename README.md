@@ -86,7 +86,7 @@ Things you may want to cover:
 |city_name|string|null: false|
 |address_number|string|null: false|
 |building_name|string||
-|address_phone_number|string||
+|phone_number|string||
 |user_id|references|foreign_key: true, null: false|
 
 ### Association
@@ -224,7 +224,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|foreign_key: true, null: false|
-|card_id|string|null: false|
+|customer_id|string|null: false|
 
 ### Association
 - belongs_to :user

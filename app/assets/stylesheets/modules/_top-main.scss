@@ -40,8 +40,16 @@
     }
   }
   /* カテゴリ・ブランド共通設定 */
-  .new-items-container {
-    @include new-items-container();
+  .new-items-container-top {
+    @include new-items-container-top();
+  }
+
+  .new-items-container-middle {
+    @include new-items-container-middle();
+  }
+
+  .new-items-container-bottom {
+    @include new-items-container-bottom();
   }
 
   /* 人気のカテゴリ */
@@ -68,8 +76,17 @@
   }
   .category-items {
     @include items();
-    .category-item img {
+    .category-item {
+      height: 100%;
       @include item();
+      img {
+        @include item();
+      }
+      .show-link {
+        width: 100%;
+        vertical-align: top;
+        @include product-box();
+      }
     }
   }
   
@@ -94,10 +111,32 @@
   }
   .brand-items {
     @include items();
-    .brand-item img {
+    .brand-item {
+      height: 100%;
       @include item();
+      img {
+        @include item();
+      }
+      .show-link {
+        width: 100%;
+        vertical-align: top;
+        @include product-box();
+      }
     }
   }
+  /* 画面外にいる状態 */
+  .fadein {
+  opacity : 0;
+  transform : translate(0, 0);
+  transition : all 500ms;
+  }
+
+/* 画面内に入った状態 */
+  .fadein.scrollin {
+  opacity : 1;
+  transform : translate(0, 0);
+  }
+  
 }
 
 
