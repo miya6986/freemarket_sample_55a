@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :product_show do
-  link product.name, product_path(product)
+  link "#{@product}", product_path(@product)
 end
 
 crumb :product_edit do
