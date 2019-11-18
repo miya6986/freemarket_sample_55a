@@ -16,6 +16,10 @@ crumb :mypage do
   link "マイページ", users_path
   parent :root
 end
+crumb :likes do 
+  link "いいね！一覧", likes_path
+  parent :mypage
+end
 
 crumb :profile do
   link "プロフィール", edit_user_path
