@@ -83,7 +83,11 @@
             background: #fff;
             line-height: 1.5;
             font-size: 16px;
-            -webkit-appearance: none;
+            &.exp{
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+            }
           }
         }
         .birthday-wrap {
@@ -170,6 +174,7 @@
       background-color: #E93F36;
       color: #FFFFFF;
       font-size: 15px;
+      cursor: pointer;
     }
     .btn-registration{
       color: #fff;

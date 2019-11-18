@@ -1,15 +1,15 @@
 = render 'shared/main-header'
 %section.product-container
   %h1.head 
-    THE SHOP TK ボディバッグ ショルダーバッグ
+    = @product.name
   .product.clearfix
-    = image_tag 'item-show.jpg', alt: 'item-show-sample',class: 'product__photo'
+    = image_tag @image, alt: 'item-show-sample',class: 'product__photo'
     %table.product__table
       %tbody
         %tr
           %th 出品者
           %td 
-            =link_to '山田太郎', "", class: 'user-name'
+            =link_to @product.seller.nickname, "", class: 'user-name'
             .user-ratings
               .user-ratings__icon 
                 %i.fas.fa-grin.good
@@ -24,44 +24,51 @@
           %th カテゴリー
           %td.category
             .category__name
-              = link_to 'メンズ', ""
+              = link_to "#{@category[0]}", ""
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to 'バッグ', ""
+              = link_to "#{@category[1]}", ""
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to 'ボディーバッグ', ""
+              = link_to "#{@category[2]}", ""
         %tr
           %th ブランド
-          %td.brand 
-            = link_to 'タケオ キクチ', "",class: 'brand__name'
+          %td.brand
+            = link_to @product.brand.name, "",class: 'brand__name' if @product.brand.present?
         %tr
           %th 商品の状態
-          %td 目立った傷や汚れなし
+          %td 
+            = @product.condition
         %tr
-          %th 配送料の負担	
-          %td 送料込み(出品者負担)
+          %th 配送料の負担
+          %td
+            = @product.postage
         %tr
           %th 配送の方法
-          %td らくらくメルカリ便
+          %td 
+            = @product.shipping_method
         %tr
-          %th 配送元地域
+          %th 配送元地域 
           %td.prefecture
-            = link_to '長崎県', "",class: 'prefecture__name'
+            = link_to @product.prefecture.name, "",class: 'prefecture__name'
         %tr
           %th 発送日の目安	
-          %td 2~3日で発送
+          %td 
+            = @product.shipping_days
   .product__price-box 
     %span.product__price-box__price
-      ¥3,000
+      = "¥ #{@product.price.to_s(:delimited)}"
     %span.product__price-box__tax
       (税込)
     %span.product__price-box__shipping-fee
       送料込み
 
+  .product__buy-btn
+    = link_to "購入画面に進む", buy_product_path, class:"product__buy-btn"
+
   .product__description
-    %p 数回のみの使用。ほぼ美品
-  
+    %p 
+    = simple_format(@product.description)
   .option.clearfix
     .option__left
       .option__left__like 
