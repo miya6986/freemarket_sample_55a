@@ -1,18 +1,20 @@
 
 $(document).on('turbolinks:load', function(){  
-  //$liに追加するためのプレビュー画面
+  var append_input = $(`<li class="image-preview input"><label class="upload-label"><div class="upload-label__text">ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード<div class="input-area"><input class="hidden image_upload" type="file"></div></div></label></li>`)
+  $ul = $('#previews')
+  $input = $ul.find('.input');
+  if($input.length == 0){
+    $ul.append(append_input);
+  }
+
+  // プレビュー機能
+  //'change'イベントでは$(this)で要素が取得できないため、 'click'イベントを入れた。
+  //これにより$(this)で'input'を取得することができ、inputの親要素である'li'まで辿れる。
   
-  // if ($('.image_upload').val() !== 0){
-    
-    // }
-    
-    // プレビュー機能
-    //'change'イベントでは$(this)で要素が取得できないため、 'click'イベントを入れた。
-    //これにより$(this)で'input'を取得することができ、inputの親要素である'li'まで辿れる。
-    
-    //次の画像を読み込むためのinput。処理の最後にappendで追加する。 
   $(document).on('click', '.image_upload', function(){
+    //$liに追加するためのプレビュー画面のHTML
     var preview = $('<div class="image-preview__wapper"><img class="preview"></div><div class="image-preview_btn"><div class="image-preview_btn_edit">編集</div><div class="image-preview_btn_delete">削除</div></div>'); 
+    //次の画像を読み込むためのinput。処理の最後にappendで追加する。 
     var append_input = $(`<li class="image-preview input"><label class="upload-label"><div class="upload-label__text">ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード<div class="input-area"><input class="hidden image_upload" type="file"></div></div></label></li>`)
     $ul = $('#previews')
     $li = $(this).parents('.image-preview');
