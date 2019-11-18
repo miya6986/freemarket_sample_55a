@@ -11,16 +11,17 @@
           .form-image__text 最大10枚までアップロードできます
           .clearfix
             %ul#previews
-              = f.fields_for :images do |image|
-                %li.image-preview.input
-                  %label.upload-label
-                    .upload-label__text
-                      ドラッグアンドドロップ
-                      %br
-                      またはクリックしてファイルをアップロード
-                      .input-area
-                        = image.file_field :name, value: @product.images.name ,class: "hidden image_upload"
-                        = image.hidden_field :id, value: @product.images.first.id
+              - @product.images.each do |img|
+                = f.fields_for :image do |image|
+                  %li.image-preview.input
+                    %label.upload-label
+                      .upload-label__text
+                        ドラッグアンドドロップ
+                        %br
+                        またはクリックしてファイルをアップロード
+                        .input-area
+                          = image.file_field :name, value: img.name ,class: "hidden image_upload"
+                          = image.hidden_field :id, value: img.id
       .form-container
         .form-container__name
           %label 商品名
