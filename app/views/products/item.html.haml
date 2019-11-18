@@ -11,7 +11,7 @@
         %tr
           %th 出品者
           %td 
-            = link_to "#{@seller.nickname}", "#", class: 'user-name'
+            = link_to "#{@product.seller.nickname}", "#", class: 'user-name'
         %tr
           %th カテゴリー
           %td.category
@@ -50,7 +50,7 @@
   .product__price-box 
     %span.product__price-box__price
       = "¥"
-      = @price.to_s(:delimited)
+      = @product.price.to_s(:delimited)
     %span.product__price-box__tax
       (税込)
     %span.product__price-box__shipping-fee
