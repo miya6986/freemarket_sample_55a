@@ -53,5 +53,33 @@ $(document).on('turbolinks:load', function() {
         $('#brand').remove();
       }
     });
+
+    categoryBox.on('change','#grandchild-category',function(){
+      var grandchildCategory = $('#grandchild-category option:selected').data('category'); 
+      if (grandchildCategory != "---"){ 
+        $.ajax({
+          url: '/products/:id/get_size',
+          type: 'GET',
+          data: { grandchild_id: grandchildCategory },
+          dataType: 'json'
+        })
+        .done(function(sizes){
+          $('#size').remove();
+          if (sizes.length != 0) {
+            var insertHTML = '';
+            sizes.forEach(function(size){
+              insertHTML += appendSizeOption(size);
+            });
+            appendSizeBox(insertHTML);
+          }
+        })
+        .fail(function(){
+          alert('サイズ取得に失敗しました');
+        })
+      } else {
+        $('#size').remove();
+        $('#brand').remove();
+      }
+    });
   });
 });
