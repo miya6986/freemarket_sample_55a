@@ -137,7 +137,7 @@ class RegistrationsController < ApplicationController
       birth_month: session[:birth_month],
       birth_day: session[:birth_day],
     )
-    binding.pry
+    
     render '/registrations/step2' unless @user.valid?
   end
 
