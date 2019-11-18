@@ -283,6 +283,9 @@
             background: #fff;
             line-height: 1.5;
             font-size: 16px;
+            &:focus {
+              outline: 1px $blue solid;
+            }
           }
           span {
             display: inline-block;
@@ -300,6 +303,9 @@
             background: #fff;
             line-height: 1.5;
             font-size: 16px;
+            &:focus {
+              outline: 1px $blue solid;
+            }
           }
         }
       }
