@@ -413,6 +413,58 @@
           }
         }
       }
+      &__status {
+        margin: 40px 0 0;
+        &--label {
+          font-weight: 600;
+          &--icon {
+            position: relative;
+            top: -1px;
+            margin: 0 4px 0 0;
+            color: #888;
+            font-size: 16px;
+            vertical-align: middle;
+          }
+          &--title {
+            font-size: 14px;
+            vertical-align: middle;
+          }
+        }
+        &__select {
+          margin: 8px 0 0;
+          position: relative;
+          background: #fff;
+          
+          &--icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            z-index: 2;
+            color: #888;
+            font-size: 22px;
+            pointer-events: none;
+            transform: translate(0, -50%);
+          }
+          &--form {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            &:focus {
+              outline: 1px $blue solid;
+            }
+          }
+        }
+      }
     }
   }
   .search-main {
