@@ -16,10 +16,12 @@ crumb :mypage do
   link "マイページ", users_path
   parent :root
 end
+
 crumb :likes do 
   link "いいね！一覧", likes_path
   parent :mypage
 end
+
 crumb :my_selling_products_users do 
   link "出品した商品 - 出品中", my_selling_products_users_path
   parent :mypage
@@ -27,6 +29,11 @@ end
 
 crumb :profile do
   link "プロフィール", edit_user_path
+  parent :mypage
+end
+
+crumb :creditcards_index do
+  link "プロフィール", creditcards_path
   parent :mypage
 end
 

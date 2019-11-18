@@ -1,16 +1,7 @@
 = render 'shared/main-header'
 %nav.bread-crumbs.l-container
-  %ul.container
-    %li
-      = link_to "" do
-        %span メルカリ
-      = fa_icon 'chevron-right'
-    %li
-      = link_to "" do
-        %span マイページ
-      = fa_icon 'chevron-right'
-    %li
-      %span.page_now 支払い方法
+- breadcrumb :creditcards_index, @product
+= render partial: "shared/bread_crumb"
 %main.mypage-body
   = render partial: 'shared/mypage_side'
   .mypage-main
