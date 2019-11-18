@@ -2,17 +2,17 @@ crumb :root do
   link "メルカリ", root_path
 end
 
-crumb :product_show do
-  link "#{@product}", product_path(@product)
+crumb :product_show do |product|
+  link product.name, product_path(product)
 end
 
-crumb :product_edit do
+crumb :product_edit do |product|
   link product.name, edit_product_path(product)
 end
 
 
 
-crumb :mypage do
+crumb :mypage do 
   link "マイページ", users_path
   parent :root
 end
