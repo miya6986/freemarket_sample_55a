@@ -80,6 +80,8 @@ class ProductsController < ApplicationController
 
   def search
     @products = Product.order('created_at DESC').includes(:images)
+    @search = Product.ransack(params[:p], search_key: :p)
+    @search_products_second = @search.result(distinct: true).page(params[:page]).per(8).includes(:images)
     # @parents = Category.where(ancestry: nil)
   end
     

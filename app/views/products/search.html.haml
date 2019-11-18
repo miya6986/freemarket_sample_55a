@@ -1,7 +1,7 @@
 = render 'shared/main-header'
 .search-container
   .search-side
-    = search_form_for @q, url: search_products_path, html: { method: :post } do |f|
+    = search_form_for @search, as: :p, url: search_products_path, html: { method: :post } do |f|
       .search-sort
         .form-group
           .select-wrap
