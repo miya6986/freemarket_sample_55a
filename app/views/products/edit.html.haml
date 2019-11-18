@@ -13,8 +13,8 @@
             %ul#previews
               - @product.images.each do |img|
                 = f.fields_for :image do |image|
-                  %li.image-preview.input
-                    %label.upload-label
+                  %li.image-preview
+                    %label.upload-label{style:"display: none;"}
                       .upload-label__text
                         ドラッグアンドドロップ
                         %br
@@ -22,6 +22,11 @@
                         .input-area
                           = image.file_field :name, value: img.name ,class: "hidden image_upload"
                           = image.hidden_field :id, value: img.id
+                    .image-preview__wapper
+                      = image_tag img.name.to_s, class:"preview"
+                    .image-preview_btn
+                      .image-preview_btn_edit 編集
+                      .image-preview_btn_delete 削除
       .form-container
         .form-container__name
           %label 商品名
