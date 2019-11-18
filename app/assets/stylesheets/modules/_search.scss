@@ -465,6 +465,37 @@
           }
         }
       }
+      &__submit {
+        display: flex;
+        height: 90px;
+        padding: 40px 0 0;
+        &__clear {
+          width: 45%;
+          background: #aaa;
+          border: 1px solid #aaa;
+          color: #fff;
+          display: block;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          cursor: pointer;
+          text-align: center;
+        }
+        &__complete {
+          margin-left:auto;
+          width: 45%;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          cursor: pointer;
+          text-align: center;
+        }
+        
+      }
     }
   }
   .search-main {

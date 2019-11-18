@@ -85,9 +85,9 @@
           .search-content__status__select
             %i.fas.fa-chevron-down.search-content__status__select--icon
             %select.search-content__status__select--form
-        
           .search-content__submit
-            = button_tag '完了' ,type: 'submit'
+            = button_tag 'クリア', type: 'submit', class: 'search-content__submit__clear'
+            = button_tag '完了' ,type: 'submit', class: 'search-content__submit__complete'
   .search-main
     .main-container
       - if params[:q]['name_cont'] == ""
