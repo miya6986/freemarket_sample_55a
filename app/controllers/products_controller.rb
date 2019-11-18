@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new]
   def index
     @products = Product.order('created_at DESC').includes(:images)
   end
@@ -47,10 +46,12 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    # @product.images.cache! unless @product.images.blank?
     @parents = Category.where(ancestry: nil)
   end
 
   def update
+    @product = Product.find(params[:id])
     @parents = Category.where(ancestry: nil)
     if @product.update(product_params)
       redirect_to users_path, notice: "商品を更新しました"
@@ -84,9 +85,7 @@ class ProductsController < ApplicationController
   end
     
   private
-  def set_product
-    @product = Product.find(params[:id])
-  end
+
 
   def product_params
     params.require(:product).permit(
@@ -99,7 +98,7 @@ class ProductsController < ApplicationController
       :prefecture_id,
       :shipping_days,
       :price,
-      images_attributes: [:name],
+      images_attributes: [:name, :id],
       brand_attributes: [:name],
       category_ids: []
     )
