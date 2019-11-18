@@ -4,13 +4,13 @@ end
 
 crumb :product_show do |product|
   link product.name, product_path(product)
+  parent :root
 end
 
 crumb :product_edit do |product|
   link product.name, edit_product_path(product)
+  parent :root
 end
-
-
 
 crumb :mypage do 
   link "マイページ", users_path
