@@ -37,39 +37,31 @@ class RegistrationsController < ApplicationController
   def login
   end
 
-# User.newとそれに紐つく住所の設定、SnsCredentialの設定をした後save
-def create
-  @user = User.new(
-    nickname: session[:nickname],
-    email: session[:email],
-    password: session[:password],
-    password_confirmation: session[:password_confirmation],
-    firstname: session[:firstname],
-    lastname:session[:lastname],
-    firstname_kana: session[:firstname_kana],
-    lastname_kana: session[:lastname_kana],
-    birth_year: session[:birth_year],
-    birth_month: session[:birth_month],
-    birth_day: session[:birth_day],
-    phone_number: session[:phone_number]
-  )
-  @user.build_address(user_params[:address_attributes])
+  def create
+    @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      firstname: session[:firstname],
+      lastname:session[:lastname],
+      firstname_kana: session[:firstname_kana],
+      lastname_kana: session[:lastname_kana],
+      birth_year: session[:birth_year],
+      birth_month: session[:birth_month],
+      birth_day: session[:birth_day],
+      phone_number: session[:phone_number]
+    )
+    @user.build_address(user_params[:address_attributes])
 
 
-  if @user.save
-    session[:id] = @user.id
-    sign_in(@user)
-    redirect_to step5_registrations_path
-  else
-    redirect_to step2_registrations_path
-  end
-end
-
-  def validates_step3
-    session[:phone_number] = user_params[:phone_number]
-    @user = user_new()
-
-    render '/registrations/step3' unless @user.valid?
+    if @user.save(context: :registrations)
+      session[:id] = @user.id
+      sign_in(@user)
+      redirect_to step5_registrations_path
+    else
+      redirect_to step2_registrations_path
+    end
   end
 
   private
@@ -144,8 +136,8 @@ end
       birth_year: session[:birth_year],
       birth_month: session[:birth_month],
       birth_day: session[:birth_day],
-      phone_number: "09053606853",
     )
+    binding.pry
     render '/registrations/step2' unless @user.valid?
   end
 
@@ -166,6 +158,6 @@ end
       birth_day: session[:birth_day],
       phone_number: session[:phone_number],
     )
-    render '/registrations/step3' unless @user.valid?
+    render '/registrations/step3' unless @user.valid?(:registrations)
   end
 end
