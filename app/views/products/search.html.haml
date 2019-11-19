@@ -68,7 +68,7 @@
               商品の状態
           .search-content__condition__select
             %i.fas.fa-chevron-down.search-content__condition__select--icon
-            %select.search-content__condition__select--form
+            = f.select :condition_eq, [["---", ""], ["新品、未使用"], ["未使用に近い"], ["目立った傷や汚れなし"], ["やや傷や汚れあり"], ["傷や汚れあり"], ["全体的に状態が悪い"]], {}, {class: "search-content__condition__select--form"}
         .search-content__postage
           %label.search-content__postage--label
             %i.fas.fa-truck.search-content__postage--label--icon
