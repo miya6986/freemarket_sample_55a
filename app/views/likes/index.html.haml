@@ -1,0 +1,13 @@
+= render partial: "shared/main-header"
+- breadcrumb :likes
+= render partial: "shared/bread_crumb"
+%main.mypage-body
+  = render partial: 'shared/mypage_side'
+  .mypage-main
+    %h2.header_title
+      いいね！一覧
+    .likes-lists
+      %ul.show
+        = render 'shared/mypage_product_list'
+= render 'shared/sell-button'
+= render 'shared/main-footer'

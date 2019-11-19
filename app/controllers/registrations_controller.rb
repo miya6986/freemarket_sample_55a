@@ -53,26 +53,13 @@ class RegistrationsController < ApplicationController
       @user.sns_credentials.build(snscredentials)
     end
 
-    if @user.save
+    if @user.save(context: :registrations)
       session[:id] = @user.id
+      sign_in(@user)
       redirect_to step5_registrations_path
     else
       redirect_to step2_registrations_path
     end
-  end
-
-  def validates_step2
-    session_assignment(user_params)
-    @user = validates_step2_user()
-    
-    render '/registrations/step2' unless @user.valid?
-  end
-
-  def validates_step3
-    session[:phone_number] = user_params[:phone_number]
-    @user = user_new()
-
-    render '/registrations/step3' unless @user.valid?
   end
 
   private
@@ -122,24 +109,20 @@ class RegistrationsController < ApplicationController
     session[:birth_day] = user_params[:birth_day]
   end
 
-  def validates_step2_user
-    if session[:password_token].present?
-      user = User.new(
-      nickname: session[:nickname],
-      email: session[:email],
-      password: session[:password_token],
-      password_confirmation: session[:password_token],
-      firstname: session[:firstname],
-      lastname:session[:lastname],
-      firstname_kana: session[:firstname_kana],
-      lastname_kana: session[:lastname_kana],
-      birth_year: session[:birth_year],
-      birth_month: session[:birth_month],
-      birth_day: session[:birth_day],
-      phone_number: "09053606853",
-      )
-    else
-      user = User.new(
+  def validates_step2
+    session[:nickname] = user_params[:nickname]
+    session[:email] = user_params[:email]
+    session[:password] = user_params[:password]
+    session[:password_confirmation] = user_params[:password_confirmation]
+    session[:firstname] = user_params[:firstname]
+    session[:lastname] = user_params[:lastname]
+    session[:firstname_kana] = user_params[:firstname_kana]
+    session[:lastname_kana] = user_params[:lastname_kana]
+    session[:birth_year] = user_params[:birth_year]
+    session[:birth_month] = user_params[:birth_month]
+    session[:birth_day] = user_params[:birth_day]
+    
+    @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
       password: session[:password],
@@ -151,30 +134,15 @@ class RegistrationsController < ApplicationController
       birth_year: session[:birth_year],
       birth_month: session[:birth_month],
       birth_day: session[:birth_day],
-      phone_number: "09053606853",
-      )
-    end
-    return user
+    )
+    
+    render '/registrations/step2' unless @user.valid?
   end
 
-  def user_new
-    if session[:password_token].present?
-      user = User.new(
-      nickname: session[:nickname],
-      email: session[:email],
-      password: session[:password_token],
-      password_confirmation: session[:password_token],
-      firstname: session[:firstname],
-      lastname:session[:lastname],
-      firstname_kana: session[:firstname_kana],
-      lastname_kana: session[:lastname_kana],
-      birth_year: session[:birth_year],
-      birth_month: session[:birth_month],
-      birth_day: session[:birth_day],
-      phone_number: session[:phone_number],
-      )
-    else
-      user = User.new(
+  def validates_step3
+    session[:phone_number] = user_params[:phone_number]
+
+    @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
       password: session[:password],
@@ -187,9 +155,8 @@ class RegistrationsController < ApplicationController
       birth_month: session[:birth_month],
       birth_day: session[:birth_day],
       phone_number: session[:phone_number],
-      )
-    end
-    return user
+    )
+    render '/registrations/step3' unless @user.valid?(:registrations)
   end
 
   def set_cache_buster

@@ -1,16 +1,7 @@
 = render 'shared/main-header'
 %nav.bread-crumbs.l-container
-  %ul.container
-    %li
-      = link_to "" do
-        %span メルカリ
-      = fa_icon 'chevron-right'
-    %li
-      = link_to "" do
-        %span マイページ
-      = fa_icon 'chevron-right'
-    %li
-      %span.page_now 支払い方法
+- breadcrumb :creditcards_index
+= render partial: "shared/bread_crumb"
 %main.mypage-body
   = render partial: 'shared/mypage_side'
   .mypage-main
@@ -18,15 +9,22 @@
       支払い方法
     .single-container
       %section.creditcard_section
-        %div
+        .container
           %h3 クレジットカード一覧
-        .creditcard-info
-          = image_tag 'master-card.svg',width:'34',height:'20', alt:'master-card'
-          %p.creditcard-info__number
-            ************1234
-          %p.creditcard-info__period 
-            09 / 25
-          = button_to "削除する", creditcard_path(1), method: :delete, class:"creditcard-info__delete"
+        - if @card.present?
+          .container
+            .creditcard-info
+              = image_tag @card_image,width:'34',height:'20', alt:'master-card'
+              %p.creditcard-info__number
+                = "**** **** **** " + @card_info.last4
+              %p.creditcard-info__period 
+              = @exp_month + " / " + @exp_year
+              = button_to "削除する", creditcard_path(@card), method: :delete, class:"creditcard-info__delete"
+        - else
+          .new-card
+            = link_to new_creditcard_path, class:"new-card-btn" do
+              %i.far.fa-credit-card 
+              クレジットカードを追加する
             
       .payment-explain
         = fa_icon 'chevron-right', class:"arrows"
