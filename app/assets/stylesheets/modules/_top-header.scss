@@ -134,12 +134,12 @@
                 line-height: 1;
                 font-size: 14px;
                 padding: 8px 16px;
-                &:hover {
-                  background-color: #eee;
-                }
               }
               &__item {
                 width: 224px;
+                &:hover {
+                  background-color: #eee;
+                }
                 .grandchild {
                   @extend .child;
                   width: 320px;
