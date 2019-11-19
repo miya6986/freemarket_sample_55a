@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   has_many :products
   has_many :bought_products, foreign_key: "buyer_id", class_name: "Product"
@@ -28,6 +29,5 @@ class User < ApplicationRecord
   validates :birth_day,         presence: true
   
   # step3入力項目
-  validates :phone_number,      presence: true, uniqueness: true, format: { with: VALID_PHONE_REGEX } 
-
+  validates :phone_number,      presence: true, on: :registrations, uniqueness: true, format: { with: VALID_PHONE_REGEX } 
 end

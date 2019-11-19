@@ -101,5 +101,6 @@
           %span コメントする
 
 .product-bread-crumb
-  = render 'shared/bread_crumb', current: 'THE SHOP TK ボディバッグ ショルダーバッグ'
+  - breadcrumb :product_show, @product
+  = render partial: "shared/bread_crumb"
   = render 'shared/main-footer'

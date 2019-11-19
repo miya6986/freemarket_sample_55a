@@ -1,8 +1,10 @@
 Rails.application.routes.draw do 
-  devise_for :users
+  devise_for :users,
+             controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
 
   root 'products#index'
-  
+  get 'auth/failure', to: 'omniauth_callbacks#failure'
+
   resources :users, only: [:index,:edit] do
     collection do
       get :user_identification
