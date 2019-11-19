@@ -5,11 +5,7 @@ class RegistrationsController < ApplicationController
   before_action :set_cache_buster
 
   def step1
-    session.delete(:nickname)
-    session.delete(:email)
-    session.delete(:password_token)
-    session.delete(:uid)
-    session.delete(:provider)
+    session.clear
   end 
 
   def step2
@@ -42,7 +38,7 @@ class RegistrationsController < ApplicationController
 
   def login
   end
-# User.newとそれに紐つく住所の設定、SnsCredentialの設定をした後save
+
   def create
     @user = user_new()
     snscredentials = [
