@@ -102,7 +102,6 @@ class ProductsController < ApplicationController
 
   def item
     @category = []
-    @product = Product.find(params[:id])
     @category = @product.categories.pluck(:name)
   end
     
