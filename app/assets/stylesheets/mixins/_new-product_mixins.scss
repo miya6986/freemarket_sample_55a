@@ -82,16 +82,14 @@
 @mixin previews{
   float: left;
   margin: 16px 0 0;
-  width: 620px;
+  width: 620px; 
+  font-size: 0;
   .image-preview{
     width: 114px;
     min-height: 162px;
     margin: 0 10px 0 0; 
     overflow: hidden;
     display: inline-block;    
-    &:first-child{
-      margin-right: 5px;
-    }
     &:nth-child(5n){
       margin-right: none;
     }
@@ -139,6 +137,7 @@
   .image-preview_btn{
     width: 100%;
     height: 44px;
+    font-size:14px;
     div{
       background-color: transparent;
       border: none;
