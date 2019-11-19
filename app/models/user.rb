@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :sold_products, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Product"
   has_many :sns_credentials, dependent: :destroy
   has_many :creditcards , dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_products, through: :likes, source: :product
   has_one :address
     accepts_nested_attributes_for :address
 
