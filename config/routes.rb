@@ -13,11 +13,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :creditcards, only: [:index, :new, :create, :destroy] do
-    collection do
-      get 'buy'
-    end
-  end
+  patch 'users/:id/edit', to: 'users#update'
+  
+  resources :creditcards, only: [:index, :new, :create, :destroy]
 
   resources :products do
 
@@ -49,4 +47,5 @@ Rails.application.routes.draw do
     end
   end
 end
+
 
