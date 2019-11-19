@@ -12,6 +12,10 @@
         .buy-inner
           %h3.buy-info__item__image
             = image_tag @image = @product.images.first.name.to_s
+            - unless @product.buyer.blank?
+              .soldout
+                .soldout_text 
+                  %p SOLD
           %p.buy-info__item__name
             = @product.name
           %form.buy-info__item__form
@@ -30,8 +34,12 @@
                 .buy-price__cell
                   %span 
                     = "¥ #{@product.price.to_s(:delimited)}"
-            %button.buy-info__item__form__btn-red
-              購入する
+            - if @product.buyer.blank? || current_user.creditcards.blank?
+              = link_to buy_creditcards_path(product_id: @product.id), class:"buy-info__item__form__btn red" do
+                購入する
+            - else
+              .buy-info__item__form__btn.gray
+                購入する
 
       %section.buy-info__content.buy-info__user
         .buy-inner
@@ -59,6 +67,8 @@
             .buy-info__user--fix 
               = link_to '変更する', creditcards_path
               = fa_icon 'chevron-right'
+          - else
+            = link_to '追加する', creditcards_path
 
   %footer.deal-footer
     %nav
