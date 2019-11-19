@@ -48,7 +48,6 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    # @product.images.cache! unless @product.images.blank?
     @parents = Category.where(ancestry: nil)
   end
 
