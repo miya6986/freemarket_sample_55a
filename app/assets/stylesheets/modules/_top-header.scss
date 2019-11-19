@@ -87,6 +87,35 @@
         &__item:hover {
           color: $blue;
         }
+        .parent {
+          position: absolute;
+          // top: 44px;
+          left: -34px;
+          // width: auto;
+          z-index: 1000;
+          background: $white;
+          &__item {
+            h3 {
+              font-weight: 400;
+              font-size: 14px;
+              a {
+                color: $black;
+                padding: 0 10px;
+                line-height: 44px;
+                &:hover {
+                  opacity: 1;
+                  text-decoration: none;
+                }
+              }  
+            }        
+            &:hover {
+              background-color: $red;
+              h3, a {
+                color: $white;
+              }
+            }
+          }
+        }
       }
       .menu-right {
         display: flex;
