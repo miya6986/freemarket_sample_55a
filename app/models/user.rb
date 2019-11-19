@@ -30,4 +30,8 @@ class User < ApplicationRecord
   
   # step3入力項目
   validates :phone_number,      presence: true, on: :registrations, uniqueness: true, format: { with: VALID_PHONE_REGEX } 
+
+  def already_liked?(product)
+    self.likes.exists?(product_id: product.id)
+  end
 end
