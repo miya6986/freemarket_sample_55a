@@ -41,14 +41,17 @@ class RegistrationsController < ApplicationController
 
   def create
     @user = user_new()
-    snscredentials = [
-      uid: session[:uid],
-      provider: session[:provider],
-      user_id: @user.id
-    ]
 
     @user.build_address(user_params[:address_attributes])
-    @user.sns_credentials.build(snscredentials)
+    
+    if session[:uid] && session[:provider]
+      snscredentials = [
+        uid: session[:uid],
+        provider: session[:provider],
+        user_id: @user.id
+      ]
+      @user.sns_credentials.build(snscredentials)
+    end
 
     if @user.save
       session[:id] = @user.id
