@@ -4,10 +4,10 @@ $(function(){
     errorElement: 'li',
     wrapper: 'ul',
     rules: {
-      name: {
+      "product[name]": {
         required: true
       },
-      description: {
+      "product[description]": {
         required: true
       },
       "product[category_ids][]":{
@@ -16,22 +16,25 @@ $(function(){
       "product[size]": {
         required: true
       },
-      condition: {
+      "product[condition]": {
         required: true
       },
-      postage: {
+      "product[condition]": {
         required: true
       },
-      shipping_method: {
+      "product[postage]": {
         required: true
       },
-      prefecture_id: {
+      "product[shipping_method]": {
         required: true
       },
-      shipping_days: {
+      "product[prefecture_id]": {
         required: true
       },
-      price: {
+      "product[shipping_days]": {
+        required: true
+      },
+      "product[price]": {
         required: true,
         digits: true,
         min: 300,
@@ -42,10 +45,10 @@ $(function(){
       },
     },
     messages: {
-      name: {
+      "product[name]": {
         required: "入力してください"
       },
-      description: {
+      "product[description]": {
         required: "入力してください"
       },
       "product[category_ids][]":{
@@ -54,25 +57,28 @@ $(function(){
       "product[size]": {
         required: "選択してください"
       },
-      condition: {
+      "product[condition]": {
         required: "選択してください"
       },
-      postage: {
+      "product[postage]": {
         required: "選択してください"
       },
-      shipping_method: {
+      "product[shipping_method]": {
         required: "選択してください"
       },
-      prefecture_id: {
+      "product[shipping_days]": {
         required: "選択してください"
       },
-      shipping_days: {
+      "product[prefecture_id]": {
         required: "選択してください"
       },
-      shipping_days: {
+      "product[shipping_days]": {
         required: "選択してください"
       },
-      price: {
+      "product[price]": {
+        required: "選択してください"
+      },
+      "product[price]": {
         required: "300以上9999999以下で入力してください",
         digits: "300以上9999999以下で入力してください",
         min: "300以上9999999以下で入力してください",
@@ -86,7 +92,7 @@ $(function(){
     //エラーメッセージの表示位置を指定（ビュー崩れ防止のため）
     errorPlacement: function(error, element) {
       var hasError = element.attr("name");
-      if(hasError == "price")
+      if(hasError == "product[price]")
       {
         error.insertAfter(".form-price__form-box__price");	
       } 
