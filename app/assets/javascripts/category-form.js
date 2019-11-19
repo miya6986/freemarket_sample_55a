@@ -206,6 +206,7 @@ $(document).on('turbolinks:load', function() {
         })
       } else {
         //子カテゴリーが初期値（---)の場合、孫カテゴリー以下は非表示にする
+        $('#child-category').remove(); 
         $('#grandchild-category').remove(); 
         $('#size').remove();
         $('#brand').remove();

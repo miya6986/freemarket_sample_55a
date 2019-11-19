@@ -1,16 +1,7 @@
 = render 'shared/main-header'
 %nav.bread-crumbs.l-container
-  %ul.container
-    %li
-      = link_to "" do
-        %span メルカリ
-      = fa_icon 'chevron-right'
-    %li
-      = link_to "" do
-        %span マイページ
-      = fa_icon 'chevron-right'
-    %li
-      %span.page_now プロフィール
+- breadcrumb :profile 
+= render partial: "shared/bread_crumb"
 %main.mypage-body
   = render partial: 'shared/mypage_side'
   .mypage-main

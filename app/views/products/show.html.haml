@@ -3,7 +3,12 @@
   %h1.head 
     = @product.name
   .product.clearfix
-    = image_tag @image, alt: 'item-show-sample',class: 'product__photo'
+    .product__photo
+      = image_tag @image, alt: 'item-show-sample',class: 'product__photo__img'
+      - unless @product.buyer.blank?
+        .soldout
+          .soldout_text 
+            %p SOLD
     %table.product__table
       %tbody
         %tr
@@ -24,17 +29,17 @@
           %th カテゴリー
           %td.category
             .category__name
-              = link_to 'メンズ', ""
+              = link_to "#{@category[0]}", ""
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to 'バッグ', ""
+              = link_to "#{@category[1]}", ""
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to 'ボディーバッグ', ""
+              = link_to "#{@category[2]}", ""
         %tr
           %th ブランド
           %td.brand
-            = link_to @product.brand.name, "",class: 'brand__name'
+            = link_to @product.brand.name, "",class: 'brand__name' if @product.brand.present?
         %tr
           %th 商品の状態
           %td 
@@ -50,22 +55,26 @@
         %tr
           %th 配送元地域 
           %td.prefecture
-            = link_to '長崎県', "",class: 'prefecture__name'
+            = link_to @product.prefecture.name, "",class: 'prefecture__name'
         %tr
           %th 発送日の目安	
           %td 
             = @product.shipping_days
   .product__price-box 
     %span.product__price-box__price
-      ¥ 
-      = @product.price.to_s(:delimited)
+      = "¥ #{@product.price.to_s(:delimited)}"
     %span.product__price-box__tax
       (税込)
     %span.product__price-box__shipping-fee
       送料込み
-
+  
   .product__buy-btn
-    = link_to "購入画面に進む",product_path, method: :delete ,class:"product__buy-btn"
+    - if @product.buyer.blank?
+      = link_to "購入画面に進む", buy_product_path, class:"product__buy-btn red"
+    - else
+      .product__buy-btn.gray
+        購入画面に進む
+
 
   .product__description
     %p 
@@ -92,5 +101,6 @@
           %span コメントする
 
 .product-bread-crumb
-  = render 'shared/bread_crumb', current: 'THE SHOP TK ボディバッグ ショルダーバッグ'
+  - breadcrumb :product_show, @product
+  = render partial: "shared/bread_crumb"
   = render 'shared/main-footer'
