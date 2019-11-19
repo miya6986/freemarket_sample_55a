@@ -2,7 +2,7 @@ class RegistrationsController < ApplicationController
   
   before_action :validates_step2, only: :step3
   before_action :validates_step3, only: :step4
-  before_action :set_cache_buster
+  before_action :set_cache_buster, only: :step1
 
   def step1
     session.clear
