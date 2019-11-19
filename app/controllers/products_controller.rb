@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :product_seller?, only: :item
+
   def index
     @products = Product.order('created_at DESC').includes(:images)
   end
@@ -87,10 +89,14 @@ class ProductsController < ApplicationController
     
   def destroy
     @product = Product.find(params[:id])
-    if @product.destroy
-      redirect_to my_selling_products_users_path, notice: "商品を削除しました"
+    if @product.seller == current_user
+      if @product.destroy
+        redirect_to my_selling_products_users_path, notice: "商品を削除しました" and return
+      else
+        render :item, collection: @product and return
+      end
     else
-      render :item, collection: @product
+      redirect_to root_path and return
     end
   end
 
@@ -98,7 +104,6 @@ class ProductsController < ApplicationController
     @category = []
     @product = Product.find(params[:id])
     @category = @product.categories.pluck(:name)
-    @seller = @product.seller
   end
     
   private
@@ -118,6 +123,11 @@ class ProductsController < ApplicationController
       category_ids: []
     )
     .merge(seller_id: current_user.id)
+  end
+
+  def product_seller?
+    @product = Product.find(params[:id])
+    redirect_to root_path unless @product.seller == current_user 
   end
   
 end

@@ -11,7 +11,7 @@
         %tr
           %th 出品者
           %td 
-            = link_to "#{@seller.nickname}", "#", class: 'user-name'
+            = link_to "#{@product.seller.nickname}", "#", class: 'user-name'
         %tr
           %th カテゴリー
           %td.category
