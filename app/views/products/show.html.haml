@@ -81,7 +81,7 @@
     = simple_format(@product.description)
   .option.clearfix
     .option__left
-      = button_tag likes_path(product_id: @product.id), method: :post, class:"option__left__like" do
+      = button_to likes_path(product_id: @product.id), method: :post, class:"option__left__like" do
         = fa_icon 'heart'
         %span いいね
       .option__left__report
