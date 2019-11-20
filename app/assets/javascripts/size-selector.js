@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function() {
     function appendSizeBox(insertHTML){
       var sizeSelectHtml = '';
       sizeSelectHtml = `<div id="size">
-                          <label>サイズ</label>
+                          <label class="label">サイズ</label>
                           <span>必須</span>
                           <div class='form-select'>
                           <select class= 'select-default' name="product[size]">
