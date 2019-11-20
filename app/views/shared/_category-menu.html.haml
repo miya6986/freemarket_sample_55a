@@ -1,7 +1,7 @@
 .menu-left__item
   = fa_icon 'list lg', class:'menu-left__item--icon'
   = link_to "カテゴリーから探す", categories_path
-  %ul.parent#category
+  %ul.parent
     %li.parent__item
       %h3 
         = link_to "レディース"
@@ -9,8 +9,6 @@
           %li.child__item
             = link_to "トップス"
             %ul.grandchild
-              %li.grandchild__item
-                = link_to "すべて"
               %li.grandchild__item
                 = link_to "Tシャツ/カットソー(半袖/袖なし)"
               %li.grandchild__item
