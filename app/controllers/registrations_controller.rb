@@ -120,7 +120,7 @@ class RegistrationsController < ApplicationController
 
   def new_user
     if session[:phone_number].present?
-      if session[:uid] && session[:provider]
+      if session[:password_token].present?
         user = User.new(
           nickname: session[:nickname],
           email: session[:email],
@@ -152,7 +152,7 @@ class RegistrationsController < ApplicationController
         )
       end
     else
-      if session[:uid] && session[:provider]
+      if session[:password_token].present?
         user = User.new(
           nickname: session[:nickname],
           email: session[:email],
