@@ -5,15 +5,16 @@ Rails.application.routes.draw do
   root 'products#index'
   get 'auth/failure', to: 'omniauth_callbacks#failure'
 
-  resources :users, only: [:index,:edit] do
+  resources :users, only: [:index, :edit, :update] do
     collection do
       get :user_identification
       get :my_selling_products
       get :logout_page
     end
+    member do
+      patch :edit
+    end
   end
-
-  patch 'users/:id/edit', to: 'users#update'
   
   resources :creditcards, only: [:index, :new, :create, :destroy]
 

@@ -6,7 +6,7 @@
   = render partial: 'shared/mypage_side'
   .mypage-main
     %form(action="")
-    = form_for @user, url: edit_user_path, method: :patch do |f|
+    = form_for @user, url: user_path, method: :patch do |f|
       %section.mypage-main__header
         %h2.header_title
           プロフィール
@@ -14,7 +14,7 @@
           = image_tag "member_photo_noimage_thumb.png", class:"mystore_icon"
           = f.text_field :nickname, placeholder: "", class:"input"
       .profile
-        = f.text_area :profile, class:"profile_textarea", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+        = f.text_area :profile, class: "profile_textarea", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
         = f.submit "変更する", class: "profile_button"
 = render 'shared/sell-button'
 = render 'shared/main-footer'
