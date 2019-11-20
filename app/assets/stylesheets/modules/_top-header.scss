@@ -151,6 +151,13 @@
             }
           }
         }
+        .brand {
+          @extend .parent;
+          &__item {
+            @extend .parent__item;
+            width: 224px;
+          }
+        }
       }
       .menu-right {
         display: flex;
