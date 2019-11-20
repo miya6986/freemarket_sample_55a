@@ -130,7 +130,7 @@
               top: 0px;
               width: 224px;
               a {
-                color: black !important;
+                color: $black !important;
                 line-height: 1;
                 font-size: 14px;
                 padding: 8px 16px;
@@ -138,11 +138,14 @@
               &__item {
                 width: 224px;
                 &:hover {
-                  background-color: #eee;
+                  background-color: $border-gray
                 }
                 .grandchild {
                   @extend .child;
                   width: 320px;
+                  &__item:hover {
+                    background-color: $border-gray
+                  }
                 }
               }
             }
