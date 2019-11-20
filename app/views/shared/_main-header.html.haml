@@ -11,9 +11,7 @@
     .header-lower
       .menu-left
         = render 'shared/category-menu'
-        .menu-left__item
-          = fa_icon 'tag lg',class:'menu-left__item--icon'
-          ブランドから探す
+        = render 'shared/brand-menu'
       %ul.menu-right
         - if  user_signed_in?
           %li.menu-right__item.likes
