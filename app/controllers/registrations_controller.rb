@@ -108,14 +108,14 @@ class RegistrationsController < ApplicationController
 
   def validates_step2
     session_assignment(user_params)
-    user = new_user()
-    render '/registrations/step2' unless user.valid?
+    @user = new_user()
+    render '/registrations/step2' unless @user.valid?
   end
 
   def validates_step3
     session[:phone_number] = user_params[:phone_number]
-    user = new_user()
-    render '/registrations/step3' unless user.valid?(:registrations)
+    @user = new_user()
+    render '/registrations/step3' unless @user.valid?(:registrations)
   end
 
   def new_user
