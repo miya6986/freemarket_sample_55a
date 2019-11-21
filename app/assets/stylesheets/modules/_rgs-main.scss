@@ -264,6 +264,20 @@
           }
         }
       }
+      .btn-google{
+        background-color:#FFFFFF;
+        color: black;
+        background: #fff image-url('google.svg') 
+        no-repeat 3px top;
+        border: #979797 solid 1px;
+        border-radius: 4px;
+        line-height: 48px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 16px;
+        position: relative;
+        
+      }
       .login-form{
       padding: 24px  64px 32px ;
       background-color:#FFFFFF;
