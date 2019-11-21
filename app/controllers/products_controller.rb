@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:new, :get_category_children, :get_category_grandchildren, :get_size]
+  before_action :set_product, except: [:index, :new, :get_category_children, :get_category_grandchildren, :get_size]
   before_action :product_seller?, only: :item
 
   def index
