@@ -19,6 +19,7 @@
       %ul.menu-right
         - if  user_signed_in?
           %li.menu-right__item.likes
+            = link_to "", likes_path, class:"link"
             .icon
               = fa_icon 'heart lg'
             いいね！一覧
