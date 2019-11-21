@@ -55,11 +55,11 @@
               価格
           .search-content__price__select
             %i.fas.fa-chevron-down.search-content__price__select--icon
-            %select.search-content__price__select--form
+            = f.select( :price, ["300~1000", "1000~5000", "5000~10000", "10000~30000", "30000~50000", "50000~"], {prompt: "選択して下さい"}, { class: "search-content__price__select--form"} )
           .search-content__price__details
-            %input.search-content__price__details__min
+            = f.text_field :price_gteq, placeholder: "¥ Min", class: "search-content__price__details__min"
             %span ~
-            %input.search-content__price__details__max
+            = f.text_field :price_lteq, placeholder: "¥ Max", class: "search-content__price__details__max"
         .search-content__condition
           %label.search-content__condition--label
             %i.fas.fa-star.search-content__condition--label--icon
