@@ -39,15 +39,15 @@
       .form-set
         %label.city__label 市区町村
         %span.optional 任意
-        = f.text_field :city, class: "city", placeholder: "例）横浜市緑区"
+        = f.text_field :city_name, class: "city", placeholder: "例）横浜市緑区"
       .form-set
         %label.address1__label 番地
         %span.optional 任意
-        = f.text_field :address1, class: "address-1", placeholder: "例）青山1-1-1"
+        = f.text_field :address_number, class: "address-1", placeholder: "例）青山1-1-1"
       .form-set
         %label.address2__label 建物名
         %span.optional 任意
-        = f.text_field :address2, class: "address-2", placeholder: "例）柳ビル103"
+        = f.text_field :building_name, class: "address-2", placeholder: "例）柳ビル103"
       = f.submit "登録する", class: "submit-identification"
       .explanation-under
         .explanation
