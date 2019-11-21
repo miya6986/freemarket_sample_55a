@@ -93,18 +93,6 @@ class RegistrationsController < ApplicationController
   end
 
   def validates_step2
-    session_assignment(user_params)
-    @user = new_user()
-    render '/registrations/step2' unless @user.valid?
-  end
-
-  def validates_step3
-    session[:phone_number] = user_params[:phone_number]
-    @user = new_user()
-    render '/registrations/step3' unless @user.valid?(:registrations)
-  end
-  
-  def session_assignment(user_params)
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password] 
@@ -116,6 +104,16 @@ class RegistrationsController < ApplicationController
     session[:birth_year] = user_params[:birth_year]
     session[:birth_month] = user_params[:birth_month]
     session[:birth_day] = user_params[:birth_day]
+
+    @user = new_user()
+
+    render '/registrations/step2' unless @user.valid?
+  end
+
+  def validates_step3
+    session[:phone_number] = user_params[:phone_number]
+    @user = new_user()
+    render '/registrations/step3' unless @user.valid?(:registrations)
   end
 
   def new_user
