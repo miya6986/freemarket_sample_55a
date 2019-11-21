@@ -51,9 +51,16 @@ class ProductsController < ApplicationController
     @parent = @product.categories[0]
     @child = @product.categories[1]
     @grandchild = @product.categories[2]
+    @size = @product.size if @product.size.present?
     @parents = Category.where(ancestry: nil)
     @children = Category.where(ancestry: @child.ancestry)
     @grandchildren = Category.where(ancestry: @grandchild.ancestry)
+    if @product.size.present?
+      @size = @product.size
+      # size_id = CategorySize.find(category_id: @grandchild.parent_id).size_id
+      # @sizes = Size.where(ancestry: size_id)
+    end
+    
 
   end
 

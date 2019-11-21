@@ -52,6 +52,13 @@
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
               = f.collection_select :category_ids, @grandchildren, :id, :name,{prompt: "---"}, name: 'product[category_ids][]', class: "select-default", id: "parent-category"
+            - if @product.size.present?
+              #size
+                %label サイズ
+                %span 必須
+                .form-select
+                  = fa_icon 'angle-down', class: 'icon-angle-down'
+                  -# = f.collection_select :size_ids, @sizes, :id, :name,{prompt: "---"}, name: 'product[size]', class: "select-default", id: "parent-category"
           .form-details__form-box__brand 
             = f.fields_for :brand, {} do |brand|
               %label ブランド
