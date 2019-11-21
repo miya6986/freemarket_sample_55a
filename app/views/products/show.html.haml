@@ -81,7 +81,8 @@
     .option__left
       = button_to likes_path(product_id: @product.id), method: :post, class:"option__left__like" do
         = fa_icon 'heart'
-        %span いいね
+        %span 
+          = "いいね！#{@product.likes.count}"
     .option__left
       .option__left__report
         = fa_icon 'flag'
