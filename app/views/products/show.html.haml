@@ -81,8 +81,8 @@
     .option__left
       - if current_user.already_liked?(@product) 
         = button_to like_path(product_id: @product.id), method: :delete, class:"option__left__like" do
-          = fa_icon 'heart'
-          %span 
+          = fa_icon 'heart', class:"active"
+          %span
             = "いいね！#{@product.likes.count}"
       - else
         = button_to likes_path(product_id: @product.id), method: :post, class:"option__left__like" do

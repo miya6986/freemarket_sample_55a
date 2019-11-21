@@ -214,6 +214,10 @@
         cursor: pointer;
         i {
           color: $light-gray;
+          &.active{
+            color: $red;
+            font-weight: 900;
+          }
         }
       }
       &__report {
