@@ -11,7 +11,7 @@
       %section.buy-info__content.buy-info__item
         .buy-inner
           %h3.buy-info__item__image
-            = image_tag @image = @product.images.first.name.to_s
+            = image_tag @product.images.first.name.to_s
             - unless @product.buyer.blank?
               .soldout
                 .soldout_text 
