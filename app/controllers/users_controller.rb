@@ -9,11 +9,23 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
-    redirect_to edit_user_path
+    if request.referer&.include?("users/identification")
+      if current_user.update(user_params)
+        redirect_to identification_users_path
+      else
+        render "identification"
+      end
+    else
+      if current_user.update(edit_params)
+        redirect_to edit_user_path
+      else
+        render "edit"
+      end
+    end
   end
   
-  def user_identification
+  def identification
+    @user = current_user
   end
 
   def my_selling_products
@@ -25,7 +37,21 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:nickname, :profile)
+    params.require(:user).permit(
+      :prefecture_id,
+      :postalcode,
+      :city_name,
+      :address_number,
+      :building_name,
+      :phone_number,
+    )
+  end
+
+  def edit_params
+    params.require(:user).permit(
+      :nickname,
+      :profile,
+    )
   end
 end
 
