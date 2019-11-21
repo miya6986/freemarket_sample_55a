@@ -92,6 +92,18 @@ class RegistrationsController < ApplicationController
     )
   end
 
+  def validates_step2
+    session_assignment(user_params)
+    @user = new_user()
+    render '/registrations/step2' unless @user.valid?
+  end
+
+  def validates_step3
+    session[:phone_number] = user_params[:phone_number]
+    @user = new_user()
+    render '/registrations/step3' unless @user.valid?(:registrations)
+  end
+  
   def session_assignment(user_params)
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
@@ -106,81 +118,37 @@ class RegistrationsController < ApplicationController
     session[:birth_day] = user_params[:birth_day]
   end
 
-  def validates_step2
-    session_assignment(user_params)
-    @user = new_user()
-    render '/registrations/step2' unless @user.valid?
-  end
-
-  def validates_step3
-    session[:phone_number] = user_params[:phone_number]
-    @user = new_user()
-    render '/registrations/step3' unless @user.valid?(:registrations)
-  end
-
   def new_user
-    if session[:phone_number].present?
-      if session[:password_token].present?
-        user = User.new(
-          nickname: session[:nickname],
-          email: session[:email],
-          password: session[:password_token],
-          password_confirmation: session[:password_token],
-          firstname: session[:firstname],
-          lastname:session[:lastname],
-          firstname_kana: session[:firstname_kana],
-          lastname_kana: session[:lastname_kana],
-          birth_year: session[:birth_year],
-          birth_month: session[:birth_month],
-          birth_day: session[:birth_day],
-          phone_number: session[:phone_number],
-        )
-      else
-        user = User.new(
-          nickname: session[:nickname],
-          email: session[:email],
-          password: session[:password],
-          password_confirmation: session[:password_confirmation],
-          firstname: session[:firstname],
-          lastname:session[:lastname],
-          firstname_kana: session[:firstname_kana],
-          lastname_kana: session[:lastname_kana],
-          birth_year: session[:birth_year],
-          birth_month: session[:birth_month],
-          birth_day: session[:birth_day],
-          phone_number: session[:phone_number],
-        )
-      end
+    if session[:password_token].present?
+      user = User.new(
+        nickname: session[:nickname],
+        email: session[:email],
+        password: session[:password_token],
+        password_confirmation: session[:password_token],
+        firstname: session[:firstname],
+        lastname:session[:lastname],
+        firstname_kana: session[:firstname_kana],
+        lastname_kana: session[:lastname_kana],
+        birth_year: session[:birth_year],
+        birth_month: session[:birth_month],
+        birth_day: session[:birth_day],
+      )
+      user[:phone_number] = session[:phone_number] if session[:phone_number].present?
     else
-      if session[:password_token].present?
-        user = User.new(
-          nickname: session[:nickname],
-          email: session[:email],
-          password: session[:password_token],
-          password_confirmation: session[:password_token],
-          firstname: session[:firstname],
-          lastname:session[:lastname],
-          firstname_kana: session[:firstname_kana],
-          lastname_kana: session[:lastname_kana],
-          birth_year: session[:birth_year],
-          birth_month: session[:birth_month],
-          birth_day: session[:birth_day],
-        )
-      else
-        user = User.new(
-          nickname: session[:nickname],
-          email: session[:email],
-          password: session[:password],
-          password_confirmation: session[:password_confirmation],
-          firstname: session[:firstname],
-          lastname:session[:lastname],
-          firstname_kana: session[:firstname_kana],
-          lastname_kana: session[:lastname_kana],
-          birth_year: session[:birth_year],
-          birth_month: session[:birth_month],
-          birth_day: session[:birth_day],
-        )
-      end
+      user = User.new(
+        nickname: session[:nickname],
+        email: session[:email],
+        password: session[:password],
+        password_confirmation: session[:password_confirmation],
+        firstname: session[:firstname],
+        lastname:session[:lastname],
+        firstname_kana: session[:firstname_kana],
+        lastname_kana: session[:lastname_kana],
+        birth_year: session[:birth_year],
+        birth_month: session[:birth_month],
+        birth_day: session[:birth_day],
+      )
+      user[:phone_number] = session[:phone_number] if session[:phone_number].present?
     end
     return user
   end
