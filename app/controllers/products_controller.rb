@@ -48,12 +48,19 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @parent = @product.categories[0]
+    @child = @product.categories[1]
+    @grandchild = @product.categories[2]
     @parents = Category.where(ancestry: nil)
+    @children = Category.where(ancestry: @child.ancestry)
+    @grandchildren = Category.where(ancestry: @grandchild.ancestry)
+
   end
 
   def update
     @product = Product.find(params[:id])
     @parents = Category.where(ancestry: nil)
+    binding.pry
     if @product.update(product_params)
       redirect_to users_path, notice: "商品を更新しました"
     else 
