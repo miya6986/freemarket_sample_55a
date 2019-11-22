@@ -58,7 +58,7 @@
                 %span 必須
                 .form-select
                   = fa_icon 'angle-down', class: 'icon-angle-down'
-                  = f.collection_select :size, @sizes, :id, :kind, {include_blank: "---"}, class: "select-default"
+                  = f.collection_select :size, @sizes, :kind, :kind, {include_blank: "---"}, class: "select-default"
           .form-details__form-box__brand 
             = f.fields_for :brand, {} do |brand|
               %label ブランド
