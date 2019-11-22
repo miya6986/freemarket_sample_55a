@@ -27,6 +27,11 @@
           %th ブランド
           %td.brand 
             = link_to '', "#",class: 'brand__name'
+        - if @product.size.present?
+          %tr
+            %th サイズ
+            %td.size
+              = @product.size
         %tr
           %th 商品の状態
           %td
