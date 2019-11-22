@@ -1,9 +1,8 @@
 $(document).on('click','.image-preview_btn_delete',function(){
-  var append_input = $(`<li class="image-preview input"><label class="upload-label"><div class="upload-label__text">ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード<div class="input-area"><input class="hidden image_upload" type="file"></div></div></label></li>`)
+  var append_input = $(`<li class="input"><label class="upload-label"><div class="upload-label__text">ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード<div class="input-area"><input class="hidden image_upload" type="file"></div></div></label></li>`)
   $ul = $('#previews')
   $lis = $ul.find('.image-preview');
   $input = $ul.find('.input');
-  var append_input = $(`<li class="image-preview input"><label class="upload-label"><div class="upload-label__text">ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード<div class="input-area"><input class="hidden image_upload" type="file"></div></div></label></li>`)
   $ul = $('#previews')
   $li = $(this).parents('.image-preview');
   //"li"ごと削除して、previewとinputを削除させる。
@@ -20,12 +19,12 @@ $(document).on('click','.image-preview_btn_delete',function(){
       'width': `100%`
     })
   }
-  else if($lis.length <= 9 ){
+  else if($lis.length < 9 ){
     $('#previews li:last-child').css({
       'width': `calc(100% - (20% * (${$lis.length} - 5 )))`
     })
   }
-  else if($lis.length == 10 ){
+  else if($lis.length == 9 ){
     $ul.append(append_input)
     $('#previews li:last-child').css({
       'width': `calc(100% - (20% * (${$lis.length} - 5 )))`
