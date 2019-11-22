@@ -67,7 +67,6 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     @parents = Category.where(ancestry: nil)
-    binding.pry
     if @product.update(product_params)
       redirect_to users_path, notice: "商品を更新しました"
     else 
