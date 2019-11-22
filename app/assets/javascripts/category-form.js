@@ -105,8 +105,6 @@ $(document).on('turbolinks:load', function() {
 });
 
 
-
-
 // 編集機能
 $(document).on('turbolinks:load', function() {
   var categoryBox = $('.form-details__form-box__category')
@@ -136,7 +134,7 @@ $(document).on('turbolinks:load', function() {
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `<div class='form-select' id="grandchild-category">
                                 <select class= 'select-default'name="product[category_ids][]">
-                                <option value data-category="---">---</option>
+                                  <option value data-category="---">---</option>
                                   ${insertHTML}
                                 </select>
                                 <i class='fa fa-angle-down icon-angle-down'></i>
