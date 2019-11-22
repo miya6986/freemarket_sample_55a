@@ -112,12 +112,6 @@
             の検索結果
         .main-container__result-number
           = page_entries_info @search_products
-          -# %p 1
-          -# %span -
-          -# .search-container__result-number__length
-          -#   = @search_products.total_count
-          -# .search-container__result-number__count
-          -#   件
         .main-container__items
           - @search_products.each do |product|
             = render partial: 'products/search_product-list', locals: { product: product }
