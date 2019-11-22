@@ -165,15 +165,16 @@
       }
       &__condition {
         margin: 40px 0 0;
-        @include search-form_select()
+        @include search-form_check-box()
       }
       &__postage {
         margin: 40px 0 0;
-        @include search-form_select()
+        @include search-form_check-box()
       }
       &__status {
         margin: 40px 0 0;
-        @include search-form_select()
+        @include search-form_check-box()
+        
       }
       &__submit {
         display: flex;
@@ -357,4 +358,10 @@
       }
     }
   }
+}
+.checkbox_default {
+  display: inline-block;
+  width: 48%;
+  vertical-align: middle;
+  word-break: break-word;
 }
