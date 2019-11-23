@@ -54,19 +54,23 @@ class ProductsController < ApplicationController
     @parents = Category.where(ancestry: nil)
     @children = Category.where(ancestry: @child.ancestry)
     @grandchildren = Category.where(ancestry: @grandchild.ancestry)
-    if @product.size.present?
-      @sizes = @child.sizes[0].children
-    end
+    @size = @child.sizes[0] if @child.sizes[0]
+    @sizes = @size.children if @size
   end
 
   def update
     @product = Product.find(params[:id])
     @parents = Category.where(ancestry: nil)
-    if @product.update(product_params)
+    @product.update(product_params)
+    # サイズ必要なカテゴリ→サイズ不要のカテゴリに変更する場合、DBに保存中のサイズ情報も併せて削除する
+    @size = @product.categories[1].sizes[0]
+    @product.update(size: nil) unless @size
+    # エラーがなければマイページにリダイレクトする
+    if @product.valid?
       redirect_to users_path, notice: "商品を更新しました"
-    else 
-      render 'new'
-    end
+   else
+    render :edit
+   end
   end
 
   def buy

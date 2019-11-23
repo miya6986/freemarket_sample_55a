@@ -52,7 +52,7 @@
             .form-select#grandchild-category
               = fa_icon 'angle-down', class: 'icon-angle-down'
               = f.collection_select :category_ids, @grandchildren, :id, :name, {include_blank: "---"}, name: 'product[category_ids][]', class: "select-default"
-            - if @product.size.present?
+            - if @size.present?
               #size
                 %label サイズ
                 %span 必須
