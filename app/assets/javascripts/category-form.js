@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function() {
       var childSelectHtml = '';
       childSelectHtml = `<div class='form-select' id="child-category">
                           <select class= 'select-default' name="product[category_ids][]">
-                              <option value data-category="---">---</option>
+                              <option value>---</option>
                               ${insertHTML}
                             </select>
                             <i class='fa fa-angle-down icon-angle-down'></i>
@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function() {
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `<div class='form-select' id="grandchild-category">
                                 <select class= 'select-default'name="product[category_ids][]">
-                                <option value data-category="---">---</option>
+                                <option value>---</option>
                                   ${insertHTML}
                                 </select>
                                 <i class='fa fa-angle-down icon-angle-down'></i>
@@ -71,7 +71,7 @@ $(document).on('turbolinks:load', function() {
     //子カテゴリー選択後のイベント
     categoryBox.on('change','#child-category',function(){
       var childCategory = $('#child-category option:selected').data('category'); 
-      if (childCategory != "---"){ 
+      if (childCategory != null){ 
         $.ajax({
           url: '/products/:id/get_category_grandchildren',
           type: 'GET',
@@ -118,7 +118,7 @@ $(document).on('turbolinks:load', function() {
       var childSelectHtml = '';
       childSelectHtml = `<div class='form-select' id="child-category">
                           <select class= 'select-default' name="product[category_ids][]">
-                              <option value data-category="---">---</option>
+                              <option value>---</option>
                               ${insertHTML}
                             </select>
                             <i class='fa fa-angle-down icon-angle-down'></i>
@@ -131,7 +131,7 @@ $(document).on('turbolinks:load', function() {
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `<div class='form-select' id="grandchild-category">
                                 <select class= 'select-default'name="product[category_ids][]">
-                                  <option value data-category="---">---</option>
+                                  <option value>---</option>
                                   ${insertHTML}
                                 </select>
                                 <i class='fa fa-angle-down icon-angle-down'></i>
@@ -175,7 +175,7 @@ $(document).on('turbolinks:load', function() {
     //子カテゴリー選択後のイベント
     categoryBox.on('change','#child-category',function(){
       var childCategory = $('#child-category option:selected').data('category'); 
-      if (childCategory != "---"){ 
+      if (childCategory != null){ 
         $.ajax({
           url: '/products/:id/get_category_grandchildren',
           type: 'GET',
@@ -197,7 +197,6 @@ $(document).on('turbolinks:load', function() {
           alert('カテゴリー取得に失敗しました');
         })
       } else {
-        //子カテゴリーが初期値（---)の場合、孫カテゴリー以下は非表示にする
         $('#child-category').remove(); 
         $('#grandchild-category').remove(); 
         $('#size').remove();

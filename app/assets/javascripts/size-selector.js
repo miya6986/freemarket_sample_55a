@@ -28,7 +28,7 @@ $(document).on('turbolinks:load', function() {
     //孫カテゴリー選択後のイベント
     categoryBox.on('change','#grandchild-category',function(){
       var grandchildCategory = $('#grandchild-category option:selected').data('category'); 
-      if (grandchildCategory != "---"){ 
+      if (grandchildCategory != null){ 
         $.ajax({
           url: 'get_size',
           type: 'GET',
@@ -87,7 +87,7 @@ $(document).on('turbolinks:load', function() {
     //孫カテゴリー選択後のイベント
     categoryBox.on('change','#grandchild-category',function(){
       var grandchildCategory = $('#grandchild-category option:selected').data('category'); 
-      if (grandchildCategory != "---"){ 
+      if (grandchildCategory != null){ 
         $.ajax({
           url: '/products/:id/get_size',
           type: 'GET',
