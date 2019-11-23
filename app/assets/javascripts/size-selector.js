@@ -50,7 +50,6 @@ $(document).on('turbolinks:load', function() {
         })
       } else {
         $('#size').remove();
-        $('#brand').remove();
       }
     });
   });
@@ -110,7 +109,6 @@ $(document).on('turbolinks:load', function() {
         })
       } else {
         $('#size').remove();
-        $('#brand').remove();
       }
     });
   });

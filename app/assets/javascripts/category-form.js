@@ -65,7 +65,6 @@ $(document).on('turbolinks:load', function() {
         $('#child-category').remove(); 
         $('#grandchild-category').remove();
         $('#size').remove();
-        $('#brand').remove();
       }
     });
     
@@ -83,7 +82,6 @@ $(document).on('turbolinks:load', function() {
           if (grandchildren.length != 0) {
             $('#grandchild-category').remove(); 
             $('#size').remove();
-            $('#brand').remove();
             var insertHTML = '';
             grandchildren.forEach(function(grandchild){
               insertHTML += appendOption(grandchild);
@@ -98,7 +96,6 @@ $(document).on('turbolinks:load', function() {
         //子カテゴリーが初期値（---)の場合、孫カテゴリー以下は非表示にする
         $('#grandchild-category').remove(); 
         $('#size').remove();
-        $('#brand').remove();
       }
     });
   });
@@ -158,7 +155,6 @@ $(document).on('turbolinks:load', function() {
           $('#child-category').remove();
           $('#grandchild-category').remove();
           $('#size').remove();
-          $('#brand').remove();
           var insertHTML = '';
           children.forEach(function(child){
             insertHTML += appendOption(child);
@@ -173,7 +169,6 @@ $(document).on('turbolinks:load', function() {
         $('#child-category').remove(); 
         $('#grandchild-category').remove();
         $('#size').remove();
-        $('#brand').remove();
       }
     });
     
@@ -191,7 +186,6 @@ $(document).on('turbolinks:load', function() {
           if (grandchildren.length != 0) {
             $('#grandchild-category').remove(); 
             $('#size').remove();
-            $('#brand').remove();
             var insertHTML = '';
             grandchildren.forEach(function(grandchild){
               insertHTML += appendOption(grandchild);
@@ -207,7 +201,6 @@ $(document).on('turbolinks:load', function() {
         $('#child-category').remove(); 
         $('#grandchild-category').remove(); 
         $('#size').remove();
-        $('#brand').remove();
       }
     });
   });
