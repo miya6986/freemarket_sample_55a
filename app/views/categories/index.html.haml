@@ -2,178 +2,33 @@
 .category
   %h2 カテゴリ一覧
   .nav
-    .nav__item レディース
-    .nav__item メンズ
-    .nav__item ベビー・キッズ
-    .nav__item インテリア・住まい・小物
-    .nav__item 本・音楽・ゲーム
-    .nav__item おもちゃ・ホビー・グッズ
-    .nav__item コスメ・香水・美容
-    .nav__item 家電・スマホ・カメラ
-    .nav__item スポーツ・レジャー
-    .nav__item ハンドメイド
-    .nav__item チケット
-    .nav__item 自動車・オートバイ
-    .nav__item その他
+    - @categories.each do |parent|
+      = link_to  "#" + "#{parent.id}",class:"nav__item" do
+        = parent.name
+        
+  
 
   .wrap
     .container
-      .head
-        %h3 レディース
-      .category-box
-        %p
-          = link_to "すべて"
-        .category-box__name
-          %h4 トップス
-        .category-box__grandchildren
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-        .category-box__name
-          %h4 ジャケット/アウター
-        .category-box__grandchildren
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-    .container
-      .head
-        %h3 メンズ
-      .category-box
-        %p
-          = link_to "すべて"
-        .category-box__name
-          %h4 トップス
-        .category-box__grandchildren
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
-            %p
-              = link_to "すべて"
-          .category-box__grandchildren__item
-            %p
-              = link_to "Tシャツ"
-          .category-box__grandchildren__item
+      - @categories.each do |parent|
+        .head
+          %h3{id:"#{parent.id}"}
+            = parent.name
+        .category-box
+          %p
+            = link_to "すべて", category_path(parent)
+          - parent.children.each do |child|
+            .category-box__name
+              %h4 
+                = child.name
+              .category-box__grandchildren
+                .category-box__grandchildren__item
+                  %p
+                    = link_to "すべて", category_path(child)
+                - child.children.each do |grandchild|
+                  .category-box__grandchildren__item
+                    %p
+                      = link_to grandchild.name, category_path(grandchild)
           
 = render 'shared/sell-button'
 = render 'shared/main-footer'
