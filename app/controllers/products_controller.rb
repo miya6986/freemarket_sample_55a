@@ -61,12 +61,16 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     @parents = Category.where(ancestry: nil)
-    @product.update(product_params)
-    # サイズ必要なカテゴリ→サイズ不要のカテゴリに変更する場合、DBに保存中のサイズ情報も併せて削除する
-    @size = @product.categories[1].sizes[0]
-    @product.update(size: nil) unless @size
-    # エラーがなければマイページにリダイレクトする
+    post_image_ids = params[:product][:image].values
     if @product.valid?
+      @product.images.ids.each do |img_id|
+        Image.find(img_id).destroy unless post_image_ids.include?("#{img_id}")
+      end
+      @product.update(product_params)
+      # サイズ必要なカテゴリ→サイズ不要のカテゴリに変更する場合、DBに保存中のサイズ情報も併せて削除する
+      @size = @product.categories[1].sizes[0]
+      @product.update(size: nil) unless @size
+      # エラーがなければマイページにリダイレクトする
       redirect_to users_path, notice: "商品を更新しました"
    else
     render :edit
