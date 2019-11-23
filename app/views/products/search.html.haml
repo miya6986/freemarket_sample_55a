@@ -25,7 +25,7 @@
             %i.fas.fa-plus.search-content__keyword--label--icon
             %span.search-content__keyword--label--sapn
               キーワードを追加する
-          = f.text_field :name_cont, class: "search-content__keyword__text", placeholder: "例) 値下げ"
+          = f.text_field :name_or_description_cont, class: "search-content__keyword__text", placeholder: "例) 値下げ"
         .search-content__category
           %label.search-content__category--label
             %i.fas.fa-bars.search-content__category--label--icon
@@ -99,7 +99,7 @@
           = button_tag '完了' ,type: 'submit', class: 'search-content__submit__complete'
   .search-main
     .main-container
-      - if params[:q]['name_cont'] == ""
+      - if params[:q][:name_or_description_cont] == ""
         .main-container__new-products
           新着商品
         .main-container__items 
@@ -107,7 +107,7 @@
             = render partial: 'products/search_product-list', locals: { product: product }
       - elsif @search_products.present?
         .main-container__head
-          = params[:q][:name_cont]
+          = params[:q][:name_or_description_cont]
           %span.main-container__head__text 
             の検索結果
         .main-container__result-number
@@ -118,7 +118,7 @@
         = paginate @search_products, class: "search-pagination"
       - else     
         .main-container__head
-          = params[:q][:name_cont]
+          = params[:q][:name_or_description_cont]
           %span.main-container__head__text 
             の検索結果
         .main-container__noresult
@@ -137,5 +137,5 @@
       = fa_icon 'chevron-right', class: 'arrow-icon'
     %li
       %span.page_now 
-        = params[:q][:name_cont]
+        = params[:q][:name_or_description_cont]
 = render 'shared/main-footer'
