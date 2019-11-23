@@ -1,7 +1,12 @@
 = render "shared/main-header"
-.category-container
-  %h1 Categories#show
-  %p Find me in app/views/categories/show.html.haml
-
+.category-wrap
+  .container
+    %h1.head 
+      = @category.name 
+      の商品一覧
+    %ul.category-items
+      - @category.products.each do |product|
+        %li.category-item
+          = render partial: 'products/product-list', locals: { product: product }
 = render 'shared/sell-button'
 = render 'shared/main-footer'
