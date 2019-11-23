@@ -13,6 +13,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     oauth = request.env["omniauth.auth"]
     oauth_url = request.env["omniauth.origin"]
     uid = oauth.uid
+    provider = oauth.provider
     snscredential = SnsCredential.find_by(uid: uid, provider: provider)
     if snscredential.present?
       user_sns = User.find(snscredential.user_id)
@@ -41,7 +42,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     elsif user.present? && (oauth_url == step1_registrations_url)
       redirect_to root_path and return
     elsif user.blank? && (oauth_url == new_user_session_url)
-      redirect_to root_path and return
+      provider = 'google' if provider == 'google_oauth2'
+      redirect_to new_user_session_url, flash: {no_record: "#{provider}での登録情報はありません。他の方法でログインをお試しください。"} and return
     end
   end
 
