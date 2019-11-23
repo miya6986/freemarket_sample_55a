@@ -2,107 +2,16 @@
   = fa_icon 'list lg', class:'menu-left__item--icon'
   = link_to "カテゴリーから探す", categories_path
   %ul.parent
-    %li.parent__item
-      %h3 
-        = link_to "レディース"
-        %ul.child
-          %li.child__item
-            = link_to "トップス"
-            %ul.grandchild
-              %li.grandchild__item
-                = link_to "Tシャツ/カットソー(半袖/袖なし)"
-              %li.grandchild__item
-                = link_to "シャツ/ブラウス(半袖/袖なし)"
-              %li.grandchild__item
-                = link_to "シャツ/ブラウス(七分/長袖)"
-              %li.grandchild__item
-                = link_to "ポロシャツ"
-              %li.grandchild__item
-                = link_to "キャミソール"
-              %li.grandchild__item
-                = link_to "タンクトップ"
-              %li.grandchild__item
-                = link_to "ホルターネック"
-              %li.grandchild__item
-                = link_to "ニット/セーター"
-              %li.grandchild__item
-                = link_to "チュニック"
-              %li.grandchild__item
-                = link_to "カーディガン/ボレロ"
-              %li.grandchild__item
-                = link_to "アンサンブル"
-              %li.grandchild__item
-                = link_to "ベスト/ジレ"
-              %li.grandchild__item
-                = link_to "パーカー"
-              %li.grandchild__item
-                = link_to "トレーナー/スウェット"
-              %li.grandchild__item
-                = link_to "ベアトップ/チューブトップ"
-              %li.grandchild__item
-                = link_to "その他"
-          %li.child__item
-            = link_to "ジャケット/アウター"
-          %li.child__item
-            = link_to "パンツ"
-          %li.child__item
-            = link_to "スカート"
-          %li.child__item
-            = link_to "ワンピース"
-          %li.child__item
-            = link_to "靴"
-          %li.child__item
-            = link_to "ルームウェア/パジャマ"
-          %li.child__item
-            = link_to "レッグウェア"
-          %li.child__item
-            = link_to "帽子"
-          %li.child__item
-            = link_to "バッグ"
-          %li.child__item
-            = link_to "アクセサリー"
-          %li.child__item
-            = link_to "ヘアアクセサリー"
-          %li.child__item
-            = link_to "小物"
-          %li.child__item
-            = link_to "時計"
-          %li.child__item
-    %li.parent__item
-      %h3
-        = link_to "メンズ"
-    %li.parent__item
-      %h3
-        = link_to "ベビー・キッズ"
-    %li.parent__item
-      %h3
-        = link_to "インテリア・住まい・小物"
-    %li.parent__item
-      %h3
-        = link_to "本・音楽・ゲーム"
-    %li.parent__item
-      %h3
-        = link_to "おもちゃ・ホビー・グッズ"
-    %li.parent__item
-      %h3
-        = link_to "コスメ・香水・美容"
-    %li.parent__item
-      %h3
-        = link_to "家電・スマホ・カメラ"
-    %li.parent__item
-      %h3
-        = link_to "スポーツ・レジャー"
-    %li.parent__item
-      %h3
-        = link_to "ハンドメイド"
-    %li.parent__item
-      %h3
-        = link_to "チケット"
-    %li.parent__item
-      %h3
-        = link_to "自動車・オートバイ"
-    %li.parent__item
-      %h3
-        = link_to "その他"
-       
+    - @categories.each do |parent|
+      %li.parent__item
+        %h3
+          = link_to parent.name, category_path(parent)
+          %ul.child
+            - parent.children.each do |child| 
+              %li.child__item
+                = link_to child.name, category_path(child)
+                %ul.grandchild
+                  - child.children.each do |grandchild|
+                    %li.child__item
+                      = link_to grandchild.name, category_path(grandchild)
 
