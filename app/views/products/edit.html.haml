@@ -11,7 +11,7 @@
           .form-image__text 最大10枚までアップロードできます
           .clearfix
             %ul#previews
-              - @product.images.each do |img|
+              - @product.images.each_with_index do |img, i|
                 = f.fields_for :image do |image|
                   %li.image-preview
                     %label.upload-label{style:"display: none;"}
@@ -21,7 +21,7 @@
                         またはクリックしてファイルをアップロード
                         .input-area
                           = image.file_field :name, value: img.name ,class: "hidden image_upload"
-                          = image.hidden_field :id, value: img.id
+                          = image.hidden_field :id, value: img.id, name:"product[image][#{i}]"
                     .image-preview__wapper
                       = image_tag img.name.to_s, class:"preview"
                     .image-preview_btn
