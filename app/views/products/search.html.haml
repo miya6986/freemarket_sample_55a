@@ -47,7 +47,7 @@
               サイズを指定する
           .search-content__size__select
             %i.fas.fa-chevron-down.search-content__size__select--icon
-            %select.search-content__size__select--form
+            = f.collection_select :categories_sizes_id_eq, @sizes, :id, :kind, {prompt: "---"}, {class: "search-content__size__select--form"}
         .search-content__price
           %label.search-content__price--label
             %i.fas.fa-coins.search-content__price--label--icon

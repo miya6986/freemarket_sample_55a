@@ -81,6 +81,7 @@ class ProductsController < ApplicationController
   def search
     @products = Product.order('created_at DESC').includes(:images)
     @parents = Category.where(ancestry: nil)
+    @sizes = Size.where(ancestry: nil)
     if params[:q].present?
       @q = Product.ransack(params[:q])
       @search_products = @q.result(distinct: true).page(params[:page]).per(8).includes(:images)
