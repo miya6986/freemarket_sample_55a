@@ -278,6 +278,12 @@
         position: relative;
         
       }
+      .sns-login-error {
+        color: $red;
+        line-height: 1.5;
+        font-size: 14px;
+        margin-top: 16px;
+      }
       .login-form{
       padding: 24px  64px 32px ;
       background-color:#FFFFFF;
