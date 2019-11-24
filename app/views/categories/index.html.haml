@@ -1,6 +1,9 @@
 = render "shared/main-header"
+%nav.bread-crumbs.l-container
+- breadcrumb :category_index
+= render partial: "shared/bread_crumb"
 .category
-  %h2 カテゴリ一覧
+  %h2 カテゴリー一覧
   .nav
     - @categories.each do |parent|
       = link_to  "#" + "#{parent.id}",class:"nav__item" do
