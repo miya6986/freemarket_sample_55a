@@ -1,6 +1,13 @@
 = render 'shared/main-header'
 .img_wapper
-  = image_tag 'mercari-top.png', alt: 'mercari-top'
+  .wrap
+    %ul.top-slider
+      %li.top-slide-item
+        = image_tag 'top-banner-camp-4f3fd88c685e8932d7dde2ad3a8336ba.jpg', alt: 'mercari-top'
+      %li.top-slide-item
+        = image_tag 'top-banner-sale-fee-free-034ec8d0642f5714a26822988195b62c.png', alt: 'mercari-top'
+      %li.top-slide-item
+        = image_tag 'mercari-top.png', alt: 'mercari-top'
 .top-wrapper 
   .top-container
     .category-info
