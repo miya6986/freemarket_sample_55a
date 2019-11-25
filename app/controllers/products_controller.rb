@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy,:buy]
+  before_action :set_product, only: [:show, :buy, :destroy, :item, :edit]
+  before_action :product_seller?, only: :item
+
   def index
     @products = Product.order('created_at DESC').includes(:images)
   end
@@ -41,14 +44,12 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @product = Product.find(params[:id])
     @image = @product.images.first.name.to_s
     @category = []
     @category = @product.categories.pluck(:name)
   end
 
   def buy
-    @product = Product.find(params[:id])
     if @product.buyer.blank?
       @address = current_user.address
       @address_full = "#{@address.prefecture.name}#{@address.city_name}#{@address.address_number}#{@address.building_name}"
@@ -87,19 +88,20 @@ class ProductsController < ApplicationController
   end
     
   def destroy
-    @product = Product.find(params[:id])
-    if @product.destroy
-      redirect_to my_selling_products_users_path, notice: "商品を削除しました"
+    if @product.seller == current_user
+      if @product.destroy
+        redirect_to my_selling_products_users_path, notice: "商品を削除しました" and return
+      else
+        redirect_to item_product_path(params[:id]) and return
+      end
     else
-      render :item, collection: @product
+      redirect_to root_path and return
     end
   end
 
   def item
     @category = []
-    @product = Product.find(params[:id])
     @category = @product.categories.pluck(:name)
-    @seller = @product.seller
   end
     
   private
@@ -119,6 +121,14 @@ class ProductsController < ApplicationController
       category_ids: []
     )
     .merge(seller_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def product_seller?
+    redirect_to root_path unless @product.seller == current_user 
   end
   
 end
