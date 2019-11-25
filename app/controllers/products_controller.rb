@@ -84,6 +84,7 @@ class ProductsController < ApplicationController
     @sizes = Size.where(ancestry: nil)
     if params[:q].present?
       @q = Product.ransack(params[:q])
+      @q = Product.ransack(serach_params)
       @search_products = @q.result(distinct: true).page(params[:page]).per(8).includes(:images)
     end
   end
@@ -122,6 +123,20 @@ class ProductsController < ApplicationController
       category_ids: []
     )
     .merge(seller_id: current_user.id)
+  end
+
+  def serach_params
+    params.require(:q).permit(
+      :name_or_description_cont,
+      # :sorts,
+      :price_gteq,
+      :price_lteq,
+      :brand_name_cont,
+      categories_sizes_id_eq: [],
+      categories_id_eq: [],
+      condition_eq_any: [],
+      postage_eq_any: [],
+    ) if params[:q].present?
   end
   
 end
