@@ -4,6 +4,6 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @products = @category.products.page(params[:page]).per(10).includes(:seller,:images)
+    @products = @category.products.order(id: "desc").page(params[:page]).per(10).includes(:seller,:images)
   end
 end
