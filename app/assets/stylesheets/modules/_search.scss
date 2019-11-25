@@ -191,6 +191,9 @@
           border: 1px solid transparent;
           cursor: pointer;
           text-align: center;
+          &:focus {
+            outline: 0;
+          }
         }
         &__complete {
           margin-left:auto;
@@ -208,6 +211,9 @@
           &:focus {
             background: gray;
             border: 1px solid gray;
+          }
+          &:focus {
+            outline: 0;
           }
         }
         
