@@ -5,47 +5,13 @@
   .product.clearfix
     .wrap
       %ul.slider
-        %li.slide-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
+        - @images.each do |image|
+          %li.slide-item
+            = image_tag image.name.to_s, alt: 'mercari-top'
       %ul.thumbnail-list
-        %li.thumbnail-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
+        - @images.each do |image|
+          %li.thumbnail-item
+            = image_tag image.name.to_s, alt: 'mercari-top'
     %table.product__table
       %tbody
         %tr
