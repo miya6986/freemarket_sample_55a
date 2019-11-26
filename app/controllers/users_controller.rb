@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = current_user
   end
 
   def update
@@ -25,7 +24,6 @@ class UsersController < ApplicationController
   end
   
   def identification
-    @user = current_user
   end
 
   def my_selling_products
