@@ -44,7 +44,7 @@
       %section.buy-info__content.buy-info__user
         .buy-inner
           %h3 配送先
-          - if current_user.address.includes?
+          - if current_user.address.present?
             %address.buy-info__user--text
               = "〒#{@postalcode}"
               %br

@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     unless @product.seller == current_user
       if @product.buyer.blank?
-        if current_user.address.includes?
+        if current_user.address.present?
           @address = current_user.address 
           @address_full = "#{@address.prefecture.name}#{@address.city_name}#{@address.address_number}#{@address.building_name}"
           @full_name = "#{@address.firstname} #{@address.lastname}"
