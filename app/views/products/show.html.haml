@@ -68,12 +68,13 @@
     %span.product__price-box__shipping-fee
       送料込み
   
-  .product__buy-btn
-    - if @product.buyer.blank?
-      = link_to "購入画面に進む", buy_product_path, class:"product__buy-btn red"
-    - else
-      .product__buy-btn.gray
-        購入画面に進む
+  - unless @product.seller == current_user
+    .product__buy-btn
+      - if @product.buyer.blank? 
+        = link_to "購入画面に進む", buy_product_path, class:"product__buy-btn red"
+      - else
+        .product__buy-btn.gray
+          購入画面に進む
 
 
   .product__description
