@@ -52,10 +52,12 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     unless @product.seller == current_user
       if @product.buyer.blank?
-        @address = current_user.address
-        @address_full = "#{@address.prefecture.name}#{@address.city_name}#{@address.address_number}#{@address.building_name}"
-        @full_name = "#{@address.firstname} #{@address.lastname}"
-        @postalcode = @address.postalcode
+        if current_user.address.includes?
+          @address = current_user.address 
+          @address_full = "#{@address.prefecture.name}#{@address.city_name}#{@address.address_number}#{@address.building_name}"
+          @full_name = "#{@address.firstname} #{@address.lastname}"
+          @postalcode = @address.postalcode
+        end
         @card = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
         if @card.present?
           Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
