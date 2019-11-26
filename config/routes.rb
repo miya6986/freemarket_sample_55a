@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get :user_identification
       get :selling_products
       get :sold_products
+      get :bought_products
       get :logout_page
     end
   end
