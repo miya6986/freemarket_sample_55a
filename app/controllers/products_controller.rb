@@ -79,7 +79,7 @@ class ProductsController < ApplicationController
         render 'edit'
       end
     else
-      redirect_back(fallback_location: root_path) 
+      redirect_back(fallback_location: root_path,flash: {success: '画像がありません'})
     end
   end
 
