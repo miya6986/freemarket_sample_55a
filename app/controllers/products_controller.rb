@@ -138,4 +138,12 @@ class ProductsController < ApplicationController
     ) if params[:q].present?
   end
   
+  def initilize_ransack_variable
+    # 詳細検索用インスタンス変数
+    @condition_list = Product.condition_check_list
+    @postage_list = Product.postage_check_list
+    @parents = Category.where(ancestry: nil)
+    @sizes = Size.where(ancestry: nil)
+  end
+
 end

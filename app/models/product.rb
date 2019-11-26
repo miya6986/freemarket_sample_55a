@@ -50,6 +50,18 @@ class Product < ApplicationRecord
   enum postage: {seller_cost: "着払い(購入者負担)", buyer_cost: "送料込み(出品者負担)"}
   enum statuse: {selling: "販売中", sold_out: "売り切れ"}
   
+  # 検索用
+  def self.condition_check_list
+    { "0": 'すべて', "1": '新品、未使用', "2": '未使用に近い', "3": '目立った傷や汚れなし', "4": 'やや傷や汚れあり', "5": '傷や汚れあり', "6": '全体的に状態が悪い' }
+  end
+
+  def self.postage_check_list
+    { "0": 'すべて', "1": '着払い(購入者負担)', "2": '送料込み(出品者負担)' }
+  end
+
+  def self.status_check_list
+    { "0": 'すべて', "1": '販売中', "2,3": '売り切れ' }
+  end
 
 end
 
