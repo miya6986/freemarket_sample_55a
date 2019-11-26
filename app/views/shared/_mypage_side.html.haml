@@ -53,7 +53,7 @@
         %p ポイント
     %h3.mypage-side_head 設定
     %ul.mypage-side__nav_lists
-      %li{class: "nav-list #{active_class(edit_user_path(1))}"}
+      %li{class: "nav-list #{active_class(edit_user_path(current_user))}"}
         = link_to "", edit_user_path(current_user), class: "nav-list__link"
         %p プロフィール
       %li.nav-list
