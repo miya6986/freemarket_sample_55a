@@ -5,7 +5,7 @@
   = render partial: 'shared/mypage_side'
   .identification-main
     %h2.identification-main__title 本人情報の登録
-    = form_with model:@user, method: :patch, class: "identification-form" do |f|
+    = form_with model:current_user, method: :patch, class: "identification-form" do |f|
       .explanation-top
         .explanation
           %p

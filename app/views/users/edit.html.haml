@@ -5,7 +5,7 @@
 %main.mypage-body
   = render partial: 'shared/mypage_side'
   .mypage-main
-    = form_with model:@user, method: :patch do |f|
+    = form_with model:current_user, method: :patch do |f|
       %section.mypage-main__header
         %h2.header_title
           プロフィール
