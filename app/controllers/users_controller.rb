@@ -12,10 +12,6 @@ class UsersController < ApplicationController
     @products = current_user.selling_products.limit(15).order(id: "DESC")
   end
 
-  def selling_products
-    @products = current_user.bought_products.limit(15).order(id: "DESC")
-  end
-
   def logout_page
   end
 
