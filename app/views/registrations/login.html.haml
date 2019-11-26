@@ -11,9 +11,9 @@
     .exist-account
       .btn-facebook
         %i.fab.fa-facebook-square
-        = link_to 'facebookでログイン', user_facebook_omniauth_authorize_path(resource), method: :post, class:'about__registered'
+        = link_to 'facebookでログイン', Rails.env.production? ? root_path : user_facebook_omniauth_authorize_path(resource), method: :post, class:'about__registered'
       .btn-google
-        = link_to 'googleでログイン', user_google_oauth2_omniauth_authorize_path(resource), method: :post, class:'about__registered'
+        = link_to 'googleでログイン', Rails.env.production? ? root_path : user_google_oauth2_omniauth_authorize_path(resource), method: :post, class:'about__registered'
     .login-form
       .login-form__group
         %input.email{ name: 'email', placeholder: 'メールアドレス',  class: 'input-default-login'}

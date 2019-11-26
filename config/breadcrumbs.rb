@@ -37,8 +37,8 @@ crumb :creditcards_index do
   parent :mypage
 end
 
-crumb :user_identification_users do
-  link "本人情報の登録", user_identification_users_path
+crumb :identification_users do
+  link "本人情報の登録", identification_users_path
   parent :mypage
 end
 
