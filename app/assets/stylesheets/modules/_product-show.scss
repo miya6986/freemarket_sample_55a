@@ -26,6 +26,15 @@
       .top-slide-item{
         height: 400px;
         width: auto;
+        position: relative;
+        .hand{
+          position: absolute;
+          height: 440px;
+          width: 390px;
+          bottom: 0px;
+          right: 10px;
+          z-index: 1;
+        }
       }
       .slick-dots{
         bottom: 15px;
