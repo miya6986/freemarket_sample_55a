@@ -46,3 +46,15 @@ crumb :logout do
   link "ログアウト", logout_page_users_path
   parent :mypage
 end
+
+crumb :category_index do 
+  link "カテゴリー一覧", categories_path
+  parent :root
+end
+
+crumb :category_show do |category|
+  link category.name, category_path(category)
+  parent :category_index
+end
+
+
