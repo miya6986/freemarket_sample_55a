@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :edit, :update] do
     collection do
-      get :user_identification
+      get :identification
       get :selling_products
       get :sold_products
       get :bought_products
