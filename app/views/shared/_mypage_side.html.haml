@@ -16,15 +16,15 @@
       %li.nav-list
         = link_to "", new_product_path, class: "nav-list__link"
         %p 出品する
-      %li.nav-list
-        = link_to "", my_selling_products_users_path, class:"nav-list__link"
+      %li{class: "nav-list #{active_class(selling_products_users_path)}"}
+        = link_to "", selling_products_users_path, class: "nav-list__link"
         %p 出品した商品 - 出品中
       %li.nav-list
         = link_to "", class: "nav-list__link"
         %p 出品した商品 - 取引中
-      %li.nav-list
-        = link_to "", class: "nav-list__link"
-        %p 出品した商品 - 売却済み
+      %li{class: "nav-list #{active_class(sold_products_users_path)}"}
+        = link_to "", sold_products_users_path, class: "nav-list__link"
+        %p 出品した商品 - 売却済
       %li.nav-list
         = link_to "", class: "nav-list__link"
         %p 購入した商品 - 取引中
