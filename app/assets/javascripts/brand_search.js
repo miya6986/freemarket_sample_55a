@@ -33,7 +33,6 @@ $(document).on('turbolinks:load',function(){
         }
       }
       else{
-        console.log('OK!!')
         $("#select_wapper").css('display','none');
       }
     })
