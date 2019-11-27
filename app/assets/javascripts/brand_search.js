@@ -1,13 +1,13 @@
 $(document).on('turbolinks:load',function(){
   var form_input = $(this).parent('form-input');
-  var select_wapper = `<div class="input-default select_wapper"></div>`
+  var select_wapper = `<div class="select_wapper"></div>`
   function appendList(brand){
     var select_list = `<div class="select_list" data-name="${brand.name}">${brand.name}</div>`
-    $(document).find(".select_wapper").append(select_list);
+    $(document).find("#select_wapper").append(select_list);
   }
-  function appendList(brand){
-    var select_list = `<div class="select_list" data-name="${brand.name}">${brand.name}</div>`
-    $(document).find(".select_wapper").append(select_list);
+  function appendListNone(){
+    var select_list = `<div class="select_list">一致するブランドはありません</div>`
+    $(document).find("#select_wapper").append(select_list);
   }
   $("#brand_search").on("keyup",function() {
     var input = $("#brand_search").val();
@@ -18,7 +18,7 @@ $(document).on('turbolinks:load',function(){
       dataType: 'json'
     })
     .done(function(brands) {
-      $(".select_wapper").empty();
+      $("#select_wapper").empty();
       if (input.length !== 0){
         if (brands.length !== 0) {
           brands.forEach(function(brand){
@@ -26,11 +26,12 @@ $(document).on('turbolinks:load',function(){
           });
         }
         else {
-          appendErrMsgToHTML("一致するブランドはありません");
+          appendListNone();
         }
       }
       else{
-        $(".form-details__form-box__brand > .form-input").remove(".select_wapper");
+        console.log('OK!!')
+        $("#select_wapper").css('display','none');
       }
     })
     .fail(function(){
