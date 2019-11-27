@@ -36,7 +36,14 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.brand.delete
+    if params[:product][:brand_attributes][:name].present?
+      brand_name = params[:product][:brand_attributes][:name] 
+      brand = Brand.where(name: brand_name).first_or_create
+      @product[:brand_id] = brand.id
+    end
     if @product.save
+      # @procct.brand.create(name: brand_name)
       redirect_to users_path, notice: "商品を出品しました"
     else 
       render 'new'
