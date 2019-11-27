@@ -5,6 +5,10 @@ $(document).on('turbolinks:load',function(){
     var select_list = `<div class="select_list" data-name="${brand.name}">${brand.name}</div>`
     $(document).find(".select_wapper").append(select_list);
   }
+  function appendList(brand){
+    var select_list = `<div class="select_list" data-name="${brand.name}">${brand.name}</div>`
+    $(document).find(".select_wapper").append(select_list);
+  }
   $("#brand_search").on("keyup",function() {
     var input = $("#brand_search").val();
     $.ajax({
@@ -24,6 +28,9 @@ $(document).on('turbolinks:load',function(){
         else {
           appendErrMsgToHTML("一致するブランドはありません");
         }
+      }
+      else{
+        $(".form-details__form-box__brand > .form-input").remove(".select_wapper");
       }
     })
     .fail(function(){
