@@ -17,24 +17,7 @@
       white-space: nowrap; /* 自動で折り返しをしない */
       background-color: $border-gray;
       li {
-        width: 33.3%;
-        display: inline-block;
-        font-size: 16px;
-        font-weight: bold;
-        line-height: 72px;
-        text-align: center;
-        vertical-align: top;
-        letter-spacing: normal; /* 文字の間を元に戻す */
-        white-space: normal; /* 自動で折り返しする(元に戻す) */
-        a {
-          text-decoration: none;
-          cursor: pointer;
-        }
-      }
-      .active {
-        box-sizing: border-box;
-        border-top: 2px solid $red;
-        background-color: $white;
+        @include tab(100% / 3)
       }
     }
     &__contents {
