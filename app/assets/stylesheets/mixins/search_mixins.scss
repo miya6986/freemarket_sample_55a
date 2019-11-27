@@ -81,6 +81,15 @@
         box-sizing: border-box;
         margin-top: 16px;
         cursor: pointer;
+        &:checked + .check-icon:before {
+          opacity: 1;
+        }
+        &__text {
+          width: 91px;
+          cursor: pointer;
+          margin-left: 4px;
+          vertical-align: middle;
+        }
         &__icon {
           position: relative;
           height: 20px;
@@ -94,6 +103,9 @@
           flex-grow: 0;
           flex-shrink: 0;
           border-radius: 2px;
+          &:checked + .check-icon:before {
+            opacity: 1;
+          }
           &:before {
             height: 20px;
             width: 20px;
@@ -109,14 +121,101 @@
             transition: opacity 0.2s linear;
           }
         }
-        &__text {
-          width: 91px;
-          cursor: pointer;
-          margin-left: 4px;
-        }
         &__input {
           display: none;
           &:checked + .check-icon:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin search-form_check-box_all () {
+  &--label {
+    font-weight: 600;
+    &--icon {
+      position: relative;
+      top: -1px;
+      margin: 0 4px 0 0;
+      color: #888;
+      font-size: 16px;
+      vertical-align: middle;
+    }
+    &--title {
+      font-size: 14px;
+      vertical-align: middle;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    &__check-boxes {
+      position: relative;
+      padding: 0;
+      vertical-align: middle;
+      flex-wrap: wrap;
+      display: flex;
+      &:checked + .check-icon:before {
+        opacity: 1;
+      }
+      &__label {
+        vertical-align: middle;
+        position: relative;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        margin-top: 16px;
+        cursor: pointer;
+        &__text {
+          width: 95px;
+          cursor: pointer;
+          margin-left: 4px;
+          align-items: center;
+          vertical-align: middle;
+          &:checked + .check-icon:before {
+            opacity: 1;
+          }
+        }
+        &__icon {
+          position: absolute;
+          top: 0;
+          left: 0;
+          position: relative;
+          height: 20px;
+          width: 20px;
+          margin-right: 4px;
+          font-size: 10px;
+          line-height: 20px;
+          text-align: center;
+          color: #fff;
+          border: 1px solid #ccc;
+          flex-grow: 0;
+          flex-shrink: 0;
+          border-radius: 2px;
+          cursor: pointer;
+          &:checked + .check-icon:before {
+            opacity: 1;
+          }
+          &:before {
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            opacity: 0;
+            background: #0099e8;
+            border-radius: 2px;
+            -webkit-transition: opacity 0.2s linear;
+            transition: opacity 0.2s linear;
+          }
+        }
+        &__input {
+          display: none;
+          &:checked + .search-content__condition__form__check-boxes__label__icon:before {
             opacity: 1;
           }
         }

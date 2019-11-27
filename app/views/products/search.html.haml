@@ -66,11 +66,35 @@
             %span.search-content__condition--label--title
               商品の状態
           .search-content__condition__form
-            = f.collection_check_boxes( :condition_eq_any, Product.conditions.map{|k, v| [Product.conditions[k], v]}, :last , :first ,{}, {include_hidden: false, class: "search-content__condition__form__check-boxes"} ) do |b|
-              = b.label(class: "search-content__condition__form__check-boxes__label") do
-                = b.check_box(class: "search-content__condition__form__check-boxes__label__input")
+            .search-content__condition__form__check-boxes
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-0" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input all", id: "check-icon-0", include_hidden: false, multiple: true }, "すべて") 
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon                 
+                .search-content__condition__form__check-boxes__label__text すべて
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-1" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-1", include_hidden: false, multiple: true }, "新品、未使用") 
                 %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
-                = b.label(class: "search-content__condition__form__check-boxes__label__text")
+                .search-content__condition__form__check-boxes__label__text 新品、未使用
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-2" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-2", include_hidden: false, multiple: true}, "未使用に近い")
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
+                .search-content__condition__form__check-boxes__label__text 未使用に近い
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-3" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-3", include_hidden: false, multiple: true}, "目立った傷や汚れなし")
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
+                .search-content__condition__form__check-boxes__label__text 目立った傷や汚れなし
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-4" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-4", include_hidden: false, multiple: true}, "やや傷や汚れあり")
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
+                .search-content__condition__form__check-boxes__label__text やや傷や汚れあり
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-5" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-5", include_hidden: false, multiple: true}, "傷や汚れあり")
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
+                .search-content__condition__form__check-boxes__label__text 傷や汚れあり
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-6" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-6", include_hidden: false, multiple: true}, "全体的に状態が悪い")
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
+                .search-content__condition__form__check-boxes__label__text 全体的に状態が悪い
         .search-content__postage
           %label.search-content__postage--label
             %i.fas.fa-truck.search-content__postage--label--icon
