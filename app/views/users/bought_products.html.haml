@@ -8,11 +8,9 @@
       %h2.my-products-main__header 出品した商品
       %ul.my-products-main__tab
         %li.selling
-          = link_to "出品中", "#", class: "my-link"
-        %li.trading
-          = link_to "取引中", "#", class: "trading-link"
+          = link_to "出品中", selling_products_users_path, class: "my-link"
         %li.sold.active
-          = link_to "売却済み", "#", class: "sold-link"
+          = link_to "売却済み", sold_products_users_path, class: "sold-link"
       .my-products-main__contents
         %ul.transaction
           - current_user.bought_products.each do |product|
