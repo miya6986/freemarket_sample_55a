@@ -1,4 +1,6 @@
 $(document).on('turbolinks:load',function(){
+  var select_wapper = `<div class="input-default select_wapper"></div>`
+  var select_list = `<div class="select_list">aaaa</div>`
   $("#brand").on("keyup",function() {
     var input = $("#brand").val();
     $.ajax({
