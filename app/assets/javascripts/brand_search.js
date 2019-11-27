@@ -2,7 +2,7 @@ $(document).on('turbolinks:load',function(){
   var form_input = $(this).parent('form-input');
   var select_wapper = `<div class="input-default select_wapper"></div>`
   function appendList(brand){
-    var select_list = `<div class="select_list">${brand.name}</div>`
+    var select_list = `<div class="select_list" data-name="${brand.name}">${brand.name}</div>`
     $(document).find(".select_wapper").append(select_list);
   }
   $("#brand_search").on("keyup",function() {
@@ -29,6 +29,10 @@ $(document).on('turbolinks:load',function(){
     .fail(function(){
       alert('ブランド検索に失敗しました')
     })
+  });
+  $(document).on('click', ".select_list", function(){
+    brand_name = $(this).attr('data-name')
+    $('#brand_search').val(brand_name)
   });
 });
 
