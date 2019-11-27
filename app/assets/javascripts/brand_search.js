@@ -21,9 +21,9 @@ $(document).on('turbolinks:load',function(){
             appendList(brand)
           });
         }
-      }
-      else {
-        appendErrMsgToHTML("一致するブランドはありません");
+        else {
+          appendErrMsgToHTML("一致するブランドはありません");
+        }
       }
     })
     .fail(function(){
