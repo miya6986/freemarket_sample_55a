@@ -168,7 +168,7 @@ class ProductsController < ApplicationController
   end
 
   def product_seller?
-    redirect_to root_path unless @product.seller == current_user 
+    redirect_back(fallback_location: root_path) unless @product.seller == current_user 
   end
   
 end
