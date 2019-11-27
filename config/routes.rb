@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
   resources :brand, only: [:index, :show] do
     collection do
-      get: 'search'
+      get :search
     end
   end
 
