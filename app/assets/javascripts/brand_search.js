@@ -20,6 +20,9 @@ $(document).on('turbolinks:load',function(){
     .done(function(brands) {
       $("#select_wapper").empty();
       if (input.length !== 0){
+        if ($('#select_wapper')[0]){
+          $("#select_wapper").css('display','block');
+        }
         if (brands.length !== 0) {
           brands.forEach(function(brand){
             appendList(brand)
