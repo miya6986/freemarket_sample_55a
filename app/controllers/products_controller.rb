@@ -43,7 +43,6 @@ class ProductsController < ApplicationController
       @product[:brand_id] = brand.id
     end
     if @product.save
-      # @procct.brand.create(name: brand_name)
       redirect_to users_path, notice: "商品を出品しました"
     else 
       render 'new'
