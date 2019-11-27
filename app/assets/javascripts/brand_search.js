@@ -15,10 +15,12 @@ $(document).on('turbolinks:load',function(){
     })
     .done(function(brands) {
       $(".select_wapper").empty();
-      if (brands.length !== 0) {
-        brands.forEach(function(brand){
-          appendList(brand)
-        });
+      if (input.length !== 0){
+        if (brands.length !== 0) {
+          brands.forEach(function(brand){
+            appendList(brand)
+          });
+        }
       }
       else {
         appendErrMsgToHTML("一致するブランドはありません");
