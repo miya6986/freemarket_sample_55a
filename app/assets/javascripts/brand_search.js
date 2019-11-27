@@ -1,6 +1,10 @@
 $(document).on('turbolinks:load',function(){
+  var form_input = $(this).parent('form-input');
   var select_wapper = `<div class="input-default select_wapper"></div>`
-  var select_list = `<div class="select_list">aaaa</div>`
+  function appendList(brand){
+    var select_list = `<div class="select_list">${brand.name}</div>`
+    $(document).find(".select_wapper").append(select_list);
+  }
   $("#brand").on("keyup",function() {
     var input = $("#brand").val();
     $.ajax({
@@ -9,11 +13,11 @@ $(document).on('turbolinks:load',function(){
       data: { keyword: input },
       dataType: 'json'
     })
-    .done(function(brands) { 
-      $("#brand").empty();
+    .done(function(brands) {
+      $(".select_wapper").empty();
       if (brands.length !== 0) {
         brands.forEach(function(brand){
-          appendList(brand);
+          appendList(brand)
         });
       }
       else {
