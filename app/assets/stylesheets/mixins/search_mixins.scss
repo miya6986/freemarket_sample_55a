@@ -215,7 +215,7 @@
         }
         &__input {
           display: none;
-          &:checked + .search-content__condition__form__check-boxes__label__icon:before {
+          &:checked + .check-icon:before {
             opacity: 1;
           }
         }

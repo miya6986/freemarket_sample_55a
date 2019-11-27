@@ -101,11 +101,24 @@
             %span.search-content__postage--label--title
               配送料の負担
           .search-content__postage__form
-            = f.collection_check_boxes( :postage_eq_any, Product.postages.map{|k, v| [Product.postages[k], v]}, :last , :first ,{}, {include_hidden: false, class: "search-content__postage__form__check-boxes"} ) do |b|
-              = b.label(class: "search-content__postage__form__check-boxes__label") do
-                = b.check_box(class: "search-content__postage__form__check-boxes__label__input")
-                %i.fas.fa-check.check-icon.search-content__postage__form__check-boxes__label__icon
-                = b.label(class: "search-content__postage__form__check-boxes__label__text")
+            .search-content__postage__form__check-boxes
+              = f.label :postage_eq_any , class: "search-content__postage__form__check-boxes__label", for: "check-icon-11" do
+                = f.check_box(:postage_eq_any, {class: "search-content__postage__form__check-boxes__label__input all-postage", id: "check-icon-11", include_hidden: false, multiple: true }, "すべて") 
+                %i.fas.fa-check.check-icon.search-content__postage__form__check-boxes__label__icon                 
+                .search-content__postage__form__check-boxes__label__text すべて
+              = f.label :postage_eq_any , class: "search-content__postage__form__check-boxes__label", for: "check-icon-12" do
+                = f.check_box(:postage_eq_any, {class: "search-content__postage__form__check-boxes__label__input list-postage", id: "check-icon-12", include_hidden: false, multiple: true }, "着払い(購入者負担)") 
+                %i.fas.fa-check.check-icon.search-content__postage__form__check-boxes__label__icon                 
+                .search-content__postage__form__check-boxes__label__text 着払い(購入者負担)
+              = f.label :postage_eq_any , class: "search-content__postage__form__check-boxes__label", for: "check-icon-13" do
+                = f.check_box(:postage_eq_any, {class: "search-content__postage__form__check-boxes__label__input list-postage", id: "check-icon-13", include_hidden: false, multiple: true }, "送料込み(出品者負担)") 
+                %i.fas.fa-check.check-icon.search-content__postage__form__check-boxes__label__icon                 
+                .search-content__postage__form__check-boxes__label__text 送料込み(出品者負担)
+            -# = f.collection_check_boxes( :postage_eq_any, Product.search_postages.map{|k, v| [Product.search_postages[k], v]}, :last , :first ,{}, {include_hidden: false, class: "search-content__postage__form__check-boxes"} ) do |b|
+            -#   = b.label(class: "search-content__postage__form__check-boxes__label") do
+            -#     = b.check_box(class: "search-content__postage__form__check-boxes__label__input")
+            -#     %i.fas.fa-check.check-icon.search-content__postage__form__check-boxes__label__icon
+            -#     = b.label(class: "search-content__postage__form__check-boxes__label__text")
         .search-content__status
           %label.search-content__status--label
             %i.fas.fa-shopping-cart.search-content__status--label--icon

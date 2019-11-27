@@ -169,7 +169,7 @@
       }
       &__postage {
         margin: 40px 0 0;
-        @include search-form_check-box()
+        @include search-form_check-box_all()
       }
       &__status {
         margin: 40px 0 0;
