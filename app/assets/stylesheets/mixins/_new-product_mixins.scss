@@ -50,6 +50,11 @@
     .input-default {
       @extend .select-default;
       cursor: default;
+      &.select_wapper{
+        height: 150px;
+        overflow: scroll;        
+
+      }
     }
   }
 }
