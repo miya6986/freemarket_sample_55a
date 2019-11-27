@@ -49,6 +49,43 @@ class ProductsController < ApplicationController
     @category = @product.categories.pluck(:name)
   end
 
+  def edit
+    @product = Product.find(params[:id])
+    @parent = @product.categories[0]
+    @child = @product.categories[1]
+    @grandchild = @product.categories[2]
+    @parents = Category.where(ancestry: nil)
+    @children = Category.where(ancestry: @child.ancestry)
+    @grandchildren = Category.where(ancestry: @grandchild.ancestry)
+    @size = @child.sizes[0] if @child.sizes[0]
+    @sizes = @size.children if @size
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    @parents = Category.where(ancestry: nil)
+    if params[:product].keys.include?("image") || params[:product].keys.include?("images_attributes") 
+      if @product.valid?
+        if params[:product].keys.include?("image")
+          posted_image_ids = params[:product][:image].values 
+          @product.images.ids.each do |img_id|
+            Image.find(img_id).destroy unless posted_image_ids.include?("#{img_id}")
+          end
+        end
+        @product.update(product_params)
+        # サイズ必要なカテゴリ→サイズ不要のカテゴリに変更する場合、DBに保存中のサイズ情報も併せて削除する
+        @size = @product.categories[1].sizes[0]
+        @product.update(size: nil) unless @size
+        # エラーがなければマイページにリダイレクトする
+        redirect_to users_path, notice: "商品を更新しました"
+      else
+        render 'edit'
+      end
+    else
+      redirect_back(fallback_location: root_path,flash: {success: '画像がありません'})
+    end
+  end
+
   def buy
     if @product.buyer.blank?
       @address = current_user.address
@@ -105,6 +142,8 @@ class ProductsController < ApplicationController
   end
     
   private
+
+
   def product_params
     params.require(:product).permit(
       :name,
@@ -116,7 +155,7 @@ class ProductsController < ApplicationController
       :prefecture_id,
       :shipping_days,
       :price,
-      images_attributes: [:name],
+      images_attributes: [:name, :id],
       brand_attributes: [:name],
       category_ids: []
     )

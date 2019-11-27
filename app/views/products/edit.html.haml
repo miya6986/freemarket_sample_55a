@@ -1,0 +1,141 @@
+.new-product
+  =render "./registrations/sub-header"
+  .main
+    .head
+      %h2 商品の情報を入力
+    = form_with model: @product, class: "form" do |f|
+      .form-image
+        .form-image__title
+          %label 出品画像
+          %span 必須
+          .form-image__text 最大10枚までアップロードできます
+          .clearfix
+            %ul#previews
+              - @product.images.each_with_index do |img, i|
+                = f.fields_for :image do |image|
+                  %li.image-preview
+                    %label.upload-label{style:"display: none;"}
+                      .upload-label__text
+                        ドラッグアンドドロップ
+                        %br
+                        またはクリックしてファイルをアップロード
+                        .input-area
+                          = image.file_field :name, value: img.name ,class: "hidden image_upload"
+                          = image.hidden_field :id, value: img.id, name:"product[image][#{i}]"
+                    .image-preview__wapper
+                      = image_tag img.name.to_s, class:"preview"
+                    .image-preview_btn
+                      .image-preview_btn_edit 編集
+                      .image-preview_btn_delete 削除
+      .form-container
+        .form-container__name
+          %label 商品名
+          %span 必須
+          .input-space
+            = f.text_field :name, class: "input-name", placeholder: "商品名（必須 40文字まで）"
+        .form-container__description
+          %label 商品の説明
+          %span 必須
+          = f.text_area :description, class: "input-description", value:@product.description, rows: "5", cols: 40, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+      .form-details
+        %h3 商品の詳細
+        .form-details__form-box
+          .form-details__form-box__category
+            %label カテゴリー
+            %span 必須
+            .form-select
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              = f.collection_select :category_ids, @parents, :id, :name, {include_blank: "---"}, name: 'product[category_ids][]', class: "select-default", id: "parent-category"
+            .form-select#child-category
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              = f.collection_select :category_ids, @children, :id, :name, {include_blank: "---"}, name: 'product[category_ids][]', class: "select-default"
+            .form-select#grandchild-category
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              = f.collection_select :category_ids, @grandchildren, :id, :name, {include_blank: "---"}, name: 'product[category_ids][]', class: "select-default"
+            - if @size.present?
+              #size
+                %label サイズ
+                %span 必須
+                .form-select
+                  = fa_icon 'angle-down', class: 'icon-angle-down'
+                  = f.collection_select :size, @sizes, :kind, :kind, {include_blank: "---"}, class: "select-default"
+          .form-details__form-box__brand 
+            = f.fields_for :brand, {} do |brand|
+              %label ブランド
+              %span.optional 任意
+              .form-input
+                = brand.text_field :name, class: "input-default", placeholder: "例）シャネル", autocomplete: "off"
+          .form-details__form-box__condition
+            %label 商品の状態
+            %span 必須
+            .form-select
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              = f.select :condition, [["---", ""], ["新品、未使用"], ["未使用に近い"], ["目立った傷や汚れなし"], ["やや傷や汚れあり"], ["傷や汚れあり"], ["全体的に状態が悪い"]], {}, {class: "select-default"}
+      .form-shipping
+        %h3 配送について
+        = link_to "？", "", class: "question"
+        .form-shipping__form-box
+          .form-shipping__form-box__fee
+            %label 配送料の負担
+            %span 必須
+            .form-select
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              = f.select :postage, [["---", ""], ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, {class: "select-default"}
+        
+          .form-shipping__form-box__method
+            .form-shipping__form-box__fee
+              %label 配送の方法
+              %span 必須
+              .form-select
+                = fa_icon 'angle-down', class: 'icon-angle-down'
+                = f.select :shipping_method, [["---", ""], ["未定"], ["らくらくメルカリ便"],["ゆうメール"],["レターパック"],["普通郵便（定形・定型外）"],["クロネコヤマト"],["ゆーパック"],["クリックポスト"],["ゆうパケット"]], {}, {class: "select-default"}
+          
+         
+          .form-shipping__form-box__area
+            %label 配送元の地域
+            %span 必須
+            .form-select
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"},{class: "select-default"}
+          .form-shipping__form-box__day
+            %label 配送までの日数
+            %span 必須
+            .form-select
+              = fa_icon 'angle-down', class: 'icon-angle-down'
+              = f.select :shipping_days, [["---", ""], ["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]], {}, {class: "select-default"}
+      .form-price
+        %h3 販売価格(300〜9,999,999)
+        = link_to "？", "", class: "question"
+        .form-price__form-box
+          .form-price__form-box__price
+            %label.left 価格
+            .require
+              %span 必須
+            .price-input
+              .price-input__logo ¥
+              = f.text_field :price, class: "input-price", id: "price", placeholder: "例）300", autocomplete: "off"
+          .form-price__form-box__charge
+            .form-price__form-box__charge__left 販売手数料 (10%)
+            .form-price__form-box__charge__right -
+          .form-price__form-box__profit
+            .form-price__form-box__profit__left 販売利益
+            .form-price__form-box__profit__right -
+      .form-submit
+        .form-submit__description
+          %p
+            = link_to "禁止されている出品", "", class: "description-link"
+            、
+            = link_to "行為", "", class: "description-link" 
+            を必ずご確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to "偽ブランドの販売", "", class: "description-link"
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            = link_to "加盟店規約", "", class: "description-link"
+            に同意したことになります。
+        = f.submit "変更する", class: "btn-default"
+        = link_to "もどる", :back, class: "btn-default btn-gray"
+  =render "./registrations/sub-footer"
+
