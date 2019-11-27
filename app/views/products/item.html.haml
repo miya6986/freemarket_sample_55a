@@ -25,8 +25,8 @@
               = link_to @category[2], "#"
         %tr
           %th ブランド
-          %td.brand 
-            = link_to '', "#",class: 'brand__name'
+          %td
+            = link_to @product.brand.name, "",class: 'brand__name' if @product.brand.present?
         - if @product.size.present?
           %tr
             %th サイズ
