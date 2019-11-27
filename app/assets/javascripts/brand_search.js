@@ -5,8 +5,8 @@ $(document).on('turbolinks:load',function(){
     var select_list = `<div class="select_list">${brand.name}</div>`
     $(document).find(".select_wapper").append(select_list);
   }
-  $("#brand").on("keyup",function() {
-    var input = $("#brand").val();
+  $("#brand_search").on("keyup",function() {
+    var input = $("#brand_search").val();
     $.ajax({
       type: 'GET',
       url: '/brand/search',
