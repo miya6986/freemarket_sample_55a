@@ -24,16 +24,53 @@
         z-index: 1;
       }
       .top-slide-item{
-        height: 400px;
+        height: 390px;
         width: auto;
         position: relative;
-        .hand{
-          position: absolute;
-          height: 440px;
-          width: 390px;
-          bottom: 0px;
-          right: 10px;
-          z-index: 1;
+        .main-images{
+          margin: 0 auto;
+          .hand{
+            position: absolute;
+            height: 390px;
+            width: 390px;
+            top: 0px;
+            right: 0px;
+            z-index: 1;
+          }
+          &__heading {
+            position: absolute;
+            font-size: 60px;
+            line-height: 1.2;
+            font-weight: 600;
+            top: 30px;
+            left: 300px;
+            margin-bottom: 16px;
+            z-index: 1;
+          }
+          &__sub-heading{
+            position: absolute;
+            font-size: 18px;
+            line-height: 1.8;
+            top: 200px;
+            left: 300px;
+            z-index: 1;
+          }
+          &__images{
+            .apple-store{
+              height: 50px;
+              width: 170px;
+              position: absolute;
+              bottom: 50px;
+              left: 300px;
+            }
+            .google-store{
+              height: 50px;
+              width: 170px;
+              position: absolute;
+              bottom: 50px;
+              left: 480px;
+            }
+          }
         }
       }
       .slick-dots{
