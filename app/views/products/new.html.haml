@@ -25,7 +25,7 @@
           %label 商品名
           %span 必須
           .input-space
-            = f.text_field :name, class: "input-name", placeholder: "商品名（必須 40文字まで）"
+            = f.text_field :name, class: "input-name", placeholder: "商品名（必須 40文字まで）", maxlength:40
         .form-container__description
           %label 商品の説明
           %span 必須
