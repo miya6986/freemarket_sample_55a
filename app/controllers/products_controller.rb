@@ -4,7 +4,16 @@ class ProductsController < ApplicationController
   before_action :product_seller?, only: [:item, :edit, :update, :destroy]
 
   def index
-    @products = Product.order('created_at DESC').includes(:images)
+    @category = Category.includes(:products)
+    @brand = Brand.includes(:products)
+    @ladies = @category.find(1)
+    @men = @category.find(2)
+    @appliances = @category.find(8)
+    @toys = @category.find(6)
+    @chanels = @brand.find(1)
+    @vuittons = @brand.find(2)
+    @supremes = @brand.find(3)
+    @nikes = @brand.find(4)
   end
 
   def new

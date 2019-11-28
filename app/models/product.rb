@@ -10,6 +10,8 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :brand
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+
+  scope :recent, -> { order(created_at: :desc).first(10)}
   
   validates :name, presence: true
   validates :description, presence: true
