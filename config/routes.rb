@@ -45,6 +45,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :brands, only: :show
+
   resources :creditcards, only: [:index, :destroy]
   resources :likes, only: [:index, :create, :destroy]
   
