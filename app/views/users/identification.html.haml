@@ -1,0 +1,60 @@
+= render partial: 'shared/main-header'
+- breadcrumb :identification_users
+= render partial: "shared/bread_crumb"
+%main.mypage-body
+  = render partial: 'shared/mypage_side'
+  .identification-main
+    %h2.identification-main__title 本人情報の登録
+    = form_with model:current_user, method: :patch, class: "identification-form" do |f|
+      .explanation-top
+        .explanation
+          %p
+            お客様の本人情報をご登録ください。
+            %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          %p.explanation--right
+            %a.explanation__notice{href: "#"}
+              本人確認書類のアップロードについて
+              %i.fas.fa-angle-right.fa-lg
+      .form-set
+        %label.name__label お名前
+        %p.name__text 田中太郎
+      .form-set
+        %label.name-kana__label お名前カナ
+        %p.name-kana__text タナカタロウ
+      .form-set
+        %label.birth__label 生年月日
+        %p.birth__text 2000/01/01
+      .form-set
+        %label.postalcode__label 郵便番号
+        %span.optional 任意
+        = f.text_field :postalcode, class: "postalcode", placeholder: "例）1234567"
+      .form-set
+        %label.prefecture__label 都道府県
+        %span.optional 任意
+        .prefectrure-wrapper
+          %label.icon-wrapper
+            %i.fas.fa-angle-down.icon-sizing
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"},{class: "input-default"}
+      .form-set
+        %label.city__label 市区町村
+        %span.optional 任意
+        = f.text_field :city_name, class: "city", placeholder: "例）横浜市緑区"
+      .form-set
+        %label.address1__label 番地
+        %span.optional 任意
+        = f.text_field :address_number, class: "address-1", placeholder: "例）青山1-1-1"
+      .form-set
+        %label.address2__label 建物名
+        %span.optional 任意
+        = f.text_field :building_name, class: "address-2", placeholder: "例）柳ビル103"
+      = f.submit "登録する", class: "submit-identification"
+      .explanation-under
+        .explanation
+          %p.explanation--right
+            %a.explanation__notice{href: "#"}
+              本人情報の登録について
+              %i.fas.fa-angle-right.fa-lg
+
+= render partial: 'shared/sell-button'
+= render partial: 'shared/main-footer'

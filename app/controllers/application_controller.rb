@@ -2,9 +2,14 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
   before_action :set_search
+  before_action :set_parent_categories
 
   def set_search
     @q = Product.ransack(params[:q])
+  end
+
+  def set_parent_categories 
+    @categories = Category.where(ancestry:nil)
   end
 
   private

@@ -1,30 +1,22 @@
 = render 'shared/main-header'
 %nav.bread-crumbs.l-container
-  %ul.container
-    %li
-      = link_to "" do
-        %span メルカリ
-      = fa_icon 'chevron-right'
-    %li
-      = link_to "" do
-        %span マイページ
-      = fa_icon 'chevron-right'
-    %li
-      %span.page_now プロフィール
+- breadcrumb :profile 
+= render partial: "shared/bread_crumb"
 %main.mypage-body
   = render partial: 'shared/mypage_side'
   .mypage-main
-    %form(action="")
+    = form_with model:current_user, method: :patch do |f|
       %section.mypage-main__header
         %h2.header_title
           プロフィール
         .mystore-name-edit
           = image_tag "member_photo_noimage_thumb.png", class:"mystore_icon"
-          %input.input{name:"nickname",placeholder: "",type:"text"}
+          = f.text_field :nickname, value: current_user.nickname , placeholder: "", class:"input"
       .profile
-        %textarea.profile_textarea{name:"introduction", placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-        %button.profile_button{type: "submit"} 変更する
+        = f.text_area :profile, class: "profile_textarea" ,value: current_user.profile , placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+        = f.submit "変更する", class: "profile_button"
 = render 'shared/sell-button'
 = render 'shared/main-footer'
+
 
 

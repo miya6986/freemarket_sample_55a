@@ -10,7 +10,7 @@
           %p
             会員登録が完了しました
           .form__upper__group
-            = button_tag root_path, class:"btn-default" do
+            = link_to root_path, class:"btn-default" do
               メルカリを始める
   = image_tag 'footer.png', alt: 'mercari'
   =render "sub-footer"
