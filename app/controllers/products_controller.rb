@@ -130,7 +130,6 @@ class ProductsController < ApplicationController
   def search_params
     params.require(:q).permit(
       :name_or_description_cont,
-      # :sorts,
       :price_gteq,
       :price_lteq,
       :brand_name_cont,
