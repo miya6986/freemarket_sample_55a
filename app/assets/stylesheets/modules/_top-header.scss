@@ -87,6 +87,78 @@
         &__item:hover {
           color: $blue;
         }
+        .parent {
+          position: absolute;
+          top: 44px;
+          left: -34px;
+          width: auto;
+          z-index: 1000;
+          background: $white;
+          display: none;
+          &__item {
+            h3 {
+              font-weight: 400;
+              font-size: 14px;
+              a {
+                color: $black;
+                padding: 0 10px;
+                line-height: 44px;
+                display: block;
+                font-size: 14px;
+                line-height: 44px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                padding: 0px 16px;
+                &:hover {
+                  opacity: 1;
+                  text-decoration: none;
+                }
+              }  
+            }        
+            &:hover {
+              background-color: $red;
+              h3 a {
+                color: $white;
+              }
+            }
+            .child {
+              background-color: $white;
+              bottom: 0px;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              left: 200px;
+              position: absolute;
+              top: 0px;
+              width: 224px;
+              a {
+                color: $black !important;
+                line-height: 1;
+                font-size: 14px;
+                padding: 8px 16px;
+              }
+              &__item {
+                width: 224px;
+                &:hover {
+                  background-color: $border-gray
+                }
+                .grandchild {
+                  @extend .child;
+                  width: 320px;
+                  &__item:hover {
+                    background-color: $border-gray
+                  }
+                }
+              }
+            }
+          }
+        }
+        .brand {
+          @extend .parent;
+          &__item {
+            @extend .parent__item;
+            width: 224px;
+          }
+        }
       }
       .menu-right {
         display: flex;

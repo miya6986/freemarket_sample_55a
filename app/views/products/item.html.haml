@@ -11,22 +11,27 @@
         %tr
           %th 出品者
           %td 
-            = link_to "#{@seller.nickname}", "#", class: 'user-name'
+            = link_to @product.seller.nickname, "#", class: 'user-name'
         %tr
           %th カテゴリー
           %td.category
             .category__name
-              = link_to "#{@category[0]}", "#"
+              = link_to @category[0], "#"
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to "#{@category[1]}", "#"
+              = link_to @category[1], "#"
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to "#{@category[2]}", "#"
+              = link_to @category[2], "#"
         %tr
           %th ブランド
-          %td.brand 
-            = link_to '', "#",class: 'brand__name'
+          %td
+            = link_to @product.brand.name, "",class: 'brand__name' if @product.brand.present?
+        - if @product.size.present?
+          %tr
+            %th サイズ
+            %td.size
+              = @product.size
         %tr
           %th 商品の状態
           %td
@@ -42,7 +47,7 @@
         %tr
           %th 配送元地域
           %td.prefecture
-            = link_to "#{@product.prefecture.name}", "#",class: 'prefecture__name'
+            = link_to @product.prefecture.name, "#",class: 'prefecture__name'
         %tr
           %th 発送日の目安	
           %td
@@ -61,7 +66,7 @@
     %p<
       = @product.description
 .product-action
-  = link_to "商品の編集", edit_product_path(@product), class: "product-action__edit"
+  = link_to "商品の編集", edit_product_path(@product), class: "product-action__edit", data: {"turbolinks" => false}
   %p.product-action__separate or
   = form_with model: @product, url: "#" do |f|
     = f.submit "出品を一旦停止する", class: "product-action__reselling"

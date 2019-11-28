@@ -1,0 +1,96 @@
+.category {
+  width: 700px;
+  margin: 40px auto;
+  a {
+    color: #0099e8;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      opacity: .7;
+    }
+  }
+  h2 {
+    padding: 8px 0;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  .nav {
+    text-align: center;
+    @include clearfix;
+    &__item  {
+      float: left;
+      display: block;
+      border-radius: 4px;
+      min-width: 80px;
+      height: 40px;
+      box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+      padding: 0 30px;
+      margin: 5px;
+      color: $black;
+      font-size: 16px;
+      line-height: 40px;
+      cursor: pointer;
+      color: $black;
+      background-color: $white;
+      &:hover {
+        color: $white;
+        background-color: $red;
+        opacity: 1;
+          text-decoration: none;
+      }
+    }
+  }
+  .wrap {
+    margin: 30px auto;
+    .container {
+      border-radius: 4px;
+      @include clearfix;
+      .head {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 7px 30px 0 30px;
+        height: 40px;
+        background-color: $red;
+        h3 {
+          color: $white;
+          font-size: 22px;
+          font-weight: bold;
+        }
+      }
+      .category-box {
+        padding: 24px 30px 10px 30px;
+        margin-bottom: 40px;
+        background-color: $white;
+        p {
+          font-size: 16px;
+          margin-top: 8px;
+          margin-bottom: 8px;
+        }
+        &__name {
+          padding-top: 15px;
+          padding-bottom: 5px;
+          h4 {
+            font-weight: bold;
+          }
+        }
+        &__grandchildren {
+          padding-left: 20px;
+          padding-right: 20px;
+          padding-bottom: 10px;
+          @include clearfix;
+          &__item {
+            float: left;
+            width: 50%;
+            padding: 0 20px 0 0;
+            p {
+              font-size: 16px;
+              margin-top: 8px;
+              margin-bottom: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

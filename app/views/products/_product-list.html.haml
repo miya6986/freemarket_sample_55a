@@ -3,9 +3,12 @@
     .product-box__top
       .product-box__top__image
         = image_tag product.images.first.name.to_s, size: '188x188', class: 'product-image'
+        - unless product.buyer.blank?
+          .soldout
+            .soldout_text 
+              %p SOLD
         .product-price
-          ¥
-          = product.price.to_s(:delimited)
+          = "¥ #{product.price.to_s(:delimited)}"
     .product-box__description
       %span 
         = product.name
