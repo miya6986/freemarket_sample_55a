@@ -44,8 +44,8 @@ class Product < ApplicationRecord
     end
   
     #チェックボックス用enum
-  enum condition: {new_item: "新品、未使用", new_like: "未使用に近い", no_dirt: "目立った傷や汚れなし", less_dirt: "やや傷や汚れあり", dirt: "傷や汚れあり", bad: "全体的に状態が悪い"}
-  enum postage: {seller_cost: "着払い(購入者負担)", buyer_cost: "送料込み(出品者負担)"}
+  enum search_condition: {new_item: "新品、未使用", new_like: "未使用に近い", no_dirt: "目立った傷や汚れなし", less_dirt: "やや傷や汚れあり", dirt: "傷や汚れあり", bad: "全体的に状態が悪い"}
+  enum search_postage: {seller_cost: "着払い(購入者負担)", buyer_cost: "送料込み(出品者負担)"}
   enum statuse: {selling: "販売中", sold_out: "売り切れ"}
   
   # 検索用
