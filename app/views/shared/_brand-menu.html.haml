@@ -2,18 +2,7 @@
   = fa_icon 'tag lg',class:'menu-left__item--icon'
   ブランドから探す
   %ul.brand
-    %li.brand__item
-      %h3 
-        = link_to "シャネル"
-    %li.brand__item
-      %h3 
-        = link_to "ナイキ"
-    %li.brand__item
-      %h3 
-        = link_to "ルイ ヴィトン"
-    %li.brand__item
-      %h3 
-        = link_to "シュプリーム"
-    %li.brand__item
-      %h3 
-        = link_to "アディダス"
+    - @brands.each do |brand|
+      %li.brand__item
+        %h3 
+          = link_to brand.name, brand_path(brand)
