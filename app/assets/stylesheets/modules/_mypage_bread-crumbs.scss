@@ -1,29 +1,27 @@
-.breadcrumbs_box {
+.bread-crumbs {
   width: 100vw;
   height: 49px;
   border-top: 1px solid #eee;
   background: #fff;
-  border-top: 1px solid #eee;
   box-shadow: 0px 3px 3px #CFCFCF;
-  .breadcrumbs{
+  ul{
     @include container;
-    a{
-      text-decoration: none;
-      color: inherit;
+    li{
+      display: inline-block;
       font-size: 14px;
       line-height: 49px;
-      &:hover{
-        opacity: 0.7;
-        text-decoration: underline;
+      a{
+        text-decoration: none;
+        color: inherit;
+        font-size: 14px;
       }
-    }
-    .current{
-      font-weight: bold;
-    }
-    i{
-      color: #8B8B8B;
-      font-size: 9px;
-      margin: 0 6px;
+      i{
+        color: #8B8B8B;
+        font-size: 9px;
+      }
+      .page_now{
+        font-weight: bold;
+      }
     }
   }
 }

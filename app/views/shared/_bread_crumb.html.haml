@@ -1,3 +1,9 @@
-%nav.breadcrumbs_box
-  = breadcrumbs separator: " #{content_tag(:i, '', class:'fa fa-chevron-right')} "
-
+%nav.bread-crumbs.l-container
+  %ul.container
+    %li
+      = link_to "" do
+        %span メルカリ
+      = fa_icon 'chevron-right', class: 'arrow-icon'
+    %li
+      %span.page_now 
+        マイページ

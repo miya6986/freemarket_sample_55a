@@ -1,2 +1,0 @@
-user = User.new(nickname: "メルカリ太郎", email:"user@example.com", firstname: "メルカリ", lastname: "太郎", firstname_kana: "メルカリ", lastname_kana: "タロウ", birth_year: 2019, birth_month: 11, birth_day: 11, phone_number: "07661345678", password: "password", postalcode: "123-4567", prefecture_id: 2, city_name: "札幌市", address_number: "123番地")
-user.save!

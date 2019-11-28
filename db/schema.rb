@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_102628) do
+ActiveRecord::Schema.define(version: 2019_11_09_235751) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "firstname", null: false
@@ -109,11 +109,11 @@ ActiveRecord::Schema.define(version: 2019_11_17_102628) do
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "uid", null: false
-    t.string "provider", null: false
+    t.string "uid"
+    t.string "provider"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 

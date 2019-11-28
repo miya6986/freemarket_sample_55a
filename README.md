@@ -233,8 +233,8 @@ Things you may want to cover:
 ## sns_credentialsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|uid|string|null: false|	
-|provider|string|null: false|
+|uid|string||	
+|provider|string||
 |user_id|references|foreign_key: true, null: false|
 
 ### Association
