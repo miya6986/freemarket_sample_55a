@@ -9,8 +9,3 @@ $(function() {
     $('.list-status').prop("checked", $(this).prop("checked"));
   });
 });
-// $(function() {
-//   $('.all-postage').on("click",function(){
-//     $('.list-postage').prop("checked", $(this).prop("checked"));
-//   });
-// });
