@@ -1,0 +1,15 @@
+= render "shared/main-header"
+.brand-wrap
+  .container
+    %h1.head 
+      = @brand.name 
+      の商品一覧
+    %ul.brand-items
+      - @products.each do |product|
+        %li.brand-item
+          = render partial: 'products/product-list', locals: { product: product }
+  .brand-pagination
+    = paginate @products
+
+= render 'shared/sell-button'
+= render 'shared/main-footer'
