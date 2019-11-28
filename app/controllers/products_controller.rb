@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy,:buy,:item]
   before_action :set_product, only: [:show, :buy, :destroy, :item, :edit]
-  before_action :product_seller?, only: :item
+  before_action :product_seller?, only: [:item, :edit, :update, :destroy]
 
   def index
     @products = Product.order('created_at DESC').includes(:images)
@@ -126,14 +126,10 @@ class ProductsController < ApplicationController
   end
     
   def destroy
-    if @product.seller == current_user
-      if @product.destroy
-        redirect_to my_selling_products_users_path, notice: "商品を削除しました" and return
-      else
-        redirect_to item_product_path(params[:id]) and return
-      end
+    if @product.destroy
+      redirect_to my_selling_products_users_path, notice: "商品を削除しました" and return
     else
-      redirect_to root_path and return
+      redirect_to item_product_path(params[:id]) and return
     end
   end
 
