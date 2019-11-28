@@ -134,6 +134,8 @@ class ProductsController < ApplicationController
       :price_gteq,
       :price_lteq,
       :brand_name_cont,
+      :buyer_id_null,
+      :buyer_id_not_null,
       categories_sizes_id_eq: [],
       categories_id_eq: [],
       condition_eq_any: [],

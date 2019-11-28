@@ -125,12 +125,18 @@
             %span.search-content__status--label--title
               販売状況
           .search-content__status__form
-            -# statusのカラムがないのでname_eq_anyで仮置き
-            = f.collection_check_boxes( :name_eq_any, Product.statuses.map{|k, v| [Product.statuses[k], v]}, :last , :first ,{}, {include_hidden: false, class: "search-content__status__form__check-boxes"} ) do |b|
-              = b.label(class: "search-content__status__form__check-boxes__label") do
-                = b.check_box(class: "search-content__status__form__check-boxes__label__input")
-                %i.fas.fa-check.check-icon.search-content__status__form__check-boxes__label__icon
-                = b.label(class: "search-content__status__form__check-boxes__label__text")
+            = f.label :name_eq , class: "search-content__status__form__check-boxes__label", for: "check-icon-21" do
+              = f.check_box(:name_eq, {class: "search-content__status__form__check-boxes__label__input all-status", id: "check-icon-21", include_hidden: false, multiple: true }, "") 
+              %i.fas.fa-check.check-icon.search-content__status__form__check-boxes__label__icon                 
+              .search-content__status__form__check-boxes__label__text すべて
+            = f.label :buyer_id_null, class: "search-content__status__form__check-boxes__label", for: "check-icon-22" do
+              = f.check_box(:buyer_id_null, {class: "search-content__status__form__check-boxes__label__input list-status", id: "check-icon-22", include_hidden: false}, "true") 
+              %i.fas.fa-check.check-icon.search-content__status__form__check-boxes__label__icon                 
+              .search-content__status__form__check-boxes__label__text 販売中
+            = f.label :buyer_id_not_null, class: "search-content__status__form__check-boxes__label", for: "check-icon-23" do
+              = f.check_box(:buyer_id_not_null, {class: "search-content__status__form__check-boxes__label__input list-status", id: "check-icon-23", include_hidden: false}, "true") 
+              %i.fas.fa-check.check-icon.search-content__status__form__check-boxes__label__icon                 
+              .search-content__status__form__check-boxes__label__text 売り切れ
         .search-content__submit
           = button_tag 'クリア', type: 'reset', class: 'search-content__submit__clear'
           = button_tag '完了' ,type: 'submit', class: 'search-content__submit__complete'
