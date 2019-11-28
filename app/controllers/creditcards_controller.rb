@@ -1,5 +1,6 @@
 class CreditcardsController < ApplicationController
   require "payjp"
+  before_action :authenticate_user!
   before_action :set_card
 
   def index
