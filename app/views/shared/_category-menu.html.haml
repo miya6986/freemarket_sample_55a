@@ -1,0 +1,17 @@
+.menu-left__item
+  = fa_icon 'list lg', class:'menu-left__item--icon'
+  = link_to "カテゴリーから探す", categories_path
+  %ul.parent
+    - @categories.each do |parent|
+      %li.parent__item
+        %h3
+          = link_to parent.name, category_path(parent)
+          %ul.child
+            - parent.children.each do |child| 
+              %li.child__item
+                = link_to child.name, category_path(child)
+                %ul.grandchild
+                  - child.children.each do |grandchild|
+                    %li.child__item
+                      = link_to grandchild.name, category_path(grandchild)
+
