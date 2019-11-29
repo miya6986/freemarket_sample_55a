@@ -50,8 +50,6 @@ Rails.application.routes.draw do
   resources :creditcards, only: [:index, :destroy]
   resources :likes, only: [:index, :create, :destroy]
   
-  get 'login', to: 'registrations#login'
-  
   resources :registrations do
     collection do
       get  'step1'

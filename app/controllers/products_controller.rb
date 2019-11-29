@@ -69,7 +69,6 @@ class ProductsController < ApplicationController
 
   def update
     @parents = Category.where(ancestry: nil)
-    
     if params[:product].keys.include?("image") || params[:product].keys.include?("images_attributes") 
       if @product.valid?
         if params[:product].keys.include?("image")
