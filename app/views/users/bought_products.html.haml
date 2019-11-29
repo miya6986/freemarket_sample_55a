@@ -20,14 +20,8 @@
                   = image_tag product.images.first.name.to_s, class: "product-image"
                 .product-body
                   .product-body__title 
-                    = product.name.to_s
+                    = "「#{product.name}」を購入しました。取引が完了しました"
                   .product-body__element
-                    %span.icon
-                      %i.far.fa-heart
-                        %span 0
-                    %span.icon
-                      %i.far.fa-comment-alt
-                        %span 0
                     .product-status.gray 取引完了
                 %i.fas.fa-angle-right.fa-2x.icon-sizing
     %ul.my-products-history
