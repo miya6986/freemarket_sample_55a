@@ -74,6 +74,7 @@ class ProductsController < ApplicationController
       brand_name = params[:product][:brand_attributes][:name] 
       brand = Brand.where(name: brand_name).first_or_create
       @product[:brand_id] = brand.id
+      params[:product][:brand_attributes][:id] = brand.id
     end
     if params[:product].keys.include?("image") || params[:product].keys.include?("images_attributes") 
       if @product.valid?
