@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy,:buy]
+  before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy,:buy,:item]
   before_action :set_product, only: [:show, :buy, :destroy, :item, :edit]
-  before_action :product_seller?, only: :item
+  before_action :product_seller?, only: [:item, :edit, :update, :destroy]
 
   def index
     @products = Product.order('created_at DESC').includes(:images)
@@ -36,6 +36,12 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.brand.delete
+    if params[:product][:brand_attributes][:name].present?
+      brand_name = params[:product][:brand_attributes][:name] 
+      brand = Brand.where(name: brand_name).first_or_create
+      @product[:brand_id] = brand.id
+    end
     if @product.save
       redirect_to users_path, notice: "商品を出品しました"
     else 
@@ -73,10 +79,8 @@ class ProductsController < ApplicationController
           end
         end
         @product.update(product_params)
-        # サイズ必要なカテゴリ→サイズ不要のカテゴリに変更する場合、DBに保存中のサイズ情報も併せて削除する
         @size = @product.categories[1].sizes[0]
         @product.update(size: nil) unless @size
-        # エラーがなければマイページにリダイレクトする
         redirect_to users_path, notice: "商品を更新しました"
       else
         render 'edit'
@@ -122,8 +126,6 @@ class ProductsController < ApplicationController
       else
         redirect_back(fallback_location: root_path)
       end
-    else
-      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -132,14 +134,10 @@ class ProductsController < ApplicationController
   end
     
   def destroy
-    if @product.seller == current_user
-      if @product.destroy
-        redirect_to my_selling_products_users_path, notice: "商品を削除しました" and return
-      else
-        redirect_to item_product_path(params[:id]) and return
-      end
+    if @product.destroy
+      redirect_to my_selling_products_users_path, notice: "商品を削除しました" and return
     else
-      redirect_to root_path and return
+      redirect_to item_product_path(params[:id]) and return
     end
   end
 
@@ -174,7 +172,7 @@ class ProductsController < ApplicationController
   end
 
   def product_seller?
-    redirect_to root_path unless @product.seller == current_user 
+    redirect_back(fallback_location: root_path) unless @product.seller == current_user 
   end
   
 end

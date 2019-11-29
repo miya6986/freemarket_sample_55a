@@ -1,0 +1,5 @@
+chanel = Brand.create(name: "シャネル")
+louisvuitton = Brand.create(name: "ルイヴィトン")
+supreme = Brand.create(name: "シュプリーム")
+nike = Brand.create(name: "ナイキ")
+adidas = Brand.create(name: "アディダス")

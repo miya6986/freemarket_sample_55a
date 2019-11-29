@@ -42,7 +42,7 @@
             = link_to @product.brand.name, "",class: 'brand__name' if @product.brand.present?
         - if @product.size.present?
           %tr
-            %th サイズ
+            %th 商品のサイズ
             %td.size
               = @product.size
         %tr

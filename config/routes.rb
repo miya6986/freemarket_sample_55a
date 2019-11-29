@@ -41,6 +41,11 @@ Rails.application.routes.draw do
   end 
 
   resources :categories, only: [:index, :show]
+  resources :brand, only: [:index, :show] do
+    collection do
+      get :search
+    end
+  end
 
   resources :creditcards, only: [:index, :destroy]
   resources :likes, only: [:index, :create, :destroy]

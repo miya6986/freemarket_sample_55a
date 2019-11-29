@@ -51,6 +51,11 @@
       @extend .select-default;
       cursor: default;
     }
+    #select_wapper{
+      @extend .select-default;
+      height: 150px;
+      overflow: scroll;        
+    }
   }
 }
 
