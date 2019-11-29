@@ -5,7 +5,15 @@
   %h1.head 
     = @product.name
   .product.clearfix
-    = image_tag @product.images.first.name.to_s, alt: 'item-show-sample',class: 'product__photo'
+    .wrap
+      %ul.slider
+        - @product.images.each do |image|
+          %li.slide-item
+            = image_tag image.name.to_s, alt: 'mercari-top'
+      %ul.thumbnail-list
+        - @product.images.each do |image|
+          %li.thumbnail-item
+            = image_tag image.name.to_s, alt: 'mercari-top'
     %table.product__table
       %tbody
         %tr
