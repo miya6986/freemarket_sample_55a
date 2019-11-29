@@ -1,6 +1,26 @@
 = render 'shared/main-header'
 .img_wapper
-  = image_tag 'mercari-top.png', alt: 'mercari-top'
+  .wrap
+    %ul.top-slider
+      %li.top-slide-item
+        = image_tag 'top-banner-camp-4f3fd88c685e8932d7dde2ad3a8336ba.jpg', alt: 'mercari-top'
+      %li.top-slide-item
+        = image_tag 'top-banner-sale-fee-free-034ec8d0642f5714a26822988195b62c.png', alt: 'mercari-top'
+      %li.top-slide-item
+        = image_tag 'top-banner-main-892151cc75b1f6a1285bf7943c9b933c.jpg', alt: 'mercari-top'
+        .main-images
+          = image_tag 'top-banner-main-device-1f627e51e488f6ca35feaa6a08b79736.png', alt: 'mercari-top', class: 'hand'
+          .main-images__heading 
+            スマホでかんたん
+            %br
+            フリマアプリ
+          %p.main-images__sub-heading
+            メルカリはスマホカメラからすぐに出品できる
+            %br
+            購入時も安心な独自システムのアプリです
+          .main-images__images
+            = image_tag 'app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg', alt: 'mercari-top', class: 'apple-store'
+            = image_tag 'google-play-495575abb895b405aa6336b2a4304958.svg', alt: 'mercari-top', class: 'google-store'
 .top-wrapper 
   .top-container
     .category-info
