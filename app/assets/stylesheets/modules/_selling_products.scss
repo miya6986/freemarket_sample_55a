@@ -107,19 +107,7 @@
                   }
                 }
                 .product-status {
-                  display: inline-block;
-                  margin-top: 8px;
-                  padding: 5px 6px;
-                  border-radius: 2px;
-                  font-size: 12px;
-                  font-weight: bold;
-                  color: $white;
-                }
-                .active{
-                  background-color: $blue;
-                }
-                .inactive {
-                  background-color: $red;
+                  @include tag;
                 }
               }
             }
