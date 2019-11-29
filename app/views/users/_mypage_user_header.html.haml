@@ -7,5 +7,5 @@
     .mystore-link__count
       %span 評価 
       %span 0
-      %span 出品数
-      %span 0
+      %span 
+        = "出品数 #{current_user.selling_products.count}"

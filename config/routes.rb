@@ -5,18 +5,24 @@ Rails.application.routes.draw do
   root 'products#index'
   get 'auth/failure', to: 'omniauth_callbacks#failure'
 
-  resources :users, only: [:index,:edit] do
+  resources :users, only: [:index, :edit, :update] do
     collection do
-      get :user_identification
+      get :identification
       get :my_selling_products
       get :logout_page
     end
+    member do
+      patch :edit
+    end
+  end
+  
+  resources :creditcards, only: [:index, :new, :create, :destroy] do
+    collection do
+      get 'buy'
+    end
   end
 
-  resources :creditcards, only: [:index, :new, :create, :destroy]
-
   resources :products do
-
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -24,10 +30,20 @@ Rails.application.routes.draw do
       get 'get_size', defaults: { format: 'json' }
     end
     member do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_size', defaults: { format: 'json' }
       get :item
       get :buy
     end
   end 
+
+  resources :categories, only: [:index, :show]
+  resources :brand, only: [:index, :show] do
+    collection do
+      get :search
+    end
+  end
 
   resources :creditcards, only: [:index, :destroy]
   resources :likes, only: [:index, :create, :destroy]
@@ -45,4 +61,5 @@ Rails.application.routes.draw do
     end
   end
 end
+
 

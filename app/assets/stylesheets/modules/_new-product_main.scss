@@ -121,7 +121,7 @@
             @include require-span;
             @include form-select;
           }
-          #size, #brand {
+          #size {
             margin-top: 40px;
           }
         }
@@ -277,7 +277,9 @@
           transition: all ease-out .3s;
           cursor: pointer;
           text-align: center;
-
+          &:focus {
+            outline: none;
+          }
         }
         .btn-gray {
           width: 45%;
@@ -295,4 +297,11 @@
       }
     }
   }
+}
+li.has-error-text {
+  margin: 8px 0 0;
+  color: #ea352d;
+  line-height: 1.5;
+  font-size: 14px;
+  font-weight: normal;
 }
