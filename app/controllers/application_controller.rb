@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @q = Product.ransack(params[:q])
-    @search_products = @q.result(distinct: true).page(params[:page]).per(8).includes(:images)
   end
 
   def set_parent_categories 

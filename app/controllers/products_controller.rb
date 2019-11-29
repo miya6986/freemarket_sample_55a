@@ -130,7 +130,16 @@ class ProductsController < ApplicationController
   end
 
   def search
+    # ransack用変数設定
+    initilize_ransack_variable
+    
     @products = Product.order('created_at DESC').includes(:images)
+    @parents = Category.where(ancestry: nil)
+    @sizes = Size.where(ancestry: nil)
+    if params[:q].present?
+      @q = Product.ransack(search_params)
+      @search_products = @q.result(distinct: true).page(params[:page]).per(24).includes(:images)
+    end
   end
     
   def destroy
@@ -167,6 +176,22 @@ class ProductsController < ApplicationController
     .merge(seller_id: current_user.id)
   end
 
+  def search_params
+    params.require(:q).permit(
+      :name_or_description_cont,
+      :price_gteq,
+      :price_lteq,
+      :brand_name_cont,
+      :buyer_id_null,
+      :buyer_id_not_null,
+      :categories_id_eq,
+      categories_sizes_id_eq: [],
+      categories_id_eq: [],
+      condition_eq_any: [],
+      postage_eq_any: [],
+    ) if params[:q].present?
+  end
+    
   def set_product
     @product = Product.find(params[:id])
   end
@@ -175,4 +200,12 @@ class ProductsController < ApplicationController
     redirect_back(fallback_location: root_path) unless @product.seller == current_user 
   end
   
+  def initilize_ransack_variable
+    # 詳細検索用インスタンス変数
+    @condition_list = Product.condition_check_list
+    @postage_list = Product.postage_check_list
+    @parents = Category.where(ancestry: nil)
+    @sizes = Size.where(ancestry: nil)
+  end
+
 end
