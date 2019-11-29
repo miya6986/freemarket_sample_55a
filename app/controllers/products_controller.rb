@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy,:buy,:item]
-  before_action :set_product, only: [:show, :buy, :destroy, :item, :edit]
+  before_action :set_product, only: [:show, :buy, :destroy, :update, :item, :edit]
   before_action :product_seller?, only: [:item, :edit, :update, :destroy]
 
   def index
@@ -68,7 +68,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(params[:id])
     @parents = Category.where(ancestry: nil)
     if params[:product].keys.include?("image") || params[:product].keys.include?("images_attributes") 
       if @product.valid?
