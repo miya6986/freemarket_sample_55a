@@ -8,9 +8,7 @@
       = @category.name 
       の商品一覧
     %ul.category-items
-      - @products.each do |product|
-        %li.category-item
-          = render partial: 'products/product-list', locals: { product: product }
+      = render partial: 'products/product-list', collection: @products, as: "product"
   .category-pagination
     = paginate @products
 

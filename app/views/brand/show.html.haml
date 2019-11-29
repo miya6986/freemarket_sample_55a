@@ -5,9 +5,7 @@
       = @brand.name 
       の商品一覧
     %ul.brand-items
-      - @products.each do |product|
-        %li.brand-item
-          = render partial: 'products/product-list', locals: { product: product }
+      = render partial: 'products/product-list', collection: @products, as: "product"
   .brand-pagination
     = paginate @products
 
