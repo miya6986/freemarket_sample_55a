@@ -70,16 +70,6 @@ class ProductsController < ApplicationController
   def update
     @parents = Category.where(ancestry: nil)
     
-    unless params[:product][:brand_attributes][:name].blank?
-      brand_name = params[:product][:brand_attributes][:name] 
-      brand = Brand.where(name: brand_name).first_or_create
-      @product[:brand_id] = brand.id
-      params[:product][:brand_attributes][:id] = brand.id
-    else
-      @brand = @product.build_brand
-      @product.brand.delete
-      params[:product].delete(:brand_attributes)
-    end
     if params[:product].keys.include?("image") || params[:product].keys.include?("images_attributes") 
       if @product.valid?
         if params[:product].keys.include?("image")
@@ -87,6 +77,16 @@ class ProductsController < ApplicationController
           @product.images.ids.each do |img_id|
             Image.find(img_id).destroy unless posted_image_ids.include?("#{img_id}")
           end
+        end
+        unless params[:product][:brand_attributes][:name].blank?
+          brand_name = params[:product][:brand_attributes][:name] 
+          brand = Brand.where(name: brand_name).first_or_create
+          @product[:brand_id] = brand.id
+          params[:product][:brand_attributes][:id] = brand.id
+        else
+          @brand = @product.build_brand
+          @product.brand.delete
+          params[:product].delete(:brand_attributes)
         end
         @product.update(product_params)
         @size = @product.categories[1].sizes[0]
