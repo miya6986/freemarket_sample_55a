@@ -44,15 +44,16 @@
       %section.buy-info__content.buy-info__user
         .buy-inner
           %h3 配送先
-          %address.buy-info__user--text
-            = "〒#{@postalcode}"
-            %br
-            = @address_full
-            %br
-            = @full_name
-          .buy-info__user--fix
-            = link_to '変更する', '#'
-            = fa_icon 'chevron-right'
+          - if current_user.address.present?
+            %address.buy-info__user--text
+              = "〒#{@postalcode}"
+              %br
+              = @address_full
+              %br
+              = @full_name
+            .buy-info__user--fix
+              = link_to '変更する', '#'
+              = fa_icon 'chevron-right'
 
       %section.buy-info__content.buy-info__user
         .buy-inner

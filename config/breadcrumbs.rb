@@ -22,8 +22,13 @@ crumb :likes do
   parent :mypage
 end
 
-crumb :my_selling_products_users do 
-  link "出品した商品 - 出品中", my_selling_products_users_path
+crumb :selling_products_users do 
+  link "出品した商品 - 出品中", selling_products_users_path
+  parent :mypage
+end
+
+crumb :sold_products_users do 
+  link "出品した商品 - 売却済", sold_products_users_path
   parent :mypage
 end
 

@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def identification
   end
 
-  def my_selling_products
+  def selling_products
     @products = current_user.selling_products.limit(15).order(id: "DESC")
   end
 

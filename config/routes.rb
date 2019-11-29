@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit, :update] do
     collection do
       get :identification
-      get :my_selling_products
+      get :selling_products
+      get :sold_products
+      get :bought_products
       get :logout_page
     end
     member do

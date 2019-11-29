@@ -69,16 +69,22 @@
     %span.product__price-box__price
       = "¥ #{@product.price.to_s(:delimited)}"
     %span.product__price-box__tax
-      (税込)
+      （税込）
     %span.product__price-box__shipping-fee
-      送料込み
+      - if @product.postage == "送料込み(出品者負担)"
+        送料込み
+      - else
+        着払い
   
-  .product__buy-btn
-    - if @product.buyer.blank?
-      = link_to "購入画面に進む", buy_product_path, class:"product__buy-btn red"
-    - else
-      .product__buy-btn.gray
-        購入画面に進む
+  - unless @product.seller == current_user
+    .product__buy-btn
+      - if @product.buyer.blank? 
+        = link_to "購入画面に進む", buy_product_path, class:"product__buy-btn red"
+      - else
+        .product__buy-btn.gray
+          購入画面に進む
+
+
   .product__description
     %p 
     = simple_format(@product.description)
