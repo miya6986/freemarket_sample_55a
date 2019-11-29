@@ -67,30 +67,6 @@ class CreditcardsController < ApplicationController
     end
   end
 
-  def buy
-    @product = Product.find(params[:product_id])
-    if @product.buyer.present? 
-      redirect_back(fallback_location: root_path) 
-    elsif @card.blank?
-      redirect_to action: "new"
-      flash[:alert] = '購入にはクレジットカード登録が必要です'
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      Payjp::Charge.create(
-      amount: @product.price,
-      customer: @card.customer_id,
-      currency: 'jpy',
-      )
-      if @product.update(buyer_id: current_user.id)
-        flash[:notice] = '購入しました。'
-        redirect_to controller: 'products', action: 'show', id: @product.id
-      else
-        flash[:alert] = '購入に失敗しました。'
-        redirect_to controller: 'products', action: 'show', id: @product.id
-      end
-    end
-  end
-
   private
   def set_card
     @card = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?

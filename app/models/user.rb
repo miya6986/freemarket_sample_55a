@@ -29,5 +29,6 @@ class User < ApplicationRecord
   validates :birth_day,         presence: true
   
   # step3入力項目
-  validates :phone_number,      presence: true, on: :registrations, uniqueness: true, format: { with: VALID_PHONE_REGEX } 
+  validates :phone_number,      presence: true, uniqueness: true, format: { with: VALID_PHONE_REGEX } 
+
 end

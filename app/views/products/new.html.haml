@@ -3,7 +3,7 @@
   .main
     .head
       %h2 商品の情報を入力
-    = form_with model: @product, class: "form", id: "product-form" do |f|
+    = form_with model: @product, class: "form" do |f|
       .form-image
         .form-image__title
           %label 出品画像
@@ -12,7 +12,7 @@
           = f.fields_for :images do |image|
             .clearfix
               %ul#previews
-                %li.input
+                %li.image-preview.input
                   %label.upload-label
                     .upload-label__text
                       ドラッグアンドドロップ
@@ -34,53 +34,55 @@
         %h3 商品の詳細
         .form-details__form-box
           .form-details__form-box__category
-            %label.label カテゴリー
+            %label カテゴリー
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
               = f.collection_select :category_ids, @parents, :id, :name,{prompt: "---"}, name: 'product[category_ids][]', class: "select-default", id: "parent-category"
           .form-details__form-box__brand 
             = f.fields_for :brand, {} do |brand|
-              %label.label ブランド
+              %label ブランド
               %span.optional 任意
               .form-input
                 = brand.text_field :name, class: "input-default", placeholder: "例）シャネル", autocomplete: "off"
           .form-details__form-box__condition
-            %label.label 商品の状態
+            %label 商品の状態
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = f.select :condition, [["---", ""], ["新品、未使用"], ["未使用に近い"], ["目立った傷や汚れなし"], ["やや傷や汚れあり"], ["傷や汚れあり"], ["全体的に状態が悪い"]], {}, class: "select-default"
+              = f.select :condition, [["---", ""], ["新品、未使用"], ["未使用に近い"], ["目立った傷や汚れなし"], ["やや傷や汚れあり"], ["傷や汚れあり"], ["全体的に状態が悪い"]], {}, {class: "select-default"}
       .form-shipping
         %h3 配送について
         = link_to "？", "", class: "question"
         .form-shipping__form-box
           .form-shipping__form-box__fee
-            %label.label 配送料の負担
+            %label 配送料の負担
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = f.select :postage, [["---", ""], ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, class: "select-default"
+              = f.select :postage, [["---", ""], ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, {class: "select-default"}
         
           .form-shipping__form-box__method
             .form-shipping__form-box__fee
-              %label.label 配送の方法
+              %label 配送の方法
               %span 必須
               .form-select
                 = fa_icon 'angle-down', class: 'icon-angle-down'
-                = f.select :shipping_method, [["---", ""], ["未定"], ["らくらくメルカリ便"],["ゆうメール"],["レターパック"],["普通郵便（定形・定型外）"],["クロネコヤマト"],["ゆーパック"],["クリックポスト"],["ゆうパケット"]], {}, class: "select-default"
+                = f.select :shipping_method, [["---", ""], ["未定"], ["らくらくメルカリ便"],["ゆうメール"],["レターパック"],["普通郵便（定形・定型外）"],["クロネコヤマト"],["ゆーパック"],["クリックポスト"],["ゆうパケット"]], {}, {class: "select-default"}
+          
+         
           .form-shipping__form-box__area
-            %label.label 配送元の地域
+            %label 配送元の地域
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, class: "select-default"
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"},{class: "select-default"}
           .form-shipping__form-box__day
-            %label.label 配送までの日数
+            %label 配送までの日数
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = f.select :shipping_days, [["---", ""], ["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]], {}, class: "select-default"
+              = f.select :shipping_days, [["---", ""], ["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]], {}, {class: "select-default"}
       .form-price
         %h3 販売価格(300〜9,999,999)
         = link_to "？", "", class: "question"

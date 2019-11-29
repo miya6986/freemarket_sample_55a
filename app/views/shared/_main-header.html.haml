@@ -10,8 +10,12 @@
           = fa_icon 'search lg' 
     .header-lower
       .menu-left
-        = render 'shared/category-menu'
-        = render 'shared/brand-menu'
+        .menu-left__item
+          = fa_icon 'list lg', class:'menu-left__item--icon'
+          カテゴリーから探す
+        .menu-left__item
+          = fa_icon 'tag lg',class:'menu-left__item--icon'
+          ブランドから探す
       %ul.menu-right
         - if  user_signed_in?
           %li.menu-right__item.likes
