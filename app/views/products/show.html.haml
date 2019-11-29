@@ -71,7 +71,10 @@
     %span.product__price-box__tax
       (税込)
     %span.product__price-box__shipping-fee
-      送料込み
+      - if @product.postage == "送料込み(出品者負担)"
+        送料込み
+      - else
+        着払い
   
   - unless @product.seller == current_user
     .product__buy-btn
