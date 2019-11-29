@@ -56,7 +56,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
     @parent = @product.categories[0]
     @child = @product.categories[1]
     @grandchild = @product.categories[2]
@@ -65,6 +64,7 @@ class ProductsController < ApplicationController
     @grandchildren = Category.where(ancestry: @grandchild.ancestry)
     @size = @child.sizes[0] if @child.sizes[0]
     @sizes = @size.children if @size
+    @brand = @product.build_brand unless @product.brand.present?
   end
 
   def update
