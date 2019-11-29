@@ -69,7 +69,7 @@
     %span.product__price-box__price
       = "¥ #{@product.price.to_s(:delimited)}"
     %span.product__price-box__tax
-      (税込)
+      （税込）
     %span.product__price-box__shipping-fee
       - if @product.postage == "送料込み(出品者負担)"
         送料込み
