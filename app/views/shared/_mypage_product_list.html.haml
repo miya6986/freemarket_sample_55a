@@ -1,12 +1,13 @@
 %li.notice
-  = link_to "",class:"notice__link " do
+  = link_to product_path(product),class:"notice__link " do
     .notice__link_img
-      = image_tag "mercari_profile_icon.png", alt: "" 
-      .soldout
-        .soldout_text 
-          %p SOLD
+      = image_tag product.images.first.name.to_s, alt: "" 
+      - unless product.buyer.blank?
+        .soldout
+          .soldout_text 
+            %p SOLD
     .notice__link-message
       %p 事務所からの個別メッセージ
       %span.notice__link-message__passed
-        ¥500
+        = "¥#{product.price}"
     = fa_icon 'chevron-right', class:"mypage-notice_arrow_right"
