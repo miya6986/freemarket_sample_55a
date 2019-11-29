@@ -177,3 +177,19 @@
     }
   }
 }
+
+@mixin notice__none{
+  .notice__none{
+    background: image-url("logo-gray-icon.svg");
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: 50% 25%;
+    display: block;
+    li{
+      padding: 160px 0 60px;
+      text-align: center;
+      font-weight: bold;
+      color: #CCC;
+    }
+  }
+}
