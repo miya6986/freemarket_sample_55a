@@ -70,7 +70,7 @@ class ProductsController < ApplicationController
   def update
     @parents = Category.where(ancestry: nil)
     
-    unless params[:product][:brand_attributes][:name].nil?
+    unless params[:product][:brand_attributes][:name].blank?
       brand_name = params[:product][:brand_attributes][:name] 
       brand = Brand.where(name: brand_name).first_or_create
       @product[:brand_id] = brand.id
