@@ -129,7 +129,7 @@ class ProductsController < ApplicationController
     @sizes = Size.where(ancestry: nil)
     if params[:q].present?
       @q = Product.ransack(search_params)
-      @search_products = @q.result(distinct: true).page(params[:page]).per(8).includes(:images)
+      @search_products = @q.result(distinct: true).page(params[:page]).per(24).includes(:images)
     end
   end
     
