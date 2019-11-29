@@ -15,7 +15,8 @@ Rails.application.routes.draw do
       patch :edit
     end
   end
-  
+
+  resources :address, only: :edit
   resources :creditcards, only: [:index, :new, :create, :destroy] do
     collection do
       get 'buy'
