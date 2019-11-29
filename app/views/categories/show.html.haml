@@ -8,7 +8,7 @@
       = @category.name 
       の商品一覧
     %ul.category-items
-      = render partial: 'products/product-list', collection: @products, as: "product"
+      = render partial: 'categories/category-list', collection: @products, as: "product"
   .category-pagination
     = paginate @products
 
