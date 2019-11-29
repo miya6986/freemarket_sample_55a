@@ -7,7 +7,8 @@
           .soldout_text 
             %p SOLD
     .notice__link-message
-      %p 事務所からの個別メッセージ
+      %p 
+        = product.name
       %span.notice__link-message__passed
         = "¥#{product.price}"
     = fa_icon 'chevron-right', class:"mypage-notice_arrow_right"
