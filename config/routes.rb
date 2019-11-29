@@ -47,7 +47,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :creditcards, only: [:index, :destroy]
   resources :likes, only: [:index, :create, :destroy]
   
   get 'login', to: 'registrations#login'
