@@ -143,7 +143,7 @@ class ProductsController < ApplicationController
     
   def destroy
     if @product.destroy
-      redirect_to my_selling_products_users_path, notice: "商品を削除しました" and return
+      redirect_to selling_products_users_path, notice: "商品を削除しました" and return
     else
       redirect_to item_product_path(params[:id]) and return
     end
