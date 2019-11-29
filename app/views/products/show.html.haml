@@ -3,49 +3,12 @@
   %h1.head 
     = @product.name
   .product.clearfix
-    .wrap
-      %ul.slider
-        %li.slide-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.slide-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
-      %ul.thumbnail-list
-        %li.thumbnail-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'item-show.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'm27124190794_1.jpg', alt: 'mercari-top'
-        %li.thumbnail-item
-          = image_tag 'product-sample.png', alt: 'mercari-top'
+    .product__photo
+      = image_tag @image, alt: 'item-show-sample',class: 'product__photo__img'
+      - unless @product.buyer.blank?
+        .soldout
+          .soldout_text 
+            %p SOLD
     %table.product__table
       %tbody
         %tr
@@ -75,8 +38,13 @@
               = link_to "#{@category[2]}", ""
         %tr
           %th ブランド
-          %td.brand
+          %td
             = link_to @product.brand.name, "",class: 'brand__name' if @product.brand.present?
+        - if @product.size.present?
+          %tr
+            %th サイズ
+            %td.size
+              = @product.size
         %tr
           %th 商品の状態
           %td 
@@ -104,9 +72,14 @@
       (税込)
     %span.product__price-box__shipping-fee
       送料込み
-
+  
   .product__buy-btn
-    = link_to "購入画面に進む", buy_product_path, class:"product__buy-btn"
+    - if @product.buyer.blank?
+      = link_to "購入画面に進む", buy_product_path, class:"product__buy-btn red"
+    - else
+      .product__buy-btn.gray
+        購入画面に進む
+
 
   .product__description
     %p 
@@ -133,5 +106,6 @@
           %span コメントする
 
 .product-bread-crumb
-  = render 'shared/bread_crumb', current: 'THE SHOP TK ボディバッグ ショルダーバッグ'
+  - breadcrumb :product_show, @product
+  = render partial: "shared/bread_crumb"
   = render 'shared/main-footer'
