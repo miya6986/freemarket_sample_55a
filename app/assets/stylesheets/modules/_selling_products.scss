@@ -20,6 +20,14 @@
         @include tab(100% / 3)
       }
     }
+    &__tab-buyer {
+      letter-spacing: -1em; /* 文字の間を詰める */
+      white-space: nowrap; /* 自動で折り返しをしない */
+      background-color: $border-gray;
+      li {
+        @include tab(100% / 2)
+      }
+    }
     &__contents {
       ul {
         display: block;

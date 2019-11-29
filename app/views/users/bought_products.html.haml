@@ -6,11 +6,11 @@
   .my-products-container
     %section.my-products-main
       %h2.my-products-main__header 出品した商品
-      %ul.my-products-main__tab
+      %ul.my-products-main__tab-buyer
         %li.selling
-          = link_to "出品中", selling_products_users_path, class: "my-link"
+          = link_to "取引中", selling_products_users_path
         %li.sold.active
-          = link_to "売却済み", sold_products_users_path, class: "sold-link"
+          = link_to "過去の取引", sold_products_users_path
       .my-products-main__contents
         %ul.transaction
           - current_user.bought_products.each do |product|
