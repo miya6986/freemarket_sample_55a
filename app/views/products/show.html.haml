@@ -39,7 +39,7 @@
         %tr
           %th ブランド
           %td
-            = link_to @product.brand.name, "",class: 'brand__name' if @product.brand.present?
+            = link_to @product.brand.name, brand_path(@product.brand),class: 'brand__name' if @product.brand.present?
         - if @product.size.present?
           %tr
             %th サイズ
