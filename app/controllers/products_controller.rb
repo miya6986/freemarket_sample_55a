@@ -97,7 +97,7 @@ class ProductsController < ApplicationController
           @address = current_user.address 
           @address_full = "#{@address.prefecture.name}#{@address.city_name}#{@address.address_number}#{@address.building_name}"
           @full_name = "#{@address.firstname} #{@address.lastname}"
-          @postalcode = @address.postalcode
+          @postalcode = @address.postalcode.insert(3, '-')
         end
         @card = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
         if @card.present?
