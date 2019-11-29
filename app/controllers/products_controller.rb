@@ -169,7 +169,7 @@ class ProductsController < ApplicationController
       :shipping_days,
       :price,
       images_attributes: [:name, :id],
-      brand_attributes: [:name],
+      brand_attributes: [:name, :id],
       category_ids: []
     )
     .merge(seller_id: current_user.id)
