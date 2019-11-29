@@ -56,8 +56,8 @@
       %li{class: "nav-list #{active_class(edit_user_path(1))}"}
         = link_to "", edit_user_path(1), class: "nav-list__link"
         %p プロフィール
-      %li.nav-list
-        = link_to "", class:"nav-list__link"
+      %li{class: "nav-list #{active_class(edit_address_path)}"}
+        = link_to "", edit_address_path, class:"nav-list__link"
         %p 発送元・お届け先住所
       %li{class: "nav-list #{active_class(creditcards_path)}"}
         = link_to "", creditcards_path, class:"nav-list__link"
