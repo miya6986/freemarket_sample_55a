@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def selling_products
-    @products = current_user.selling_products.limit(15).order(id: "DESC")
+    @products = current_user.selling_products.limit(15).order(id: "DESC").includes(:images)
   end
 
   def logout_page

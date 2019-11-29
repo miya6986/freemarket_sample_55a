@@ -15,7 +15,7 @@
           = link_to "売却済み", "#", class: "sold-link"
       .my-products-main__contents
         %ul.transaction
-          - current_user.selling_products.each do |product|
+          - current_user.selling_products.includes(:images).each do |product|
             %li.product
               = link_to item_product_path(product), class: "product-link" do
                 %figure
