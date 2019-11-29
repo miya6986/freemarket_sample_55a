@@ -8,6 +8,7 @@
       いいね！一覧
     .likes-lists
       %ul.show
-        = render 'shared/mypage_product_list'
+        - @products.each do |product|
+          = render partial: 'shared/mypage_product_list', locals: { product: product }
 = render 'shared/sell-button'
 = render 'shared/main-footer'
