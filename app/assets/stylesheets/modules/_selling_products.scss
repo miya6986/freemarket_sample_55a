@@ -17,24 +17,15 @@
       white-space: nowrap; /* 自動で折り返しをしない */
       background-color: $border-gray;
       li {
-        width: 33.3%;
-        display: inline-block;
-        font-size: 16px;
-        font-weight: bold;
-        line-height: 72px;
-        text-align: center;
-        vertical-align: top;
-        letter-spacing: normal; /* 文字の間を元に戻す */
-        white-space: normal; /* 自動で折り返しする(元に戻す) */
-        a {
-          text-decoration: none;
-          cursor: pointer;
-        }
+        @include tab(100% / 3)
       }
-      .active {
-        box-sizing: border-box;
-        border-top: 2px solid $red;
-        background-color: $white;
+    }
+    &__tab-buyer {
+      letter-spacing: -1em; /* 文字の間を詰める */
+      white-space: nowrap; /* 自動で折り返しをしない */
+      background-color: $border-gray;
+      li {
+        @include tab(100% / 2)
       }
     }
     &__contents {
@@ -124,19 +115,7 @@
                   }
                 }
                 .product-status {
-                  display: inline-block;
-                  margin-top: 8px;
-                  padding: 5px 6px;
-                  border-radius: 2px;
-                  font-size: 12px;
-                  font-weight: bold;
-                  color: $white;
-                }
-                .active{
-                  background-color: $blue;
-                }
-                .inactive {
-                  background-color: $red;
+                  @include tag;
                 }
               }
             }

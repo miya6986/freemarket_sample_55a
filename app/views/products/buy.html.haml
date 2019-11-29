@@ -11,7 +11,7 @@
       %section.buy-info__content.buy-info__item
         .buy-inner
           %h3.buy-info__item__image
-            = image_tag @image = @product.images.first.name.to_s
+            = image_tag @product.images.first.name.to_s
             - unless @product.buyer.blank?
               .soldout
                 .soldout_text 
@@ -44,15 +44,16 @@
       %section.buy-info__content.buy-info__user
         .buy-inner
           %h3 配送先
-          %address.buy-info__user--text
-            = "〒#{@postalcode}"
-            %br
-            = @address_full
-            %br
-            = @full_name
-          .buy-info__user--fix
-            = link_to '変更する', '#'
-            = fa_icon 'chevron-right'
+          - if current_user.address.present?
+            %address.buy-info__user--text
+              = "〒#{@postalcode}"
+              %br
+              = @address_full
+              %br
+              = @full_name
+            .buy-info__user--fix
+              = link_to '変更する', '#'
+              = fa_icon 'chevron-right'
 
       %section.buy-info__content.buy-info__user
         .buy-inner

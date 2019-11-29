@@ -42,7 +42,7 @@
             = link_to @product.brand.name, brand_path(@product.brand),class: 'brand__name' if @product.brand.present?
         - if @product.size.present?
           %tr
-            %th サイズ
+            %th 商品のサイズ
             %td.size
               = @product.size
         %tr
@@ -69,16 +69,20 @@
     %span.product__price-box__price
       = "¥ #{@product.price.to_s(:delimited)}"
     %span.product__price-box__tax
-      (税込)
+      （税込）
     %span.product__price-box__shipping-fee
-      送料込み
+      - if @product.postage == "送料込み(出品者負担)"
+        送料込み
+      - else
+        着払い
   
-  .product__buy-btn
-    - if @product.buyer.blank?
-      = link_to "購入画面に進む", buy_product_path, class:"product__buy-btn red"
-    - else
-      .product__buy-btn.gray
-        購入画面に進む
+  - unless @product.seller == current_user
+    .product__buy-btn
+      - if @product.buyer.blank? 
+        = link_to "購入画面に進む", buy_product_path, class:"product__buy-btn red"
+      - else
+        .product__buy-btn.gray
+          購入画面に進む
 
 
   .product__description
@@ -86,9 +90,26 @@
     = simple_format(@product.description)
   .option.clearfix
     .option__left
-      .option__left__like 
-        = fa_icon 'heart'
-        %span いいね
+      - if  user_signed_in?
+        - if current_user.already_liked?(@product) 
+          = button_to like_path(product_id: @product.id), method: :delete, class:"option__left__like" do
+            = fa_icon 'heart', class:"active"
+            %span
+              = "いいね! #{@product.likes.count}"
+        - else
+          = button_to likes_path(product_id: @product.id), method: :post, class:"option__left__like" do
+            = fa_icon 'heart'
+            %span 
+              = "いいね! #{@product.likes.count}"
+      - else
+        .option__left__like 
+          = fa_icon 'heart'
+          %span いいね
+        .option__left__report
+          = fa_icon 'flag'
+          %span 不適切な商品の報告
+          
+    .option__left
       .option__left__report
         = fa_icon 'flag'
         %span 不適切な商品の報告
