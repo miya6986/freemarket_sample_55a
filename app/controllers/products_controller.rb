@@ -69,6 +69,12 @@ class ProductsController < ApplicationController
 
   def update
     @parents = Category.where(ancestry: nil)
+    
+    unless params[:product][:brand_attributes][:name].nil?
+      brand_name = params[:product][:brand_attributes][:name] 
+      brand = Brand.where(name: brand_name).first_or_create
+      @product[:brand_id] = brand.id
+    end
     if params[:product].keys.include?("image") || params[:product].keys.include?("images_attributes") 
       if @product.valid?
         if params[:product].keys.include?("image")
@@ -80,7 +86,7 @@ class ProductsController < ApplicationController
         @product.update(product_params)
         @size = @product.categories[1].sizes[0]
         @product.update(size: nil) unless @size
-        redirect_to users_path, notice: "商品を更新しました"
+        redirect_to item_product_path(@product), notice: "商品を更新しました"
       else
         render 'edit'
       end
