@@ -179,6 +179,7 @@ class ProductsController < ApplicationController
       :brand_name_cont,
       :buyer_id_null,
       :buyer_id_not_null,
+      :categories_id_eq,
       categories_sizes_id_eq: [],
       categories_id_eq: [],
       condition_eq_any: [],
