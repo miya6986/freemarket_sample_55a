@@ -151,6 +151,8 @@ class ProductsController < ApplicationController
   end
 
   def item
+    @product = Product.find(params[:id])
+    @images = @product.images
     @category = []
     @category = @product.categories.pluck(:name)
   end
