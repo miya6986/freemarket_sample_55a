@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_brand 
-    @brands = Brand.includes(:products).first(5)
+    @brands = Brand.first(5)
   end
 
   private
