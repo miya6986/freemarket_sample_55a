@@ -16,17 +16,17 @@
           %th カテゴリー
           %td.category
             .category__name
-              = link_to @category[0], "#"
+              = link_to @category[0],category_path(@product.category_ids[0])
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to @category[1], "#"
+              = link_to @category[1], category_path(@product.category_ids[1])
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to @category[2], "#"
+              = link_to @category[2], category_path(@product.category_ids[2])
         %tr
           %th ブランド
           %td
-            = link_to @product.brand.name, "",class: 'brand__name' if @product.brand.present?
+            = link_to @product.brand.name, brand_path(@product.brand),class: 'brand__name' if @product.brand.present?
         - if @product.size.present?
           %tr
             %th サイズ

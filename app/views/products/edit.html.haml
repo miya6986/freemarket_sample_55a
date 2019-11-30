@@ -3,7 +3,7 @@
   .main
     .head
       %h2 商品の情報を入力
-    = form_with model: @product, class: "form" do |f|
+    = form_with model: @product, class: "form", id: "product-form" do |f|
       .form-image
         .form-image__title
           %label 出品画像
