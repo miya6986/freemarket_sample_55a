@@ -56,7 +56,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
     @parent = @product.categories[0]
     @child = @product.categories[1]
     @grandchild = @product.categories[2]
@@ -65,6 +64,7 @@ class ProductsController < ApplicationController
     @grandchildren = Category.where(ancestry: @grandchild.ancestry)
     @size = @child.sizes[0] if @child.sizes[0]
     @sizes = @size.children if @size
+    @brand = @product.build_brand unless @product.brand.present?
   end
 
   def update
@@ -77,10 +77,20 @@ class ProductsController < ApplicationController
             Image.find(img_id).destroy unless posted_image_ids.include?("#{img_id}")
           end
         end
+        unless params[:product][:brand_attributes][:name].blank?
+          brand_name = params[:product][:brand_attributes][:name] 
+          brand = Brand.where(name: brand_name).first_or_create
+          @product[:brand_id] = brand.id
+          params[:product][:brand_attributes][:id] = brand.id
+        else
+          @brand = @product.build_brand
+          @product.brand.delete
+          params[:product].delete(:brand_attributes)
+        end
         @product.update(product_params)
         @size = @product.categories[1].sizes[0]
         @product.update(size: nil) unless @size
-        redirect_to users_path, notice: "商品を更新しました"
+        redirect_to item_product_path(@product), notice: "商品を更新しました"
       else
         render 'edit'
       end
@@ -169,7 +179,7 @@ class ProductsController < ApplicationController
       :shipping_days,
       :price,
       images_attributes: [:name, :id],
-      brand_attributes: [:name],
+      brand_attributes: [:name, :id],
       category_ids: []
     )
     .merge(seller_id: current_user.id)
