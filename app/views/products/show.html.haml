@@ -3,12 +3,19 @@
   %h1.head 
     = @product.name
   .product.clearfix
-    .product__photo
-      = image_tag @image, alt: 'item-show-sample',class: 'product__photo__img'
+    .wrap
       - unless @product.buyer.blank?
         .soldout
           .soldout_text 
             %p SOLD
+      %ul.slider
+        - @images.each do |image|
+          %li.slide-item
+            = image_tag image.name.to_s, alt: 'mercari-top'
+      %ul.thumbnail-list
+        - @images.each do |image|
+          %li.thumbnail-item
+            = image_tag image.name.to_s, alt: 'mercari-top'
     %table.product__table
       %tbody
         %tr

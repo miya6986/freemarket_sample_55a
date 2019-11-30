@@ -107,11 +107,37 @@
   .clearfix {
     @include clearfix();
     .wrap{
+      position: relative;
       float: left;
       min-width: 300px;
       max-width: 300px;
       min-height: 300px;
       background: #fafafa;
+      .soldout{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 120px 120px 0 0;
+        border-color: #ea362d transparent transparent transparent;
+        z-index: 1;
+        &_text{
+          position: relative;
+          p{
+            position: absolute;
+            bottom: 70px;
+            right: -74px;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #fff;
+            z-index: 2;
+            transform: rotate(-45deg);
+          }
+        }
+      }
     }
     .slider{
       position: relative;
@@ -136,6 +162,7 @@
       width: 60px;
       overflow: hidden;
       position:relative;
+      opacity: 0.5;
       &:after{
         content:'';
         position:absolute;
@@ -146,8 +173,8 @@
         height: 100%;
         transition: .3s opacity linear;
       }
-      &.thumbnail-current:after{
-        opacity: 0;
+      &.thumbnail-current{
+        opacity: 1;
       }
       img{
         width: 100%;
@@ -172,30 +199,6 @@
           min-width: 300px;
           max-width: 300px;
           min-height: 375px;
-        }
-      }
-      .soldout{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 120px 120px 0 0;
-        border-color: #ea362d transparent transparent transparent;
-        &_text{
-          position: relative;
-          p{
-            position: absolute;
-            bottom: 70px;
-            right: -74px;
-            font-size: 25px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: #fff;
-            z-index: 2;
-            transform: rotate(-45deg);
-          }
         }
       }
     }
