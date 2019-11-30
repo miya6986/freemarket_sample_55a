@@ -3,6 +3,8 @@ class BrandController < ApplicationController
   end
 
   def show
+    @brand = Brand.find(params[:id])
+    @products = @brand.products.order(id: "desc").page(params[:page]).per(10).includes(:seller,:images)
   end
 
   def search
