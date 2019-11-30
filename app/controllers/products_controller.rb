@@ -50,11 +50,12 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @image = @product.images.first.name.to_s
+    @product = Product.find(params[:id])
+    @images = @product.images
     @category = []
     @category = @product.categories.pluck(:name)
   end
-
+  
   def edit
     @product = Product.find(params[:id])
     @parent = @product.categories[0]
