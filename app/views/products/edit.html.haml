@@ -97,7 +97,7 @@
             %span 必須
             .form-select
               = fa_icon 'angle-down', class: 'icon-angle-down'
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"},{class: "select-default"}
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"},{class: "select-default"}
           .form-shipping__form-box__day
             %label 配送までの日数
             %span 必須
