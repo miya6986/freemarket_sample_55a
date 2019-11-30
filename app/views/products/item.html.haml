@@ -1,5 +1,6 @@
 = render 'shared/main-header'
-= render 'shared/bread_crumb'
+- breadcrumb :item, @product
+= render partial: "shared/bread_crumb"
 
 %section.product-container
   %h1.head 

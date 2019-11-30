@@ -26,6 +26,10 @@ crumb :selling_products_users do
   link "出品した商品 - 出品中", selling_products_users_path
   parent :mypage
 end
+crumb :item do |product|
+  link product.name, item_product_path(product)
+  parent :selling_products_users
+end
 
 crumb :sold_products_users do 
   link "出品した商品 - 売却済", sold_products_users_path
