@@ -129,7 +129,6 @@ class ProductsController < ApplicationController
   end
 
   def search
-    # ransack用変数設定
     initilize_ransack_variable
     
     @products = Product.order('created_at DESC').includes(:images)
