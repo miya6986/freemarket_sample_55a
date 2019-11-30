@@ -22,7 +22,7 @@
   .category-title#home-appliance_items
     %h3 家電・スマホ・カメラ新着アイテム
     .more
-      = link_to "もっと見る", category_path(@appliances)
+      = link_to "もっと見る", category_path(@appliance)
       = fa_icon 'chevron-right'
   %ul.category-items
     - @appliances.products.recent.each do |product|
@@ -32,7 +32,7 @@
   .category-title#toy_items
     %h3 おもちゃ・ホビー・グッズ新着アイテム
     .more
-      = link_to "もっと見る", category_path(@toys)
+      = link_to "もっと見る", category_path(@toy)
       = fa_icon 'chevron-right'
   %ul.category-items
     - @toys.products.recent.each do |product|

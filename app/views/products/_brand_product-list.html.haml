@@ -2,7 +2,7 @@
   .brand-title#chanel_items
     %h3 シャネル新着アイテム
     .more
-      = link_to 'もっと見る', brand_path(@chanels)
+      = link_to 'もっと見る', brand_path(@chanel)
       = fa_icon 'chevron-right'
   %ul.brand-items
     - @chanels.products.recent.each do |product|
@@ -12,7 +12,7 @@
   .brand-title#louis-vuitton_items
     %h3 ルイヴィトン新着アイテム
     .more
-      = link_to 'もっと見る', brand_path(@vuittons)
+      = link_to 'もっと見る', brand_path(@vuitton)
       = fa_icon 'chevron-right'
   %ul.brand-items
     - @vuittons.products.recent.each do |product|
@@ -22,7 +22,7 @@
   .brand-title#supreme_items
     %h3 シュプリーム新着アイテム
     .more
-      = link_to 'もっと見る', brand_path(@supremes)
+      = link_to 'もっと見る', brand_path(@supreme)
       = fa_icon 'chevron-right'
   %ul.brand-items
     - @supremes.products.recent.each do |product|
@@ -32,7 +32,7 @@
   .brand-title#nike_items
     %h3 ナイキ新着アイテム
     .more
-      = link_to 'もっと見る', brand_path(@nikes)
+      = link_to 'もっと見る', brand_path(@nike)
       = fa_icon 'chevron-right'
   %ul.brand-items
     - @nikes.products.recent.each do |product|
