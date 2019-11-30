@@ -2,22 +2,18 @@
   .category-title#lady_items
     %h3 レディース新着アイテム
     .more
-      = link_to "もっと見る", category_path(@ladies)
+      = link_to "もっと見る", category_path(@lady)
       = fa_icon 'chevron-right'
   %ul.category-items
-    - @ladies.products.recent.each do |product|
-      %li.category-item.fadein
-        = render partial: 'products/product-list', locals: { product: product }
+    = render partial: 'products/category-top', collection: @ladies, as: "product"
 .new-items-container-middle
   .category-title#men_items
     %h3 メンズ新着アイテム
     .more
-      = link_to "もっと見る", category_path(@men)
+      = link_to "もっと見る", category_path(@man)
       = fa_icon 'chevron-right'
   %ul.category-items
-    - @men.products.recent.each do |product|
-      %li.category-item.fadein
-        = render partial: 'products/product-list', locals: { product: product }
+    = render partial: 'products/category-top', collection: @men, as: "product"
 .new-items-container-middle
   .category-title#home-appliance_items
     %h3 家電・スマホ・カメラ新着アイテム
@@ -25,9 +21,7 @@
       = link_to "もっと見る", category_path(@appliances)
       = fa_icon 'chevron-right'
   %ul.category-items
-    - @appliances.products.recent.each do |product|
-      %li.category-item.fadein
-        = render partial: 'products/product-list', locals: { product: product }
+    = render partial: 'products/category-top', collection: @appliances, as: "product"
 .new-items-container-bottom
   .category-title#toy_items
     %h3 おもちゃ・ホビー・グッズ新着アイテム
@@ -35,6 +29,4 @@
       = link_to "もっと見る", category_path(@toys)
       = fa_icon 'chevron-right'
   %ul.category-items
-    - @toys.products.recent.each do |product|
-      %li.category-item.fadein
-        = render partial: 'products/product-list', locals: { product: product }
+    = render partial: 'products/category-top', collection: @toys, as: "product"
