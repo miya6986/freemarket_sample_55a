@@ -102,10 +102,6 @@
             %span.search-content__status--label--title
               販売状況
           .search-content__status__form
-            = f.label :name_eq , class: "search-content__status__form__check-boxes__label", for: "check-icon-21" do
-              = f.check_box(:name_eq, {class: "search-content__status__form__check-boxes__label__input all-status", id: "check-icon-21", include_hidden: false, multiple: true }, "") 
-              %i.fas.fa-check.check-icon.search-content__status__form__check-boxes__label__icon                 
-              .search-content__status__form__check-boxes__label__text すべて
             = f.label :buyer_id_null, class: "search-content__status__form__check-boxes__label", for: "check-icon-22" do
               = f.check_box(:buyer_id_null, {class: "search-content__status__form__check-boxes__label__input list-status", id: "check-icon-22", include_hidden: false}, "true") 
               %i.fas.fa-check.check-icon.search-content__status__form__check-boxes__label__icon                 
