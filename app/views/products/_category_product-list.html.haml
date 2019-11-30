@@ -2,39 +2,39 @@
   .category-title#lady_items
     %h3 レディース新着アイテム
     .more
-      もっと見る
+      = link_to "もっと見る", category_path(@ladies)
       = fa_icon 'chevron-right'
   %ul.category-items
-    - @products.first(10).each do |product|
+    - @ladies.products.recent.each do |product|
       %li.category-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-middle
   .category-title#men_items
     %h3 メンズ新着アイテム
     .more
-      もっと見る
+      = link_to "もっと見る", category_path(@men)
       = fa_icon 'chevron-right'
   %ul.category-items
-    - @products.first(10).each do |product|
+    - @men.products.recent.each do |product|
       %li.category-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-middle
   .category-title#home-appliance_items
     %h3 家電・スマホ・カメラ新着アイテム
     .more
-      もっと見る
+      = link_to "もっと見る", category_path(@appliances)
       = fa_icon 'chevron-right'
   %ul.category-items
-    - @products.first(10).each do |product|
+    - @appliances.products.recent.each do |product|
       %li.category-item.fadein
         = render partial: 'products/product-list', locals: { product: product }
 .new-items-container-bottom
   .category-title#toy_items
     %h3 おもちゃ・ホビー・グッズ新着アイテム
     .more
-      もっと見る
+      = link_to "もっと見る", category_path(@toys)
       = fa_icon 'chevron-right'
   %ul.category-items
-    - @products.first(10).each do |product|
+    - @toys.products.recent.each do |product|
       %li.category-item.fadein
         = render partial: 'products/product-list', locals: { product: product }

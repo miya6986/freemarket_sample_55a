@@ -1,10 +1,19 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy,:buy,:item]
-  before_action :set_product, only: [:show, :buy, :destroy, :item, :edit]
+  before_action :set_product, only: [:show, :buy, :destroy, :update, :item, :edit]
   before_action :product_seller?, only: [:item, :edit, :update, :destroy]
 
   def index
-    @products = Product.order('created_at DESC').includes(:images)
+    @category = Category.includes(:products)
+    @brand = Brand.includes(:products)
+    @ladies = @category.find(1)
+    @men = @category.find(2)
+    @appliances = @category.find(8)
+    @toys = @category.find(6)
+    @chanels = @brand.find(1)
+    @vuittons = @brand.find(2)
+    @supremes = @brand.find(3)
+    @nikes = @brand.find(4)
   end
 
   def new
@@ -56,7 +65,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
     @parent = @product.categories[0]
     @child = @product.categories[1]
     @grandchild = @product.categories[2]
@@ -65,10 +73,10 @@ class ProductsController < ApplicationController
     @grandchildren = Category.where(ancestry: @grandchild.ancestry)
     @size = @child.sizes[0] if @child.sizes[0]
     @sizes = @size.children if @size
+    @brand = @product.build_brand unless @product.brand.present?
   end
 
   def update
-    @product = Product.find(params[:id])
     @parents = Category.where(ancestry: nil)
     if params[:product].keys.include?("image") || params[:product].keys.include?("images_attributes") 
       if @product.valid?
@@ -78,10 +86,20 @@ class ProductsController < ApplicationController
             Image.find(img_id).destroy unless posted_image_ids.include?("#{img_id}")
           end
         end
+        unless params[:product][:brand_attributes][:name].blank?
+          brand_name = params[:product][:brand_attributes][:name] 
+          brand = Brand.where(name: brand_name).first_or_create
+          @product[:brand_id] = brand.id
+          params[:product][:brand_attributes][:id] = brand.id
+        else
+          @brand = @product.build_brand
+          @product.brand.delete
+          params[:product].delete(:brand_attributes)
+        end
         @product.update(product_params)
         @size = @product.categories[1].sizes[0]
         @product.update(size: nil) unless @size
-        redirect_to users_path, notice: "商品を更新しました"
+        redirect_to item_product_path(@product), notice: "商品を更新しました"
       else
         render 'edit'
       end
@@ -98,7 +116,7 @@ class ProductsController < ApplicationController
           @address = current_user.address 
           @address_full = "#{@address.prefecture.name}#{@address.city_name}#{@address.address_number}#{@address.building_name}"
           @full_name = "#{@address.firstname} #{@address.lastname}"
-          @postalcode = @address.postalcode
+          @postalcode = @address.postalcode.insert(3, '-')
         end
         @card = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
         if @card.present?
@@ -130,12 +148,21 @@ class ProductsController < ApplicationController
   end
 
   def search
+    # ransack用変数設定
+    initilize_ransack_variable
+    
     @products = Product.order('created_at DESC').includes(:images)
+    @parents = Category.where(ancestry: nil)
+    @sizes = Size.where(ancestry: nil)
+    if params[:q].present?
+      @q = Product.ransack(search_params)
+      @search_products = @q.result(distinct: true).page(params[:page]).per(24).includes(:images)
+    end
   end
     
   def destroy
     if @product.destroy
-      redirect_to my_selling_products_users_path, notice: "商品を削除しました" and return
+      redirect_to selling_products_users_path, notice: "商品を削除しました" and return
     else
       redirect_to item_product_path(params[:id]) and return
     end
@@ -161,12 +188,28 @@ class ProductsController < ApplicationController
       :shipping_days,
       :price,
       images_attributes: [:name, :id],
-      brand_attributes: [:name],
+      brand_attributes: [:name, :id],
       category_ids: []
     )
     .merge(seller_id: current_user.id)
   end
 
+  def search_params
+    params.require(:q).permit(
+      :name_or_description_cont,
+      :price_gteq,
+      :price_lteq,
+      :brand_name_cont,
+      :buyer_id_null,
+      :buyer_id_not_null,
+      :categories_id_eq,
+      categories_sizes_id_eq: [],
+      categories_id_eq: [],
+      condition_eq_any: [],
+      postage_eq_any: [],
+    ) if params[:q].present?
+  end
+    
   def set_product
     @product = Product.find(params[:id])
   end
@@ -175,4 +218,12 @@ class ProductsController < ApplicationController
     redirect_back(fallback_location: root_path) unless @product.seller == current_user 
   end
   
+  def initilize_ransack_variable
+    # 詳細検索用インスタンス変数
+    @condition_list = Product.condition_check_list
+    @postage_list = Product.postage_check_list
+    @parents = Category.where(ancestry: nil)
+    @sizes = Size.where(ancestry: nil)
+  end
+
 end

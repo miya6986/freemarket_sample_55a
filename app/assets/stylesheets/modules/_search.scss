@@ -43,9 +43,181 @@
       margin: 40px 0 0;
       background-color: $white;
       padding: 16px;
-      // 高さ幅は仮置きです
-      height: 1000px;
+      height: 100％;
       width:100%;
+      &__detail-titel {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__keyword {
+        margin: 24px 0 0;
+        &--label {
+          font-weight: 600;
+          &--icon {
+            position: relative;
+            top: -1px;
+            margin: 0 4px 0 0;
+            color: #888;
+            font-size: 16px;
+            vertical-align: middle;
+          }
+          &--sapn {
+            font-size: 14px;
+            vertical-align: middle;
+          }
+        }
+        &__text {
+          width: 100%;
+          margin: 8px 0 0;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+        &__text:focus {
+          outline: 1px $blue solid;
+        }
+      }
+      &__category {
+        margin: 40px 0 0;
+        @include search-form_select()
+      }
+      &__brand {
+        margin: 40px 0 0;
+        &--label {
+          font-weight: 600;
+          &--icon {
+            position: relative;
+            top: -1px;
+            margin: 0 4px 0 0;
+            color: #888;
+            font-size: 16px;
+            vertical-align: middle;
+          }
+          &--sapn {
+            font-size: 14px;
+            vertical-align: middle;
+          }
+        }
+        &__text {
+          width: 100%;
+          margin: 8px 0 0;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+        &__text:focus {
+          outline: 1px $blue solid;
+        }
+      }
+      &__size {
+        margin: 40px 0 0;
+        @include search-form_select()
+      }
+      &__price {
+        margin: 40px 0 0;
+        &__details {
+          display: flex;
+          margin: 8px 0 0;
+          width: 100%;
+          &__min {
+            width: 45%;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            &:focus {
+              outline: 1px $blue solid;
+            }
+          }
+          span {
+            display: inline-block;
+            width: 10%;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 15px;
+          }
+          &__max {
+            width: 45%;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            &:focus {
+              outline: 1px $blue solid;
+            }
+          }
+        }
+        @include search-form_select()
+      }
+      &__condition {
+        margin: 40px 0 0;
+        @include search-form_check-box_all()
+      }
+      &__postage {
+        margin: 40px 0 0;
+        @include search-form_check-box_all()
+      }
+      &__status {
+        margin: 40px 0 0;
+        @include search-form_check-box_all()
+        
+      }
+      &__submit {
+        display: flex;
+        height: 90px;
+        padding: 40px 0 0;
+        &__clear {
+          width: 45%;
+          background: #aaa;
+          border: 1px solid #aaa;
+          color: #fff;
+          display: block;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          cursor: pointer;
+          text-align: center;
+          &:focus {
+            outline: 0;
+          }
+        }
+        &__complete {
+          margin-left:auto;
+          width: 45%;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          cursor: pointer;
+          text-align: center;
+          transition: background 0.3s, border 0.3s;
+          &:focus {
+            background: gray;
+            border: 1px solid gray;
+          }
+          &:focus {
+            outline: 0;
+          }
+        }
+        
+      }
     }
   }
   .search-main {
@@ -219,4 +391,10 @@
       }
     }
   }
+}
+.checkbox_default {
+  display: inline-block;
+  width: 48%;
+  vertical-align: middle;
+  word-break: break-word;
 }

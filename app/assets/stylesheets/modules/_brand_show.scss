@@ -1,0 +1,12 @@
+.brand-wrap {
+  @extend .category-wrap;
+  .brand-items {
+    @extend .category-items;
+  }
+  .brand-item {
+    @extend .category-item;
+  }
+  .brand-pagination {
+    @extend .category-pagination;
+  }
+}

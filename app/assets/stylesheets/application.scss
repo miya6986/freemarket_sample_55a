@@ -2,6 +2,8 @@
 @import "font-awesome";
 @import 'color';
 @import 'font';
+@import "slick-theme"; 
+@import "slick";
 @import './mixins/top-main';
 @import './mixins/top-footer';
 @import "./mixins/sub-footer";
@@ -16,6 +18,7 @@
 @import './mixins/new-product_mixins';
 @import './mixins/mypage_mixins';
 @import './mixins/pagination_mixins';
+@import './mixins/search_mixins';
 @import "./mixins/registration.scss";
 @import './modules/top-header';
 @import './mixins/top-main';
@@ -46,6 +49,7 @@
 @import './modules/product_item';
 @import './modules/category-index';
 @import './modules/category-show';
+@import './modules/brand_show';
 
 /* 基本設定 */
 

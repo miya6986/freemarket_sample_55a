@@ -29,17 +29,17 @@
           %th カテゴリー
           %td.category
             .category__name
-              = link_to "#{@category[0]}", ""
+              = link_to "#{@category[0]}", category_path(@product.category_ids[0])
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to "#{@category[1]}", ""
+              = link_to "#{@category[1]}", category_path(@product.category_ids[1])
             .category__sub
               = fa_icon 'chevron-right'
-              = link_to "#{@category[2]}", ""
+              = link_to "#{@category[2]}",category_path(@product.category_ids[2])
         %tr
           %th ブランド
           %td
-            = link_to @product.brand.name, "",class: 'brand__name' if @product.brand.present?
+            = link_to @product.brand.name, brand_path(@product.brand),class: 'brand__name' if @product.brand.present?
         - if @product.size.present?
           %tr
             %th 商品のサイズ
@@ -90,16 +90,25 @@
     = simple_format(@product.description)
   .option.clearfix
     .option__left
-      - if current_user.already_liked?(@product) 
-        = button_to like_path(product_id: @product.id), method: :delete, class:"option__left__like" do
-          = fa_icon 'heart', class:"active"
-          %span
-            = "いいね! #{@product.likes.count}"
+      - if  user_signed_in?
+        - if current_user.already_liked?(@product) 
+          = button_to like_path(product_id: @product.id), method: :delete, class:"option__left__like" do
+            = fa_icon 'heart', class:"active"
+            %span
+              = "いいね! #{@product.likes.count}"
+        - else
+          = button_to likes_path(product_id: @product.id), method: :post, class:"option__left__like" do
+            = fa_icon 'heart'
+            %span 
+              = "いいね! #{@product.likes.count}"
       - else
-        = button_to likes_path(product_id: @product.id), method: :post, class:"option__left__like" do
+        .option__left__like 
           = fa_icon 'heart'
-          %span 
-            = "いいね! #{@product.likes.count}"
+          %span いいね
+        .option__left__report
+          = fa_icon 'flag'
+          %span 不適切な商品の報告
+          
     .option__left
       .option__left__report
         = fa_icon 'flag'

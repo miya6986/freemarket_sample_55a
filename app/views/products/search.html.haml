@@ -1,25 +1,143 @@
 = render 'shared/main-header'
 .search-container
   .search-side
-    .search-sort
-      .form-group
-        .select-wrap
-          = fa_icon 'angle-down', class: 'icon-angle-down'
-          %select{name: :sort_order, class: 'select-order'}
-            %option{value: "location.pathname", name: "location.pathname"}
-              並び替え
-            %option{value: "price_asc"}
-              価格の安い順
-            %option{value: "price_desc"}
-              価格の高い順
-            %option{value: "created_at_asc"}
-              出品の古い順
-            %option{value: "created_at_desc"}
-              出品の新しい順
-    .search-content
+    = search_form_for @q, url: search_products_path, html: { method: :get } do |f|
+      .search-sort
+        .form-group
+          .select-wrap
+            = fa_icon 'angle-down', class: 'icon-angle-down'
+            %select{name: :sort_order, class: 'select-order'}
+              %option{value: "location.pathname", name: "location.pathname"}
+                並び替え
+              %option{value: "price_asc"}
+                価格の安い順
+              %option{value: "price_desc"}
+                価格の高い順
+              %option{value: "created_at_asc"}
+                出品の古い順
+              %option{value: "created_at_desc"}
+                出品の新しい順
+      .search-content
+        .search-content__detail-titel
+          詳細検索
+        .search-content__keyword
+          %label.search-content__keyword--label
+            %i.fas.fa-plus.search-content__keyword--label--icon
+            %span.search-content__keyword--label--sapn
+              キーワードを追加する
+          = f.text_field :name_or_description_cont, class: "search-content__keyword__text", placeholder: "例) 値下げ"
+        .search-content__category
+          %label.search-content__category--label
+            %i.fas.fa-bars.search-content__category--label--icon
+            %span.search-content__category--label--title
+              カテゴリーを選択する
+          .search-content__category__select
+            %i.fas.fa-chevron-down.search-content__category__select--icon
+            = f.collection_select :categories_id_eq, @parents, :id, :name, {prompt: "---"}, {class: "search-content__category__select--form"}
+        .search-content__brand
+          %label.search-content__brand--label
+            %i.fas.fa-tags.search-content__brand--label--icon
+            %span.search-content__brand--label--sapn
+              ブランド名から探す
+          = f.text_field :brand_name_cont, class: "search-content__brand__text", placeholder: "例) シャネル"
+        .search-content__size
+          %label.search-content__size--label
+            %i.fas.fa-expand.search-content__size--label--icon
+            %span.search-content__size--label--title
+              サイズを指定する
+          .search-content__size__select
+            %i.fas.fa-chevron-down.search-content__size__select--icon
+            = f.collection_select :categories_sizes_id_eq, @sizes, :id, :kind, {prompt: "---"}, {class: "search-content__size__select--form"}
+        .search-content__price
+          %label.search-content__price--label
+            %i.fas.fa-coins.search-content__price--label--icon
+            %span.search-content__price--label--title
+              価格
+          .search-content__price__select
+            %i.fas.fa-chevron-down.search-content__price__select--icon
+            = f.select( :price, ["300~1000", "1000~5000", "5000~10000", "10000~30000", "30000~50000", "50000~"], {prompt: "選択して下さい"}, { class: "search-content__price__select--form"} )
+          .search-content__price__details
+            = f.text_field :price_gteq, placeholder: "¥ Min", class: "search-content__price__details__min"
+            %span ~
+            = f.text_field :price_lteq, placeholder: "¥ Max", class: "search-content__price__details__max"
+        .search-content__condition
+          %label.search-content__condition--label
+            %i.fas.fa-star.search-content__condition--label--icon
+            %span.search-content__condition--label--title
+              商品の状態
+          .search-content__condition__form
+            .search-content__condition__form__check-boxes
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-0" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input all", id: "check-icon-0", include_hidden: false, multiple: true }, "すべて") 
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon                 
+                .search-content__condition__form__check-boxes__label__text すべて
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-1" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-1", include_hidden: false, multiple: true }, "新品、未使用") 
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
+                .search-content__condition__form__check-boxes__label__text 新品、未使用
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-2" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-2", include_hidden: false, multiple: true}, "未使用に近い")
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
+                .search-content__condition__form__check-boxes__label__text 未使用に近い
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-3" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-3", include_hidden: false, multiple: true}, "目立った傷や汚れなし")
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
+                .search-content__condition__form__check-boxes__label__text 目立った傷や汚れなし
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-4" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-4", include_hidden: false, multiple: true}, "やや傷や汚れあり")
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
+                .search-content__condition__form__check-boxes__label__text やや傷や汚れあり
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-5" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-5", include_hidden: false, multiple: true}, "傷や汚れあり")
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
+                .search-content__condition__form__check-boxes__label__text 傷や汚れあり
+              = f.label :condition_eq_any , class: "search-content__condition__form__check-boxes__label", for: "check-icon-6" do
+                = f.check_box(:condition_eq_any, {class: "search-content__condition__form__check-boxes__label__input list", id: "check-icon-6", include_hidden: false, multiple: true}, "全体的に状態が悪い")
+                %i.fas.fa-check.check-icon.search-content__condition__form__check-boxes__label__icon
+                .search-content__condition__form__check-boxes__label__text 全体的に状態が悪い
+        .search-content__postage
+          %label.search-content__postage--label
+            %i.fas.fa-truck.search-content__postage--label--icon
+            %span.search-content__postage--label--title
+              配送料の負担
+          .search-content__postage__form
+            .search-content__postage__form__check-boxes
+              = f.label :postage_eq_any , class: "search-content__postage__form__check-boxes__label", for: "check-icon-11" do
+                = f.check_box(:postage_eq_any, {class: "search-content__postage__form__check-boxes__label__input all-postage", id: "check-icon-11", include_hidden: false, multiple: true }, "すべて") 
+                %i.fas.fa-check.check-icon.search-content__postage__form__check-boxes__label__icon                 
+                .search-content__postage__form__check-boxes__label__text すべて
+              = f.label :postage_eq_any , class: "search-content__postage__form__check-boxes__label", for: "check-icon-12" do
+                = f.check_box(:postage_eq_any, {class: "search-content__postage__form__check-boxes__label__input list-postage", id: "check-icon-12", include_hidden: false, multiple: true }, "着払い(購入者負担)") 
+                %i.fas.fa-check.check-icon.search-content__postage__form__check-boxes__label__icon                 
+                .search-content__postage__form__check-boxes__label__text 着払い(購入者負担)
+              = f.label :postage_eq_any , class: "search-content__postage__form__check-boxes__label", for: "check-icon-13" do
+                = f.check_box(:postage_eq_any, {class: "search-content__postage__form__check-boxes__label__input list-postage", id: "check-icon-13", include_hidden: false, multiple: true }, "送料込み(出品者負担)") 
+                %i.fas.fa-check.check-icon.search-content__postage__form__check-boxes__label__icon                 
+                .search-content__postage__form__check-boxes__label__text 送料込み(出品者負担)
+        .search-content__status
+          %label.search-content__status--label
+            %i.fas.fa-shopping-cart.search-content__status--label--icon
+            %span.search-content__status--label--title
+              販売状況
+          .search-content__status__form
+            = f.label :name_eq , class: "search-content__status__form__check-boxes__label", for: "check-icon-21" do
+              = f.check_box(:name_eq, {class: "search-content__status__form__check-boxes__label__input all-status", id: "check-icon-21", include_hidden: false, multiple: true }, "") 
+              %i.fas.fa-check.check-icon.search-content__status__form__check-boxes__label__icon                 
+              .search-content__status__form__check-boxes__label__text すべて
+            = f.label :buyer_id_null, class: "search-content__status__form__check-boxes__label", for: "check-icon-22" do
+              = f.check_box(:buyer_id_null, {class: "search-content__status__form__check-boxes__label__input list-status", id: "check-icon-22", include_hidden: false}, "true") 
+              %i.fas.fa-check.check-icon.search-content__status__form__check-boxes__label__icon                 
+              .search-content__status__form__check-boxes__label__text 販売中
+            = f.label :buyer_id_not_null, class: "search-content__status__form__check-boxes__label", for: "check-icon-23" do
+              = f.check_box(:buyer_id_not_null, {class: "search-content__status__form__check-boxes__label__input list-status", id: "check-icon-23", include_hidden: false}, "true") 
+              %i.fas.fa-check.check-icon.search-content__status__form__check-boxes__label__icon                 
+              .search-content__status__form__check-boxes__label__text 売り切れ
+        .search-content__submit
+          = button_tag 'クリア', type: 'reset', class: 'search-content__submit__clear'
+          = button_tag '完了' ,type: 'submit', class: 'search-content__submit__complete'
   .search-main
     .main-container
-      - if params[:q]['name_cont'] == ""
+      - if params[:q][:name_or_description_cont] == ""
         .main-container__new-products
           新着商品
         .main-container__items 
@@ -27,24 +145,18 @@
             = render partial: 'products/search_product-list', locals: { product: product }
       - elsif @search_products.present?
         .main-container__head
-          = params[:q][:name_cont]
+          = params[:q][:name_or_description_cont]
           %span.main-container__head__text 
             の検索結果
         .main-container__result-number
           = page_entries_info @search_products
-          -# %p 1
-          -# %span -
-          -# .search-container__result-number__length
-          -#   = @search_products.total_count
-          -# .search-container__result-number__count
-          -#   件
         .main-container__items
           - @search_products.each do |product|
             = render partial: 'products/search_product-list', locals: { product: product }
         = paginate @search_products, class: "search-pagination"
       - else     
         .main-container__head
-          = params[:q][:name_cont]
+          = params[:q][:name_or_description_cont]
           %span.main-container__head__text 
             の検索結果
         .main-container__noresult
@@ -63,7 +175,5 @@
       = fa_icon 'chevron-right', class: 'arrow-icon'
     %li
       %span.page_now 
-        = params[:q][:name_cont]
-- breadcrumb :logout
-= render partial: "shared/bread_crumb"
+        = params[:q][:name_or_description_cont]
 = render 'shared/main-footer'
