@@ -6,17 +6,7 @@
         .form-group
           .select-wrap
             = fa_icon 'angle-down', class: 'icon-angle-down'
-            %select{name: :sort_order, class: 'select-order'}
-              %option{value: "location.pathname", name: "location.pathname"}
-                並び替え
-              %option{value: "price_asc"}
-                価格の安い順
-              %option{value: "price_desc"}
-                価格の高い順
-              %option{value: "created_at_asc"}
-                出品の古い順
-              %option{value: "created_at_desc"}
-                出品の新しい順
+            = f.select :sorts, [['並び替え', 'id desc'], ['価格の安い順', 'price asc'], ['価格の高い順', 'price desc'], ['出品の古い順', 'updated_at asc'], ['出品の新しい順', 'updated_at desc']],{ selected: params[:q][:sorts] },{ onchange: 'this.form.submit()', class:'select-order'}
       .search-content
         .search-content__detail-titel
           詳細検索
@@ -33,21 +23,13 @@
               カテゴリーを選択する
           .search-content__category__select
             %i.fas.fa-chevron-down.search-content__category__select--icon
-            = f.collection_select :categories_id_eq, @parents, :id, :name, {prompt: "---"}, {class: "search-content__category__select--form"}
+            = f.collection_select :categories_id_eq, @parents, :id, :name, {include_blank: "---"}, {class: "search-content__category__select--form"}
         .search-content__brand
           %label.search-content__brand--label
             %i.fas.fa-tags.search-content__brand--label--icon
             %span.search-content__brand--label--sapn
               ブランド名から探す
           = f.text_field :brand_name_cont, class: "search-content__brand__text", placeholder: "例) シャネル"
-        .search-content__size
-          %label.search-content__size--label
-            %i.fas.fa-expand.search-content__size--label--icon
-            %span.search-content__size--label--title
-              サイズを指定する
-          .search-content__size__select
-            %i.fas.fa-chevron-down.search-content__size__select--icon
-            = f.collection_select :categories_sizes_id_eq, @sizes, :id, :kind, {prompt: "---"}, {class: "search-content__size__select--form"}
         .search-content__price
           %label.search-content__price--label
             %i.fas.fa-coins.search-content__price--label--icon
@@ -120,10 +102,6 @@
             %span.search-content__status--label--title
               販売状況
           .search-content__status__form
-            = f.label :name_eq , class: "search-content__status__form__check-boxes__label", for: "check-icon-21" do
-              = f.check_box(:name_eq, {class: "search-content__status__form__check-boxes__label__input all-status", id: "check-icon-21", include_hidden: false, multiple: true }, "") 
-              %i.fas.fa-check.check-icon.search-content__status__form__check-boxes__label__icon                 
-              .search-content__status__form__check-boxes__label__text すべて
             = f.label :buyer_id_null, class: "search-content__status__form__check-boxes__label", for: "check-icon-22" do
               = f.check_box(:buyer_id_null, {class: "search-content__status__form__check-boxes__label__input list-status", id: "check-icon-22", include_hidden: false}, "true") 
               %i.fas.fa-check.check-icon.search-content__status__form__check-boxes__label__icon                 
