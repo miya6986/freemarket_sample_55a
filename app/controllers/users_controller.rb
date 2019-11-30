@@ -27,7 +27,14 @@ class UsersController < ApplicationController
   end
 
   def selling_products
-    @products = current_user.selling_products.limit(15).order(id: "DESC")
+    @products = current_user.selling_products.limit(15).order(id: "DESC").includes(:images, :seller, :categories, :brand, :likes)
+  end
+
+  def sold_products
+    @products = current_user.sold_products.limit(15).order(id: "DESC").includes(:images, :seller, :buyer, :categories, :brand, :likes)
+  end
+  def bought_products
+    @products = current_user.bought_products.limit(15).order(id: "DESC").includes(:images, :seller, :buyer, :categories, :brand, :likes)
   end
 
   def logout_page

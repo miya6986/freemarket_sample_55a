@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @products = current_user.liked_products
+    @products = current_user.liked_products.includes(:images)
   end
 
   def create
