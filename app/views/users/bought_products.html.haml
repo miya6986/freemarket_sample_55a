@@ -13,7 +13,7 @@
           = link_to "過去の取引", sold_products_users_path
       .my-products-main__contents
         %ul.transaction
-          - current_user.bought_products.each do |product|
+          - @products.each do |product|
             %li.product
               = link_to item_product_path(product), class: "product-link" do
                 %figure

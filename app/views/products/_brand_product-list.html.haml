@@ -5,9 +5,7 @@
       = link_to 'もっと見る', brand_path(@chanel)
       = fa_icon 'chevron-right'
   %ul.brand-items
-    - @chanels.products.recent.each do |product|
-      %li.brand-item.fadein
-        = render partial: 'products/product-list', locals: { product: product }
+    = render partial: 'products/brand-top', collection: @chanels, as: "product"
 .new-items-container-middle
   .brand-title#louis-vuitton_items
     %h3 ルイヴィトン新着アイテム
@@ -15,9 +13,7 @@
       = link_to 'もっと見る', brand_path(@vuitton)
       = fa_icon 'chevron-right'
   %ul.brand-items
-    - @vuittons.products.recent.each do |product|
-      %li.brand-item.fadein
-        = render partial: 'products/product-list', locals: { product: product }
+    = render partial: 'products/brand-top', collection: @vuittons, as: "product"
 .new-items-container-middle
   .brand-title#supreme_items
     %h3 シュプリーム新着アイテム
@@ -25,9 +21,7 @@
       = link_to 'もっと見る', brand_path(@supreme)
       = fa_icon 'chevron-right'
   %ul.brand-items
-    - @supremes.products.recent.each do |product|
-      %li.brand-item.fadein
-        = render partial: 'products/product-list', locals: { product: product }
+    = render partial: 'products/brand-top', collection: @supremes, as: "product"
 .new-items-container-bottom
   .brand-title#nike_items
     %h3 ナイキ新着アイテム
@@ -35,6 +29,4 @@
       = link_to 'もっと見る', brand_path(@nike)
       = fa_icon 'chevron-right'
   %ul.brand-items
-    - @nikes.products.recent.each do |product|
-      %li.brand-item.fadein
-        = render partial: 'products/product-list', locals: { product: product }
+    = render partial: 'products/brand-top', collection: @nikes, as: "product"

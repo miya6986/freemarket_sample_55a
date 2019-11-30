@@ -7,8 +7,13 @@
     %h2.header_title
       いいね！一覧
     .likes-lists
-      %ul.show
-        - @products.each do |product|
-          = render partial: 'shared/mypage_product_list', locals: { product: product }
+      - unless @products.count == 0
+        %ul.show 
+          - @products.each do |product|
+            = render partial: 'shared/mypage_product_list', locals: { product: product }
+      - else
+        %ul.notice__none
+          %li
+            現在、いいね！した商品はありません
 = render 'shared/sell-button'
 = render 'shared/main-footer'

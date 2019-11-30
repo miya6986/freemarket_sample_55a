@@ -6,14 +6,22 @@ class ProductsController < ApplicationController
   def index
     @category = Category.includes(:products)
     @brand = Brand.includes(:products)
-    @ladies = @category.find(1)
-    @men = @category.find(2)
-    @appliances = @category.find(8)
-    @toys = @category.find(6)
-    @chanels = @brand.find(1)
-    @vuittons = @brand.find(2)
-    @supremes = @brand.find(3)
-    @nikes = @brand.find(4)
+    @lady = @category.find(1)
+    @ladies = @lady.products.includes(:images).recent
+    @man = @category.find(2)
+    @men = @man.products.includes(:images).recent
+    @appliance = @category.find(8)
+    @appliances = @appliance.products.includes(:images).recent
+    @toy = @category.find(6)
+    @toys = @toy.products.includes(:images).recent
+    @chanel = @brand.find(1)
+    @chanels = @chanel.products.includes(:images).recent
+    @vuitton = @brand.find(2)
+    @vuittons = @vuitton.products.includes(:images).recent
+    @supreme = @brand.find(3)
+    @supremes = @supreme.products.includes(:images).recent
+    @nike = @brand.find(4)
+    @nikes = @nike.products.includes(:images).recent
   end
 
   def new
