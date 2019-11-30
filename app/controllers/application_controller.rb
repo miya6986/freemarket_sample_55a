@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_brand 
-    @brands = Brand.all
+    @brands = Brand.includes(:products).all
   end
 
   private
