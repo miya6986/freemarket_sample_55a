@@ -239,3 +239,5 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user, optional: true
+
+### 連絡のため追記
